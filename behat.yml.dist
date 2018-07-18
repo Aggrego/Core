@@ -1,0 +1,11 @@
+default:
+  suites:
+    default:
+      services: "@timitao_behat_symfony_container.container"
+      contexts:
+        - DomainFeatureContext:
+          - "@domain.query.get_unit.use_case"
+  extensions:
+    TimiTao\BehatSymfonyContainer\ServiceContainer\Extension:
+      configs:
+        - "features/bootstrap/Config/services.yml"

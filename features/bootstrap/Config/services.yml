@@ -1,0 +1,4 @@
+services:
+    domain.query.get_unit.use_case:
+        public: true
+        class: TimiTao\Construo\Domain\Query\GetUnit\UseCase

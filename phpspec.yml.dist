@@ -1,0 +1,4 @@
+suites:
+  default:
+    namespace: TimiTao\Construo
+    psr4_prefix: TimiTao\Construo
