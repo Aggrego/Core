@@ -9,7 +9,7 @@ class QuerySpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith([]);
+        $this->beConstructedWith([], 'test', '1.0.0');
     }
 
     function it_is_initializable()
@@ -21,4 +21,15 @@ class QuerySpec extends ObjectBehavior
     {
         $this->getKey()->shouldBeArray();
     }
+
+    function it_should_have_profile_name()
+    {
+        $this->getProfileName()->shouldBeString();
+    }
+
+    function it_should_have_version_number()
+    {
+        $this->getVersionNumber()->shouldBeString();
+    }
+
 }

@@ -6,6 +6,6 @@ class UseCase
 {
     public function handle(Query $query): Response
     {
-        return new Response();
+        return new Response($query->getProfileName(), $query->getVersionNumber(), 'initial');
     }
 }

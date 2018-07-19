@@ -16,6 +16,8 @@ class UseCaseSpec extends ObjectBehavior
 
     function it_should_handle(Query $query)
     {
+        $query->getProfileName()->willReturn('test');
+        $query->getVersionNumber()->willReturn('1.0.0');
         $this->handle($query)->shouldBeAnInstanceOf(Response::class);
     }
 }

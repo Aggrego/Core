@@ -5,15 +5,33 @@ namespace TimiTao\Construo\Domain\Query\GetUnit;
 class Query
 {
     /** @var array */
-    private $value;
+    private $key;
 
-    public function __construct(array $value)
+    /** @var string */
+    private $profileName;
+
+    /** @var string */
+    private $versionNumber;
+
+    public function __construct(array $key, string $profileName, string $versionNumber)
     {
-        $this->value = $value;
+        $this->key = $key;
+        $this->profileName = $profileName;
+        $this->versionNumber = $versionNumber;
     }
 
     public function getKey(): array
     {
-        return $this->value;
+        return $this->key;
+    }
+
+    public function getProfileName(): string
+    {
+        return $this->profileName;
+    }
+
+    public function getVersionNumber(): string
+    {
+        return $this->versionNumber;
     }
 }
