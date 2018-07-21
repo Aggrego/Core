@@ -2,15 +2,21 @@
 
 namespace spec\TimiTao\Construo\Domain\Query\GetUnit;
 
-use TimiTao\Construo\Domain\Query\GetUnit\Response;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
+use TimiTao\Construo\Domain\Model\Board\Entity\Board;
+use TimiTao\Construo\Domain\Model\Board\ValueObject\Status;
+use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
+use TimiTao\Construo\Domain\Model\Board\ValueObject\Name;
+use TimiTao\Construo\Domain\Model\Board\ValueObject\Version;
+use TimiTao\Construo\Domain\Query\GetUnit\Response;
 
 class ResponseSpec extends ObjectBehavior
 {
-    function let()
+    function let(Board $board)
     {
-        $this->beConstructedWith('text', '1.0.0', 'status');
+        $board->getProfile()->willReturn(new Profile(new Name('test'), new Version('1.0.0')));
+        $board->getStatus()->willReturn(new Status(Status::INITIAL));
+        $this->beConstructedThrough('createValidResponse', [$board]);
     }
 
     function it_is_initializable()
@@ -31,5 +37,10 @@ class ResponseSpec extends ObjectBehavior
     function it_should_have_status()
     {
         $this->getStatus()->shouldBeString();
+    }
+
+    function it_should_have_body()
+    {
+        $this->getBody()->shouldBeString();
     }
 }

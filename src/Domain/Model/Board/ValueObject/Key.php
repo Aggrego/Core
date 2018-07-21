@@ -1,8 +1,6 @@
 <?php
 
-namespace TimiTao\Construo\Domain\Model\Unit\ValueObject;
-
-use Assert\Assertion;
+namespace TimiTao\Construo\Domain\Model\Board\ValueObject;
 
 class Key
 {
@@ -11,7 +9,6 @@ class Key
 
     public function __construct(array $value)
     {
-        Assertion::min(count($value), 1);
         $this->value = $value;
     }
 

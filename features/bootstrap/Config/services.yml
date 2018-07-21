@@ -2,3 +2,43 @@ services:
     domain.query.get_unit.use_case:
         public: true
         class: TimiTao\Construo\Domain\Query\GetUnit\UseCase
+        arguments:
+          - "@tests.domain.model.board.repository"
+          - "@domain.factory.key_specification_factory"
+          - "@domain.factory.profile_board_factory"
+
+    domain.factory.key_specification_factory:
+        public: true
+        class: TimiTao\Construo\Domain\Factory\KeySpecificationFactory
+        arguments: [
+            {"test_true:1.0": "@tests.domain.key_specification.true_specification"},
+            {"test_false:1.0": "@tests.domain.key_specification.false_specification"}
+          ]
+    domain.factory.profile_board_factory:
+        public: true
+        class: TimiTao\Construo\Domain\Factory\ProfileBoardFactory
+        arguments: [
+            {"test_true:1.0": "@tests.domain.factory.board_factory"},
+          ]
+
+# Test repository
+    tests.domain.model.board.repository:
+        public: true
+        class: Tests\Domain\Model\Board\Repository
+
+# Key specification
+    tests.domain.key_specification.true_specification:
+        public: true
+        class: Tests\Domain\KeySpecification\BoolSpecification
+        arguments:
+          - true
+    tests.domain.key_specification.false_specification:
+        public: true
+        class: Tests\Domain\KeySpecification\BoolSpecification
+        arguments:
+          - false
+
+# Board Factory
+    tests.domain.factory.board_factory:
+        public: true
+        class: Tests\Domain\Factory\BoardFactory
