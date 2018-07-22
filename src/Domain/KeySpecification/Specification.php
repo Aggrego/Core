@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace TimiTao\Construo\Domain\KeySpecification;
 
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Key;
+use TimiTao\Construo\Domain\ValueObject\Key;
 
 interface Specification
 {

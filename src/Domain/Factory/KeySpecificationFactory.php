@@ -5,7 +5,7 @@ namespace TimiTao\Construo\Domain\Factory;
 use Assert\Assertion;
 use TimiTao\Construo\Domain\Exception\KeySpecificationNotFoundException;
 use TimiTao\Construo\Domain\KeySpecification\Specification;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
+use TimiTao\Construo\Domain\ValueObject\Profile;
 
 class KeySpecificationFactory
 {

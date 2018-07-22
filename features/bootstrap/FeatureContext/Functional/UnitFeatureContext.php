@@ -6,7 +6,7 @@ namespace FeatureContext\Functional;
 
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Status;
+use TimiTao\Construo\Domain\ValueObject\Status;
 use TimiTao\Construo\Domain\Query\GetUnit\Query as GetUnitQuery;
 use TimiTao\Construo\Domain\Query\GetUnit\Response as GetUnitResponse;
 use TimiTao\Construo\Domain\Query\GetUnit\UseCase as GetUnitUseCase;

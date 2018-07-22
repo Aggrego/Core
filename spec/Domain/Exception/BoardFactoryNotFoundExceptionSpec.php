@@ -2,10 +2,9 @@
 
 namespace spec\TimiTao\Construo\Domain\Exception;
 
+use PhpSpec\ObjectBehavior;
 use Throwable;
 use TimiTao\Construo\Domain\Exception\BoardFactoryNotFoundException;
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class BoardFactoryNotFoundExceptionSpec extends ObjectBehavior
 {

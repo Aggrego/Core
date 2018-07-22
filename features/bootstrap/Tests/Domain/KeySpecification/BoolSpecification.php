@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Tests\Domain\KeySpecification;
 
 use TimiTao\Construo\Domain\KeySpecification\Specification;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Key;
+use TimiTao\Construo\Domain\ValueObject\Key;
 
 class BoolSpecification implements Specification
 {

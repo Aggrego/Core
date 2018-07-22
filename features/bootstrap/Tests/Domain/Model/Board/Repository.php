@@ -5,8 +5,10 @@ declare(strict_types = 1);
 namespace Tests\Domain\Model\Board;
 
 use TimiTao\Construo\Domain\Model\Board\Entity\Board;
+use TimiTao\Construo\Domain\Model\Board\Exception\BoardNotFoundException;
 use TimiTao\Construo\Domain\Model\Board\Repository as BoardRepository;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Key;
+use TimiTao\Construo\Domain\ValueObject\Key;
+use TimiTao\Construo\Domain\ValueObject\Uuid;
 
 class Repository implements BoardRepository
 {
@@ -28,7 +30,7 @@ class Repository implements BoardRepository
         $this->list[serialize($board->getKey()->getValue())] = $board;
     }
 
-    public function findBoard(Key $key): ?Board
+    public function findBoardByKey(Key $key): ?Board
     {
         $serialize = serialize($key->getValue());
         if (!isset($this->list[$serialize])) {
@@ -40,5 +42,16 @@ class Repository implements BoardRepository
     public function getList(): array
     {
         return $this->list;
+    }
+
+    public function getBoardByUuid(Uuid $uuid): Board
+    {
+        /** @var Board $board */
+        foreach ($this->list as $board) {
+            if ($uuid->equal($board->getUuid())) {
+                return $board;
+            }
+        }
+        throw new BoardNotFoundException(sprintf('Board not found with uuid: %s', $uuid->getValue()));
     }
 }

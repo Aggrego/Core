@@ -4,7 +4,7 @@ namespace TimiTao\Construo\Domain\Factory;
 
 use Assert\Assertion;
 use TimiTao\Construo\Domain\Exception\BoardFactoryNotFoundException;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
+use TimiTao\Construo\Domain\ValueObject\Profile;
 
 class ProfileBoardFactory
 {

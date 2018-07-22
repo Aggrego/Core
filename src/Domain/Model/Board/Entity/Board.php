@@ -2,31 +2,37 @@
 
 namespace TimiTao\Construo\Domain\Model\Board\Entity;
 
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Key;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Shards;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Status;
+use Ramsey\Uuid\Uuid as RamseyUuid;
+use TimiTao\Construo\Domain\ValueObject\Key;
+use TimiTao\Construo\Domain\ValueObject\Profile;
+use TimiTao\Construo\Domain\ValueObject\Uuid;
 
-class Board
+abstract class Board
 {
+    /** @var Uuid */
+    private $uuid;
+
     /** @var Key */
     private $key;
-
-    /** @var Status */
-    private $status;
 
     /** @var Profile */
     private $profile;
 
-    /** @var Shards */
-    private $shards;
-
-    public function __construct(Key $key, Profile $profile, Shards $shards)
+    protected function __construct(Key $key, Profile $profile)
     {
-        $this->status = new Status(Status::INITIAL);
+        $this->uuid = new Uuid(
+            RamseyUuid::uuid5(
+                RamseyUuid::NAMESPACE_DNS,
+                serialize($key->getValue()) . $profile
+            )->toString()
+        );
         $this->key = $key;
         $this->profile = $profile;
-        $this->shards = $shards;
+    }
+
+    public function getUuid(): Uuid
+    {
+        return $this->uuid;
     }
 
     public function getKey(): Key
@@ -34,18 +40,8 @@ class Board
         return $this->key;
     }
 
-    public function getStatus(): Status
-    {
-        return $this->status;
-    }
-
     public function getProfile(): Profile
     {
         return $this->profile;
-    }
-
-    public function getShards(): Shards
-    {
-        return $this->shards;
     }
 }

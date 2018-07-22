@@ -6,9 +6,9 @@ use PhpSpec\ObjectBehavior;
 use TimiTao\Construo\Domain\Exception\KeySpecificationNotFoundException;
 use TimiTao\Construo\Domain\Factory\KeySpecificationFactory;
 use TimiTao\Construo\Domain\KeySpecification\Specification;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Name;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Version;
+use TimiTao\Construo\Domain\ValueObject\Name;
+use TimiTao\Construo\Domain\ValueObject\Profile;
+use TimiTao\Construo\Domain\ValueObject\Version;
 
 class KeySpecificationFactorySpec extends ObjectBehavior
 {

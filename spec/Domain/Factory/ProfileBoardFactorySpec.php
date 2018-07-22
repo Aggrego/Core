@@ -2,14 +2,13 @@
 
 namespace spec\TimiTao\Construo\Domain\Factory;
 
+use PhpSpec\ObjectBehavior;
 use TimiTao\Construo\Domain\Exception\BoardFactoryNotFoundException;
 use TimiTao\Construo\Domain\Factory\BoardFactory;
 use TimiTao\Construo\Domain\Factory\ProfileBoardFactory;
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Name;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Version;
+use TimiTao\Construo\Domain\ValueObject\Name;
+use TimiTao\Construo\Domain\ValueObject\Profile;
+use TimiTao\Construo\Domain\ValueObject\Version;
 
 class ProfileBoardFactorySpec extends ObjectBehavior
 {

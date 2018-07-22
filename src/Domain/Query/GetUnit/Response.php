@@ -2,11 +2,14 @@
 
 namespace TimiTao\Construo\Domain\Query\GetUnit;
 
-use TimiTao\Construo\Domain\Model\Board\Entity\Board;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Status;
+use TimiTao\Construo\Domain\Model\Unit\Entity\Unit;
+use TimiTao\Construo\Domain\ValueObject\Status;
 
 class Response
 {
+    public const INVALID = 'invalid';
+    public const INITIAL = 'initial';
+
     /** @var string */
     private $profile;
 
@@ -28,16 +31,16 @@ class Response
 
     public static function createInvalidResponse(Query $query): self
     {
-        return new self($query->getProfileName(), $query->getVersionNumber(), Status::INVALID);
+        return new self($query->getProfileName(), $query->getVersionNumber(), self::INVALID);
     }
 
-    public static function createValidResponse(Board $board): self
+    public static function createValidResponse(Unit $unit): self
     {
-        $profile = $board->getProfile();
+        $profile = $unit->getProfile();
         return new self(
             $profile->getName()->getValue(),
             $profile->getVersion()->getValue(),
-            $board->getStatus()->getValue()
+            self::INITIAL
         );
     }
 

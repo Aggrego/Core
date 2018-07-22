@@ -3,20 +3,20 @@
 namespace spec\TimiTao\Construo\Domain\Query\GetUnit;
 
 use PhpSpec\ObjectBehavior;
-use TimiTao\Construo\Domain\Model\Board\Entity\Board;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Status;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Name;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Version;
+use TimiTao\Construo\Domain\Model\Unit\Entity\Unit;
 use TimiTao\Construo\Domain\Query\GetUnit\Response;
+use TimiTao\Construo\Domain\ValueObject\Key;
+use TimiTao\Construo\Domain\ValueObject\Name;
+use TimiTao\Construo\Domain\ValueObject\Profile;
+use TimiTao\Construo\Domain\ValueObject\Version;
 
 class ResponseSpec extends ObjectBehavior
 {
-    function let(Board $board)
+    function let(Unit $unit)
     {
-        $board->getProfile()->willReturn(new Profile(new Name('test'), new Version('1.0.0')));
-        $board->getStatus()->willReturn(new Status(Status::INITIAL));
-        $this->beConstructedThrough('createValidResponse', [$board]);
+        $unit->getKey()->willReturn(new Key([]));
+        $unit->getProfile()->willReturn(new Profile(new Name('test'), new Version('1.0.0')));
+        $this->beConstructedThrough('createValidResponse', [$unit]);
     }
 
     function it_is_initializable()

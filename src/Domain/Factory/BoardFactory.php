@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace TimiTao\Construo\Domain\Factory;
 
-use TimiTao\Construo\Domain\Model\Board\Entity\Board;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Key;
-use TimiTao\Construo\Domain\Model\Board\ValueObject\Profile;
+use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Board;
+use TimiTao\Construo\Domain\ValueObject\Key;
+use TimiTao\Construo\Domain\ValueObject\Profile;
 
 interface BoardFactory
 {

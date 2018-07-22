@@ -31,5 +31,4 @@ class QuerySpec extends ObjectBehavior
     {
         $this->getVersionNumber()->shouldBeString();
     }
-
 }
