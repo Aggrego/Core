@@ -4,13 +4,13 @@ namespace spec\TimiTao\Construo\Domain\Factory;
 
 use PhpSpec\ObjectBehavior;
 use TimiTao\Construo\Domain\Exception\KeySpecificationNotFoundException;
-use TimiTao\Construo\Domain\Factory\KeySpecificationFactory;
+use TimiTao\Construo\Domain\Factory\ProfileKeySpecificationFactory;
 use TimiTao\Construo\Domain\KeySpecification\Specification;
 use TimiTao\Construo\Domain\ValueObject\Name;
 use TimiTao\Construo\Domain\ValueObject\Profile;
 use TimiTao\Construo\Domain\ValueObject\Version;
 
-class KeySpecificationFactorySpec extends ObjectBehavior
+class ProfileKeySpecificationFactorySpec extends ObjectBehavior
 {
     function let(Specification $specification)
     {
@@ -21,7 +21,7 @@ class KeySpecificationFactorySpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(KeySpecificationFactory::class);
+        $this->shouldHaveType(ProfileKeySpecificationFactory::class);
     }
 
     function it_should_factory_specification()

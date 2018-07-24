@@ -7,7 +7,7 @@ use TimiTao\Construo\Domain\Exception\KeySpecificationNotFoundException;
 use TimiTao\Construo\Domain\KeySpecification\Specification;
 use TimiTao\Construo\Domain\ValueObject\Profile;
 
-class KeySpecificationFactory
+class ProfileKeySpecificationFactory
 {
     /** @var array */
     private $list;

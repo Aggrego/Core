@@ -11,4 +11,6 @@ use TimiTao\Construo\Domain\ValueObject\Profile;
 interface Repository
 {
     public function findUnit(Key $key, Profile $profile): ?Unit;
+
+    public function addUnit(Unit $unit): void;
 }

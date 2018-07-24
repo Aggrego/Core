@@ -4,10 +4,9 @@ declare(strict_types = 1);
 
 namespace Tests\Domain\Model\Board;
 
-use TimiTao\Construo\Domain\Model\Board\Entity\Board;
-use TimiTao\Construo\Domain\Model\Board\Exception\BoardNotFoundException;
-use TimiTao\Construo\Domain\Model\Board\Repository as BoardRepository;
-use TimiTao\Construo\Domain\ValueObject\Key;
+use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
+use TimiTao\Construo\Domain\Model\ProgressBoard\Exception\BoardNotFoundException;
+use TimiTao\Construo\Domain\Model\ProgressBoard\Repository as BoardRepository;
 use TimiTao\Construo\Domain\ValueObject\Uuid;
 
 class Repository implements BoardRepository
@@ -28,15 +27,6 @@ class Repository implements BoardRepository
     public function addBoard(Board $board): void
     {
         $this->list[serialize($board->getKey()->getValue())] = $board;
-    }
-
-    public function findBoardByKey(Key $key): ?Board
-    {
-        $serialize = serialize($key->getValue());
-        if (!isset($this->list[$serialize])) {
-            return null;
-        }
-        return $this->list[$serialize];
     }
 
     public function getList(): array

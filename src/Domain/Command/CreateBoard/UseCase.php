@@ -3,7 +3,7 @@
 namespace TimiTao\Construo\Domain\Command\CreateBoard;
 
 use TimiTao\Construo\Domain\Exception\ProfileKeySpecificationNotSatisfiedException;
-use TimiTao\Construo\Domain\Factory\KeySpecificationFactory;
+use TimiTao\Construo\Domain\Factory\ProfileKeySpecificationFactory;
 use TimiTao\Construo\Domain\Factory\ProfileBoardFactory;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board as ProgressBoard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Repository;
@@ -17,7 +17,7 @@ class UseCase
     /** @var Repository */
     private $boardRepository;
 
-    /** @var KeySpecificationFactory */
+    /** @var ProfileKeySpecificationFactory */
     private $keySpecificationFactory;
 
     /** @var ProfileBoardFactory */
@@ -25,7 +25,7 @@ class UseCase
 
     public function __construct(
         Repository $boardRepository,
-        KeySpecificationFactory $keySpecificationFactory,
+        ProfileKeySpecificationFactory $keySpecificationFactory,
         ProfileBoardFactory $profileBoardFactory
     )
     {

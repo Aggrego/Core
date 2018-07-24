@@ -1,30 +1,65 @@
 services:
+
+# Query
     domain.query.get_unit.use_case:
         public: true
         class: TimiTao\Construo\Domain\Query\GetUnit\UseCase
         arguments:
-          - "@tests.domain.model.board.repository"
-          - "@domain.factory.key_specification_factory"
+          - "@tests.domain.model.unit.repository"
+
+# Command
+    domain.command.create_board.use_case:
+        public: true
+        class: TimiTao\Construo\Domain\Command\CreateBoard\UseCase
+        arguments:
+          - "@tests.domain.model.progress_board.repository"
+          - "@domain.factory.profile_key_specification_factory"
           - "@domain.factory.profile_board_factory"
 
-    domain.factory.key_specification_factory:
+    domain.command.update_board.use_case:
         public: true
-        class: TimiTao\Construo\Domain\Factory\KeySpecificationFactory
+        class: TimiTao\Construo\Domain\Command\UpdateBoard\UseCase
+        arguments:
+          - "@tests.domain.model.progress_board.repository"
+
+    domain.command.transform_board.use_case:
+        public: true
+        class: TimiTao\Construo\Domain\Command\TransformBoard\UseCase
+        arguments:
+          - "@tests.domain.model.progress_board.repository"
+          - "@tests.domain.model.unit.repository"
+
+# Factory
+    domain.factory.profile_key_specification_factory:
+        public: true
+        class: TimiTao\Construo\Domain\Factory\ProfileKeySpecificationFactory
         arguments: [
             {"test_true:1.0": "@tests.domain.key_specification.true_specification"},
             {"test_false:1.0": "@tests.domain.key_specification.false_specification"}
-          ]
+        ]
+
     domain.factory.profile_board_factory:
         public: true
         class: TimiTao\Construo\Domain\Factory\ProfileBoardFactory
         arguments: [
             {"test_true:1.0": "@tests.domain.factory.board_factory"},
-          ]
+        ]
+
+    domain.factory.profile_board_transformation_factory:
+        public: true
+        class: TimiTao\Construo\Domain\Factory\ProfileBoardFactory
+        arguments: [
+            {"test_true:1.0": "@tests.domain.factory.board_factory"},
+        ]
 
 # Test repository
-    tests.domain.model.board.repository:
+    tests.domain.model.progress_board.repository:
         public: true
-        class: Tests\Domain\Model\Board\Repository
+        class: Tests\Domain\Model\ProgressBoard\Repository
+
+    tests.domain.model.unit.repository:
+        public: true
+        class: Tests\Domain\Model\Unit\Repository
 
 # Key specification
     tests.domain.key_specification.true_specification:
@@ -32,6 +67,7 @@ services:
         class: Tests\Domain\KeySpecification\BoolSpecification
         arguments:
           - true
+
     tests.domain.key_specification.false_specification:
         public: true
         class: Tests\Domain\KeySpecification\BoolSpecification

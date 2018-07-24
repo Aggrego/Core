@@ -2,8 +2,8 @@
 
 namespace TimiTao\Construo\Domain\Exception;
 
-use Exception;
+use RuntimeException;
 
-class BoardFactoryNotFoundException extends Exception
+class BoardFactoryNotFoundException extends RuntimeException
 {
 }

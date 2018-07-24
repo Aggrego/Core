@@ -51,9 +51,33 @@ class BoardSpec extends ObjectBehavior
         $this->getShards()->shouldBeAnInstanceOf(Traversable::class);
     }
 
-    function it_should_check_if_all_shards_have_accepted_status()
+    function it_should_return_true_with_all_final_shards()
     {
-        $this->isAllShardsFinishProgress()->shouldBeBool();
+        $key = new Key(['init']);
+        $name = new Name('test');
+        $version = new Version('1.0');
+        $board = new InitialBoard($key, new Profile($name, $version));
+        $board->addShard($key, new Source($name, $version));
+        $this->beConstructedThrough('factoryFromInitial', [$board]);
+        $this->updateShard(
+            new Uuid('4b7c7c15-6b50-5a1f-94ca-20a9749c5bc2'),
+            new Source($name, $version),
+            new Data('test')
+        );
+
+        $this->isAllShardsFinishedProgress()->shouldBe(true);
+    }
+
+    function it_should_return_false_with_any_initial_shard()
+    {
+        $key = new Key(['init']);
+        $name = new Name('test');
+        $version = new Version('1.0');
+        $board = new InitialBoard($key, new Profile($name, $version));
+        $board->addShard($key, new Source($name, $version));
+        $this->beConstructedThrough('factoryFromInitial', [$board]);
+
+        $this->isAllShardsFinishedProgress()->shouldBe(false);
     }
 
     function it_should_be_able_to_update_shard_with_data(Data $data)

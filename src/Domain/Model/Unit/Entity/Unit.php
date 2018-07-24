@@ -2,6 +2,8 @@
 
 namespace TimiTao\Construo\Domain\Model\Unit\Entity;
 
+use TimiTao\Construo\Domain\BoardTransformation\Transformation;
+use TimiTao\Construo\Domain\Exception\UnprocessableBoardException;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
 use TimiTao\Construo\Domain\ValueObject\Data;
 use TimiTao\Construo\Domain\ValueObject\Key;
@@ -30,13 +32,21 @@ class Unit
         $this->data = $data;
     }
 
-    public static function createFromBoard(Board $board): self
+    public static function createFromBoard(Board $board, Transformation $transformation): self
     {
-        return new self(
+        if (!$board->isAllShardsFinishedProgress()) {
+            throw new UnprocessableBoardException(
+                sprintf(
+                    'Can\'t process board %s that have shards in initial state',
+                    $board->getUuid()->getValue()
+                )
+            );
+        }
+        return new Unit(
             $board->getUuid(),
             $board->getKey(),
             $board->getProfile(),
-            new Data('')
+            $transformation->process($board->getShards())
         );
     }
 

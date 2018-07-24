@@ -3,7 +3,6 @@
 namespace TimiTao\Construo\Domain\Model\ProgressBoard\Entity;
 
 use Iterator;
-use TimiTao\Construo\Domain\Model\Board\Entity\Board as BaseBoard;
 use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Board as InitialBoard;
 use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Shard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\ValueObject\Shards;
@@ -13,14 +12,25 @@ use TimiTao\Construo\Domain\ValueObject\Profile;
 use TimiTao\Construo\Domain\ValueObject\Source;
 use TimiTao\Construo\Domain\ValueObject\Uuid;
 
-class Board extends BaseBoard
+class Board
 {
+    /** @var Uuid */
+    private $uuid;
+
+    /** @var Key */
+    private $key;
+
+    /** @var Profile */
+    private $profile;
+
     /** @var Shards */
     private $shards;
 
-    protected function __construct(Key $key, Profile $profile, Shards $shards)
+    private function __construct(Uuid $uuid, Key $key, Profile $profile, Shards $shards)
     {
-        parent::__construct($key, $profile);
+        $this->uuid = $uuid;
+        $this->key = $key;
+        $this->profile = $profile;
         $this->shards = $shards;
     }
 
@@ -28,7 +38,7 @@ class Board extends BaseBoard
     {
         $shardsList = [];
         /** @var Shard $shard */
-        foreach ( $board->getShards() as $shard){
+        foreach ($board->getShards() as $shard) {
             $shardsList[] = new InitialShard(
                 $shard->getUuid(),
                 $shard->getAcceptableSource(),
@@ -37,18 +47,34 @@ class Board extends BaseBoard
         }
 
         return new self(
+            $board->getUuid(),
             $board->getKey(),
             $board->getProfile(),
             new Shards($shardsList)
         );
     }
 
-    public function getShards(): Iterator
+    public function getUuid(): Uuid
     {
-        return $this->shards->getIterator();
+        return $this->uuid;
     }
 
-    public function isAllShardsFinishProgress(): bool
+    public function getKey(): Key
+    {
+        return $this->key;
+    }
+
+    public function getProfile(): Profile
+    {
+        return $this->profile;
+    }
+
+    public function getShards(): Shards
+    {
+        return $this->shards;
+    }
+
+    public function isAllShardsFinishedProgress(): bool
     {
         foreach ($this->shards as $shard) {
             if ($shard instanceof InitialShard) {

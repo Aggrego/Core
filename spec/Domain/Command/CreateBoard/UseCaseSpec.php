@@ -9,10 +9,11 @@ use TimiTao\Construo\Domain\Command\CreateBoard\UseCase;
 use TimiTao\Construo\Domain\Exception\KeySpecificationNotFoundException;
 use TimiTao\Construo\Domain\Exception\ProfileKeySpecificationNotSatisfiedException;
 use TimiTao\Construo\Domain\Factory\BoardFactory;
-use TimiTao\Construo\Domain\Factory\KeySpecificationFactory;
+use TimiTao\Construo\Domain\Factory\ProfileKeySpecificationFactory;
 use TimiTao\Construo\Domain\Factory\ProfileBoardFactory;
 use TimiTao\Construo\Domain\KeySpecification\Specification;
 use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Board as InitialBoard;
+use TimiTao\Construo\Domain\Model\ProgressBoard\Exception\BoardExistException;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Repository;
 use TimiTao\Construo\Domain\ValueObject\Key;
 use TimiTao\Construo\Domain\ValueObject\Profile;
@@ -32,7 +33,7 @@ class UseCaseSpec extends ObjectBehavior
         $specification->isSatisfiedBy($key)
             ->willReturn(true);
 
-        $keySpecificationFactory = new KeySpecificationFactory(
+        $keySpecificationFactory = new ProfileKeySpecificationFactory(
             ['test:1.0' => $specification->getWrappedObject()]
         );
         /** @var Key $key */
@@ -85,7 +86,7 @@ class UseCaseSpec extends ObjectBehavior
         $key = Argument::type(Key::class);
         $specification->isSatisfiedBy($key)->willReturn(false);
 
-        $keySpecificationFactory = new KeySpecificationFactory(
+        $keySpecificationFactory = new ProfileKeySpecificationFactory(
             ['test:1.0' => $specification->getWrappedObject()]
         );
         /** @var Profile $profile */
@@ -108,5 +109,4 @@ class UseCaseSpec extends ObjectBehavior
         $command->getVersionNumber()->willReturn('1.0');
         $this->shouldThrow(ProfileKeySpecificationNotSatisfiedException::class)->during('handle', [$command]);
     }
-
 }
