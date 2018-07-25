@@ -2,9 +2,13 @@
 
 namespace TimiTao\Construo\Domain\Model\ProgressBoard\Entity;
 
-use Iterator;
+use TimiTao\Construo\Domain\Event\Aggregate;
+use TimiTao\Construo\Domain\Event\Model\Entity\TraitAggregate;
 use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Board as InitialBoard;
 use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Shard;
+use TimiTao\Construo\Domain\Model\ProgressBoard\Events\BoardCreatedEvent;
+use TimiTao\Construo\Domain\Model\ProgressBoard\Events\ShardAddedEvent;
+use TimiTao\Construo\Domain\Model\ProgressBoard\Events\ShardUpdatedEvent;
 use TimiTao\Construo\Domain\Model\ProgressBoard\ValueObject\Shards;
 use TimiTao\Construo\Domain\ValueObject\Data;
 use TimiTao\Construo\Domain\ValueObject\Key;
@@ -12,8 +16,10 @@ use TimiTao\Construo\Domain\ValueObject\Profile;
 use TimiTao\Construo\Domain\ValueObject\Source;
 use TimiTao\Construo\Domain\ValueObject\Uuid;
 
-class Board
+class Board implements Aggregate
 {
+    use TraitAggregate;
+
     /** @var Uuid */
     private $uuid;
 
@@ -32,6 +38,11 @@ class Board
         $this->key = $key;
         $this->profile = $profile;
         $this->shards = $shards;
+
+        $this->pushEvent(new BoardCreatedEvent($this));
+        foreach ($shards as $shard) {
+            $this->pushEvent(new ShardAddedEvent($shard));
+        }
     }
 
     public static function factoryFromInitial(InitialBoard $board): self
@@ -86,6 +97,8 @@ class Board
 
     public function updateShard(Uuid $shardUuid, Source $source, Data $data): void
     {
-        $this->shards->replace(new FinalShard($shardUuid, $source, $data));
+        $shard = new FinalShard($shardUuid, $source, $data);
+        $this->shards->replace($shard);
+        $this->pushEvent(new ShardUpdatedEvent($shard));
     }
 }

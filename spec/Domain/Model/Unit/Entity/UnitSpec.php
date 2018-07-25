@@ -3,11 +3,12 @@
 namespace spec\TimiTao\Construo\Domain\Model\Unit\Entity;
 
 use PhpSpec\ObjectBehavior;
-use TimiTao\Construo\Domain\BoardTransformation\Transformation;
+use TimiTao\Construo\Domain\Event\Aggregate;
 use TimiTao\Construo\Domain\Exception\UnprocessableBoardException;
 use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Board as InitialBoard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board as ProgressBoard;
 use TimiTao\Construo\Domain\Model\Unit\Entity\Unit;
+use TimiTao\Construo\Domain\Profile\BoardTransformation\Transformation;
 use TimiTao\Construo\Domain\ValueObject\Data;
 use TimiTao\Construo\Domain\ValueObject\Key;
 use TimiTao\Construo\Domain\ValueObject\Name;
@@ -39,6 +40,7 @@ class UnitSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(Unit::class);
+        $this->shouldImplement(Aggregate::class);
     }
 
     function it_should_have_uuid()

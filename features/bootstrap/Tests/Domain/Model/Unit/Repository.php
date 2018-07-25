@@ -24,6 +24,11 @@ class Repository implements UnitRepository
         $this->list = [];
     }
 
+    public function getList(): array
+    {
+        return $this->list;
+    }
+
     public function findUnit(Key $key, Profile $profile): ?Unit
     {
         if (!isset($this->list[serialize($key->getValue())])) {

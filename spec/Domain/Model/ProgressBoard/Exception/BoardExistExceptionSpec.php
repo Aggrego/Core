@@ -2,10 +2,9 @@
 
 namespace spec\TimiTao\Construo\Domain\Model\ProgressBoard\Exception;
 
+use PhpSpec\ObjectBehavior;
 use RuntimeException;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Exception\BoardExistException;
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class BoardExistExceptionSpec extends ObjectBehavior
 {

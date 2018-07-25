@@ -3,13 +3,13 @@
 namespace TimiTao\Construo\Domain\Factory;
 
 use Assert\Assertion;
-use TimiTao\Construo\Domain\BoardTransformation\Transformation;
 use TimiTao\Construo\Domain\Exception\BoardTransformationNotFoundException;
+use TimiTao\Construo\Domain\Profile\BoardTransformation\Transformation;
 use TimiTao\Construo\Domain\ValueObject\Profile;
 
 class ProfileBoardTransformationFactory
 {
-    /** @var array */
+    /** @var Transformation[] */
     private $list;
 
     public function __construct(array $list)
@@ -20,11 +20,11 @@ class ProfileBoardTransformationFactory
 
     public function factory(Profile $profile): Transformation
     {
-        $key = (string)$profile;
-        if (!isset($this->list[$key])) {
-            throw new BoardTransformationNotFoundException();
+        foreach ($this->list as $factory) {
+            if ($factory->isSupported($profile)) {
+                return $factory;
+            }
         }
-
-        return $this->list[$key];
+        throw new BoardTransformationNotFoundException();
     }
 }

@@ -2,16 +2,20 @@
 
 namespace TimiTao\Construo\Domain\Model\Unit\Entity;
 
-use TimiTao\Construo\Domain\BoardTransformation\Transformation;
+use TimiTao\Construo\Domain\Event\Aggregate;
+use TimiTao\Construo\Domain\Event\Model\Entity\TraitAggregate;
 use TimiTao\Construo\Domain\Exception\UnprocessableBoardException;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
+use TimiTao\Construo\Domain\Profile\BoardTransformation\Transformation;
 use TimiTao\Construo\Domain\ValueObject\Data;
 use TimiTao\Construo\Domain\ValueObject\Key;
 use TimiTao\Construo\Domain\ValueObject\Profile;
 use TimiTao\Construo\Domain\ValueObject\Uuid;
 
-class Unit
+class Unit implements Aggregate
 {
+    use TraitAggregate;
+
     /** @var Uuid */
     private $uuid;
 

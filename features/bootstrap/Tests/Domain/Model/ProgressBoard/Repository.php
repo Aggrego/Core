@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Tests\Domain\Model\Board;
+namespace Tests\Domain\Model\ProgressBoard;
 
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Exception\BoardNotFoundException;

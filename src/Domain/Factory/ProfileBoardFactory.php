@@ -4,26 +4,27 @@ namespace TimiTao\Construo\Domain\Factory;
 
 use Assert\Assertion;
 use TimiTao\Construo\Domain\Exception\BoardFactoryNotFoundException;
+use TimiTao\Construo\Domain\Profile\BoardFactory\Factory;
 use TimiTao\Construo\Domain\ValueObject\Profile;
 
 class ProfileBoardFactory
 {
-    /** @var array */
+    /** @var Factory[] */
     private $list;
 
     public function __construct(array $list)
     {
-        Assertion::allImplementsInterface($list, BoardFactory::class);
+        Assertion::allImplementsInterface($list, Factory::class);
         $this->list = $list;
     }
 
-    public function factory(Profile $profile): BoardFactory
+    public function factory(Profile $profile): Factory
     {
-        $key = (string)$profile;
-        if (!isset($this->list[$key])) {
-            throw new BoardFactoryNotFoundException();
+        foreach ($this->list as $factory) {
+            if ($factory->isSupported($profile)) {
+                return $factory;
+            }
         }
-
-        return $this->list[$key];
+        throw new BoardFactoryNotFoundException();
     }
 }

@@ -3,6 +3,7 @@
 namespace spec\TimiTao\Construo\Domain\Model\ProgressBoard\Entity;
 
 use PhpSpec\ObjectBehavior;
+use TimiTao\Construo\Domain\Event\Aggregate;
 use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Board as InitialBoard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
 use TimiTao\Construo\Domain\ValueObject\Data;
@@ -29,6 +30,8 @@ class BoardSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(Board::class);
+        $this->shouldImplement(Aggregate::class);
+        $this->pullEvents()->shouldHaveCount(2);
     }
 
     function it_should_have_uuid()
@@ -80,11 +83,12 @@ class BoardSpec extends ObjectBehavior
         $this->isAllShardsFinishedProgress()->shouldBe(false);
     }
 
-    function it_should_be_able_to_update_shard_with_data(Data $data)
+    function it_should_be_able_to_update_shard_with_data()
     {
         $shardUuid = new Uuid('4b7c7c15-6b50-5a1f-94ca-20a9749c5bc2');
         $source = new Source(new Name('test'), new Version('1.0'));
 
-        $this->updateShard($shardUuid, $source, $data)->shouldBeNull();
+        $this->updateShard($shardUuid, $source, new Data('test'))->shouldBeNull();
+        $this->pullEvents()->shouldHaveCount(3);
     }
 }

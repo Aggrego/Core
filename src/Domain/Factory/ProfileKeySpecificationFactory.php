@@ -4,7 +4,7 @@ namespace TimiTao\Construo\Domain\Factory;
 
 use Assert\Assertion;
 use TimiTao\Construo\Domain\Exception\KeySpecificationNotFoundException;
-use TimiTao\Construo\Domain\KeySpecification\Specification;
+use TimiTao\Construo\Domain\Profile\KeySpecification\Specification;
 use TimiTao\Construo\Domain\ValueObject\Profile;
 
 class ProfileKeySpecificationFactory
@@ -20,11 +20,11 @@ class ProfileKeySpecificationFactory
 
     public function factory(Profile $profile): Specification
     {
-        $key = (string)$profile;
-        if (!isset($this->list[$key])) {
-            throw new KeySpecificationNotFoundException();
+        foreach ($this->list as $factory) {
+            if ($factory->isSupported($profile)) {
+                return $factory;
+            }
         }
-
-        return $this->list[$key];
+        throw new KeySpecificationNotFoundException();
     }
 }

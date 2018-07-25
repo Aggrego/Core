@@ -9,7 +9,7 @@ use TimiTao\Construo\Domain\ValueObject\Uuid;
 
 class InitialShard extends BaseShard
 {
-    /** @var Key  */
+    /** @var Key */
     private $key;
 
     public function __construct(Uuid $uuid, Source $acceptableSource, Key $key)

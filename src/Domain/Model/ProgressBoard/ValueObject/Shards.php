@@ -3,13 +3,14 @@
 namespace TimiTao\Construo\Domain\Model\ProgressBoard\ValueObject;
 
 use Assert\Assertion;
+use Countable;
 use TimiTao\Construo\Domain\Model\Board\Entity\Shard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\FinalShard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\InitialShard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Exception\InvalidUuidComparisonOnReplaceException;
 use TimiTao\Construo\Domain\ValueObject\Shards as BaseShards;
 
-class Shards extends BaseShards
+class Shards extends BaseShards implements Countable
 {
     public function __construct(array $list = [])
     {
@@ -42,5 +43,10 @@ class Shards extends BaseShards
                 join(',', $uuids)
             )
         );
+    }
+
+    public function count(): int
+    {
+        return count($this->list);
     }
 }

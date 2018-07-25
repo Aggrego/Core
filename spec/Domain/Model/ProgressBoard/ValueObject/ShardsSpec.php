@@ -3,6 +3,7 @@
 namespace spec\TimiTao\Construo\Domain\Model\ProgressBoard\ValueObject;
 
 use Assert\Assertion;
+use Countable;
 use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 use stdClass;
@@ -29,6 +30,7 @@ class ShardsSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Shards::class);
         $this->shouldBeAnInstanceOf(Traversable::class);
+        $this->shouldBeAnInstanceOf(Countable::class);
     }
 
     function it_should_throw_exception_with_other_object()
