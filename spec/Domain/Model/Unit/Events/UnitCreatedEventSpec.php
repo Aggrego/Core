@@ -1,30 +1,32 @@
 <?php
 
-namespace spec\TimiTao\Construo\Domain\Model\ProgressBoard\Events;
+namespace spec\TimiTao\Construo\Domain\Model\Unit\Events;
 
 use PhpSpec\ObjectBehavior;
 use TimiTao\Construo\Domain\Event\Event;
-use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
-use TimiTao\Construo\Domain\Model\ProgressBoard\Events\BoardCreatedEvent;
+use TimiTao\Construo\Domain\Model\Unit\Entity\Unit;
+use TimiTao\Construo\Domain\Model\Unit\Events\UnitCreatedEvent;
+use TimiTao\Construo\Domain\ValueObject\Data;
 use TimiTao\Construo\Domain\ValueObject\Key;
 use TimiTao\Construo\Domain\ValueObject\Name;
 use TimiTao\Construo\Domain\ValueObject\Profile;
 use TimiTao\Construo\Domain\ValueObject\Uuid;
 use TimiTao\Construo\Domain\ValueObject\Version;
 
-class BoardCreatedEventSpec extends ObjectBehavior
+class UnitCreatedEventSpec extends ObjectBehavior
 {
-    function let(Board $board)
+    function let(Unit $unit)
     {
-        $board->getUuid()->willReturn(new Uuid('test'));
-        $board->getKey()->willReturn(new Key(['test']));
-        $board->getProfile()->willReturn(new Profile(new Name('test'), new Version('1.0')));
-        $this->beConstructedWith($board);
+        $unit->getUuid()->willReturn(new Uuid('test'));
+        $unit->getKey()->willReturn(new Key(['test']));
+        $unit->getData()->willReturn(new Data('test'));
+        $unit->getProfile()->willReturn(new Profile(new Name('test'), new Version('1.0')));
+        $this->beConstructedWith($unit);
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(BoardCreatedEvent::class);
+        $this->shouldHaveType(UnitCreatedEvent::class);
         $this->shouldImplement(Event::class);
     }
 
@@ -37,8 +39,8 @@ class BoardCreatedEventSpec extends ObjectBehavior
     {
         $payload = $this->getPayload();
         $payload->shouldBeArray();
-        $payload->shouldHaveKey('uuid');
         $payload->shouldHaveKey('key');
         $payload->shouldHaveKey('profile');
+        $payload->shouldHaveKey('data');
     }
 }

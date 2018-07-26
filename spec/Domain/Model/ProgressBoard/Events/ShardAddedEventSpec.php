@@ -3,6 +3,7 @@
 namespace spec\TimiTao\Construo\Domain\Model\ProgressBoard\Events;
 
 use PhpSpec\ObjectBehavior;
+use TimiTao\Construo\Domain\Event\Event;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\InitialShard;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Events\ShardAddedEvent;
 use TimiTao\Construo\Domain\ValueObject\Key;
@@ -24,6 +25,7 @@ class ShardAddedEventSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(ShardAddedEvent::class);
+        $this->shouldImplement(Event::class);
     }
 
     function it_should_have_name()

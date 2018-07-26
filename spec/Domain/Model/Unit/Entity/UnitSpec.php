@@ -41,6 +41,7 @@ class UnitSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Unit::class);
         $this->shouldImplement(Aggregate::class);
+        $this->pullEvents()->shouldHaveCount(1);
     }
 
     function it_should_have_uuid()

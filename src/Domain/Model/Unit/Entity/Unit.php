@@ -6,6 +6,7 @@ use TimiTao\Construo\Domain\Event\Aggregate;
 use TimiTao\Construo\Domain\Event\Model\Entity\TraitAggregate;
 use TimiTao\Construo\Domain\Exception\UnprocessableBoardException;
 use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
+use TimiTao\Construo\Domain\Model\Unit\Events\UnitCreatedEvent;
 use TimiTao\Construo\Domain\Profile\BoardTransformation\Transformation;
 use TimiTao\Construo\Domain\ValueObject\Data;
 use TimiTao\Construo\Domain\ValueObject\Key;
@@ -34,6 +35,8 @@ class Unit implements Aggregate
         $this->key = $key;
         $this->profile = $profile;
         $this->data = $data;
+
+        $this->pushEvent(new UnitCreatedEvent($this));
     }
 
     public static function createFromBoard(Board $board, Transformation $transformation): self
