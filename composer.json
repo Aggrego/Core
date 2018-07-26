@@ -1,5 +1,5 @@
 {
-  "name": "timitao/constuo",
+  "name": "aggrego/domain",
   "type": "domain",
   "description": "",
   "minimum-stability": "dev",
@@ -21,6 +21,6 @@
     "phpspec/phpspec": "^5.0"
   },
   "autoload": {
-    "psr-4": {"TimiTao\\Construo\\": "src/"}
+    "psr-4": {"Aggrego\\Domain\\": "src/"}
   }
 }

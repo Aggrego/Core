@@ -8,8 +8,8 @@ use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use RuntimeException;
 use Tests\Profile\BoardFactory\Factory;
-use TimiTao\Construo\Domain\Api\Command\UpdateBoard\Command;
-use TimiTao\Construo\Domain\Api\Command\UpdateBoard\UseCase;
+use Aggrego\Domain\Api\Command\UpdateBoard\Command;
+use Aggrego\Domain\Api\Command\UpdateBoard\UseCase;
 
 class UpdateBoardFeatureContext implements Context
 {

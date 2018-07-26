@@ -10,8 +10,8 @@ use RuntimeException;
 use Tests\Profile\BaseTestSupport;
 use Tests\Profile\KeySpecification\Specification;
 use Throwable;
-use TimiTao\Construo\Domain\Api\Command\CreateBoard\Command;
-use TimiTao\Construo\Domain\Api\Command\CreateBoard\UseCase;
+use Aggrego\Domain\Api\Command\CreateBoard\Command;
+use Aggrego\Domain\Api\Command\CreateBoard\UseCase;
 
 class CreateBoardFeatureContext implements Context
 {

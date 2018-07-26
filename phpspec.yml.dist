@@ -1,4 +1,4 @@
 suites:
   default:
-    namespace: TimiTao\Construo
-    psr4_prefix: TimiTao\Construo
+    namespace: Aggrego\Domain
+    psr4_prefix: Aggrego\Domain

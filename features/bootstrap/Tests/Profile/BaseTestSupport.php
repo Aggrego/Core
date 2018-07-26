@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Tests\Profile;
 
-use TimiTao\Construo\Domain\ValueObject\Profile;
+use Aggrego\Domain\ValueObject\Profile;
 
 abstract class BaseTestSupport
 {

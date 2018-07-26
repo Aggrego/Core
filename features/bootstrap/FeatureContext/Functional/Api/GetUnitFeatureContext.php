@@ -8,9 +8,9 @@ use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use Tests\Profile\BaseTestSupport;
 use Tests\Profile\KeySpecification\Specification;
-use TimiTao\Construo\Domain\Api\Query\GetUnit\Query;
-use TimiTao\Construo\Domain\Api\Query\GetUnit\Response;
-use TimiTao\Construo\Domain\Api\Query\GetUnit\UseCase;
+use Aggrego\Domain\Api\Query\GetUnit\Query;
+use Aggrego\Domain\Api\Query\GetUnit\Response;
+use Aggrego\Domain\Api\Query\GetUnit\UseCase;
 
 class GetUnitFeatureContext implements Context
 {

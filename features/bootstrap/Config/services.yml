@@ -3,14 +3,14 @@ services:
 # Query
     domain.query.get_unit.use_case:
         public: true
-        class: TimiTao\Construo\Domain\Api\Query\GetUnit\UseCase
+        class: Aggrego\Domain\Api\Query\GetUnit\UseCase
         arguments:
           - "@tests.domain.model.unit.repository"
 
 # Command
     domain.command.create_board.use_case:
         public: true
-        class: TimiTao\Construo\Domain\Api\Command\CreateBoard\UseCase
+        class: Aggrego\Domain\Api\Command\CreateBoard\UseCase
         arguments:
           - "@tests.domain.model.progress_board.repository"
           - "@domain.factory.profile_key_specification_factory"
@@ -18,13 +18,13 @@ services:
 
     domain.command.update_board.use_case:
         public: true
-        class: TimiTao\Construo\Domain\Api\Command\UpdateBoard\UseCase
+        class: Aggrego\Domain\Api\Command\UpdateBoard\UseCase
         arguments:
           - "@tests.domain.model.progress_board.repository"
 
     domain.command.transform_board.use_case:
         public: true
-        class: TimiTao\Construo\Domain\Api\Command\TransformBoard\UseCase
+        class: Aggrego\Domain\Api\Command\TransformBoard\UseCase
         arguments:
           - "@tests.domain.model.progress_board.repository"
           - "@tests.domain.model.unit.repository"
@@ -32,17 +32,17 @@ services:
 
 # Factory
     domain.factory.profile_key_specification_factory:
-        class: TimiTao\Construo\Domain\Factory\ProfileKeySpecificationFactory
+        class: Aggrego\Domain\Factory\ProfileKeySpecificationFactory
         arguments:
           - ["@tests.profile.key_specification.specification"]
 
     domain.factory.profile_board_factory:
-        class: TimiTao\Construo\Domain\Factory\ProfileBoardFactory
+        class: Aggrego\Domain\Factory\ProfileBoardFactory
         arguments:
           - ["@tests.profile.board_factory.factory"]
 
     domain.factory.profile_board_transformation_factory:
-        class: TimiTao\Construo\Domain\Factory\ProfileBoardTransformationFactory
+        class: Aggrego\Domain\Factory\ProfileBoardTransformationFactory
         arguments:
           - ["@tests.profile.board_transformation.transformation"]
 

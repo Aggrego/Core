@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace Tests\Domain\Model\ProgressBoard;
 
-use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
-use TimiTao\Construo\Domain\Model\ProgressBoard\Exception\BoardNotFoundException;
-use TimiTao\Construo\Domain\Model\ProgressBoard\Repository as BoardRepository;
-use TimiTao\Construo\Domain\ValueObject\Uuid;
+use Aggrego\Domain\Model\ProgressBoard\Entity\Board;
+use Aggrego\Domain\Model\ProgressBoard\Exception\BoardNotFoundException;
+use Aggrego\Domain\Model\ProgressBoard\Repository as BoardRepository;
+use Aggrego\Domain\ValueObject\Uuid;
 
 class Repository implements BoardRepository
 {

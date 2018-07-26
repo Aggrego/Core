@@ -5,13 +5,13 @@ declare(strict_types = 1);
 namespace Tests\Profile\BoardFactory;
 
 use Tests\Profile\BaseTestSupport;
-use TimiTao\Construo\Domain\Model\InitialBoard\Entity\Board;
-use TimiTao\Construo\Domain\Profile\BoardFactory\Factory as DomainBoardFactory;
-use TimiTao\Construo\Domain\ValueObject\Key;
-use TimiTao\Construo\Domain\ValueObject\Name;
-use TimiTao\Construo\Domain\ValueObject\Profile;
-use TimiTao\Construo\Domain\ValueObject\Source;
-use TimiTao\Construo\Domain\ValueObject\Version;
+use Aggrego\Domain\Model\InitialBoard\Entity\Board;
+use Aggrego\Domain\Profile\BoardFactory\Factory as DomainBoardFactory;
+use Aggrego\Domain\ValueObject\Key;
+use Aggrego\Domain\ValueObject\Name;
+use Aggrego\Domain\ValueObject\Profile;
+use Aggrego\Domain\ValueObject\Source;
+use Aggrego\Domain\ValueObject\Version;
 
 class Factory extends BaseTestSupport implements DomainBoardFactory
 {

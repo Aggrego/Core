@@ -8,8 +8,8 @@ use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use RuntimeException;
 use Tests\Profile\BoardFactory\Factory;
-use TimiTao\Construo\Domain\Api\Command\TransformBoard\Command;
-use TimiTao\Construo\Domain\Api\Command\TransformBoard\UseCase;
+use Aggrego\Domain\Api\Command\TransformBoard\Command;
+use Aggrego\Domain\Api\Command\TransformBoard\UseCase;
 
 class TransformBoardFeatureContext implements Context
 {

@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace Tests\Domain\Model\Unit;
 
-use TimiTao\Construo\Domain\Model\Unit\Entity\Unit;
-use TimiTao\Construo\Domain\Model\Unit\Repository as UnitRepository;
-use TimiTao\Construo\Domain\ValueObject\Key;
-use TimiTao\Construo\Domain\ValueObject\Profile;
+use Aggrego\Domain\Model\Unit\Entity\Unit;
+use Aggrego\Domain\Model\Unit\Repository as UnitRepository;
+use Aggrego\Domain\ValueObject\Key;
+use Aggrego\Domain\ValueObject\Profile;
 
 class Repository implements UnitRepository
 {

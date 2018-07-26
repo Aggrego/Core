@@ -5,8 +5,8 @@ declare(strict_types = 1);
 namespace Tests\Profile\KeySpecification;
 
 use Tests\Profile\BaseTestSupport;
-use TimiTao\Construo\Domain\Profile\KeySpecification\Specification as DomainSpecification;
-use TimiTao\Construo\Domain\ValueObject\Key;
+use Aggrego\Domain\Profile\KeySpecification\Specification as DomainSpecification;
+use Aggrego\Domain\ValueObject\Key;
 
 class Specification extends BaseTestSupport implements DomainSpecification
 {

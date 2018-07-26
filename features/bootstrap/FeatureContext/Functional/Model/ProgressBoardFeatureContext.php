@@ -11,16 +11,16 @@ use Tests\Domain\Model\ProgressBoard\Repository;
 use Tests\Profile\BaseTestSupport;
 use Tests\Profile\BoardFactory\Factory;
 use Tests\Profile\KeySpecification\Specification;
-use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\Board;
-use TimiTao\Construo\Domain\Model\ProgressBoard\Entity\FinalShard;
-use TimiTao\Construo\Domain\Profile\BoardFactory\Factory as BoardFactory;
-use TimiTao\Construo\Domain\ValueObject\Data;
-use TimiTao\Construo\Domain\ValueObject\Key;
-use TimiTao\Construo\Domain\ValueObject\Name;
-use TimiTao\Construo\Domain\ValueObject\Profile;
-use TimiTao\Construo\Domain\ValueObject\Source;
-use TimiTao\Construo\Domain\ValueObject\Uuid;
-use TimiTao\Construo\Domain\ValueObject\Version;
+use Aggrego\Domain\Model\ProgressBoard\Entity\Board;
+use Aggrego\Domain\Model\ProgressBoard\Entity\FinalShard;
+use Aggrego\Domain\Profile\BoardFactory\Factory as BoardFactory;
+use Aggrego\Domain\ValueObject\Data;
+use Aggrego\Domain\ValueObject\Key;
+use Aggrego\Domain\ValueObject\Name;
+use Aggrego\Domain\ValueObject\Profile;
+use Aggrego\Domain\ValueObject\Source;
+use Aggrego\Domain\ValueObject\Uuid;
+use Aggrego\Domain\ValueObject\Version;
 
 class ProgressBoardFeatureContext implements Context
 {
