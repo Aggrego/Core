@@ -11,6 +11,8 @@ default:
           - "@domain.command.update_board.use_case"
         - FeatureContext\Functional\Api\TransformBoardFeatureContext:
           - "@domain.command.transform_board.use_case"
+        - FeatureContext\Functional\Api\DeleteBoardFeatureContext:
+          - "@domain.command.delete_board.use_case"
 
         - FeatureContext\Functional\Model\ProgressBoardFeatureContext:
           - "@tests.domain.model.progress_board.repository"

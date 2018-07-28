@@ -7,6 +7,7 @@ use Aggrego\Domain\Event\Model\Entity\TraitAggregate;
 use Aggrego\Domain\Model\InitialBoard\Entity\Board as InitialBoard;
 use Aggrego\Domain\Model\InitialBoard\Entity\Shard;
 use Aggrego\Domain\Model\ProgressBoard\Events\BoardCreatedEvent;
+use Aggrego\Domain\Model\ProgressBoard\Events\BoardDeletedEvent;
 use Aggrego\Domain\Model\ProgressBoard\Events\ShardAddedEvent;
 use Aggrego\Domain\Model\ProgressBoard\Events\ShardUpdatedEvent;
 use Aggrego\Domain\Model\ProgressBoard\ValueObject\Shards;
@@ -100,5 +101,11 @@ class Board implements Aggregate
         $shard = new FinalShard($shardUuid, $source, $data);
         $this->shards->replace($shard);
         $this->pushEvent(new ShardUpdatedEvent($shard));
+    }
+
+    public function markAsDeleted(): void
+    {
+        $this->isDeleted = true;
+        $this->pushEvent(new BoardDeletedEvent());
     }
 }

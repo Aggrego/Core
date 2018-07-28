@@ -30,6 +30,12 @@ services:
           - "@tests.domain.model.unit.repository"
           - "@domain.factory.profile_board_transformation_factory"
 
+    domain.command.delete_board.use_case:
+        public: true
+        class: Aggrego\Domain\Api\Command\DeleteBoard\UseCase
+        arguments:
+          - "@tests.domain.model.progress_board.repository"
+
 # Factory
     domain.factory.profile_key_specification_factory:
         class: Aggrego\Domain\Factory\ProfileKeySpecificationFactory

@@ -4,15 +4,9 @@ declare(strict_types = 1);
 
 namespace FeatureContext\Functional\Model;
 
-use Assert\Assertion;
-use Behat\Behat\Context\Context;
-use FeatureContext\Functional\Api\UpdateBoardFeatureContext;
-use Tests\Domain\Model\ProgressBoard\Repository;
-use Tests\Profile\BaseTestSupport;
-use Tests\Profile\BoardFactory\Factory;
-use Tests\Profile\KeySpecification\Specification;
 use Aggrego\Domain\Model\ProgressBoard\Entity\Board;
 use Aggrego\Domain\Model\ProgressBoard\Entity\FinalShard;
+use Aggrego\Domain\Model\ProgressBoard\Events\BoardDeletedEvent;
 use Aggrego\Domain\Profile\BoardFactory\Factory as BoardFactory;
 use Aggrego\Domain\ValueObject\Data;
 use Aggrego\Domain\ValueObject\Key;
@@ -21,6 +15,13 @@ use Aggrego\Domain\ValueObject\Profile;
 use Aggrego\Domain\ValueObject\Source;
 use Aggrego\Domain\ValueObject\Uuid;
 use Aggrego\Domain\ValueObject\Version;
+use Assert\Assertion;
+use Behat\Behat\Context\Context;
+use FeatureContext\Functional\Api\UpdateBoardFeatureContext;
+use Tests\Domain\Model\ProgressBoard\Repository;
+use Tests\Profile\BaseTestSupport;
+use Tests\Profile\BoardFactory\Factory;
+use Tests\Profile\KeySpecification\Specification;
 
 class ProgressBoardFeatureContext implements Context
 {
@@ -141,4 +142,20 @@ class ProgressBoardFeatureContext implements Context
         Assertion::keyNotExists($count, FinalShard::class);
     }
 
+    /**
+     * @Then should no board exist
+     */
+    public function shouldNoBoardExist()
+    {
+        $oneMarkedAsDeleted = false;
+        /** @var Board $board */
+        foreach ($this->repository->getList() as $board) {
+            foreach ($board->pullEvents() as $event) {
+                if ($event instanceof BoardDeletedEvent) {
+                    $oneMarkedAsDeleted = true;
+                }
+            }
+        }
+        Assertion::true($oneMarkedAsDeleted);
+    }
 }

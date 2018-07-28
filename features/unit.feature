@@ -8,7 +8,7 @@ Feature: Unit
     And I get unit response with invalid status
     And I get unit response with empty body
 
-    Scenario:
+    Scenario: I want to get unit that is transformed from final board
       Given default board fully updated exist
       And I command transform default board
       When I query for initial unit by default key, profile and version

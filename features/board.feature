@@ -29,7 +29,7 @@ Feature: Board
     Then update command should be rejected
     And default board shouldn't have updated shards
 
-  Scenario: Cann't update board's shard twice
+  Scenario: Can't update board's shard twice
     Given default board exists
     And I command update default board by default integration source with test string
     When I command update default board by default integration source with test string
@@ -40,7 +40,12 @@ Feature: Board
     When I command transform default board
     Then new unit should be created
 
-  Scenario:
+  Scenario: Only finished boards should be transformed
     Given default board exists
     When I command transform default board
     Then transform command should be rejected
+
+    Scenario: Can delete board default board
+      Given default board exists
+      When I command delete default board
+      Then should no board exist

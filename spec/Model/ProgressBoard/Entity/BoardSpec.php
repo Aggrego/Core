@@ -91,4 +91,10 @@ class BoardSpec extends ObjectBehavior
         $this->updateShard($shardUuid, $source, new Data('test'))->shouldBeNull();
         $this->pullEvents()->shouldHaveCount(3);
     }
+
+    function it_should_be_able_to_mark_board_as_deleted()
+    {
+        $this->markAsDeleted()->shouldBeNull();
+        $this->pullEvents()->shouldHaveCount(3);
+    }
 }
