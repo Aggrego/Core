@@ -119,7 +119,11 @@ class ProgressBoardFeatureContext implements Context
 
         $count = [];
         foreach ($element->getShards() as $shard) {
-            $count[get_class($shard)] += 1;
+            $className = get_class($shard);
+            if (!isset($count[$className])){
+                $count[$className] = 0;
+            }
+            $count[$className] += 1;
         }
 
         Assertion::min($count[FinalShard::class], 1);
@@ -136,6 +140,10 @@ class ProgressBoardFeatureContext implements Context
 
         $count = [];
         foreach ($element->getShards() as $shard) {
+            $className = get_class($shard);
+            if (!isset($count[$className])){
+                $count[$className] = 0;
+            }
             $count[get_class($shard)] += 1;
         }
 
