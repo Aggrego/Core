@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Tests\Profile\BoardFactory;
 
-use Tests\Profile\BaseTestSupport;
 use Aggrego\Domain\Model\InitialBoard\Entity\Board;
 use Aggrego\Domain\Profile\BoardFactory\Factory as DomainBoardFactory;
 use Aggrego\Domain\ValueObject\Key;
@@ -12,6 +11,7 @@ use Aggrego\Domain\ValueObject\Name;
 use Aggrego\Domain\ValueObject\Profile;
 use Aggrego\Domain\ValueObject\Source;
 use Aggrego\Domain\ValueObject\Version;
+use Tests\Profile\BaseTestSupport;
 
 class Factory extends BaseTestSupport implements DomainBoardFactory
 {
@@ -26,9 +26,16 @@ class Factory extends BaseTestSupport implements DomainBoardFactory
     public const DEFAULT_KEY_MR = ['prefix' => 'Mr'];
     public const DEFAULT_KEY_MRS = ['prefix' => 'Mrs'];
 
-    public function factory(Key $key, Profile $profile): Board
+    /** @var Profile */
+    private $profile;
+
+    public function factory(Key $key): Board
     {
-        $board = new Board($key, $profile);
+        if (is_null($this->profile)) {
+
+        }
+
+        $board = new Board($key, $this->profile);
         $board->addShard(
             new Key(self::DEFAULT_KEY_MR),
             new Source(
@@ -45,5 +52,12 @@ class Factory extends BaseTestSupport implements DomainBoardFactory
         );
 
         return $board;
+    }
+
+    public function initializeByProfile(Profile $profile): DomainBoardFactory
+    {
+        $clone = clone $this;
+        $clone->profile = $profile;
+        return $clone;
     }
 }

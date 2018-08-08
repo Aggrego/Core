@@ -7,10 +7,10 @@ use Countable;
 use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 use stdClass;
-use Aggrego\Domain\Model\ProgressBoard\Entity\FinalShard;
-use Aggrego\Domain\Model\ProgressBoard\Entity\InitialShard;
+use Aggrego\Domain\Model\ProgressBoard\Entity\FinalItem;
+use Aggrego\Domain\Model\ProgressBoard\Entity\InitialItem;
 use Aggrego\Domain\Model\ProgressBoard\Exception\InvalidUuidComparisonOnReplaceException;
-use Aggrego\Domain\Model\ProgressBoard\ValueObject\Shards;
+use Aggrego\Domain\Model\ProgressBoard\ValueObject\Collection;
 use Aggrego\Domain\ValueObject\Name;
 use Aggrego\Domain\ValueObject\Source;
 use Aggrego\Domain\ValueObject\Uuid;
@@ -19,7 +19,7 @@ use Traversable;
 
 class ShardsSpec extends ObjectBehavior
 {
-    function let(InitialShard $initialShard)
+    function let(InitialItem $initialShard)
     {
         $initialShard->getUuid()->willReturn(new Uuid('123e4567-e89b-12d3-a456-426655440000'));
         $initialShard->getAcceptableSource()->willReturn(new Source(new Name('test'), new Version('1.0')));
@@ -28,7 +28,7 @@ class ShardsSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(Shards::class);
+        $this->shouldHaveType(Collection::class);
         $this->shouldBeAnInstanceOf(Traversable::class);
         $this->shouldBeAnInstanceOf(Countable::class);
     }
@@ -39,16 +39,16 @@ class ShardsSpec extends ObjectBehavior
         $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
 
-    function it_should_be_able_to_replace_shards_initial_to_final_with_same_uuid(FinalShard $finalShard)
+    function it_should_be_able_to_replace_shards_initial_to_final_with_same_uuid(FinalItem $finalShard)
     {
         $finalShard->getUuid()->willReturn(new Uuid('123e4567-e89b-12d3-a456-426655440000'));
         $finalShard->getAcceptableSource()->willReturn(new Source(new Name('test'), new Version('1.0')));
         $this->replace($finalShard)->shouldBeNull();
-        Assertion::allIsInstanceOf($this->getWrappedObject(), FinalShard::class);
+        Assertion::allIsInstanceOf($this->getWrappedObject(), FinalItem::class);
     }
 
     function it_should_be_able_to_throw_exception_replace_shards_initial_to_final_with_different_uuid(
-        FinalShard $finalShard
+        FinalItem $finalShard
     )
     {
         $finalShard->getUuid()->willReturn(new Uuid('123e4567-e89b-12d3-a456-426655440001'));

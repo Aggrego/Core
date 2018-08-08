@@ -4,7 +4,7 @@ namespace spec\Aggrego\Domain\Model\ProgressBoard\Events;
 
 use PhpSpec\ObjectBehavior;
 use Aggrego\Domain\Event\Event;
-use Aggrego\Domain\Model\ProgressBoard\Entity\FinalShard;
+use Aggrego\Domain\Model\ProgressBoard\Entity\FinalItem;
 use Aggrego\Domain\Model\ProgressBoard\Events\ShardUpdatedEvent;
 use Aggrego\Domain\ValueObject\Data;
 use Aggrego\Domain\ValueObject\Name;
@@ -14,7 +14,7 @@ use Aggrego\Domain\ValueObject\Version;
 
 class ShardUpdatedEventSpec extends ObjectBehavior
 {
-    function let(FinalShard $shard)
+    function let(FinalItem $shard)
     {
         $shard->getUuid()->willReturn(new Uuid('test'));
         $shard->getAcceptableSource()->willReturn(new Source(new Name('test'), new Version('1.0')));

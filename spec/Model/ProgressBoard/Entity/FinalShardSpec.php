@@ -3,7 +3,7 @@
 namespace spec\Aggrego\Domain\Model\ProgressBoard\Entity;
 
 use PhpSpec\ObjectBehavior;
-use Aggrego\Domain\Model\ProgressBoard\Entity\FinalShard;
+use Aggrego\Domain\Model\ProgressBoard\Entity\FinalItem;
 use Aggrego\Domain\ValueObject\Data;
 use Aggrego\Domain\ValueObject\Source;
 use Aggrego\Domain\ValueObject\Uuid;
@@ -18,7 +18,7 @@ class FinalShardSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(FinalShard::class);
+        $this->shouldHaveType(FinalItem::class);
     }
 
     function it_should_have_acceptable_source()

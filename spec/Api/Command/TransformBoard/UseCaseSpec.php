@@ -10,7 +10,7 @@ use Aggrego\Domain\Factory\ProfileBoardTransformationFactory;
 use Aggrego\Domain\Model\InitialBoard\Entity\Board as InitialBoard;
 use Aggrego\Domain\Model\ProgressBoard\Entity\Board as ProgressBoard;
 use Aggrego\Domain\Model\ProgressBoard\Repository as ProgressBoardRepository;
-use Aggrego\Domain\Model\ProgressBoard\ValueObject\Shards;
+use Aggrego\Domain\Model\ProgressBoard\ValueObject\Collection;
 use Aggrego\Domain\Model\Unit\Repository as UnitRepository;
 use Aggrego\Domain\Profile\BoardTransformation\Transformation;
 use Aggrego\Domain\ValueObject\Data;
@@ -49,7 +49,7 @@ class UseCaseSpec extends ObjectBehavior
 
         $boardTransformationFactory->factory($profile)->willReturn($transformation);
 
-        $shards = Argument::type(Shards::class);
+        $shards = Argument::type(Collection::class);
         $transformation->process($shards)->willReturn(new Data('test-double'));
         $this->beConstructedWith($progressBoardRepository, $unitRepository, $boardTransformationFactory);
     }

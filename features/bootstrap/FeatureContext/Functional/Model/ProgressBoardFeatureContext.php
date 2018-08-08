@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace FeatureContext\Functional\Model;
 
 use Aggrego\Domain\Model\ProgressBoard\Entity\Board;
-use Aggrego\Domain\Model\ProgressBoard\Entity\FinalShard;
+use Aggrego\Domain\Model\ProgressBoard\Entity\FinalItem;
 use Aggrego\Domain\Model\ProgressBoard\Events\BoardDeletedEvent;
 use Aggrego\Domain\Profile\BoardFactory\Factory as BoardFactory;
 use Aggrego\Domain\ValueObject\Data;
@@ -126,7 +126,7 @@ class ProgressBoardFeatureContext implements Context
             $count[$className] += 1;
         }
 
-        Assertion::min($count[FinalShard::class], 1);
+        Assertion::min($count[FinalItem::class], 1);
     }
 
     /**
@@ -147,7 +147,7 @@ class ProgressBoardFeatureContext implements Context
             $count[get_class($shard)] += 1;
         }
 
-        Assertion::keyNotExists($count, FinalShard::class);
+        Assertion::keyNotExists($count, FinalItem::class);
     }
 
     /**

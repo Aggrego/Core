@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Aggrego\Domain\Model\Unit\Events;
 
-use Aggrego\Domain\Event\Model\Events\Event;
-use Aggrego\Domain\Model\Unit\Entity\Unit;
+use Aggrego\Domain\Model\Unit\Unit;
+use Aggrego\Domain\Shared\Event\Model\Events\Event;
 
 class UnitCreatedEvent extends Event
 {
