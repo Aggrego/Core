@@ -14,10 +14,7 @@ class ShardUpdatedEvent extends Event
         parent::__construct(
             [
                 'shard_uuid' => $board->getUuid()->getValue(),
-                'profile' => [
-                    'name' => $board->getProfile()->getName()->getValue(),
-                    'version' => $board->getProfile()->getVersion()->getValue(),
-                ],
+                'profile' => $board->getProfile()->__toString(),
                 'data' => $board->getData()->getValue()
             ]
         );

@@ -6,9 +6,10 @@ namespace Aggrego\Domain\Model\ProgressiveBoard\Step;
 
 use Aggrego\Domain\Shared\ValueObject\AbstractStringValueObject;
 
-class State extends AbstractStringValueObject
+final class State extends AbstractStringValueObject
 {
     public const INITIAL = 'initial';
+    public const FINAL = 'final';
 
     public function __construct(string $value)
     {
@@ -18,5 +19,10 @@ class State extends AbstractStringValueObject
     public static function createInitial(): self
     {
         return new self(self::INITIAL);
+    }
+
+    public function isFinal(): bool
+    {
+        return $this->getValue() === self::FINAL;
     }
 }

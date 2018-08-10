@@ -9,6 +9,8 @@ use Aggrego\Domain\Profile\ValueObject\Version;
 
 class Profile
 {
+    private const SEPARATOR = ':';
+
     /** @var Name */
     private $name;
 
@@ -29,16 +31,6 @@ class Profile
         );
     }
 
-    public function getName(): Name
-    {
-        return $this->name;
-    }
-
-    public function getVersion(): Version
-    {
-        return $this->version;
-    }
-
     public function equal(self $profile): bool
     {
         return $this->name->equal($profile->name)
@@ -47,6 +39,6 @@ class Profile
 
     public function __toString(): string
     {
-        return sprintf('%s:%s', $this->name->getValue(), $this->version->getValue());
+        return $this->name->getValue() . self::SEPARATOR . $this->version->getValue();
     }
 }

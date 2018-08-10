@@ -15,10 +15,7 @@ class ShardAddedEvent extends Event
             [
                 'shard_uuid' => $board->getUuid()->getValue(),
                 'key' => $board->getKey()->getValue(),
-                'profile' => [
-                    'name' => $board->getProfile()->getName()->getValue(),
-                    'version' => $board->getProfile()->getVersion()->getValue(),
-                ],
+                'profile' => $board->getProfile()->__toString()
             ]
         );
     }

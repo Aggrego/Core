@@ -15,10 +15,7 @@ class BoardCreatedEvent extends Event
             [
                 'uuid' => $board->getUuid()->getValue(),
                 'key' => $board->getKey()->getValue(),
-                'profile' => [
-                    'name' => $board->getProfile()->getName()->getValue(),
-                    'version' => $board->getProfile()->getVersion()->getValue(),
-                ],
+                'profile' => $board->getProfile()->__toString()
             ]
         );
     }
