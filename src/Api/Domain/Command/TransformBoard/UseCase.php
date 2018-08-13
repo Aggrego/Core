@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Api\Domain\Command\TransformBoard;
 
-use Aggrego\Domain\Api\Application\Model\ProgressiveBoard\Exception\BoardNotFoundException;
-use Aggrego\Domain\Api\Application\Model\ProgressiveBoard\Repository as ProgressiveBoardRepository;
-use Aggrego\Domain\Api\Application\Profile\BoardTransformation\Exception\TransformationNotFoundException as BoardTransformationNotFoundException;
-use Aggrego\Domain\Api\Application\Profile\BoardTransformation\Factory as BoardTransformationFactory;
+use Aggrego\Domain\Profile\BoardTransformation\Exception\TransformationNotFoundException as BoardTransformationNotFoundException;
+use Aggrego\Domain\Profile\BoardTransformation\Factory as BoardTransformationFactory;
 use Aggrego\Domain\Api\Domain\Command\TransformBoard\Exception\InvalidCommandDataException;
-use Aggrego\Domain\Model\ProgressiveBoard\Exception\UnfinishedStepPassedForTransformationException;
-use Aggrego\Domain\Model\ProgressiveBoard\Exception\UnprocessableBoardException;
+use Aggrego\Domain\ProgressiveBoard\Exception\BoardNotFoundException;
+use Aggrego\Domain\ProgressiveBoard\Exception\UnfinishedStepPassedForTransformationException;
+use Aggrego\Domain\ProgressiveBoard\Exception\UnprocessableBoardException;
+use Aggrego\Domain\ProgressiveBoard\Repository as ProgressiveBoardRepository;
 
 class UseCase
 {

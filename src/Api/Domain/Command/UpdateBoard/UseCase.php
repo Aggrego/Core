@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Api\Domain\Command\UpdateBoard;
 
-use Aggrego\Domain\Api\Application\Model\ProgressiveBoard\Repository;
+use Aggrego\Domain\ProgressiveBoard\Repository;
 
 class UseCase
 {

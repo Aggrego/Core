@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Api\Domain\Command\CreateBoard;
 
-use Aggrego\Domain\Api\Application\Model\ProgressiveBoard\Exception\BoardExistException;
-use Aggrego\Domain\Api\Application\Model\ProgressiveBoard\Repository;
-use Aggrego\Domain\Api\Application\Profile\BoardConstruction\Exception\BuilderNotFoundException;
-use Aggrego\Domain\Api\Application\Profile\BoardConstruction\Exception\UnableToBuildBoardException;
-use Aggrego\Domain\Api\Application\Profile\BoardConstruction\Factory;
+use Aggrego\Domain\Profile\BoardConstruction\Exception\BuilderNotFoundException;
+use Aggrego\Domain\Profile\BoardConstruction\Exception\UnableToBuildBoardException;
+use Aggrego\Domain\Profile\BoardConstruction\Factory;
 use Aggrego\Domain\Api\Domain\Command\CreateBoard\Exception\InvalidCommandDataException;
-use Aggrego\Domain\Model\ProgressiveBoard\Board;
+use Aggrego\Domain\ProgressiveBoard\Board;
+use Aggrego\Domain\ProgressiveBoard\Exception\BoardExistException;
+use Aggrego\Domain\ProgressiveBoard\Repository;
 
 class UseCase
 {

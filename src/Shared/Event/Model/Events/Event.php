@@ -8,12 +8,18 @@ use Aggrego\Domain\Api\Application\Event\Event as EventInterface;
 
 abstract class Event implements EventInterface
 {
+    private const DEFAULT_VERSION = '1.0.0';
+
     /** @var array */
     private $payload;
 
-    public function __construct(array $payload)
+    /** @var string */
+    private $version;
+
+    public function __construct(array $payload, string $version = self::DEFAULT_VERSION)
     {
         $this->payload = $payload;
+        $this->version = $version;
     }
 
     public function getName(): string
@@ -24,5 +30,10 @@ abstract class Event implements EventInterface
     public function getPayload(): array
     {
         return $this->payload;
+    }
+
+    public function getVersion(): string
+    {
+        return $this->version;
     }
 }

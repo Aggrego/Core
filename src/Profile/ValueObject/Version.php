@@ -12,6 +12,6 @@ class Version extends AbstractStringValueObject
     public function __construct(string $value)
     {
         parent::__construct($value, self::class);
-        Assertion::regex($value, '^[^:]$');
+        Assertion::regex($value, '/^[^:]*$/');
     }
 }
