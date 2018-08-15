@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Api\Domain\Command\CreateBoard;
 
+use Aggrego\Domain\Api\Domain\Command\CreateBoard\Exception\InvalidCommandDataException;
 use Aggrego\Domain\Profile\BoardConstruction\Exception\BuilderNotFoundException;
 use Aggrego\Domain\Profile\BoardConstruction\Exception\UnableToBuildBoardException;
 use Aggrego\Domain\Profile\BoardConstruction\Factory;
-use Aggrego\Domain\Api\Domain\Command\CreateBoard\Exception\InvalidCommandDataException;
 use Aggrego\Domain\ProgressiveBoard\Board;
 use Aggrego\Domain\ProgressiveBoard\Exception\BoardExistException;
 use Aggrego\Domain\ProgressiveBoard\Repository;
