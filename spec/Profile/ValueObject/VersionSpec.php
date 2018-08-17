@@ -1,9 +1,10 @@
 <?php
 
-namespace spec\Aggrego\Domain\ValueObject;
+namespace spec\Aggrego\Domain\Profile\ValueObject;
 
+use Aggrego\Domain\Profile\ValueObject\Version;
+use Assert\InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
-use Aggrego\Domain\ValueObject\Version;
 
 class VersionSpec extends ObjectBehavior
 {
@@ -25,5 +26,11 @@ class VersionSpec extends ObjectBehavior
     function is_should_check_equal_instances(Version $version)
     {
         $this->equal($version)->shouldBeBool();
+    }
+
+    function it_should_throw_exception_when_contain_colon()
+    {
+        $this->beConstructedWith('test:test');
+        $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
 }
