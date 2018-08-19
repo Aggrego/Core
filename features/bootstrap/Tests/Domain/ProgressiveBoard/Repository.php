@@ -2,12 +2,12 @@
 
 declare(strict_types = 1);
 
-namespace Tests\Domain\Model\ProgressBoard;
+namespace Tests\Domain\ProgressBoard;
 
-use Aggrego\Domain\Model\ProgressBoard\Entity\Board;
-use Aggrego\Domain\Model\ProgressBoard\Exception\BoardNotFoundException;
-use Aggrego\Domain\Model\ProgressBoard\Repository as BoardRepository;
-use Aggrego\Domain\ValueObject\Uuid;
+use Aggrego\Domain\ProgressiveBoard\Board;
+use Aggrego\Domain\ProgressiveBoard\Exception\BoardNotFoundException;
+use Aggrego\Domain\ProgressiveBoard\Repository as BoardRepository;
+use Aggrego\Domain\Shared\ValueObject\Uuid;
 
 class Repository implements BoardRepository
 {
@@ -19,19 +19,9 @@ class Repository implements BoardRepository
         $this->clear();
     }
 
-    public function clear(): void
-    {
-        $this->list = [];
-    }
-
     public function addBoard(Board $board): void
     {
-        $this->list[serialize($board->getKey()->getValue())] = $board;
-    }
-
-    public function getList(): array
-    {
-        return $this->list;
+        $this->list[(string)$board->getUuid()->getValue()] = $board;
     }
 
     public function getBoardByUuid(Uuid $uuid): Board
@@ -43,5 +33,15 @@ class Repository implements BoardRepository
             }
         }
         throw new BoardNotFoundException(sprintf('Board not found with uuid: %s', $uuid->getValue()));
+    }
+
+    public function clear(): void
+    {
+        $this->list = [];
+    }
+
+    public function getList(): array
+    {
+        return $this->list;
     }
 }

@@ -19,7 +19,7 @@ use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use FeatureContext\Functional\Api\UpdateBoardFeatureContext;
 use Tests\Domain\Model\ProgressBoard\Repository;
-use Tests\Profile\BaseTestSupport;
+use Tests\Profile\BaseTestWatchman;
 use Tests\Profile\BoardFactory\Factory;
 use Tests\Profile\KeySpecification\Specification;
 
@@ -53,8 +53,8 @@ class ProgressBoardFeatureContext implements Context
         $initialBoard = $this->boardFactory->factory(
             new Key(Specification::DEFAULT_KEY),
             new Profile(
-                new Name(BaseTestSupport::DEFAULT_PROFILE),
-                new Version(BaseTestSupport::DEFAULT_VERSION)
+                new Name(BaseTestWatchman::DEFAULT_PROFILE),
+                new Version(BaseTestWatchman::DEFAULT_VERSION)
             )
         );
         $board = Board::factoryFromInitial($initialBoard);
@@ -69,8 +69,8 @@ class ProgressBoardFeatureContext implements Context
         $initialBoard = $this->boardFactory->factory(
             new Key(Specification::DEFAULT_KEY),
             new Profile(
-                new Name(BaseTestSupport::DEFAULT_PROFILE),
-                new Version(BaseTestSupport::DEFAULT_VERSION)
+                new Name(BaseTestWatchman::DEFAULT_PROFILE),
+                new Version(BaseTestWatchman::DEFAULT_VERSION)
             )
         );
         $board = Board::factoryFromInitial($initialBoard);

@@ -7,7 +7,7 @@ namespace FeatureContext\Functional\Api;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use RuntimeException;
-use Tests\Profile\BaseTestSupport;
+use Tests\Profile\BaseTestWatchman;
 use Tests\Profile\KeySpecification\Specification;
 use Throwable;
 use Aggrego\Domain\Api\Command\CreateBoard\Command;
@@ -34,8 +34,8 @@ class CreateBoardFeatureContext implements Context
         $this->useCase->handle(
             new Command(
                 Specification::DEFAULT_KEY,
-                BaseTestSupport::DEFAULT_PROFILE,
-                BaseTestSupport::DEFAULT_VERSION
+                BaseTestWatchman::DEFAULT_PROFILE,
+                BaseTestWatchman::DEFAULT_VERSION
             )
         );
     }
@@ -50,7 +50,7 @@ class CreateBoardFeatureContext implements Context
                 new Command(
                     Specification::DEFAULT_KEY,
                     'unknown',
-                    BaseTestSupport::DEFAULT_VERSION
+                    BaseTestWatchman::DEFAULT_VERSION
                 )
             );
         } catch (Throwable $e) {
@@ -67,7 +67,7 @@ class CreateBoardFeatureContext implements Context
             $this->useCase->handle(
                 new Command(
                     Specification::DEFAULT_KEY,
-                    BaseTestSupport::DEFAULT_PROFILE,
+                    BaseTestWatchman::DEFAULT_PROFILE,
                     '0.0'
                 )
             );
@@ -85,8 +85,8 @@ class CreateBoardFeatureContext implements Context
             $this->useCase->handle(
                 new Command(
                     ['invalid'],
-                    BaseTestSupport::DEFAULT_PROFILE,
-                    BaseTestSupport::DEFAULT_VERSION
+                    BaseTestWatchman::DEFAULT_PROFILE,
+                    BaseTestWatchman::DEFAULT_VERSION
                 )
             );
         } catch (Throwable $e) {

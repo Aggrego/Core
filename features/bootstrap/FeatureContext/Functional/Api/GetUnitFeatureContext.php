@@ -6,7 +6,7 @@ namespace FeatureContext\Functional\Api;
 
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
-use Tests\Profile\BaseTestSupport;
+use Tests\Profile\BaseTestWatchman;
 use Tests\Profile\KeySpecification\Specification;
 use Aggrego\Domain\Api\Query\GetUnit\Query;
 use Aggrego\Domain\Api\Query\GetUnit\Response;
@@ -33,8 +33,8 @@ class GetUnitFeatureContext implements Context
         $this->response = $this->useCase->handle(
             new Query(
                 Specification::DEFAULT_KEY,
-                BaseTestSupport::DEFAULT_PROFILE,
-                BaseTestSupport::DEFAULT_VERSION
+                BaseTestWatchman::DEFAULT_PROFILE,
+                BaseTestWatchman::DEFAULT_VERSION
             )
         );
     }
@@ -48,7 +48,7 @@ class GetUnitFeatureContext implements Context
             new Query(
                 ['invalid' => 'init'],
                 'test_false',
-                BaseTestSupport::DEFAULT_VERSION
+                BaseTestWatchman::DEFAULT_VERSION
             )
         );
     }
@@ -62,7 +62,7 @@ class GetUnitFeatureContext implements Context
             new Query(
                 Specification::DEFAULT_KEY,
                 'invalid profile',
-                BaseTestSupport::DEFAULT_VERSION
+                BaseTestWatchman::DEFAULT_VERSION
             )
         );
     }
@@ -75,7 +75,7 @@ class GetUnitFeatureContext implements Context
         $this->response = $this->useCase->handle(
             new Query(
                 Specification::DEFAULT_KEY,
-                BaseTestSupport::DEFAULT_PROFILE,
+                BaseTestWatchman::DEFAULT_PROFILE,
                 'non exist version'
             )
         );
@@ -94,7 +94,7 @@ class GetUnitFeatureContext implements Context
      */
     public function iWillGetResponseMarkAsDefaultProfile()
     {
-        Assertion::eq(BaseTestSupport::DEFAULT_PROFILE, $this->response->getProfileName());
+        Assertion::eq(BaseTestWatchman::DEFAULT_PROFILE, $this->response->getProfileName());
     }
 
     /**
@@ -102,7 +102,7 @@ class GetUnitFeatureContext implements Context
      */
     public function iWillGetResponseAsMinimalVersion()
     {
-        Assertion::eq(BaseTestSupport::DEFAULT_VERSION, $this->response->getVersionNumber());
+        Assertion::eq(BaseTestWatchman::DEFAULT_VERSION, $this->response->getVersionNumber());
     }
 
     /**

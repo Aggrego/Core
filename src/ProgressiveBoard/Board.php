@@ -81,6 +81,11 @@ class Board implements Aggregate
         );
     }
 
+    public function getUuid(): Uuid
+    {
+        return $this->uuid;
+    }
+
     public function getProfile(): Profile
     {
         return $this->profile;

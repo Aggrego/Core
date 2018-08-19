@@ -26,7 +26,7 @@ class Board
     /** @var Collection */
     private $shards;
 
-    protected function __construct(Key $key, Profile $profile)
+    public function __construct(Key $key, Profile $profile)
     {
         $this->uuid = $this->produceUuid($key, $profile);
         $this->key = $key;

@@ -6,13 +6,15 @@ namespace Aggrego\Domain\Profile\BoardTransformation;
 
 use Aggrego\Domain\Profile\BoardTransformation\Exception\UnprocessableBoardException;
 use Aggrego\Domain\ProgressiveBoard\Step\Step;
+use Aggrego\Domain\ProgressiveBoard\Step\Steps\FinalStep;
+use Aggrego\Domain\ProgressiveBoard\Step\Steps\ProgressStep;
 
 interface Transformation
 {
     /**
-     * @param Step $shards
-     * @return Step
+     * @param ProgressStep $step
+     * @return ProgressStep|FinalStep
      * @throws UnprocessableBoardException
      */
-    public function process(Step $shards): Step;
+    public function process(ProgressStep $step): Step;
 }
