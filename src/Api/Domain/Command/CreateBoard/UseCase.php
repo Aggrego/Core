@@ -39,12 +39,7 @@ class UseCase
         $profile = $command->getProfile();
 
         try {
-            $this->boardRepository->addBoard(
-                Board::factory(
-                    $key,
-                    $this->profileBoardFactory->factory($profile)
-                )
-            );
+            $this->boardRepository->addBoard(Board::factory($key, $this->profileBoardFactory->factory($profile)));
         } catch (BuilderNotFoundException $e) {
             throw new InvalidCommandDataException($e->getMessage(), $e->getCode(), $e);
         } catch (UnableToBuildBoardException $e) {

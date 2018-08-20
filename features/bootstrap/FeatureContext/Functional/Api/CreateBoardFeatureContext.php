@@ -4,17 +4,18 @@ declare(strict_types = 1);
 
 namespace FeatureContext\Functional\Api;
 
+use Aggrego\Domain\Api\Domain\Command\CreateBoard\Command;
+use Aggrego\Domain\Api\Domain\Command\CreateBoard\UseCase;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use RuntimeException;
 use Tests\Profile\BaseTestWatchman;
-use Tests\Profile\KeySpecification\Specification;
+use Tests\Profile\BoardConstruction\Builder;
 use Throwable;
-use Aggrego\Domain\Api\Command\CreateBoard\Command;
-use Aggrego\Domain\Api\Command\CreateBoard\UseCase;
 
 class CreateBoardFeatureContext implements Context
 {
+
     /** @var UseCase */
     private $useCase;
 
@@ -33,72 +34,72 @@ class CreateBoardFeatureContext implements Context
     {
         $this->useCase->handle(
             new Command(
-                Specification::DEFAULT_KEY,
+                Builder::DEFAULT_KEY,
                 BaseTestWatchman::DEFAULT_PROFILE,
                 BaseTestWatchman::DEFAULT_VERSION
             )
         );
     }
 
-    /**
-     * @When I create board with non exist profile
-     */
-    public function iCreateForBoardWithNonExistProfile()
-    {
-        try {
-            $this->useCase->handle(
-                new Command(
-                    Specification::DEFAULT_KEY,
-                    'unknown',
-                    BaseTestWatchman::DEFAULT_VERSION
-                )
-            );
-        } catch (Throwable $e) {
-            $this->exception = $e;
-        }
-    }
-
-    /**
-     * @When I create board with non exist version for default profile
-     */
-    public function iCreateBoardWithNonExistVersionForDefaultProfile()
-    {
-        try {
-            $this->useCase->handle(
-                new Command(
-                    Specification::DEFAULT_KEY,
-                    BaseTestWatchman::DEFAULT_PROFILE,
-                    '0.0'
-                )
-            );
-        } catch (Throwable $e) {
-            $this->exception = $e;
-        }
-    }
-
-    /**
-     * @When I create board with invalid key for default profile
-     */
-    public function iCreateBoardWithInvalidKeyForDefaultProfile()
-    {
-        try {
-            $this->useCase->handle(
-                new Command(
-                    ['invalid'],
-                    BaseTestWatchman::DEFAULT_PROFILE,
-                    BaseTestWatchman::DEFAULT_VERSION
-                )
-            );
-        } catch (Throwable $e) {
-            $this->exception = $e;
-        }
-    }
-
-    /**
-     * @Then create command should be rejected
-     */
-    public function createCommandShouldBeRejected()
-    {
-        Assertion::isInstanceOf($this->exception, RuntimeException::class);
-    }
+//    /**
+//     * @When I create board with non exist profile
+//     */
+//    public function iCreateForBoardWithNonExistProfile()
+//    {
+//        try {
+//            $this->useCase->handle(
+//                new Command(
+//                    Specification::DEFAULT_KEY,
+//                    'unknown',
+//                    BaseTestWatchman::DEFAULT_VERSION
+//                )
+//            );
+//        } catch (Throwable $e) {
+//            $this->exception = $e;
+//        }
+//    }
+//
+//    /**
+//     * @When I create board with non exist version for default profile
+//     */
+//    public function iCreateBoardWithNonExistVersionForDefaultProfile()
+//    {
+//        try {
+//            $this->useCase->handle(
+//                new Command(
+//                    Specification::DEFAULT_KEY,
+//                    BaseTestWatchman::DEFAULT_PROFILE,
+//                    '0.0'
+//                )
+//            );
+//        } catch (Throwable $e) {
+//            $this->exception = $e;
+//        }
+//    }
+//
+//    /**
+//     * @When I create board with invalid key for default profile
+//     */
+//    public function iCreateBoardWithInvalidKeyForDefaultProfile()
+//    {
+//        try {
+//            $this->useCase->handle(
+//                new Command(
+//                    ['invalid'],
+//                    BaseTestWatchman::DEFAULT_PROFILE,
+//                    BaseTestWatchman::DEFAULT_VERSION
+//                )
+//            );
+//        } catch (Throwable $e) {
+//            $this->exception = $e;
+//        }
+//    }
+//
+//    /**
+//     * @Then create command should be rejected
+//     */
+//    public function createCommandShouldBeRejected()
+//    {
+//        Assertion::isInstanceOf($this->exception, RuntimeException::class);
+//    }
 }

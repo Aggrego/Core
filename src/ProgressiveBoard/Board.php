@@ -126,6 +126,7 @@ class Board implements Aggregate
 
         if ($step->getState()->isFinal()) {
             /** @var FinalStep $step */
+            $this->step = $step;
             $this->pushEvent(new FinalBoardTransformedEvent($this->uuid, $step));
 
             $this->isDeleted = true;

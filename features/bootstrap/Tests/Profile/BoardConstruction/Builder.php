@@ -12,6 +12,8 @@ use Aggrego\Domain\Shared\ValueObject\Key;
 
 class Builder implements DomainBuilder
 {
+    public const DEFAULT_KEY = ['key' => 'init'];
+
     public const INITIAL_SHARDS_COUNT = 2;
 
     public const DEFAULT_BOARD_UUID = 'd0b7e1e2-b95c-5567-817b-bb9b1b9e272e';

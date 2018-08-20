@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace FeatureContext\Functional\Api;
 
+use Aggrego\Domain\Api\Domain\Command\TransformBoard\Command;
+use Aggrego\Domain\Api\Domain\Command\TransformBoard\UseCase;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use RuntimeException;
-use Tests\Profile\BoardFactory\Factory;
-use Aggrego\Domain\Api\Command\TransformBoard\Command;
-use Aggrego\Domain\Api\Command\TransformBoard\UseCase;
+use Tests\Profile\BoardConstruction\Builder;
 
 class TransformBoardFeatureContext implements Context
 {
@@ -30,7 +30,7 @@ class TransformBoardFeatureContext implements Context
     public function iCommandTransformDefaultBoard()
     {
         try {
-            $this->useCase->handle(new Command(Factory::DEFAULT_BOARD_UUID));
+            $this->useCase->handle(new Command(Builder::DEFAULT_BOARD_UUID));
         } catch (RuntimeException $e) {
             $this->exception = $e;
         }

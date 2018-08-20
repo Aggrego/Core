@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Tests\Domain\ProgressBoard;
+namespace Tests\Domain\ProgressiveBoard;
 
 use Aggrego\Domain\ProgressiveBoard\Board;
 use Aggrego\Domain\ProgressiveBoard\Exception\BoardNotFoundException;

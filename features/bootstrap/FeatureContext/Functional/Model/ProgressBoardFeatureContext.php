@@ -4,37 +4,25 @@ declare(strict_types = 1);
 
 namespace FeatureContext\Functional\Model;
 
-use Aggrego\Domain\Model\ProgressBoard\Entity\Board;
-use Aggrego\Domain\Model\ProgressBoard\Entity\FinalItem;
-use Aggrego\Domain\Model\ProgressBoard\Events\BoardDeletedEvent;
-use Aggrego\Domain\Profile\BoardFactory\Factory as BoardFactory;
-use Aggrego\Domain\ValueObject\Data;
-use Aggrego\Domain\ValueObject\Key;
-use Aggrego\Domain\ValueObject\Name;
-use Aggrego\Domain\ValueObject\Profile;
-use Aggrego\Domain\ValueObject\Source;
-use Aggrego\Domain\ValueObject\Uuid;
-use Aggrego\Domain\ValueObject\Version;
+use Aggrego\Domain\ProgressiveBoard\Board;
+use Aggrego\Domain\Shared\ValueObject\Key;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
-use FeatureContext\Functional\Api\UpdateBoardFeatureContext;
-use Tests\Domain\Model\ProgressBoard\Repository;
-use Tests\Profile\BaseTestWatchman;
-use Tests\Profile\BoardFactory\Factory;
-use Tests\Profile\KeySpecification\Specification;
+use Aggrego\Domain\ProgressiveBoard\Repository;
+use Tests\Profile\BoardConstruction\Builder;
 
 class ProgressBoardFeatureContext implements Context
 {
     /** @var Repository */
     private $repository;
 
-    /** @var BoardFactory */
-    private $boardFactory;
+    /** @var Builder */
+    private $builder;
 
-    public function __construct(Repository $repository, BoardFactory $boardFactory)
+    public function __construct(Repository $repository, Builder $builder)
     {
         $this->repository = $repository;
-        $this->boardFactory = $boardFactory;
+        $this->builder = $builder;
     }
 
     /**
@@ -50,15 +38,9 @@ class ProgressBoardFeatureContext implements Context
      */
     public function defaultBoardExists()
     {
-        $initialBoard = $this->boardFactory->factory(
-            new Key(Specification::DEFAULT_KEY),
-            new Profile(
-                new Name(BaseTestWatchman::DEFAULT_PROFILE),
-                new Version(BaseTestWatchman::DEFAULT_VERSION)
-            )
+        $this->repository->addBoard(
+            Board::factory(new Key(Builder::DEFAULT_KEY), $this->builder)
         );
-        $board = Board::factoryFromInitial($initialBoard);
-        $this->repository->addBoard($board);
     }
 
     /**
@@ -66,7 +48,7 @@ class ProgressBoardFeatureContext implements Context
      */
     public function defaultBoardFullyUpdated()
     {
-        $initialBoard = $this->boardFactory->factory(
+        $initialBoard = $this->builder->factory(
             new Key(Specification::DEFAULT_KEY),
             new Profile(
                 new Name(BaseTestWatchman::DEFAULT_PROFILE),

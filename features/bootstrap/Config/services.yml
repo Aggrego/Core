@@ -1,73 +1,47 @@
 services:
 
-# Query
-    domain.query.get_unit.use_case:
-        public: true
-        class: Aggrego\Domain\Api\Query\GetUnit\UseCase
-        arguments:
-          - "@tests.domain.model.unit.repository"
-
 # Command
     domain.command.create_board.use_case:
         public: true
         class: Aggrego\Domain\Api\Command\CreateBoard\UseCase
         arguments:
-          - "@tests.domain.model.progress_board.repository"
-          - "@domain.factory.profile_key_specification_factory"
-          - "@domain.factory.profile_board_factory"
+          - "@tests.domain.progressive_board.repository"
+          - "@domain.profile.board_construction.factory"
 
     domain.command.update_board.use_case:
         public: true
         class: Aggrego\Domain\Api\Command\UpdateBoard\UseCase
         arguments:
-          - "@tests.domain.model.progress_board.repository"
+          - "@tests.domain.progressive_board.repository"
 
     domain.command.transform_board.use_case:
         public: true
         class: Aggrego\Domain\Api\Command\TransformBoard\UseCase
         arguments:
-          - "@tests.domain.model.progress_board.repository"
-          - "@tests.domain.model.unit.repository"
-          - "@domain.factory.profile_board_transformation_factory"
-
-    domain.command.delete_board.use_case:
-        public: true
-        class: Aggrego\Domain\Api\Command\DeleteBoard\UseCase
-        arguments:
-          - "@tests.domain.model.progress_board.repository"
+          - "@tests.domain.progressive_board.repository"
+          - "@domain.profile.board_transformation_factory"
 
 # Factory
-    domain.factory.profile_key_specification_factory:
-        class: Aggrego\Domain\Factory\ProfileKeySpecificationFactory
+    domain.profile.board_construction.factory:
+        class: Aggrego\Domain\Profile\BoardConstruction\Factory
         arguments:
-          - ["@tests.profile.key_specification.specification"]
+          - ["@tests.profile.board_construction.watchman"]
 
-    domain.factory.profile_board_factory:
-        class: Aggrego\Domain\Factory\ProfileBoardFactory
+    domain.profile.board_transformation_factory:
+        class: Aggrego\Domain\Profile\BoardTransformation\Factory
         arguments:
-          - ["@tests.profile.board_factory.factory"]
-
-    domain.factory.profile_board_transformation_factory:
-        class: Aggrego\Domain\Factory\ProfileBoardTransformationFactory
-        arguments:
-          - ["@tests.profile.board_transformation.transformation"]
+          - ["@tests.profile.board_transformation.watchman"]
 
 # Test repository
-    tests.domain.model.progress_board.repository:
+    tests.domain.progressive_board.repository:
         public: true
-        class: Tests\Domain\Model\ProgressBoard\Repository
-
-    tests.domain.model.unit.repository:
-        public: true
-        class: Tests\Domain\Model\Unit\Repository
+        class: Tests\Domain\ProgressiveBoard\Repository
 
 #TEST PROFILE: test
-    tests.profile.board_factory.factory:
+    tests.profile.board_construction.watchman:
         public: true
-        class: Tests\Profile\BoardFactory\Factory
+        class: Tests\Profile\BoardConstruction\Watchman
 
-    tests.profile.key_specification.specification:
-        class: Tests\Profile\KeySpecification\Specification
-
-    tests.profile.board_transformation.transformation:
-        class: Tests\Profile\BoardTransformation\Transformation
+    tests.profile.board_transformation.watchman:
+        public: true
+        class: Tests\Profile\BoardTransformation\Watchman
