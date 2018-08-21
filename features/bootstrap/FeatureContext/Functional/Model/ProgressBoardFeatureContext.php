@@ -92,6 +92,9 @@ class ProgressBoardFeatureContext implements Context
         $count = [];
         /** @var Board $board */
         foreach ($element->pullEvents() as $event) {
+            if (!isset($count[get_class($event)])) {
+                $count[get_class($event)] = 0;
+            }
             $count[get_class($event)]++;
         }
         Assertion::eq($count[ShardAddedEvent::class], TestBuilder::INITIAL_SHARDS_COUNT, print_r($element, true));
