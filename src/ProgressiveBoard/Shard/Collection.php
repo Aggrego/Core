@@ -5,10 +5,14 @@ declare(strict_types = 1);
 namespace Aggrego\Domain\ProgressiveBoard\Shard;
 
 use Aggrego\Domain\ProgressiveBoard\Exception\InvalidUuidComparisonOnReplaceException;
+use ArrayIterator;
 use Assert\Assertion;
 use Countable;
+use Iterator;
+use IteratorAggregate;
+use Traversable;
 
-class Collection implements Countable
+class Collection implements Countable, IteratorAggregate
 {
     /** @var Item[] */
     private $list;
@@ -16,6 +20,7 @@ class Collection implements Countable
     public function __construct(array $list)
     {
         Assertion::allIsInstanceOf($list, InitialItem::class);
+        $this->list = $list;
     }
 
     public function replace(FinalItem $finalShard): void
@@ -58,5 +63,10 @@ class Collection implements Countable
             }
         }
         return true;
+    }
+
+    public function getIterator(): Iterator
+    {
+        return new ArrayIterator($this->list);
     }
 }

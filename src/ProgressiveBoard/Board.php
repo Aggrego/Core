@@ -104,14 +104,6 @@ class Board implements Aggregate
         }
     }
 
-    public function isStepReadyForNextTransformation(): bool
-    {
-        if ($this->isDeleted) {
-            return false;
-        }
-        return $this->step->isReadyForTransformation();
-    }
-
     public function transformStep(Transformation $transformation): void
     {
         if ($this->isDeleted) {
@@ -136,6 +128,14 @@ class Board implements Aggregate
             $this->pushEvent(new BoardTransformedEvent($this->uuid, $step));
             $this->setStep($step);
         }
+    }
+
+    private function isStepReadyForNextTransformation(): bool
+    {
+        if ($this->isDeleted) {
+            return false;
+        }
+        return $this->step->isReadyForTransformation();
     }
 
     private function setStep(ProgressStep $step): void

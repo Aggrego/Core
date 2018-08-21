@@ -11,8 +11,8 @@ default:
           - "@domain.command.transform_board.use_case"
 
         - FeatureContext\Functional\Model\ProgressBoardFeatureContext:
-          - "@tests.domain.model.progress_board.repository"
-          - "@tests.profile.board_factory.factory"
+          - "@tests.domain.progressive_board.repository"
+          - "@tests.profile.board_construction.watchman"
 
   extensions:
     TimiTao\BehatSymfonyContainer\ServiceContainer\Extension:
