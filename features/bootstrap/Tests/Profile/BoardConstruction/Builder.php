@@ -40,6 +40,9 @@ class Builder implements DomainBuilder
      */
     public function build(Key $key): Board
     {
+        if (!isset($key->getValue()['key'])) {
+            throw new UnableToBuildBoardException();
+        }
         $board = new Board($key, $this->profile);
         $board->addShard(
             new Key(self::DEFAULT_KEY_MR),

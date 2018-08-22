@@ -8,6 +8,8 @@ interface Event
 {
     public function getName(): string;
 
+    public function createdAt(): string;
+
     public function getVersion(): string;
 
     public function getPayload(): array;

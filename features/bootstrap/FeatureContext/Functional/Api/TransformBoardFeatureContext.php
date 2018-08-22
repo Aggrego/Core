@@ -6,8 +6,10 @@ namespace FeatureContext\Functional\Api;
 
 use Aggrego\Domain\Api\Domain\Command\TransformBoard\Command;
 use Aggrego\Domain\Api\Domain\Command\TransformBoard\UseCase;
+use Aggrego\Domain\Shared\Exception\InvalidArgumentException;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
+use Exception;
 use RuntimeException;
 use Tests\Profile\BoardConstruction\Builder;
 
@@ -31,7 +33,7 @@ class TransformBoardFeatureContext implements Context
     {
         try {
             $this->useCase->handle(new Command(Builder::DEFAULT_BOARD_UUID));
-        } catch (RuntimeException $e) {
+        } catch (Exception $e) {
             $this->exception = $e;
         }
     }
@@ -41,6 +43,6 @@ class TransformBoardFeatureContext implements Context
      */
     public function transformCommandShouldBeRejected()
     {
-        Assertion::isInstanceOf($this->exception, RuntimeException::class);
+        Assertion::isInstanceOf($this->exception, InvalidArgumentException::class);
     }
 }

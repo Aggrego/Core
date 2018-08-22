@@ -6,8 +6,10 @@ namespace FeatureContext\Functional\Model;
 
 use Aggrego\Domain\Profile\Profile;
 use Aggrego\Domain\ProgressiveBoard\Board;
+use Aggrego\Domain\ProgressiveBoard\Events\BoardDeletedEvent;
+use Aggrego\Domain\ProgressiveBoard\Events\FinalBoardTransformedEvent;
 use Aggrego\Domain\ProgressiveBoard\Events\ShardAddedEvent;
-use Aggrego\Domain\ProgressiveBoard\Shard\FinalItem;
+use Aggrego\Domain\ProgressiveBoard\Events\ShardUpdatedEvent;
 use Aggrego\Domain\Shared\ValueObject\Data;
 use Aggrego\Domain\Shared\ValueObject\Key;
 use Aggrego\Domain\Shared\ValueObject\Uuid;
@@ -15,6 +17,7 @@ use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use FeatureContext\Functional\Api\UpdateBoardFeatureContext;
 use Tests\Domain\ProgressiveBoard\Repository;
+use Tests\Profile\BaseTestWatchman;
 use Tests\Profile\BoardConstruction\Builder as TestBuilder;
 use Tests\Profile\BoardConstruction\Watchman;
 
@@ -30,7 +33,7 @@ class ProgressBoardFeatureContext implements Context
     {
         $this->repository = $repository;
         $this->builder = $watchman->passBuilder(
-            Profile::createFrom(TestBuilder::DEFAULT_SOURCE_NAME, TestBuilder::DEFAULT_SOURCE_VERSION)
+            Profile::createFrom(BaseTestWatchman::DEFAULT_PROFILE, BaseTestWatchman::DEFAULT_VERSION)
         );
     }
 
@@ -85,18 +88,7 @@ class ProgressBoardFeatureContext implements Context
      */
     public function haveShardsInitialized()
     {
-        $list = $this->repository->getList();
-        /** @var Board $element */
-        $element = reset($list);
-
-        $count = [];
-        /** @var Board $board */
-        foreach ($element->pullEvents() as $event) {
-            if (!isset($count[get_class($event)])) {
-                $count[get_class($event)] = 0;
-            }
-            $count[get_class($event)]++;
-        }
+        $count = $this->mapEventsCountForFirstBoard();
         Assertion::eq($count[ShardAddedEvent::class], TestBuilder::INITIAL_SHARDS_COUNT, print_r($element, true));
     }
 
@@ -105,20 +97,8 @@ class ProgressBoardFeatureContext implements Context
      */
     public function defaultBoardShouldHaveUpdatedShard()
     {
-        $list = $this->repository->getList();
-        /** @var Board $element */
-        $element = reset($list);
-
-        $count = [];
-        foreach ($element->getShards() as $shard) {
-            $className = get_class($shard);
-            if (!isset($count[$className])) {
-                $count[$className] = 0;
-            }
-            $count[$className] += 1;
-        }
-
-        Assertion::min($count[FinalItem::class], 1);
+        $count = $this->mapEventsCountForFirstBoard();
+        Assertion::min($count[ShardUpdatedEvent::class], 1, print_r($count, true));
     }
 
     /**
@@ -126,20 +106,8 @@ class ProgressBoardFeatureContext implements Context
      */
     public function defaultBoardShouldntHaveUpdatedShards()
     {
-        $list = $this->repository->getList();
-        /** @var Board $element */
-        $element = reset($list);
-
-        $count = [];
-        foreach ($element->getShards() as $shard) {
-            $className = get_class($shard);
-            if (!isset($count[$className])) {
-                $count[$className] = 0;
-            }
-            $count[get_class($shard)] += 1;
-        }
-
-        Assertion::keyNotExists($count, FinalItem::class);
+        $count = $this->mapEventsCountForFirstBoard();
+        Assertion::eq($count[ShardUpdatedEvent::class], 0, print_r($count, true));
     }
 
     /**
@@ -147,15 +115,38 @@ class ProgressBoardFeatureContext implements Context
      */
     public function shouldNoBoardExist()
     {
-        $oneMarkedAsDeleted = false;
+        $count = $this->mapEventsCountForFirstBoard();
+        Assertion::min($count[BoardDeletedEvent::class], 1, print_r($count, true));
+    }
+
+    /**
+     * @When board should be in final state
+     */
+    public function boardShouldBeInFinalState()
+    {
+        $count = $this->mapEventsCountForFirstBoard();
+        Assertion::min($count[FinalBoardTransformedEvent::class], 1, print_r($count, true));
+    }
+
+
+    private function mapEventsCountForFirstBoard(): array
+    {
+        $list = $this->repository->getList();
+        /** @var Board $element */
+        $element = reset($list);
+        return $this->mapEventsCount($element);
+    }
+
+    private function mapEventsCount(Board $board): array
+    {
+        $count = [];
         /** @var Board $board */
-        foreach ($this->repository->getList() as $board) {
-            foreach ($board->pullEvents() as $event) {
-                if ($event instanceof BoardDeletedEvent) {
-                    $oneMarkedAsDeleted = true;
-                }
+        foreach ($board->pullEvents() as $event) {
+            if (!isset($count[get_class($event)])) {
+                $count[get_class($event)] = 0;
             }
+            $count[get_class($event)]++;
         }
-        Assertion::true($oneMarkedAsDeleted);
+        return $count;
     }
 }
