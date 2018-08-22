@@ -89,7 +89,8 @@ class ProgressBoardFeatureContext implements Context
     public function haveShardsInitialized()
     {
         $count = $this->mapEventsCountForFirstBoard();
-        Assertion::eq($count[ShardAddedEvent::class], TestBuilder::INITIAL_SHARDS_COUNT, print_r($element, true));
+        Assertion::keyExists($count, ShardAddedEvent::class);
+        Assertion::eq($count[ShardAddedEvent::class], TestBuilder::INITIAL_SHARDS_COUNT, print_r($count, true));
     }
 
     /**
@@ -107,7 +108,7 @@ class ProgressBoardFeatureContext implements Context
     public function defaultBoardShouldntHaveUpdatedShards()
     {
         $count = $this->mapEventsCountForFirstBoard();
-        Assertion::eq($count[ShardUpdatedEvent::class], 0, print_r($count, true));
+        Assertion::keyNotExists($count, ShardUpdatedEvent::class);
     }
 
     /**
