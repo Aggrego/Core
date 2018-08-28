@@ -135,7 +135,7 @@ class Board implements Aggregate
         if ($this->isDeleted) {
             return false;
         }
-        return $this->step->isReadyForTransformation();
+        return $this->step->canBeTransformed();
     }
 
     private function setStep(ProgressStep $step): void
