@@ -3,7 +3,7 @@
   "type": "domain",
   "description": "",
   "minimum-stability": "dev",
-  "license": "MIT",
+  "license": "BSD-3.0",
   "keywords": [],
   "authors": [
     {
