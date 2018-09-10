@@ -7,6 +7,10 @@ namespace Aggrego\Domain\Shared\Event\Model;
 use Aggrego\EventStore\Event;
 use Aggrego\EventStore\Events;
 
+/**
+ * Trait TraitAggregate
+ * @see \Aggrego\EventStore\Aggregate
+ */
 trait TraitAggregate
 {
     /** @var Events */

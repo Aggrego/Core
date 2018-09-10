@@ -4,16 +4,16 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\ProgressiveBoard\Step;
 
-use Aggrego\Domain\Shared\ValueObject\AbstractStringValueObject;
+use TimiTao\ValueObject\Utils\StringValueObject;
 
-final class State extends AbstractStringValueObject
+final class State extends StringValueObject
 {
     public const INITIAL = 'initial';
     public const FINAL = 'final';
 
     public function __construct(string $value)
     {
-        parent::__construct($value, self::class);
+        parent::__construct(self::class, $value);
     }
 
     public static function createInitial(): self

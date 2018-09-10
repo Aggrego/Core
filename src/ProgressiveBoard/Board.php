@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\ProgressiveBoard;
 
-use Aggrego\Domain\Api\Application\Event\Aggregate;
 use Aggrego\Domain\Profile\BoardConstruction\Builder;
 use Aggrego\Domain\Profile\BoardTransformation\Transformation;
 use Aggrego\Domain\Profile\Profile;
@@ -28,6 +27,7 @@ use Aggrego\Domain\Shared\Event\Model\TraitAggregate;
 use Aggrego\Domain\Shared\ValueObject\Data;
 use Aggrego\Domain\Shared\ValueObject\Key;
 use Aggrego\Domain\Shared\ValueObject\Uuid;
+use Aggrego\EventStore\Aggregate;
 
 class Board implements Aggregate
 {
