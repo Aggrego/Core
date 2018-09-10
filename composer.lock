@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "008e236d804de4b712fff8500de776a9",
+    "content-hash": "43ceacacc77d4f3d5a6a331239b911bc",
     "packages": [
         {
             "name": "aggrego/event-store",
@@ -12,16 +12,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/EventStore.git",
-                "reference": "a5848ed7cd4906ad4cb90fb261eec231369980f4"
+                "reference": "2ff3e064bd6c6176b74e94c14830a39c0a152c63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventStore/zipball/a5848ed7cd4906ad4cb90fb261eec231369980f4",
-                "reference": "a5848ed7cd4906ad4cb90fb261eec231369980f4",
+                "url": "https://api.github.com/repos/Aggrego/EventStore/zipball/2ff3e064bd6c6176b74e94c14830a39c0a152c63",
+                "reference": "2ff3e064bd6c6176b74e94c14830a39c0a152c63",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.1",
+                "timitao/value-object": "dev-master"
             },
             "require-dev": {
                 "beberlei/assert": "^3.0",
@@ -42,7 +43,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-09-06T15:28:58+00:00"
+            "time": "2018-09-07T14:08:46+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -285,6 +286,41 @@
                 "portable"
             ],
             "time": "2018-08-06T14:22:27+00:00"
+        },
+        {
+            "name": "timitao/value-object",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timiTao/ValueObject.git",
+                "reference": "ff34dbafb27dfd019a110e05cf5d23ee75a29c56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timiTao/ValueObject/zipball/ff34dbafb27dfd019a110e05cf5d23ee75a29c56",
+                "reference": "ff34dbafb27dfd019a110e05cf5d23ee75a29c56",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^3.0",
+                "php": ">=7.1"
+            },
+            "type": "domain",
+            "autoload": {
+                "psr-4": {
+                    "TimiTao\\ValueObject\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tomasz Kunicki"
+                }
+            ],
+            "time": "2018-09-07T13:57:26+00:00"
         }
     ],
     "packages-dev": [
@@ -943,12 +979,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da"
+                "reference": "2256ef8e824cc494ddeebaa00fabe7ab4d83fc75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
-                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2256ef8e824cc494ddeebaa00fabe7ab4d83fc75",
+                "reference": "2256ef8e824cc494ddeebaa00fabe7ab4d83fc75",
                 "shasum": ""
             },
             "require": {
@@ -999,7 +1035,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-07-12T15:12:46+00:00"
+            "time": "2018-09-07T13:55:31+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -1947,7 +1983,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "aggrego/event-store": 20
+        "aggrego/event-store": 20,
+        "timitao/value-object": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

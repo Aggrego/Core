@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Shared\Event\Model\Events;
 
-use Aggrego\Domain\Api\Application\Event\Event as EventInterface;
-use DateTime;
+use Aggrego\EventStore\Event as EventInterface;
+use DateTimeImmutable;
 
 abstract class Event implements EventInterface
 {
@@ -14,22 +14,22 @@ abstract class Event implements EventInterface
     /** @var array */
     private $payload;
 
-    /** @var string */
+    /** @var EventInterface\Version */
     private $version;
 
-    /** @var DateTime */
+    /** @var EventInterface\CreatedAt */
     private $createdAt;
 
     public function __construct(array $payload, string $version = self::DEFAULT_VERSION)
     {
         $this->payload = $payload;
-        $this->version = $version;
-        $this->createdAt = new DateTime();
+        $this->version = new EventInterface\Version($version);
+        $this->createdAt = new EventInterface\CreatedAt(new DateTimeImmutable());
     }
 
-    public function getName(): string
+    public function getName(): EventInterface\Name
     {
-        return static::class;
+        return new EventInterface\Name(static::class);
     }
 
     public function getPayload(): array
@@ -37,13 +37,13 @@ abstract class Event implements EventInterface
         return $this->payload;
     }
 
-    public function getVersion(): string
+    public function getVersion(): EventInterface\Version
     {
         return $this->version;
     }
 
-    public function createdAt(): string
+    public function createdAt(): EventInterface\CreatedAt
     {
-        return $this->createdAt->format(DateTime::ATOM);
+        return $this->createdAt;
     }
 }

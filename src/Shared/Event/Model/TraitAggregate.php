@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Shared\Event\Model;
 
-use Aggrego\Domain\Api\Application\Event\Event;
-use Aggrego\Domain\Api\Application\Event\Events;
+use Aggrego\EventStore\Event;
+use Aggrego\EventStore\Events;
 
 trait TraitAggregate
 {
