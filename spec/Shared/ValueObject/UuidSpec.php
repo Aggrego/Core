@@ -24,8 +24,9 @@ class UuidSpec extends ObjectBehavior
         $this->getValue()->shouldBeString();
     }
 
-    function it_should_check_equal_instance(Uuid $uuid)
+    function it_should_check_equal_instance()
     {
+        $uuid = new Uuid('unknown');
         $this->equal($uuid)->shouldBeBool();
     }
 }

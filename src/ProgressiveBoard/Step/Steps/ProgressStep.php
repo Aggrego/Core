@@ -38,7 +38,7 @@ final class ProgressStep implements Step
         return $this->shards;
     }
 
-    public function canBeTransformed(): bool
+    public function readyToTransformation(): bool
     {
         return $this->shards->isAllShardsFinishedProgress();
     }

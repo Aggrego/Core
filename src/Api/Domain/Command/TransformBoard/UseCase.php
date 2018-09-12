@@ -7,6 +7,7 @@ namespace Aggrego\Domain\Api\Domain\Command\TransformBoard;
 use Aggrego\Domain\Api\Domain\Command\TransformBoard\Exception\InvalidCommandDataException;
 use Aggrego\Domain\Profile\BoardTransformation\Exception\TransformationNotFoundException as BoardTransformationNotFoundException;
 use Aggrego\Domain\Profile\BoardTransformation\Factory as BoardTransformationFactory;
+use Aggrego\Domain\ProgressiveBoard\Board;
 use Aggrego\Domain\ProgressiveBoard\Exception\BoardNotFoundException;
 use Aggrego\Domain\ProgressiveBoard\Exception\UnfinishedStepPassedForTransformationException;
 use Aggrego\Domain\ProgressiveBoard\Exception\UnprocessableBoardException;
@@ -40,16 +41,11 @@ class UseCase
         } catch (BoardNotFoundException $e) {
             throw new InvalidCommandDataException($e->getMessage(), $e->getCode(), $e);
         }
-        $profile = $board->getProfile();
 
         try {
-            $transformation = $this->boardTransformationFactory->factory($profile);
+            Board::transformBoard($board, $this->boardTransformationFactory);
         } catch (BoardTransformationNotFoundException $e) {
             throw new InvalidCommandDataException($e->getMessage(), $e->getCode(), $e);
-        }
-
-        try {
-            $board->transformStep($transformation);
         } catch (UnfinishedStepPassedForTransformationException $e) {
             throw new InvalidCommandDataException($e->getMessage(), $e->getCode(), $e);
         } catch (UnprocessableBoardException $e) {

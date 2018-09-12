@@ -27,4 +27,9 @@ final class FinalStep implements Step
     {
         return $this->data;
     }
+
+    public function readyToTransformation(): bool
+    {
+        return false;
+    }
 }

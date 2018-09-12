@@ -7,16 +7,17 @@ namespace Aggrego\Domain\Profile\BoardConstruction\InitialBoardModel;
 use Aggrego\Domain\Profile\BoardConstruction\InitialBoardModel\Shard\Collection;
 use Aggrego\Domain\Profile\BoardConstruction\InitialBoardModel\Shard\Item;
 use Aggrego\Domain\Profile\Profile;
+use Aggrego\Domain\ProgressiveBoard\Shard\Collection as ModelCollection;
+use Aggrego\Domain\ProgressiveBoard\Shard\InitialItem;
+use Aggrego\Domain\ProgressiveBoard\Step\State;
+use Aggrego\Domain\ProgressiveBoard\Step\Step;
+use Aggrego\Domain\ProgressiveBoard\Step\Steps\ProgressStep;
 use Aggrego\Domain\Shared\ValueObject\Key;
 use Aggrego\Domain\Shared\ValueObject\Uuid;
-use Ramsey\Uuid\Uuid as RamseyUuid;
 use Traversable;
 
-class Board
+class Board implements \Aggrego\Domain\Profile\BoardConstruction\Board
 {
-    /** @var Uuid */
-    private $uuid;
-
     /** @var Key */
     private $key;
 
@@ -28,15 +29,9 @@ class Board
 
     public function __construct(Key $key, Profile $profile)
     {
-        $this->uuid = $this->produceUuid($key, $profile);
         $this->key = $key;
         $this->profile = $profile;
         $this->shards = new Collection();
-    }
-
-    public function getUuid(): Uuid
-    {
-        return $this->uuid;
     }
 
     public function getKey(): Key
@@ -56,32 +51,17 @@ class Board
 
     public function addShard(Key $key, Profile $shardProfile): void
     {
-        $this->shards->add(
-            new Item(
-                $this->produceShardUuid($key, $shardProfile),
-                $shardProfile,
-                $key
-            )
-        );
+        $this->shards->add(new Item($shardProfile, $key));
     }
 
-    private function produceUuid(Key $key, Profile $profile): Uuid
+    public function getStep(): Step
     {
-        return new Uuid(
-            RamseyUuid::uuid5(
-                RamseyUuid::NAMESPACE_DNS,
-                serialize($key->getValue()) . $profile
-            )->toString()
-        );
-    }
+        $shardsList = [];
+        /** @var Item $item */
+        foreach ($this->getShards() as $item) {
+            $shardsList[] = new InitialItem($item->getProfile(), $item->getKey());
+        }
 
-    private function produceShardUuid(Key $key, Profile $shardProfile): Uuid
-    {
-        return new Uuid(
-            RamseyUuid::uuid5(
-                RamseyUuid::NAMESPACE_DNS,
-                serialize($key->getValue()) . $shardProfile . $this->getUuid()->getValue()
-            )->toString()
-        );
+        return new ProgressStep(State::createInitial(), new ModelCollection($shardsList));
     }
 }

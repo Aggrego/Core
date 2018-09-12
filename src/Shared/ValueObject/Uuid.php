@@ -10,6 +10,6 @@ class Uuid extends StringValueObject
 {
     public function __construct(string $value)
     {
-        parent::__construct( self::class, $value);
+        parent::__construct(self::class, $value);
     }
 }
