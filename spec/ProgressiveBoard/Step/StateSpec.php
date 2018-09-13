@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\ProgressiveBoard\Step;
 
-use Aggrego\Domain\ProgressiveBoard\Step\State;
+use Aggrego\Domain\Board\Step\State;
 use PhpSpec\ObjectBehavior;
 
 class StateSpec extends ObjectBehavior

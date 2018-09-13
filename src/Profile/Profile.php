@@ -4,20 +4,19 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Profile;
 
-use Aggrego\Domain\Profile\ValueObject\Name;
-use Aggrego\Domain\Profile\ValueObject\Version;
+use Assert\Assertion;
 
 class Profile
 {
     private const SEPARATOR = ':';
 
-    /** @var Name */
+    /** @var string */
     private $name;
 
-    /** @var Version */
+    /** @var string */
     private $version;
 
-    private function __construct(Name $name, Version $version)
+    private function __construct(string $name, string $version)
     {
         $this->name = $name;
         $this->version = $version;
@@ -25,20 +24,20 @@ class Profile
 
     public static function createFrom(string $name, string $version): self
     {
-        return new self(
-            new Name($name),
-            new Version($version)
-        );
+        Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        Assertion::regex($version, sprintf('/^[^%s]*$/', self::SEPARATOR));
+
+        return new self($name, $version);
     }
 
     public function equal(self $profile): bool
     {
-        return $this->name->equal($profile->name)
-            && $this->version->equal($profile->version);
+        return $this->name === $profile->name
+            && $this->version === $profile->version;
     }
 
     public function __toString(): string
     {
-        return $this->name->getValue() . self::SEPARATOR . $this->version->getValue();
+        return $this->name . self::SEPARATOR . $this->version;
     }
 }

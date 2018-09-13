@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\ProgressiveBoard\Step\Steps;
 
-use Aggrego\Domain\ProgressiveBoard\Step\State;
-use Aggrego\Domain\ProgressiveBoard\Step\Step;
-use Aggrego\Domain\ProgressiveBoard\Step\Steps\FinalStep;
+use Aggrego\Domain\Board\Step\State;
+use Aggrego\Domain\Board\Step\Step;
+use Aggrego\Domain\Board\Step\Steps\FinalStep;
 use Aggrego\Domain\Shared\ValueObject\Data;
 use PhpSpec\ObjectBehavior;
 

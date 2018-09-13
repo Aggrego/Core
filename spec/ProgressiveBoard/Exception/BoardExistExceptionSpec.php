@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\ProgressiveBoard\Exception;
 
-use Aggrego\Domain\ProgressiveBoard\Exception\BoardExistException;
+use Aggrego\Domain\Board\Exception\BoardExistException;
 use Aggrego\Domain\Shared\Exception\RuntimeException;
 use PhpSpec\ObjectBehavior;
 

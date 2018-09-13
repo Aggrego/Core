@@ -7,10 +7,10 @@ namespace Tests\Profile\BoardTransformation;
 use Aggrego\Domain\Profile\BoardTransformation\Transformation;
 use Aggrego\Domain\Profile\BoardTransformation\Watchman as DomainWatchman;
 use Aggrego\Domain\Profile\Profile;
-use Aggrego\Domain\ProgressiveBoard\Shard\FinalItem;
-use Aggrego\Domain\ProgressiveBoard\Step\Step;
-use Aggrego\Domain\ProgressiveBoard\Step\Steps\FinalStep;
-use Aggrego\Domain\ProgressiveBoard\Step\Steps\ProgressStep;
+use Aggrego\Domain\Board\Shard\FinalItem;
+use Aggrego\Domain\Board\Step\Step;
+use Aggrego\Domain\Board\Step\Steps\FinalStep;
+use Aggrego\Domain\Board\Step\Steps\ProgressStep;
 use Aggrego\Domain\Shared\ValueObject\Data;
 use Tests\Profile\BaseTestWatchman;
 
@@ -20,7 +20,7 @@ class Watchman extends BaseTestWatchman implements DomainWatchman
     {
         return new class extends BaseTestWatchman implements Transformation
         {
-            public function process(ProgressStep $step): Step
+            public function transform(ProgressStep $step): Step
             {
                 $data = '';
                 /** @var FinalItem $item */

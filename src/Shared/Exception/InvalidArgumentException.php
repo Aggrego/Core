@@ -8,5 +8,4 @@ use InvalidArgumentException as GeneralInvalidArgumentException;
 
 class InvalidArgumentException extends GeneralInvalidArgumentException
 {
-
 }

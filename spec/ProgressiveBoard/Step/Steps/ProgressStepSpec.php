@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\ProgressiveBoard\Step\Steps;
 
-use Aggrego\Domain\ProgressiveBoard\Shard\Collection;
-use Aggrego\Domain\ProgressiveBoard\Step\State;
-use Aggrego\Domain\ProgressiveBoard\Step\Step;
-use Aggrego\Domain\ProgressiveBoard\Step\Steps\ProgressStep;
+use Aggrego\Domain\Board\Shard\Collection;
+use Aggrego\Domain\Board\Step\State;
+use Aggrego\Domain\Board\Step\Step;
+use Aggrego\Domain\Board\Step\Steps\ProgressStep;
 use PhpSpec\ObjectBehavior;
 
 class ProgressStepSpec extends ObjectBehavior

@@ -5,11 +5,11 @@ declare(strict_types = 1);
 namespace FeatureContext\Functional\Model;
 
 use Aggrego\Domain\Profile\Profile;
-use Aggrego\Domain\ProgressiveBoard\Board;
-use Aggrego\Domain\ProgressiveBoard\Events\BoardDeletedEvent;
-use Aggrego\Domain\ProgressiveBoard\Events\FinalBoardTransformedEvent;
-use Aggrego\Domain\ProgressiveBoard\Events\ShardAddedEvent;
-use Aggrego\Domain\ProgressiveBoard\Events\ShardUpdatedEvent;
+use Aggrego\Domain\Board\Board;
+use Aggrego\Domain\Board\Events\BoardDeletedEvent;
+use Aggrego\Domain\Board\Events\FinalBoardTransformedEvent;
+use Aggrego\Domain\Board\Events\ShardAddedEvent;
+use Aggrego\Domain\Board\Events\ShardUpdatedEvent;
 use Aggrego\Domain\Shared\ValueObject\Data;
 use Aggrego\Domain\Shared\ValueObject\Key;
 use Aggrego\Domain\Shared\ValueObject\Uuid;

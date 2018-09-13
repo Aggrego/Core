@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\ProgressiveBoard\Exception;
 
-use Aggrego\Domain\ProgressiveBoard\Exception\BoardNotFoundException;
+use Aggrego\Domain\Board\Exception\BoardNotFoundException;
 use Aggrego\Domain\Shared\Exception\RuntimeException;
 use PhpSpec\ObjectBehavior;
 

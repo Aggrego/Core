@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace Tests\Domain\ProgressiveBoard;
 
-use Aggrego\Domain\ProgressiveBoard\Board;
-use Aggrego\Domain\ProgressiveBoard\Exception\BoardNotFoundException;
-use Aggrego\Domain\ProgressiveBoard\Repository as BoardRepository;
+use Aggrego\Domain\Board\Board;
+use Aggrego\Domain\Board\Exception\BoardNotFoundException;
+use Aggrego\Domain\Board\Repository as BoardRepository;
 use Aggrego\Domain\Shared\ValueObject\Uuid;
 
 class Repository implements BoardRepository

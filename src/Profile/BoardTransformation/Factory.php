@@ -19,6 +19,11 @@ class Factory
         $this->watchmen = $watchmen;
     }
 
+    /**
+     * @param Profile $profile
+     * @return Transformation
+     * @throws TransformationNotFoundException
+     */
     public function factory(Profile $profile): Transformation
     {
         foreach ($this->watchmen as $watchman) {

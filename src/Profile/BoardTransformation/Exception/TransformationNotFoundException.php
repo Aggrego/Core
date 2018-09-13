@@ -8,5 +8,4 @@ use Aggrego\Domain\Shared\Exception\RuntimeException;
 
 class TransformationNotFoundException extends RuntimeException
 {
-
 }
