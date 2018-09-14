@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Board;
 
-use Aggrego\Domain\Shared\ValueObject\Uuid as SharedUuid;
+use Aggrego\EventStore\Uuid as EventStoreUuid;
 
-class Uuid extends SharedUuid
+class Uuid extends EventStoreUuid
 {
 }
