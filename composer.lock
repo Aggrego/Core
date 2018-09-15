@@ -12,20 +12,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/EventStore.git",
-                "reference": "9d36fa0d136e4d25f3346a31b2585fc68e55ecb2"
+                "reference": "ef5f0a4a5c09ce76db1893f42514a5687fd2767c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventStore/zipball/9d36fa0d136e4d25f3346a31b2585fc68e55ecb2",
-                "reference": "9d36fa0d136e4d25f3346a31b2585fc68e55ecb2",
+                "url": "https://api.github.com/repos/Aggrego/EventStore/zipball/ef5f0a4a5c09ce76db1893f42514a5687fd2767c",
+                "reference": "ef5f0a4a5c09ce76db1893f42514a5687fd2767c",
                 "shasum": ""
             },
             "require": {
+                "beberlei/assert": "^3.0",
+                "composer/semver": "1.4.*",
                 "php": ">=7.1",
                 "timitao/value-object": "dev-master"
             },
             "require-dev": {
-                "beberlei/assert": "^3.0",
                 "phpspec/phpspec": "^5.0"
             },
             "type": "library",
@@ -43,7 +44,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-09-13T21:15:04+00:00"
+            "time": "2018-09-15T07:44:35+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -100,6 +101,68 @@
                 "validation"
             ],
             "time": "2018-07-04T11:02:54+00:00"
+        },
+        {
+            "name": "composer/semver",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/semver.git",
+                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c7cb9a2095a074d131b65a8a0cd294479d785573",
+                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5 || ^5.0.5",
+                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Semver\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Adermann",
+                    "email": "naderman@naderman.de",
+                    "homepage": "http://www.naderman.de"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                },
+                {
+                    "name": "Rob Bast",
+                    "email": "rob.bast@gmail.com",
+                    "homepage": "http://robbast.nl"
+                }
+            ],
+            "description": "Semver library that offers utilities, version constraint parsing and validation.",
+            "keywords": [
+                "semantic",
+                "semver",
+                "validation",
+                "versioning"
+            ],
+            "time": "2016-08-30T16:08:34+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -293,12 +356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/timiTao/ValueObject.git",
-                "reference": "f70f472ac0a8024b126e0ca6a0791b231fd5bfee"
+                "reference": "5d6c92324208554e9e920b6ef3ff0f085abf82ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timiTao/ValueObject/zipball/f70f472ac0a8024b126e0ca6a0791b231fd5bfee",
-                "reference": "f70f472ac0a8024b126e0ca6a0791b231fd5bfee",
+                "url": "https://api.github.com/repos/timiTao/ValueObject/zipball/5d6c92324208554e9e920b6ef3ff0f085abf82ee",
+                "reference": "5d6c92324208554e9e920b6ef3ff0f085abf82ee",
                 "shasum": ""
             },
             "require": {
@@ -320,7 +383,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-09-11T05:42:12+00:00"
+            "time": "2018-09-15T07:32:36+00:00"
         }
     ],
     "packages-dev": [
