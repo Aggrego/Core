@@ -28,4 +28,17 @@ class DomainSpec extends ObjectBehavior
         $this->beConstructedWith('');
         $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
+
+    function it_could_be_constructed_from_parts()
+    {
+        $this->beConstructedThrough('fromParts', ['test1', 'test2', 'test3']);
+        $this->getValue()->shouldReturn('test1:test2:test3');
+    }
+
+    function it_should_throw_exception_constructed_from_wrong_parts()
+    {
+        $this->beConstructedThrough('fromParts', ['test:1', 'test2', 'test3']);
+        $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
+    }
+
 }
