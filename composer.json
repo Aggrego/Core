@@ -1,5 +1,5 @@
 {
-  "name": "aggrego/event-store",
+  "name": "aggrego/event-consumer",
   "type": "library",
   "description": "",
   "minimum-stability": "dev",
