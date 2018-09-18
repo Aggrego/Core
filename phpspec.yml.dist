@@ -1,0 +1,4 @@
+suites:
+  default:
+    namespace: Aggrego\EventConsumer
+    psr4_prefix: Aggrego\EventConsumer
