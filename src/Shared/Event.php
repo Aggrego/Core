@@ -7,12 +7,16 @@ namespace Aggrego\EventConsumer\Shared;
 use Aggrego\EventConsumer\Event as EventInterface;
 use Aggrego\EventConsumer\Event\CreatedAt;
 use Aggrego\EventConsumer\Event\Domain;
+use Aggrego\EventConsumer\Event\Name;
 use Aggrego\EventConsumer\Event\Version;
 
 class Event implements EventInterface
 {
     /** @var Domain */
     private $domain;
+
+    /** @var Name */
+    private $name;
 
     /** @var CreatedAt */
     private $createdAt;
@@ -23,17 +27,23 @@ class Event implements EventInterface
     /** @var array */
     private $data;
 
-    public function __construct(Domain $domain, CreatedAt $createdAt, Version $version, array $data)
+    public function __construct(Domain $domain, Name $name, CreatedAt $createdAt, Version $version, array $data)
     {
         $this->domain = $domain;
         $this->createdAt = $createdAt;
         $this->version = $version;
         $this->data = $data;
+        $this->name = $name;
     }
 
     public function getDomain(): Domain
     {
         return $this->domain;
+    }
+
+    public function getName(): Name
+    {
+        return $this->name;
     }
 
     public function createdAt(): CreatedAt

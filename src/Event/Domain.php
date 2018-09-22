@@ -9,7 +9,7 @@ use TimiTao\ValueObject\Utils\StringValueObject;
 
 class Domain extends StringValueObject
 {
-    const SEPARATOR = ':';
+    private const SEPARATOR = ':';
 
     public function __construct(string $value)
     {
@@ -29,5 +29,10 @@ class Domain extends StringValueObject
             Assertion::regex($value, sprintf('/^[^%s]*$/', self::SEPARATOR));
         }
         return new self(join(self::SEPARATOR, $values));
+    }
+
+    public function getParts(): array
+    {
+        return explode(self::SEPARATOR, $this->getValue());
     }
 }

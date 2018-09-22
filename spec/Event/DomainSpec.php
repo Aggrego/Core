@@ -10,7 +10,7 @@ class DomainSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('test');
+        $this->beConstructedWith('test', 'test2');
     }
 
     function it_is_initializable()
@@ -41,4 +41,8 @@ class DomainSpec extends ObjectBehavior
         $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
 
+    function it_should_have_parts()
+    {
+        $this->getParts()->shouldBeArray();
+    }
 }
