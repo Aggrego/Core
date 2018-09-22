@@ -9,8 +9,6 @@ use Aggrego\EventConsumer\Exception\UnprocessableEventException;
 
 interface Client
 {
-    public function isSupported(Event $event): bool;
-
     /**
      * @param Event $event
      * @throws UnprocessableEventException if event (payload) have invalid structure.
