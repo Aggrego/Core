@@ -3,6 +3,10 @@
 [![Total Downloads](https://poser.pugx.org/aggrego/event-consumer/downloads.svg)](https://packagist.org/packages/aggrego/event-consumer)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/event-consumer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/event-consumer/?branch=master)
 
+# EventConsumer
+
+
+
 ## Versioning
  
 Staring version ``1.0.0``, will follow [Semantic Versioning v2.0.0](http://semver.org/spec/v2.0.0.html).
