@@ -16,6 +16,7 @@
     "timitao/value-object": "dev-master"
   },
   "require-dev": {
+    "wikimedia/composer-merge-plugin": "1.4.*",
     "behat/behat": "^3.4",
     "timitao/behat-symfony-container": "^1.1",
     "phpspec/phpspec": "^5.0"
