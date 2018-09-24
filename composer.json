@@ -1,6 +1,6 @@
 {
   "name": "aggrego/domain",
-  "type": "domain",
+  "type": "library",
   "description": "",
   "minimum-stability": "dev",
   "license": "BSD-3-Clause",
@@ -14,10 +14,11 @@
     "php": ">=7.1",
     "beberlei/assert": "^3.0",
     "ramsey/uuid": "^3.8",
-    "aggrego/event-store": "dev-master",
+    "aggrego/aggregate-event-consumer": "dev-master",
     "timitao/value-object": "dev-master"
   },
   "require-dev": {
+    "wikimedia/composer-merge-plugin": "1.4.*",
     "behat/behat": "^3.4",
     "timitao/behat-symfony-container": "^1.1",
     "phpspec/phpspec": "^5.0"
