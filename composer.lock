@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18693e31278b86a78f274669eacb71b0",
+    "content-hash": "6a3386f11996258c23f3a14d14f11fa2",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -412,12 +412,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "dd5aaa479fe11d6838e4ad13e84c06d076e11795"
+                "reference": "eeb9503bdd0bca26d7d7dcfb87742a9675d3bbcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/dd5aaa479fe11d6838e4ad13e84c06d076e11795",
-                "reference": "dd5aaa479fe11d6838e4ad13e84c06d076e11795",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/eeb9503bdd0bca26d7d7dcfb87742a9675d3bbcd",
+                "reference": "eeb9503bdd0bca26d7d7dcfb87742a9675d3bbcd",
                 "shasum": ""
             },
             "require": {
@@ -485,7 +485,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2018-09-21T09:40:25+00:00"
+            "time": "2018-09-24T07:40:08+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -796,12 +796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "68cfed54044a87e2b01e943494acb6ffa9f74e45"
+                "reference": "f7d88a181e92d64ccc1b4a48061d558aafb671d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/68cfed54044a87e2b01e943494acb6ffa9f74e45",
-                "reference": "68cfed54044a87e2b01e943494acb6ffa9f74e45",
+                "url": "https://api.github.com/repos/symfony/console/zipball/f7d88a181e92d64ccc1b4a48061d558aafb671d0",
+                "reference": "f7d88a181e92d64ccc1b4a48061d558aafb671d0",
                 "shasum": ""
             },
             "require": {
@@ -857,7 +857,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-22T20:55:36+00:00"
+            "time": "2018-09-24T07:37:12+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -1163,12 +1163,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "ab568b628728e860f70bc3b9af95496ba6d9d6b0"
+                "reference": "a54c3e0b52d77fa52ce8ada54901f047c62b70e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/ab568b628728e860f70bc3b9af95496ba6d9d6b0",
-                "reference": "ab568b628728e860f70bc3b9af95496ba6d9d6b0",
+                "url": "https://api.github.com/repos/symfony/process/zipball/a54c3e0b52d77fa52ce8ada54901f047c62b70e0",
+                "reference": "a54c3e0b52d77fa52ce8ada54901f047c62b70e0",
                 "shasum": ""
             },
             "require": {
@@ -1204,7 +1204,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-10T07:26:34+00:00"
+            "time": "2018-09-24T07:37:12+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1314,6 +1314,55 @@
                 "validate"
             ],
             "time": "2018-05-29T14:25:02+00:00"
+        },
+        {
+            "name": "wikimedia/composer-merge-plugin",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/composer-merge-plugin.git",
+                "reference": "81c6ac72a24a67383419c7eb9aa2b3437f2ab100"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/81c6ac72a24a67383419c7eb9aa2b3437f2ab100",
+                "reference": "81c6ac72a24a67383419c7eb9aa2b3437f2ab100",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0.0",
+                "jakub-onderka/php-parallel-lint": "~0.8",
+                "phpunit/phpunit": "~4.8|~5.0",
+                "squizlabs/php_codesniffer": "~2.1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                },
+                "class": "Wikimedia\\Composer\\MergePlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wikimedia\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bryan Davis",
+                    "email": "bd808@wikimedia.org"
+                }
+            ],
+            "description": "Composer plugin to merge multiple composer.json files",
+            "time": "2017-04-25T02:31:25+00:00"
         }
     ],
     "aliases": [],

@@ -17,6 +17,7 @@
     "composer/semver": "1.4.*"
   },
   "require-dev": {
+    "wikimedia/composer-merge-plugin": "1.4.*",
     "phpspec/phpspec": "^5.0"
   },
   "autoload": {
