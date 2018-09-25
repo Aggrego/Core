@@ -1,7 +1,7 @@
 [![License](https://poser.pugx.org/aggrego/event-consumer/license.svg)](https://packagist.org/packages/aggrego/event-consumer)
 [![Latest Stable Version](https://poser.pugx.org/aggrego/event-consumer/v/stable.svg)](https://packagist.org/packages/aggrego/event-consumer)
 [![Total Downloads](https://poser.pugx.org/aggrego/event-consumer/downloads.svg)](https://packagist.org/packages/aggrego/event-consumer)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/event-consumer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/event-consumer/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/eventconsumer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/eventconsumer/?branch=master)
 
 # EventConsumer
 
