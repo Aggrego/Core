@@ -9,11 +9,16 @@
         {
             "name": "aggrego/aggregate-event-consumer",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aggrego/AggregateEventConsumer.git",
+                "reference": "a59cdc2d522b91c476f5edfbc65c13c89be90757"
+            },
             "dist": {
-                "type": "path",
-                "url": "/app/AggregateEventConsumer",
-                "reference": "836224ead9c8c6753eb90238ffff3faa3153ce48",
-                "shasum": null
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aggrego/AggregateEventConsumer/zipball/a59cdc2d522b91c476f5edfbc65c13c89be90757",
+                "reference": "a59cdc2d522b91c476f5edfbc65c13c89be90757",
+                "shasum": ""
             },
             "require": {
                 "aggrego/event-consumer": "dev-master",
@@ -32,6 +37,7 @@
                     "Aggrego\\AggregateEventConsumer\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -40,9 +46,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2018-09-24T15:13:03+00:00"
         },
         {
             "name": "aggrego/event-consumer",
@@ -50,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/EventConsumer.git",
-                "reference": "409bc6069720bb6027f48e368583a84cab02b9ff"
+                "reference": "610f2844a702c314ee17a5ddc06bce503dc1d7e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/409bc6069720bb6027f48e368583a84cab02b9ff",
-                "reference": "409bc6069720bb6027f48e368583a84cab02b9ff",
+                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/610f2844a702c314ee17a5ddc06bce503dc1d7e8",
+                "reference": "610f2844a702c314ee17a5ddc06bce503dc1d7e8",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +69,8 @@
                 "timitao/value-object": "dev-master"
             },
             "require-dev": {
-                "phpspec/phpspec": "^5.0"
+                "phpspec/phpspec": "^5.0",
+                "wikimedia/composer-merge-plugin": "1.4.*"
             },
             "type": "library",
             "autoload": {
@@ -82,7 +87,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-09-23T05:07:35+00:00"
+            "time": "2018-09-24T18:36:16+00:00"
         },
         {
             "name": "beberlei/assert",
