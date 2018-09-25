@@ -11,17 +11,17 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\Domain\Shared\Exception;
+namespace spec\Aggrego\Domain\Api\Command\CreateBoard\Exception;
 
+use Aggrego\Domain\Api\Command\CreateBoard\Exception\InvalidCommandDataException;
 use Aggrego\Domain\Shared\Exception\InvalidArgumentException;
-use InvalidArgumentException as GeneralInvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 
-class InvalidArgumentExceptionSpec extends ObjectBehavior
+class InvalidCommandDataExceptionSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(InvalidArgumentException::class);
-        $this->shouldHaveType(GeneralInvalidArgumentException::class);
+        $this->shouldHaveType(InvalidCommandDataException::class);
+        $this->shouldBeAnInstanceOf(InvalidArgumentException::class);
     }
 }

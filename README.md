@@ -1,6 +1,7 @@
 [![License](https://poser.pugx.org/aggrego/domain/license.svg)](https://packagist.org/packages/aggrego/domain)
 [![Latest Stable Version](https://poser.pugx.org/aggrego/domain/v/stable.svg)](https://packagist.org/packages/aggrego/domain)
 [![Total Downloads](https://poser.pugx.org/aggrego/domain/downloads.svg)](https://packagist.org/packages/aggrego/domain)
+[![Travis](https://travis-ci.org/Aggrego/Domain.svg?branch=master)](https://travis-ci.org/Aggrego/Domain/builds)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/domain/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/domain/?branch=master)
 
 ### Aggrego

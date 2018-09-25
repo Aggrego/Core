@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/AggregateEventConsumer.git",
-                "reference": "a59cdc2d522b91c476f5edfbc65c13c89be90757"
+                "reference": "ac1b7108a5b2ea738c096e155b6b8e9ce6e88889"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/AggregateEventConsumer/zipball/a59cdc2d522b91c476f5edfbc65c13c89be90757",
-                "reference": "a59cdc2d522b91c476f5edfbc65c13c89be90757",
+                "url": "https://api.github.com/repos/Aggrego/AggregateEventConsumer/zipball/ac1b7108a5b2ea738c096e155b6b8e9ce6e88889",
+                "reference": "ac1b7108a5b2ea738c096e155b6b8e9ce6e88889",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-09-24T15:13:03+00:00"
+            "time": "2018-09-25T20:45:49+00:00"
         },
         {
             "name": "aggrego/event-consumer",
@@ -54,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/EventConsumer.git",
-                "reference": "610f2844a702c314ee17a5ddc06bce503dc1d7e8"
+                "reference": "3b5e45f8b2bb4622b350a418ac921477579eb7d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/610f2844a702c314ee17a5ddc06bce503dc1d7e8",
-                "reference": "610f2844a702c314ee17a5ddc06bce503dc1d7e8",
+                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/3b5e45f8b2bb4622b350a418ac921477579eb7d7",
+                "reference": "3b5e45f8b2bb4622b350a418ac921477579eb7d7",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-09-24T18:36:16+00:00"
+            "time": "2018-09-25T20:04:54+00:00"
         },
         {
             "name": "beberlei/assert",

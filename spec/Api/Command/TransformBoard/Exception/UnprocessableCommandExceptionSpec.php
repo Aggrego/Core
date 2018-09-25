@@ -11,17 +11,17 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\Domain\Profile\BoardConstruction\Exception;
+namespace spec\Aggrego\Domain\Api\Command\TransformBoard\Exception;
 
-use Aggrego\Domain\Profile\BoardConstruction\Exception\BuilderNotFoundException;
+use Aggrego\Domain\Api\Command\TransformBoard\Exception\UnprocessableCommandException;
 use Aggrego\Domain\Shared\Exception\RuntimeException;
 use PhpSpec\ObjectBehavior;
 
-class BuilderNotFoundExceptionSpec extends ObjectBehavior
+class UnprocessableCommandExceptionSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(BuilderNotFoundException::class);
+        $this->shouldHaveType(UnprocessableCommandException::class);
         $this->shouldBeAnInstanceOf(RuntimeException::class);
     }
 }
