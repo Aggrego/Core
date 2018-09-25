@@ -27,4 +27,29 @@ class EventSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Event::class);
     }
+
+    function it_should_have_domain()
+    {
+        $this->getDomain()->shouldBeAnInstanceOf(Domain::class);
+    }
+
+    function it_should_have_name()
+    {
+        $this->getName()->shouldBeAnInstanceOf(Name::class);
+    }
+
+    function it_should_have_created_time()
+    {
+        $this->createdAt()->shouldBeAnInstanceOf(CreatedAt::class);
+    }
+
+    function it_should_have_version()
+    {
+        $this->getVersion()->shouldBeAnInstanceOf(Version::class);
+    }
+
+    function it_should_have_payload()
+    {
+        $this->getPayload()->shouldBeArray();
+    }
 }

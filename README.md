@@ -5,7 +5,7 @@
 
 # EventConsumer
 
-
+Base interface for any integration cooperates with events.
 
 ## Versioning
  
