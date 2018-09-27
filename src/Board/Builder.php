@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Board;
 
+use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\Domain\Board\Prototype\Board as PrototypeBoard;
 use Aggrego\Domain\Profile\Profile;
 

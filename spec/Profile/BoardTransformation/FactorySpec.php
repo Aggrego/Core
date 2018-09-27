@@ -11,12 +11,12 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\Domain\Profile\BoardConstruction;
+namespace spec\Aggrego\Domain\Profile\BoardTransformation;
 
-use Aggrego\Domain\Profile\BoardConstruction\Builder;
-use Aggrego\Domain\Profile\BoardConstruction\Exception\BuilderNotFoundException;
-use Aggrego\Domain\Profile\BoardConstruction\Factory;
-use Aggrego\Domain\Profile\BoardConstruction\Watchman;
+use Aggrego\Domain\Profile\BoardTransformation\Exception\TransformationNotFoundException;
+use Aggrego\Domain\Profile\BoardTransformation\Factory;
+use Aggrego\Domain\Profile\BoardTransformation\Transformation;
+use Aggrego\Domain\Profile\BoardTransformation\Watchman;
 use Aggrego\Domain\Profile\Profile;
 use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
@@ -25,11 +25,11 @@ use stdClass;
 
 class FactorySpec extends ObjectBehavior
 {
-    function let(Watchman $watchman, Builder $builder)
+    function let(Watchman $watchman, Transformation $transformation)
     {
         $profile = Profile::createFrom('test', '1.0');
         $watchman->isSupported($profile)->willReturn(true);
-        $watchman->passBuilder($profile)->willReturn($builder);
+        $watchman->passTransformation($profile)->willReturn($transformation);
         $this->beConstructedWith([$watchman]);
     }
 
@@ -41,7 +41,7 @@ class FactorySpec extends ObjectBehavior
     function it_should_factory_board_factory()
     {
         $profile = Profile::createFrom('test', '1.0');
-        $this->factory($profile)->shouldBeAnInstanceOf(Builder::class);
+        $this->factory($profile)->shouldBeAnInstanceOf(Transformation::class);
     }
 
     function it_should_throw_exception_on_unknown_profile(Watchman $watchman)
@@ -51,7 +51,7 @@ class FactorySpec extends ObjectBehavior
         $this->beConstructedWith([$watchman]);
 
         $profile = Profile::createFrom('unknown', '1.0');
-        $this->shouldThrow(BuilderNotFoundException::class)->during('factory', [$profile]);
+        $this->shouldThrow(TransformationNotFoundException::class)->during('factory', [$profile]);
     }
 
     function it_should_throw_exception_on_wrong_watchmen_initialization()

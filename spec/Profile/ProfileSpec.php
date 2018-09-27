@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace spec\Aggrego\Domain\Profile;
 
 use Aggrego\Domain\Profile\Profile;
+use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 
 class ProfileSpec extends ObjectBehavior
@@ -40,5 +41,17 @@ class ProfileSpec extends ObjectBehavior
         $subject = $this->__toString();
         $subject->shouldBeString();
         $subject->shouldBe('test:version');
+    }
+
+    function it_should_throw_exception_when_name_hold_colon()
+    {
+        $this->beConstructedThrough('createFrom', ['te:st', 'version']);
+        $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
+    }
+
+    function it_should_throw_exception_when_version_hold_colon()
+    {
+        $this->beConstructedThrough('createFrom', ['test', 'versi:on']);
+        $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
 }

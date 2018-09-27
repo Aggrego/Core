@@ -8,12 +8,6 @@ services:
           - "@tests.domain.progressive_board.repository"
           - "@domain.profile.board_construction.factory"
 
-    domain.command.update_board.use_case:
-        public: true
-        class: Aggrego\Domain\Api\Domain\Command\UpdateBoard\UseCase
-        arguments:
-          - "@tests.domain.progressive_board.repository"
-
     domain.command.transform_board.use_case:
         public: true
         class: Aggrego\Domain\Api\Domain\Command\TransformBoard\UseCase

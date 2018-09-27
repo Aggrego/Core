@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Api\Command\TransformBoard;
 
-use Aggrego\Domain\Board\Uuid;
+use Aggrego\AggregateEventConsumer\Uuid;
 
 class Command
 {

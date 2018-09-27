@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace Aggrego\Domain\Api\Command\TransformBoard;
 
 use Aggrego\Domain\Api\Command\TransformBoard\Exception\InvalidCommandDataException;
-use Aggrego\Domain\Board\Factory;
+use Aggrego\Domain\Board\FromBoardFactory;
 use Aggrego\Domain\Board\Repository;
 
 class UseCase
@@ -22,10 +22,10 @@ class UseCase
     /** @var Repository */
     private $repository;
 
-    /** @var Factory */
+    /** @var FromBoardFactory */
     private $factory;
 
-    public function __construct(Repository $repository, Factory $factory)
+    public function __construct(Repository $repository, FromBoardFactory $factory)
     {
         $this->repository = $repository;
         $this->factory = $factory;
