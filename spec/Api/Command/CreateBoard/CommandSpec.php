@@ -14,6 +14,8 @@ declare(strict_types = 1);
 namespace spec\Aggrego\Domain\Api\Command\CreateBoard;
 
 use Aggrego\Domain\Api\Command\CreateBoard\Command;
+use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Profile\Profile;
 use PhpSpec\ObjectBehavior;
 
 class CommandSpec extends ObjectBehavior
@@ -26,5 +28,15 @@ class CommandSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(Command::class);
+    }
+
+    function it_should_have_key()
+    {
+        $this->getKey()->shouldBeAnInstanceOf(Key::class);
+    }
+
+    function it_should_have_profile()
+    {
+        $this->getProfile()->shouldBeAnInstanceOf(Profile::class);
     }
 }
