@@ -11,14 +11,16 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\DataBoard\Board;
+namespace spec\Aggrego\DataBoard\Board;
 
-use TimiTao\ValueObject\Utils\StringValueObject;
+use Aggrego\DataBoard\Board\Builder;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 
-class Data extends StringValueObject
+class BuilderSpec extends ObjectBehavior
 {
-    public function __construct(string $value)
+    function it_is_initializable()
     {
-        parent::__construct(self::class, $value);
+        $this->shouldHaveType(Builder::class);
     }
 }

@@ -1,14 +1,23 @@
 <?php
+/**
+ *
+ * This file is part of the Aggrego.
+ * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ */
 
 declare(strict_types = 1);
 
 namespace Aggrego\DataBoard\Board\Events;
 
+use Aggrego\AggregateEventConsumer\Shared\Event;
+use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\DataBoard\Board\Metadata;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Profile\Profile;
-use Aggrego\EventStore\Shared\Event\Model\Events\Event;
-use Aggrego\EventStore\Uuid;
 
 class BoardCreatedEvent extends Event
 {

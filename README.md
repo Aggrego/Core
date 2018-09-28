@@ -1,7 +1,8 @@
 [![License](https://poser.pugx.org/aggrego/data-board/license.svg)](https://packagist.org/packages/aggrego/data-board)
 [![Latest Stable Version](https://poser.pugx.org/aggrego/data-board/v/stable.svg)](https://packagist.org/packages/aggrego/data-board)
 [![Total Downloads](https://poser.pugx.org/aggrego/data-board/downloads.svg)](https://packagist.org/packages/aggrego/data-board)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/data-board/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/data-board/?branch=master)
+[![Travis](https://travis-ci.org/Aggrego/DataBoard.svg?branch=master)](https://travis-ci.org/Aggrego/DataBoard/builds)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Aggrego/DataBoard/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Aggrego/DataBoard/?branch=master)
 
 ## Versioning
  
