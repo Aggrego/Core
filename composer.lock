@@ -7,101 +7,17 @@
     "content-hash": "c7c156dc723db98ed1852ce9a03cc3d3",
     "packages": [
         {
-            "name": "aggrego/domain",
+            "name": "aggrego/aggregate-event-consumer",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Aggrego/Domain.git",
-                "reference": "27fd61a21a4db2e0fbc358a25a6f41962362d9dd"
+                "url": "https://github.com/Aggrego/AggregateEventConsumer.git",
+                "reference": "ac1b7108a5b2ea738c096e155b6b8e9ce6e88889"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/Domain/zipball/27fd61a21a4db2e0fbc358a25a6f41962362d9dd",
-                "reference": "27fd61a21a4db2e0fbc358a25a6f41962362d9dd",
-                "shasum": ""
-            },
-            "require": {
-                "aggrego/event-store": "dev-master",
-                "beberlei/assert": "^3.0",
-                "php": ">=7.1",
-                "ramsey/uuid": "^3.8",
-                "timitao/value-object": "dev-master"
-            },
-            "require-dev": {
-                "behat/behat": "^3.4",
-                "phpspec/phpspec": "^5.0",
-                "timitao/behat-symfony-container": "^1.1"
-            },
-            "type": "domain",
-            "autoload": {
-                "psr-4": {
-                    "Aggrego\\Domain\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Tomasz Kunicki"
-                }
-            ],
-            "time": "2018-09-15T07:50:32+00:00"
-        },
-        {
-            "name": "aggrego/event-consumer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Aggrego/EventConsumer.git",
-                "reference": "610f2844a702c314ee17a5ddc06bce503dc1d7e8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/610f2844a702c314ee17a5ddc06bce503dc1d7e8",
-                "reference": "610f2844a702c314ee17a5ddc06bce503dc1d7e8",
-                "shasum": ""
-            },
-            "require": {
-                "beberlei/assert": "^3.0",
-                "composer/semver": "1.4.*",
-                "php": ">=7.1",
-                "timitao/value-object": "dev-master"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "^5.0",
-                "wikimedia/composer-merge-plugin": "1.4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Aggrego\\EventConsumer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Tomasz Kunicki"
-                }
-            ],
-            "time": "2018-09-24T18:36:16+00:00"
-        },
-        {
-            "name": "aggrego/event-store",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Aggrego/EventStore.git",
-                "reference": "a59cdc2d522b91c476f5edfbc65c13c89be90757"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventStore/zipball/a59cdc2d522b91c476f5edfbc65c13c89be90757",
-                "reference": "a59cdc2d522b91c476f5edfbc65c13c89be90757",
+                "url": "https://api.github.com/repos/Aggrego/AggregateEventConsumer/zipball/ac1b7108a5b2ea738c096e155b6b8e9ce6e88889",
+                "reference": "ac1b7108a5b2ea738c096e155b6b8e9ce6e88889",
                 "shasum": ""
             },
             "require": {
@@ -130,7 +46,92 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-09-24T15:13:03+00:00"
+            "time": "2018-09-25T20:45:49+00:00"
+        },
+        {
+            "name": "aggrego/domain",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aggrego/Domain.git",
+                "reference": "6866f181724248d80c7fe474451e3681d3ef45a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aggrego/Domain/zipball/6866f181724248d80c7fe474451e3681d3ef45a4",
+                "reference": "6866f181724248d80c7fe474451e3681d3ef45a4",
+                "shasum": ""
+            },
+            "require": {
+                "aggrego/aggregate-event-consumer": "dev-master",
+                "beberlei/assert": "^3.0",
+                "php": ">=7.1",
+                "ramsey/uuid": "^3.8",
+                "timitao/value-object": "dev-master"
+            },
+            "require-dev": {
+                "behat/behat": "^3.4",
+                "phpspec/phpspec": "^5.0",
+                "timitao/behat-symfony-container": "^1.1",
+                "wikimedia/composer-merge-plugin": "1.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aggrego\\Domain\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tomasz Kunicki"
+                }
+            ],
+            "time": "2018-09-28T05:51:08+00:00"
+        },
+        {
+            "name": "aggrego/event-consumer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aggrego/EventConsumer.git",
+                "reference": "3b5e45f8b2bb4622b350a418ac921477579eb7d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/3b5e45f8b2bb4622b350a418ac921477579eb7d7",
+                "reference": "3b5e45f8b2bb4622b350a418ac921477579eb7d7",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^3.0",
+                "composer/semver": "1.4.*",
+                "php": ">=7.1",
+                "timitao/value-object": "dev-master"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^5.0",
+                "wikimedia/composer-merge-plugin": "1.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aggrego\\EventConsumer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tomasz Kunicki"
+                }
+            ],
+            "time": "2018-09-25T20:04:54+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -690,19 +691,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8788c31191242bca77a260b1d2c2621f18c9c1c3"
+                "reference": "8f58c558d3263405c13df40489c35fe1eefd8f0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8788c31191242bca77a260b1d2c2621f18c9c1c3",
-                "reference": "8788c31191242bca77a260b1d2c2621f18c9c1c3",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8f58c558d3263405c13df40489c35fe1eefd8f0e",
+                "reference": "8f58c558d3263405c13df40489c35fe1eefd8f0e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^4.0",
+                "doctrine/coding-standard": "^5.0",
                 "ext-pdo": "*",
                 "ext-phar": "*",
                 "phpbench/phpbench": "^0.13",
@@ -737,7 +738,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2018-09-05T19:40:54+00:00"
+            "time": "2018-09-25T21:32:24+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1755,12 +1756,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "e4f1ce8e2f10b4f8b37d32125e1720bea6851096"
+                "reference": "0a0d27ed2c28a08dc42430f7b7157010ca0544c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/e4f1ce8e2f10b4f8b37d32125e1720bea6851096",
-                "reference": "e4f1ce8e2f10b4f8b37d32125e1720bea6851096",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/0a0d27ed2c28a08dc42430f7b7157010ca0544c1",
+                "reference": "0a0d27ed2c28a08dc42430f7b7157010ca0544c1",
                 "shasum": ""
             },
             "require": {
@@ -1796,7 +1797,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-21T12:51:02+00:00"
+            "time": "2018-09-26T05:38:44+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
