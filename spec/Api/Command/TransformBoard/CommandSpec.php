@@ -15,13 +15,14 @@ namespace spec\Aggrego\Domain\Api\Command\TransformBoard;
 
 use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\Domain\Api\Command\TransformBoard\Command;
+use Aggrego\Domain\Board\Key;
 use PhpSpec\ObjectBehavior;
 
 class CommandSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('69d53395-7c1d-452d-ab5c-921575980f16');
+        $this->beConstructedWith('69d53395-7c1d-452d-ab5c-921575980f16', ['test']);
     }
 
     function it_is_initializable()
@@ -32,5 +33,10 @@ class CommandSpec extends ObjectBehavior
     function it_should_have_board_uuid()
     {
         $this->getBoardUuid()->shouldBeAnInstanceOf(Uuid::class);
+    }
+
+    function it_should_have_key()
+    {
+        $this->getKey()->shouldBeAnInstanceOf(Key::class);
     }
 }

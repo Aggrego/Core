@@ -38,10 +38,10 @@ class FromBoardFactory
         $this->transformationFactory = $transformationFactory;
     }
 
-    public function fromBoard(Board $board): Board
+    public function fromBoard(Key $key, Board $board): Board
     {
         $transformation = $this->transformationFactory->factory($board->getProfile());
-        $prototype = $transformation->transform($board);
+        $prototype = $transformation->transform($key, $board);
 
         $key = $prototype->getKey();
         $profile = $prototype->getProfile();

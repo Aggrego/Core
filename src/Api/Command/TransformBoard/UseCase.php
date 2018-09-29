@@ -38,7 +38,7 @@ class UseCase
     public function handle(Command $command): void
     {
         $board = $this->repository->getBoardByUuid($command->getBoardUuid());
-        $newBoard = $this->factory->fromBoard($board);
+        $newBoard = $this->factory->fromBoard($command->getKey(), $board);
         $this->repository->addBoard($newBoard);
     }
 }

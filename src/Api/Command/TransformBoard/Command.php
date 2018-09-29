@@ -14,19 +14,29 @@ declare(strict_types = 1);
 namespace Aggrego\Domain\Api\Command\TransformBoard;
 
 use Aggrego\AggregateEventConsumer\Uuid;
+use Aggrego\Domain\Board\Key;
 
 class Command
 {
     /** @var Uuid */
     private $boardUuid;
 
-    public function __construct(string $boardUuid)
+    /** @var Key */
+    private $key;
+
+    public function __construct(string $boardUuid, array $key)
     {
         $this->boardUuid = new Uuid($boardUuid);
+        $this->key = new Key($key);
     }
 
     public function getBoardUuid(): Uuid
     {
         return $this->boardUuid;
+    }
+
+    public function getKey(): Key
+    {
+        return $this->key;
     }
 }
