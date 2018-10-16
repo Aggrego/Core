@@ -31,8 +31,22 @@ class Profile
         $this->version = $version;
     }
 
-    public static function createFrom(string $name, string $version): self
+    public static function createFromParts(string $name, string $version): self
     {
+        Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        Assertion::regex($version, sprintf('/^[^%s]*$/', self::SEPARATOR));
+
+        return new self($name, $version);
+    }
+
+    public static function createFromName(string $fullName): self
+    {
+        $parts = explode(self::SEPARATOR, $fullName);
+        Assertion::count($parts, 2);
+
+        $name = $parts[0];
+        $version = $parts[1];
+
         Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
         Assertion::regex($version, sprintf('/^[^%s]*$/', self::SEPARATOR));
 

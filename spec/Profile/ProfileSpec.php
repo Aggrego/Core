@@ -21,7 +21,7 @@ class ProfileSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedThrough('createFrom', ['test', 'version']);
+        $this->beConstructedThrough('createFromParts', ['test', 'version']);
     }
 
     function it_is_initializable()
@@ -31,13 +31,13 @@ class ProfileSpec extends ObjectBehavior
 
     function it_should_check_equal_profile()
     {
-        $profile = Profile::createFrom('test', 'version');
+        $profile = Profile::createFromParts('test', 'version');
         $this->equal($profile)->shouldBeBool();
     }
 
     function it_should_convert_to_string()
     {
-        $this->beConstructedThrough('createFrom', ['test', 'version']);
+        $this->beConstructedThrough('createFromParts', ['test', 'version']);
         $subject = $this->__toString();
         $subject->shouldBeString();
         $subject->shouldBe('test:version');
@@ -45,13 +45,13 @@ class ProfileSpec extends ObjectBehavior
 
     function it_should_throw_exception_when_name_hold_colon()
     {
-        $this->beConstructedThrough('createFrom', ['te:st', 'version']);
+        $this->beConstructedThrough('createFromParts', ['te:st', 'version']);
         $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
 
     function it_should_throw_exception_when_version_hold_colon()
     {
-        $this->beConstructedThrough('createFrom', ['test', 'versi:on']);
+        $this->beConstructedThrough('createFromParts', ['test', 'versi:on']);
         $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
 }

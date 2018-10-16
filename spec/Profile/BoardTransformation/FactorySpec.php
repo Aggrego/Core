@@ -27,7 +27,7 @@ class FactorySpec extends ObjectBehavior
 {
     function let(Watchman $watchman, Transformation $transformation)
     {
-        $profile = Profile::createFrom('test', '1.0');
+        $profile = Profile::createFromParts('test', '1.0');
         $watchman->isSupported($profile)->willReturn(true);
         $watchman->passTransformation($profile)->willReturn($transformation);
         $this->beConstructedWith([$watchman]);
@@ -40,7 +40,7 @@ class FactorySpec extends ObjectBehavior
 
     function it_should_factory_board_factory()
     {
-        $profile = Profile::createFrom('test', '1.0');
+        $profile = Profile::createFromParts('test', '1.0');
         $this->factory($profile)->shouldBeAnInstanceOf(Transformation::class);
     }
 
@@ -50,7 +50,7 @@ class FactorySpec extends ObjectBehavior
         $watchman->isSupported($profile)->willReturn(false);
         $this->beConstructedWith([$watchman]);
 
-        $profile = Profile::createFrom('unknown', '1.0');
+        $profile = Profile::createFromParts('unknown', '1.0');
         $this->shouldThrow(TransformationNotFoundException::class)->during('factory', [$profile]);
     }
 

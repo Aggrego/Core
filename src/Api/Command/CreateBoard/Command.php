@@ -27,7 +27,7 @@ class Command
     public function __construct(array $key, string $profileName, string $versionNumber)
     {
         $this->key = new Key($key);
-        $this->profile = Profile::createFrom($profileName, $versionNumber);
+        $this->profile = Profile::createFromParts($profileName, $versionNumber);
     }
 
     public function getKey(): Key
