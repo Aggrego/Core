@@ -27,7 +27,7 @@ class BoardSpec extends ObjectBehavior
     {
         $uuid = new Uuid('69d53395-7c1d-452d-ab5c-921575980f16');
         $key = new Key(['test']);
-        $profile = Profile::createFrom('test', '1.0');
+        $profile = Profile::createFromParts('test', '1.0');
         $metadata = new Metadata(new Data('test'));
         $parentUuid = new Uuid('69d53395-7c1d-452d-ab5c-921575980f16');
         $this->beConstructedWith($uuid, $key, $profile, $metadata, $parentUuid);
