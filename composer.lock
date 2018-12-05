@@ -411,12 +411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "84ec1b168fb4397c43854c2c7391fb57333cda2c"
+                "reference": "4328adf6e49a466d0bf4ebc4d5635bfb2396d16e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/84ec1b168fb4397c43854c2c7391fb57333cda2c",
-                "reference": "84ec1b168fb4397c43854c2c7391fb57333cda2c",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/4328adf6e49a466d0bf4ebc4d5635bfb2396d16e",
+                "reference": "4328adf6e49a466d0bf4ebc4d5635bfb2396d16e",
                 "shasum": ""
             },
             "require": {
@@ -484,7 +484,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2018-11-12T16:11:00+00:00"
+            "time": "2018-11-20T09:14:48+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -555,12 +555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "71bdaddd52ddb753a144c78289f21abb719aebc4"
+                "reference": "33825cd25f073faafe98c4a017a5d2b69f3e09d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/71bdaddd52ddb753a144c78289f21abb719aebc4",
-                "reference": "71bdaddd52ddb753a144c78289f21abb719aebc4",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/33825cd25f073faafe98c4a017a5d2b69f3e09d3",
+                "reference": "33825cd25f073faafe98c4a017a5d2b69f3e09d3",
                 "shasum": ""
             },
             "require": {
@@ -611,7 +611,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-10-30T05:42:23+00:00"
+            "time": "2018-12-04T14:31:16+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -795,12 +795,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "f75de4cb9e4376c09e600a30174fefad9daa2272"
+                "reference": "f0ccd811fe34dd4d01502614e7361b93594994c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/f75de4cb9e4376c09e600a30174fefad9daa2272",
-                "reference": "f75de4cb9e4376c09e600a30174fefad9daa2272",
+                "url": "https://api.github.com/repos/symfony/console/zipball/f0ccd811fe34dd4d01502614e7361b93594994c3",
+                "reference": "f0ccd811fe34dd4d01502614e7361b93594994c3",
                 "shasum": ""
             },
             "require": {
@@ -829,7 +829,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -856,7 +856,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-15T12:17:10+00:00"
+            "time": "2018-11-27T07:40:59+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -864,12 +864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "4a33574d5771f4b04334cd4f7d43de96a92efb62"
+                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/4a33574d5771f4b04334cd4f7d43de96a92efb62",
-                "reference": "4a33574d5771f4b04334cd4f7d43de96a92efb62",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/3edf0ab943d1985a356721952cba36ff31bd6e5f",
+                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f",
                 "shasum": ""
             },
             "require": {
@@ -924,7 +924,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2018-10-31T08:00:32+00:00"
+            "time": "2018-11-24T09:35:08+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -932,12 +932,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "d39d7a05414c4462abd8c077322b4811549f705c"
+                "reference": "4dd5aac827109343640d66104999765faf8d0c34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d39d7a05414c4462abd8c077322b4811549f705c",
-                "reference": "d39d7a05414c4462abd8c077322b4811549f705c",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/4dd5aac827109343640d66104999765faf8d0c34",
+                "reference": "4dd5aac827109343640d66104999765faf8d0c34",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +961,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -988,7 +988,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T19:52:12+00:00"
+            "time": "2018-12-01T08:53:37+00:00"
         },
         {
             "name": "symfony/finder",
@@ -996,12 +996,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "e53d477d7b5c4982d0e1bfd2298dbee63d01441d"
+                "reference": "047be7e3450e5460f14c4a42a02c9811e2eda2cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/e53d477d7b5c4982d0e1bfd2298dbee63d01441d",
-                "reference": "e53d477d7b5c4982d0e1bfd2298dbee63d01441d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/047be7e3450e5460f14c4a42a02c9811e2eda2cd",
+                "reference": "047be7e3450e5460f14c4a42a02c9811e2eda2cd",
                 "shasum": ""
             },
             "require": {
@@ -1010,7 +1010,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -1037,7 +1037,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T19:52:12+00:00"
+            "time": "2018-11-26T16:19:01+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1162,12 +1162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "3665ff1c2c82263a3c281219e13c8a9cea37cd9a"
+                "reference": "1a01d2984ed07841fe3db2da69743f9b2ee14de7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/3665ff1c2c82263a3c281219e13c8a9cea37cd9a",
-                "reference": "3665ff1c2c82263a3c281219e13c8a9cea37cd9a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/1a01d2984ed07841fe3db2da69743f9b2ee14de7",
+                "reference": "1a01d2984ed07841fe3db2da69743f9b2ee14de7",
                 "shasum": ""
             },
             "require": {
@@ -1176,7 +1176,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -1203,7 +1203,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T19:52:12+00:00"
+            "time": "2018-11-26T16:19:01+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1211,12 +1211,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c41175c801e3edfda90f32e292619d10c27103d7"
+                "reference": "d4fc8a5d43d55a89c6baa856215ec39108fc33a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c41175c801e3edfda90f32e292619d10c27103d7",
-                "reference": "c41175c801e3edfda90f32e292619d10c27103d7",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/d4fc8a5d43d55a89c6baa856215ec39108fc33a0",
+                "reference": "d4fc8a5d43d55a89c6baa856215ec39108fc33a0",
                 "shasum": ""
             },
             "require": {
@@ -1235,7 +1235,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -1262,7 +1262,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T19:52:12+00:00"
+            "time": "2018-11-26T16:19:01+00:00"
         },
         {
             "name": "webmozart/assert",
