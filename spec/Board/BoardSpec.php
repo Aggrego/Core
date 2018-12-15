@@ -47,4 +47,14 @@ class BoardSpec extends ObjectBehavior
     {
         $this->getProfile()->shouldReturnAnInstanceOf(Profile::class);
     }
+
+    function it_should_have_key()
+    {
+        $this->getKey()->shouldReturnAnInstanceOf(Key::class);
+    }
+
+    function it_should_have_metadata()
+    {
+        $this->getMetadata()->shouldReturnAnInstanceOf(Metadata::class);
+    }
 }

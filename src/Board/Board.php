@@ -15,8 +15,8 @@ namespace Aggrego\DataBoard\Board;
 
 use Aggrego\AggregateEventConsumer\Shared\TraitAggregate;
 use Aggrego\AggregateEventConsumer\Uuid;
-use Aggrego\Domain\Board\Board as DomainBoard;
 use Aggrego\DataBoard\Board\Events\BoardCreatedEvent;
+use Aggrego\Domain\Board\Board as DomainBoard;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Profile\Profile;
 
@@ -54,5 +54,15 @@ class Board implements DomainBoard
     public function getProfile(): Profile
     {
         return $this->profile;
+    }
+
+    public function getKey(): Key
+    {
+        return $this->key;
+    }
+
+    public function getMetadata(): Metadata
+    {
+        return $this->metadata;
     }
 }
