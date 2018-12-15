@@ -63,4 +63,9 @@ class Profile
     {
         return $this->name . self::SEPARATOR . $this->version;
     }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }

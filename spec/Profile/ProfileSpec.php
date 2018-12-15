@@ -29,6 +29,11 @@ class ProfileSpec extends ObjectBehavior
         $this->shouldHaveType(Profile::class);
     }
 
+    public function it_should_have_profile()
+    {
+        $this->getName()->shouldBeString();
+    }
+
     function it_should_check_equal_profile()
     {
         $profile = Profile::createFromParts('test', 'version');
