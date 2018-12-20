@@ -13,17 +13,31 @@ declare(strict_types = 1);
 
 namespace Aggrego\DataBoard\Board\Events;
 
-use Aggrego\AggregateEventConsumer\Shared\Event;
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\DataBoard\Board\Metadata;
 use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;
+use Aggrego\EventConsumer\Event\CreatedAt;
+use Aggrego\EventConsumer\Event\Domain;
+use Aggrego\EventConsumer\Event\Name;
+use Aggrego\EventConsumer\Event\Version;
+use Aggrego\EventConsumer\Shared\Event;
+use DateTimeImmutable;
 
 class BoardCreatedEvent extends Event
 {
-    public function __construct(Uuid $uuid, Key $key, Profile $profile, Metadata $metadata, ?Uuid $parentUuid)
+    private const DOMAIN_NAME = 'board.data_board';
+
+    public static function build(Uuid $uuid, Key $key, Profile $profile, Metadata $metadata, ?Uuid $parentUuid): self
     {
-        parent::__construct(
+        return new self(
+            Domain::fromParts(
+                self::DOMAIN_NAME,
+                $uuid->getValue()
+            ),
+            new Name(self::class),
+            new CreatedAt(new DateTimeImmutable()),
+            new Version('1.0.0.0'),
             [
                 'uuid' => $uuid->getValue(),
                 'key' => $key->getValue(),

@@ -13,11 +13,11 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\DataBoard\Board;
 
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\DataBoard\Board\Board;
 use Aggrego\DataBoard\Board\Data;
 use Aggrego\DataBoard\Board\Metadata;
 use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;
 use PhpSpec\ObjectBehavior;
 

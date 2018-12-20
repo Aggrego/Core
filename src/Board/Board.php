@@ -13,16 +13,18 @@ declare(strict_types = 1);
 
 namespace Aggrego\DataBoard\Board;
 
-use Aggrego\AggregateEventConsumer\Shared\TraitAggregate;
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\DataBoard\Board\Events\BoardCreatedEvent;
 use Aggrego\Domain\Board\Board as DomainBoard;
 use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;
+use Aggrego\EventConsumer\Event;
+use Aggrego\EventConsumer\Shared\Events;
 
 class Board implements DomainBoard
 {
-    use TraitAggregate;
+    /** @var Events */
+    protected $events;
 
     /** @var Uuid */
     private $uuid;
@@ -42,8 +44,8 @@ class Board implements DomainBoard
         $this->key = $key;
         $this->profile = $profile;
         $this->metadata = $metadata;
-
-        $this->pushEvent(new BoardCreatedEvent($uuid, $key, $profile, $metadata, $parentUuid));
+        $this->events = new Events();
+        $this->pushEvent(BoardCreatedEvent::build($uuid, $key, $profile, $metadata, $parentUuid));
     }
 
     public function getUuid(): Uuid
@@ -64,5 +66,15 @@ class Board implements DomainBoard
     public function getMetadata(): Metadata
     {
         return $this->metadata;
+    }
+
+    public function pullEvents(): Events
+    {
+        return $this->events;
+    }
+
+    protected function pushEvent(Event $event): void
+    {
+        $this->events->add($event);
     }
 }
