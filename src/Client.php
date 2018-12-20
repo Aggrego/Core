@@ -11,9 +11,8 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\EventConsumer\Api;
+namespace Aggrego\EventConsumer;
 
-use Aggrego\EventConsumer\Event;
 use Aggrego\EventConsumer\Exception\UnprocessableEventException;
 
 interface Client
