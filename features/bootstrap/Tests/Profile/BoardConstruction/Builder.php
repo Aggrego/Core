@@ -8,7 +8,6 @@ use Aggrego\Domain\Profile\BoardConstruction\Builder as DomainBuilder;
 use Aggrego\Domain\Profile\BoardConstruction\Exception\UnableToBuildBoardException;
 use Aggrego\Domain\Profile\BoardConstruction\InitialBoardModel\Board;
 use Aggrego\Domain\Profile\Profile;
-use Aggrego\Domain\Shared\ValueObject\Key;
 
 class Builder implements DomainBuilder
 {

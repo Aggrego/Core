@@ -7,7 +7,7 @@ namespace Tests\Domain\ProgressiveBoard;
 use Aggrego\Domain\Board\Board;
 use Aggrego\Domain\Board\Exception\BoardNotFoundException;
 use Aggrego\Domain\Board\Repository as BoardRepository;
-use Aggrego\Domain\Shared\ValueObject\Uuid;
+use Aggrego\Domain\Board\Uuid;
 
 class Repository implements BoardRepository
 {

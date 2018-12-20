@@ -13,7 +13,6 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Api\Command\CreateBoard;
 
-use Aggrego\Domain\Api\Command\CreateBoard\Exception\InvalidCommandDataException;
 use Aggrego\Domain\Board\NewBoardFactory;
 use Aggrego\Domain\Board\Repository;
 
@@ -33,12 +32,13 @@ class UseCase
 
     /**
      * @param Command $command
-     * @throws InvalidCommandDataException
+     * @return Result
      */
-    public function handle(Command $command): void
+    public function handle(Command $command): Result
     {
-        $this->repository->addBoard(
-            $this->factory->newBoard($command->getKey(), $command->getProfile())
-        );
+        $board = $this->factory->newBoard($command->getKey(), $command->getProfile());
+        $this->repository->addBoard($board);
+
+        return Result::ok($board);
     }
 }

@@ -68,4 +68,9 @@ class Profile
     {
         return $this->name;
     }
+
+    public function getVersion(): string
+    {
+        return $this->version;
+    }
 }

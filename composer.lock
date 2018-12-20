@@ -4,62 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "346f5617e7697f9de78f9f87a16aa824",
+    "content-hash": "9b51e38f032773fe3651b7ef6b905f43",
     "packages": [
-        {
-            "name": "aggrego/aggregate-event-consumer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Aggrego/AggregateEventConsumer.git",
-                "reference": "7a65b2760cc2fcf02433a03dc4a0de6198e8fa43"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/AggregateEventConsumer/zipball/7a65b2760cc2fcf02433a03dc4a0de6198e8fa43",
-                "reference": "7a65b2760cc2fcf02433a03dc4a0de6198e8fa43",
-                "shasum": ""
-            },
-            "require": {
-                "aggrego/event-consumer": "dev-master",
-                "beberlei/assert": "^3.0",
-                "composer/semver": "1.4.*",
-                "php": ">=7.1",
-                "timitao/value-object": "dev-master"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "^5.0",
-                "wikimedia/composer-merge-plugin": "1.4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Aggrego\\AggregateEventConsumer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Tomasz Kunicki"
-                }
-            ],
-            "time": "2018-12-05T21:17:17+00:00"
-        },
         {
             "name": "aggrego/event-consumer",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/EventConsumer.git",
-                "reference": "933f0d496ea49437cb0524e837f2381b23deb60c"
+                "reference": "6657470b7505f6770436aef875a750c3ba6c6e0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/933f0d496ea49437cb0524e837f2381b23deb60c",
-                "reference": "933f0d496ea49437cb0524e837f2381b23deb60c",
+                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/6657470b7505f6770436aef875a750c3ba6c6e0f",
+                "reference": "6657470b7505f6770436aef875a750c3ba6c6e0f",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +45,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-12-05T20:57:33+00:00"
+            "time": "2018-12-20T15:28:12+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -972,12 +930,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "3660b2eed90abdf92ac2e9dae9a238d2701bfa77"
+                "reference": "7e272180527c34a97680de85eb5aba0847a664e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3660b2eed90abdf92ac2e9dae9a238d2701bfa77",
-                "reference": "3660b2eed90abdf92ac2e9dae9a238d2701bfa77",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/7e272180527c34a97680de85eb5aba0847a664e0",
+                "reference": "7e272180527c34a97680de85eb5aba0847a664e0",
                 "shasum": ""
             },
             "require": {
@@ -998,8 +956,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Prophecy\\": "src/"
+                "psr-4": {
+                    "Prophecy\\": "src/Prophecy"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1027,7 +985,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-11-04T18:50:11+00:00"
+            "time": "2018-12-18T15:40:51+00:00"
         },
         {
             "name": "psr/container",
@@ -1387,12 +1345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "7dac0f8df415100d5d4ecd71213d794546d65d0e"
+                "reference": "3f8a62ad1763ab3a43b1e30d90a6f443bab15fa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/7dac0f8df415100d5d4ecd71213d794546d65d0e",
-                "reference": "7dac0f8df415100d5d4ecd71213d794546d65d0e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/3f8a62ad1763ab3a43b1e30d90a6f443bab15fa5",
+                "reference": "3f8a62ad1763ab3a43b1e30d90a6f443bab15fa5",
                 "shasum": ""
             },
             "require": {
@@ -1448,7 +1406,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2018-12-17T13:51:43+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -1524,12 +1482,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "23084c294ac5d93b5ca1e67841ce9ae128e3b532"
+                "reference": "9426384715c392e3659cec27fce9fb21fbf71f90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/23084c294ac5d93b5ca1e67841ce9ae128e3b532",
-                "reference": "23084c294ac5d93b5ca1e67841ce9ae128e3b532",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/9426384715c392e3659cec27fce9fb21fbf71f90",
+                "reference": "9426384715c392e3659cec27fce9fb21fbf71f90",
                 "shasum": ""
             },
             "require": {
@@ -1589,7 +1547,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2018-12-17T14:43:57+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1597,12 +1555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "a6ec602b1c247fd67f9104642f397bc70667df84"
+                "reference": "a0c96c8771a003c058ef2e4366055688be8bd1df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a6ec602b1c247fd67f9104642f397bc70667df84",
-                "reference": "a6ec602b1c247fd67f9104642f397bc70667df84",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a0c96c8771a003c058ef2e4366055688be8bd1df",
+                "reference": "a0c96c8771a003c058ef2e4366055688be8bd1df",
                 "shasum": ""
             },
             "require": {
@@ -1653,7 +1611,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2018-12-17T13:49:19+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -2141,7 +2099,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "aggrego/aggregate-event-consumer": 20,
+        "aggrego/event-consumer": 20,
         "timitao/value-object": 20
     },
     "prefer-stable": false,

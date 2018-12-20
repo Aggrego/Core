@@ -13,7 +13,6 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Board;
 
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\Domain\Board\Exception\BoardExistException;
 use Aggrego\Domain\Board\Exception\BoardNotFoundException;
 

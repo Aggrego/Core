@@ -13,7 +13,6 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Board;
 
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\Domain\Board\Builder as BoardBuilder;
 use Aggrego\Domain\Board\Exception\UnsupportedPrototypeBuilderException;
 use Aggrego\Domain\Profile\BoardConstruction\Factory as BoardConstructionFactory;
@@ -54,7 +53,7 @@ class NewBoardFactory
         );
 
         foreach ($this->builders as $builder) {
-            if ($builder->isSupported($prototype)) {
+            if (!$builder->isSupported($prototype)) {
                 continue;
             }
 

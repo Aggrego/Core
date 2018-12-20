@@ -13,7 +13,6 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Board;
 
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\Domain\Board\Builder as BoardBuilder;
 use Aggrego\Domain\Board\Exception\UnsupportedPrototypeBuilderException;
 use Aggrego\Domain\Profile\BoardTransformation\Factory as BoardTransformationFactory;

@@ -13,9 +13,9 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\Api\Command\TransformBoard;
 
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\Domain\Api\Command\TransformBoard\Command;
 use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Board\Uuid;
 use PhpSpec\ObjectBehavior;
 
 class CommandSpec extends ObjectBehavior

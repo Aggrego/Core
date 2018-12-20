@@ -13,10 +13,14 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Board;
 
-use Aggrego\AggregateEventConsumer\Aggregate;
 use Aggrego\Domain\Profile\Profile;
+use Aggrego\EventConsumer\Shared\Events;
 
-interface Board extends Aggregate
+interface Board
 {
     public function getProfile(): Profile;
+
+    public function getUuid(): Uuid;
+
+    public function pullEvents(): Events;
 }

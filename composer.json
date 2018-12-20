@@ -14,7 +14,7 @@
     "php": ">=7.1",
     "beberlei/assert": "^3.0",
     "ramsey/uuid": "^3.8",
-    "aggrego/aggregate-event-consumer": "dev-master",
+    "aggrego/event-consumer": "dev-master",
     "timitao/value-object": "dev-master"
   },
   "require-dev": {
