@@ -13,13 +13,13 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\DataBoard\Board\Events;
 
-use Aggrego\AggregateEventConsumer\Event\Name;
-use Aggrego\AggregateEventConsumer\Uuid;
 use Aggrego\DataBoard\Board\Data;
 use Aggrego\DataBoard\Board\Events\BoardCreatedEvent;
 use Aggrego\DataBoard\Board\Metadata;
 use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;
+use Aggrego\EventConsumer\Event\Name;
 use PhpSpec\ObjectBehavior;
 
 class BoardCreatedEventSpec extends ObjectBehavior
@@ -31,7 +31,7 @@ class BoardCreatedEventSpec extends ObjectBehavior
         $profile = Profile::createFromParts('test', '1.0');
         $metadata = new Metadata(new Data('test'));
         $parentUuid->getValue()->willReturn('69d53395-7c1d-452d-ab5c-921575980f16');
-        $this->beConstructedWith($uuid, $key, $profile, $metadata, $parentUuid);
+        $this->beConstructedThrough('build', [$uuid, $key, $profile, $metadata, $parentUuid]);
     }
 
     function it_is_initializable()
