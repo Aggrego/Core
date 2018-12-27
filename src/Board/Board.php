@@ -70,7 +70,9 @@ class Board implements DomainBoard
 
     public function pullEvents(): Events
     {
-        return $this->events;
+        $list = $this->events;
+        $this->events = [];
+        return $list;
     }
 
     protected function pushEvent(Event $event): void
