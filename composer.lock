@@ -49,16 +49,16 @@
         },
         {
             "name": "beberlei/assert",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "e4f4a40a8739e1151d40fd1ed754a3ed37e1f522"
+                "reference": "fd82f4c8592c8128dd74481034c31da71ebafc56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/e4f4a40a8739e1151d40fd1ed754a3ed37e1f522",
-                "reference": "e4f4a40a8739e1151d40fd1ed754a3ed37e1f522",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/fd82f4c8592c8128dd74481034c31da71ebafc56",
+                "reference": "fd82f4c8592c8128dd74481034c31da71ebafc56",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2018-10-29T11:13:48+00:00"
+            "time": "2018-12-24T15:25:25+00:00"
         },
         {
             "name": "composer/semver",
@@ -1282,12 +1282,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "f2b8c42c7d124fcffac53662269022ee829ba2c4"
+                "reference": "146066db59780be05577aec68dfa77d8c9197f81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/f2b8c42c7d124fcffac53662269022ee829ba2c4",
-                "reference": "f2b8c42c7d124fcffac53662269022ee829ba2c4",
+                "url": "https://api.github.com/repos/symfony/config/zipball/146066db59780be05577aec68dfa77d8c9197f81",
+                "reference": "146066db59780be05577aec68dfa77d8c9197f81",
                 "shasum": ""
             },
             "require": {
@@ -1337,7 +1337,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2018-12-24T10:03:37+00:00"
         },
         {
             "name": "symfony/console",
@@ -1345,12 +1345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "3f8a62ad1763ab3a43b1e30d90a6f443bab15fa5"
+                "reference": "79a050b2acd61a655000208873ed9ff33320fc19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/3f8a62ad1763ab3a43b1e30d90a6f443bab15fa5",
-                "reference": "3f8a62ad1763ab3a43b1e30d90a6f443bab15fa5",
+                "url": "https://api.github.com/repos/symfony/console/zipball/79a050b2acd61a655000208873ed9ff33320fc19",
+                "reference": "79a050b2acd61a655000208873ed9ff33320fc19",
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1406,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-17T13:51:43+00:00"
+            "time": "2018-12-24T10:03:37+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -1482,12 +1482,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "9426384715c392e3659cec27fce9fb21fbf71f90"
+                "reference": "50af6d3c2758677cec34765e9a3d7305a8471b2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/9426384715c392e3659cec27fce9fb21fbf71f90",
-                "reference": "9426384715c392e3659cec27fce9fb21fbf71f90",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/50af6d3c2758677cec34765e9a3d7305a8471b2c",
+                "reference": "50af6d3c2758677cec34765e9a3d7305a8471b2c",
                 "shasum": ""
             },
             "require": {
@@ -1547,7 +1547,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-17T14:43:57+00:00"
+            "time": "2018-12-24T10:03:37+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1669,12 +1669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "d2bae4531a8d48ee610ec664d10336c9500e3a64"
+                "reference": "413fc800a335876085d358d3a3cd9e2d59093ed1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/d2bae4531a8d48ee610ec664d10336c9500e3a64",
-                "reference": "d2bae4531a8d48ee610ec664d10336c9500e3a64",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/413fc800a335876085d358d3a3cd9e2d59093ed1",
+                "reference": "413fc800a335876085d358d3a3cd9e2d59093ed1",
                 "shasum": ""
             },
             "require": {
@@ -1710,7 +1710,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2018-12-24T10:03:37+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1899,12 +1899,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "3a51c82e368190e2c829926bf7b512ac6902a853"
+                "reference": "c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/3a51c82e368190e2c829926bf7b512ac6902a853",
-                "reference": "3a51c82e368190e2c829926bf7b512ac6902a853",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e",
+                "reference": "c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e",
                 "shasum": ""
             },
             "require": {
@@ -1950,7 +1950,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2018-12-24T10:03:37+00:00"
         },
         {
             "name": "timitao/behat-symfony-container",
@@ -1998,20 +1998,21 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "dev-master",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "53927dddf3afa2088b355188e143bba42159bf5d"
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/53927dddf3afa2088b355188e143bba42159bf5d",
-                "reference": "53927dddf3afa2088b355188e143bba42159bf5d",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -2044,7 +2045,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-05-29T14:25:02+00:00"
+            "time": "2018-12-25T11:19:39+00:00"
         },
         {
             "name": "wikimedia/composer-merge-plugin",
