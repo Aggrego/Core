@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/EventConsumer.git",
-                "reference": "6657470b7505f6770436aef875a750c3ba6c6e0f"
+                "reference": "2e461e94a4db9d0e74a030004809675a3a6f402e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/6657470b7505f6770436aef875a750c3ba6c6e0f",
-                "reference": "6657470b7505f6770436aef875a750c3ba6c6e0f",
+                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/2e461e94a4db9d0e74a030004809675a3a6f402e",
+                "reference": "2e461e94a4db9d0e74a030004809675a3a6f402e",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-12-20T15:28:12+00:00"
+            "time": "2018-12-28T08:49:53+00:00"
         },
         {
             "name": "beberlei/assert",
