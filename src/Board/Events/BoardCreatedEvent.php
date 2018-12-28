@@ -31,7 +31,7 @@ class BoardCreatedEvent extends Event
     public static function build(Uuid $uuid, Key $key, Profile $profile, Metadata $metadata, ?Uuid $parentUuid): self
     {
         return new self(
-            Domain::fromParts(
+            Domain::build(
                 self::DOMAIN_NAME,
                 $uuid->getValue()
             ),
