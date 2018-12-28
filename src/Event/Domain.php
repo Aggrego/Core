@@ -14,34 +14,59 @@ declare(strict_types = 1);
 namespace Aggrego\EventConsumer\Event;
 
 use Assert\Assertion;
-use TimiTao\ValueObject\Utils\StringValueObject;
 
-class Domain extends StringValueObject
+class Domain
 {
     private const SEPARATOR = ':';
 
-    public function __construct(string $value)
+    /** @var Name */
+    private $name;
+
+    /** @var Uuid */
+    private $uuid;
+
+    public function __construct(Name $name, Uuid $uuid)
     {
-        Assertion::notEmpty($value);
-        parent::__construct(self::class, $value);
+        $this->name = $name;
+        $this->uuid = $uuid;
     }
 
     /**
-     * @param string ...$values
+     * @param string $value
      * @return Domain
      * @throws \Assert\AssertionFailedException
      */
-    public static function fromParts(string... $values): Domain
+    public static function fromString(string $string): Domain
     {
-        foreach ($values as $value) {
-            Assertion::notEmpty($value);
-            Assertion::regex($value, sprintf('/^[^%s]*$/', self::SEPARATOR));
-        }
-        return new self(join(self::SEPARATOR, $values));
+        Assertion::notEmpty($string);
+        list($domainName, $uuid) = explode(self::SEPARATOR, $string);
+
+        return self::build($domainName, $uuid);
     }
 
-    public function getParts(): array
+    /**
+     * @param string $domainName
+     * @param string $uuid
+     * @return Domain
+     * @throws \Assert\AssertionFailedException
+     */
+    public static function build(string $domainName, string $uuid): self
     {
-        return explode(self::SEPARATOR, $this->getValue());
+        return new self(new Name($domainName), new Uuid($uuid));
+    }
+
+    public function getValue(): string
+    {
+        return sprintf('%s:%s', $this->name->getValue(), $this->uuid->getValue());
+    }
+
+    public function getName(): Name
+    {
+        return $this->name;
+    }
+
+    public function getUuid(): Uuid
+    {
+        return $this->uuid;
     }
 }

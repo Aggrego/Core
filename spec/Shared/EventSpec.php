@@ -24,7 +24,7 @@ class EventSpec extends ObjectBehavior
     function let()
     {
         $this->beConstructedWith(
-            Domain::fromParts('test'),
+            Domain::build('test', '7835a2f1-65c4-4e05-aacf-2e9ed950f5f2'),
             new Name('test'),
             new CreatedAt(new DateTimeImmutable()),
             new Version('1.0'),
