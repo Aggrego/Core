@@ -1,4 +1,4 @@
 suites:
   default:
-    namespace: Aggrego\CommandProducer
-    psr4_prefix: Aggrego\CommandProducer
+    namespace: Aggrego\CommandConsumer
+    psr4_prefix: Aggrego\CommandConsumer

@@ -1,10 +1,10 @@
-[![License](https://poser.pugx.org/aggrego/event-consumer/license.svg)](https://packagist.org/packages/aggrego/event-consumer)
-[![Latest Stable Version](https://poser.pugx.org/aggrego/event-consumer/v/stable.svg)](https://packagist.org/packages/aggrego/event-consumer)
-[![Total Downloads](https://poser.pugx.org/aggrego/event-consumer/downloads.svg)](https://packagist.org/packages/aggrego/event-consumer)
+[![License](https://poser.pugx.org/aggrego/command-consumer/license.svg)](https://packagist.org/packages/aggrego/command-consumer)
+[![Latest Stable Version](https://poser.pugx.org/aggrego/command-consumer/v/stable.svg)](https://packagist.org/packages/aggrego/command-consumer)
+[![Total Downloads](https://poser.pugx.org/aggrego/command-consumer/downloads.svg)](https://packagist.org/packages/aggrego/command-consumer)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/eventconsumer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/eventconsumer/?branch=master)
-[![Travis](https://travis-ci.org/Aggrego/EventConsumer.svg?branch=master)](https://travis-ci.org/Aggrego/EventConsumer/builds)
+[![Travis](https://travis-ci.org/Aggrego/CommandConsumer.svg?branch=master)](https://travis-ci.org/Aggrego/CommandConsumer/builds)
 
-# EventConsumer
+# CommandConsumer
 
 Base interface for any integration cooperates with events.
 
