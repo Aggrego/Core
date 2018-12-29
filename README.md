@@ -1,7 +1,7 @@
 [![License](https://poser.pugx.org/aggrego/command-consumer/license.svg)](https://packagist.org/packages/aggrego/command-consumer)
 [![Latest Stable Version](https://poser.pugx.org/aggrego/command-consumer/v/stable.svg)](https://packagist.org/packages/aggrego/command-consumer)
 [![Total Downloads](https://poser.pugx.org/aggrego/command-consumer/downloads.svg)](https://packagist.org/packages/aggrego/command-consumer)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/eventconsumer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/eventconsumer/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/commandconsumer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/commandconsumer/?branch=master)
 [![Travis](https://travis-ci.org/Aggrego/CommandConsumer.svg?branch=master)](https://travis-ci.org/Aggrego/CommandConsumer/builds)
 
 # CommandConsumer
