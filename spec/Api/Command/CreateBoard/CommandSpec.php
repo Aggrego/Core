@@ -13,6 +13,9 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\Api\Command\CreateBoard;
 
+use Aggrego\CommandConsumer\Command as ConsumerCommand;
+use Aggrego\CommandConsumer\Uuid;
+use Aggrego\CommandConsumer\Version;
 use Aggrego\Domain\Api\Command\CreateBoard\Command;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Profile\Profile;
@@ -28,6 +31,7 @@ class CommandSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(Command::class);
+        $this->shouldHaveType(ConsumerCommand::class);
     }
 
     function it_should_have_key()
@@ -38,5 +42,20 @@ class CommandSpec extends ObjectBehavior
     function it_should_have_profile()
     {
         $this->getProfile()->shouldBeAnInstanceOf(Profile::class);
+    }
+
+    function it_should_have_uuid()
+    {
+        $this->getUuid()->shouldBeAnInstanceOf(Uuid::class);
+    }
+
+    function it_should_have_version()
+    {
+        $this->getVersion()->shouldBeAnInstanceOf(Version::class);
+    }
+
+    function it_should_have_payload()
+    {
+        $this->getPayload()->shouldBeArray();
     }
 }

@@ -17,7 +17,6 @@ use Aggrego\Domain\Api\Command\CreateBoard\UseCase;
 use Aggrego\Domain\Board\NewBoardFactory;
 use Aggrego\Domain\Board\Repository;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class UseCaseSpec extends ObjectBehavior
 {

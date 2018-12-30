@@ -13,7 +13,6 @@ namespace spec\Aggrego\Domain\Api\Command\TransformBoard;
 
 use Aggrego\Domain\Api\Command\TransformBoard\Result;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ResultSpec extends ObjectBehavior
 {

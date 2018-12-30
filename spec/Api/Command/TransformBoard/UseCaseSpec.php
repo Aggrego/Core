@@ -17,7 +17,6 @@ use Aggrego\Domain\Api\Command\TransformBoard\UseCase;
 use Aggrego\Domain\Board\FromBoardFactory;
 use Aggrego\Domain\Board\Repository;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class UseCaseSpec extends ObjectBehavior
 {
@@ -25,6 +24,7 @@ class UseCaseSpec extends ObjectBehavior
     {
         $this->beConstructedWith($repository, $factory);
     }
+
     function it_is_initializable()
     {
         $this->shouldHaveType(UseCase::class);

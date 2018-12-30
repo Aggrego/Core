@@ -2,18 +2,19 @@
 
 namespace Aggrego\Domain\Api\Command\CreateBoard;
 
+use Aggrego\CommandConsumer\Response;
 use Aggrego\Domain\Board\Board;
 
-class Result
+class Result implements Response
 {
     private const SUCCESS_KEY = 'success';
 
     /** @var array */
-    private $data;
+    private $payload;
 
     private function __construct(array $data)
     {
-        $this->data = $data;
+        $this->payload = $data;
     }
 
     public static function ok(Board $board): self
@@ -38,11 +39,11 @@ class Result
 
     public function isSuccess(): bool
     {
-        return $this->data[self::SUCCESS_KEY];
+        return $this->payload[self::SUCCESS_KEY];
     }
 
-    public function getData(): array
+    public function getPayload(): array
     {
-        return $this->data;
+        return $this->payload;
     }
 }

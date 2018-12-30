@@ -13,12 +13,19 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Api\Command\TransformBoard;
 
+use Aggrego\CommandConsumer\Command as ConsumerCommand;
+use Aggrego\CommandConsumer\Uuid;
+use Aggrego\CommandConsumer\Version;
 use Aggrego\Domain\Board\Key;
-use Aggrego\Domain\Board\Uuid;
+use Aggrego\Domain\Board\Uuid as BoardUuid;
+use Ramsey\Uuid\Uuid as RamseyUuid;
 
-class Command
+class Command implements ConsumerCommand
 {
     /** @var Uuid */
+    private $uuid;
+
+    /** @var BoardUuid */
     private $boardUuid;
 
     /** @var Key */
@@ -26,11 +33,17 @@ class Command
 
     public function __construct(string $boardUuid, array $key)
     {
-        $this->boardUuid = new Uuid($boardUuid);
+        $this->boardUuid = new BoardUuid($boardUuid);
         $this->key = new Key($key);
+        $this->uuid = new Uuid(
+            RamseyUuid::uuid5(
+                RamseyUuid::NAMESPACE_DNS,
+                serialize($key) . $boardUuid
+            )->toString()
+        );
     }
 
-    public function getBoardUuid(): Uuid
+    public function getBoardUuid(): BoardUuid
     {
         return $this->boardUuid;
     }
@@ -38,5 +51,25 @@ class Command
     public function getKey(): Key
     {
         return $this->key;
+    }
+
+    public function getUuid(): Uuid
+    {
+        return $this->uuid;
+    }
+
+    public function getVersion(): Version
+    {
+        return new Version('1');
+    }
+
+    public function getPayload(): array
+    {
+        return [
+            'uuid' => $this->getUuid()->getValue(),
+            'version' => $this->getVersion()->getValue(),
+            'key' => $this->key->getValue(),
+            'board_uuid' => $this->boardUuid->getValue(),
+        ];
     }
 }

@@ -2,14 +2,15 @@
 
 namespace spec\Aggrego\Domain\Api\Command\CreateBoard;
 
+use Aggrego\CommandConsumer\Response;
 use Aggrego\Domain\Api\Command\CreateBoard\Result;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ResultSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
         $this->shouldHaveType(Result::class);
+        $this->shouldHaveType(Response::class);
     }
 }

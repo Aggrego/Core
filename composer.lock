@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b51e38f032773fe3651b7ef6b905f43",
+    "content-hash": "4fbcb8de2eea21ee913bc341fb7cd01c",
     "packages": [
+        {
+            "name": "aggrego/command-consumer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aggrego/CommandConsumer.git",
+                "reference": "e513f001569363d816a1b56c5763f4aae8d62a71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aggrego/CommandConsumer/zipball/e513f001569363d816a1b56c5763f4aae8d62a71",
+                "reference": "e513f001569363d816a1b56c5763f4aae8d62a71",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^3.0",
+                "composer/semver": "1.4.*",
+                "php": ">=7.1",
+                "timitao/value-object": "dev-master"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^5.0",
+                "wikimedia/composer-merge-plugin": "1.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aggrego\\CommandConsumer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tomasz Kunicki"
+                }
+            ],
+            "time": "2018-12-29T21:48:43+00:00"
+        },
         {
             "name": "aggrego/event-consumer",
             "version": "dev-master",
@@ -993,12 +1034,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
+                "reference": "014d250daebff39eba15ba990eeb2a140798e77c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/014d250daebff39eba15ba990eeb2a140798e77c",
+                "reference": "014d250daebff39eba15ba990eeb2a140798e77c",
                 "shasum": ""
             },
             "require": {
@@ -1034,7 +1075,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-06-28T15:35:32+00:00"
+            "time": "2018-12-29T15:36:03+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -1345,12 +1386,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "79a050b2acd61a655000208873ed9ff33320fc19"
+                "reference": "20e4894521056ff6aa059015143bb971d475469a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/79a050b2acd61a655000208873ed9ff33320fc19",
-                "reference": "79a050b2acd61a655000208873ed9ff33320fc19",
+                "url": "https://api.github.com/repos/symfony/console/zipball/20e4894521056ff6aa059015143bb971d475469a",
+                "reference": "20e4894521056ff6aa059015143bb971d475469a",
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1447,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T10:03:37+00:00"
+            "time": "2018-12-24T13:40:20+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -2101,6 +2142,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "aggrego/event-consumer": 20,
+        "aggrego/command-consumer": 20,
         "timitao/value-object": 20
     },
     "prefer-stable": false,
