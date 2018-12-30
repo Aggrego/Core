@@ -1037,12 +1037,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/container.git",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
+                "reference": "014d250daebff39eba15ba990eeb2a140798e77c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
-                "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/014d250daebff39eba15ba990eeb2a140798e77c",
+                "reference": "014d250daebff39eba15ba990eeb2a140798e77c",
                 "shasum": ""
             },
             "require": {
@@ -1078,7 +1078,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-06-28T15:35:32+00:00"
+            "time": "2018-12-29T15:36:03+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -1389,12 +1389,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "79a050b2acd61a655000208873ed9ff33320fc19"
+                "reference": "20e4894521056ff6aa059015143bb971d475469a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/79a050b2acd61a655000208873ed9ff33320fc19",
-                "reference": "79a050b2acd61a655000208873ed9ff33320fc19",
+                "url": "https://api.github.com/repos/symfony/console/zipball/20e4894521056ff6aa059015143bb971d475469a",
+                "reference": "20e4894521056ff6aa059015143bb971d475469a",
                 "shasum": ""
             },
             "require": {
@@ -1450,7 +1450,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T10:03:37+00:00"
+            "time": "2018-12-24T13:40:20+00:00"
         },
         {
             "name": "symfony/contracts",
