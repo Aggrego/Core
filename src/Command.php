@@ -15,7 +15,7 @@ namespace Aggrego\CommandConsumer;
 
 interface Command
 {
-    public function getUuid(): Uuid;
+    public function getName(): Name;
 
     public function getVersion(): Version;
 

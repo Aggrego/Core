@@ -16,15 +16,11 @@ namespace Aggrego\CommandConsumer;
 use Assert\Assertion;
 use TimiTao\ValueObject\Utils\StringValueObject;
 
-class Uuid extends StringValueObject
+class Name extends StringValueObject
 {
     public function __construct(string $value)
     {
-        Assertion::regex(
-            $value,
-            '/^[0-9A-F]{8}-[0-9A-F]{4}-[1-5][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i',
-            'Incorrect UUID format: ' . $value
-        );
+        Assertion::notEmpty($value);
         parent::__construct(self::class, $value);
     }
 }

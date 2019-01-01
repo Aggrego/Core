@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace Aggrego\CommandConsumer;
 
-interface Producer
+interface Client
 {
     public function consume(Command $command): Response;
 }

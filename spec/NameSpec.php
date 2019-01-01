@@ -13,34 +13,30 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\CommandConsumer;
 
-use Aggrego\CommandConsumer\Uuid;
+use Aggrego\CommandConsumer\Name;
 use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 
-class UuidSpec extends ObjectBehavior
+class NameSpec extends ObjectBehavior
 {
-    private const UUID = '7835a2f1-65c4-4e05-aacf-2e9ed950f5f2';
-
     function let()
     {
-        $this->beConstructedWith(self::UUID);
+        $this->beConstructedWith('test');
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(Uuid::class);
+        $this->shouldHaveType(Name::class);
     }
 
     function it_should_have_value()
     {
-        $value = $this->getValue();
-        $value->shouldBeString();
-        $value->shouldBe(self::UUID);
+        $this->getValue()->shouldBeString();
     }
 
-    function it_should_throw_exception_for_invalid_format()
+    function it_should_throw_exception_with_invalid_format()
     {
-        $this->beConstructedWith('invalid');
+        $this->beConstructedWith('');
         $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
     }
 }

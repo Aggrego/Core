@@ -6,7 +6,7 @@
 
 # CommandConsumer
 
-Base interface for any integration cooperates with events.
+Base interface for any integration cooperates with commands.
 
 ## Versioning
  
