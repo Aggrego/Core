@@ -1,6 +1,6 @@
-[![License](https://poser.pugx.org/aggrego/transforming-event-mapper/license.svg)](https://packagist.org/packages/aggrego/transforming-event-mapper)
-[![Latest Stable Version](https://poser.pugx.org/aggrego/transforming-event-mapper/v/stable.svg)](https://packagist.org/packages/aggrego/transforming-event-mapper)
-[![Total Downloads](https://poser.pugx.org/aggrego/transforming-event-mapper/downloads.svg)](https://packagist.org/packages/aggrego/transforming-event-mapper)
+[![License](https://poser.pugx.org/aggrego/command-login-unit/license.svg)](https://packagist.org/packages/aggrego/command-login-unit)
+[![Latest Stable Version](https://poser.pugx.org/aggrego/command-login-unit/v/stable.svg)](https://packagist.org/packages/aggrego/command-login-unit)
+[![Total Downloads](https://poser.pugx.org/aggrego/command-login-unit/downloads.svg)](https://packagist.org/packages/aggrego/command-login-unit)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aggrego/CommandLogicUnit/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/aggrego/CommandLogicUnit/?branch=master)
 [![Travis](https://travis-ci.org/Aggrego/CommandLogicUnit.svg?branch=master)](https://travis-ci.org/Aggrego/CommandLogicUnit/builds)
 

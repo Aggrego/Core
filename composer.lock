@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b2d2c22288b66ecf8da1cea74b80980",
+    "content-hash": "bed6e14a2bae76e5d1e98fa5b8e3b562",
     "packages": [
         {
             "name": "aggrego/command-consumer",

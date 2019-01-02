@@ -1,5 +1,5 @@
 {
-  "name": "aggrego/transforming-event-mapper",
+  "name": "aggrego/command-logic-unit",
   "type": "library",
   "description": "",
   "minimum-stability": "dev",

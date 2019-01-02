@@ -15,6 +15,7 @@ namespace Aggrego\CommandLogicUnit;
 
 use Aggrego\CommandConsumer\Client as CommandConsumerClient;
 use Aggrego\CommandLogicUnit\CommandConsumer\Collection;
+use Aggrego\CommandLogicUnit\EventConsumer\EventProcessor;
 use Aggrego\EventConsumer\Client as EventConsumerClient;
 use Aggrego\EventConsumer\Event;
 use Aggrego\EventConsumer\Exception\UnprocessableEventException;
