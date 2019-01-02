@@ -1,0 +1,28 @@
+{
+  "name": "aggrego/transforming-event-mapper",
+  "type": "library",
+  "description": "",
+  "minimum-stability": "dev",
+  "license": "BSD-3-Clause",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Tomasz Kunicki"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "aggrego/event-consumer": "dev-master",
+    "aggrego/command-consumer": "dev-master"
+  },
+  "require-dev": {
+    "wikimedia/composer-merge-plugin": "1.4.*",
+    "phpspec/phpspec": "^5.0",
+    "timitao/behat-symfony-container": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aggrego\\CommandLogicUnit\\": "src/"
+    }
+  }
+}
