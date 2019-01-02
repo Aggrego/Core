@@ -15,5 +15,9 @@ namespace Aggrego\CommandConsumer;
 
 interface Response
 {
+    public function getName(): Name;
+
+    public function getVersion(): Version;
+
     public function getPayload(): array;
 }
