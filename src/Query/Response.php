@@ -11,9 +11,12 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\CommandConsumer;
+namespace Aggrego\CommandConsumer\Query;
 
-interface Command
+use Aggrego\CommandConsumer\Name;
+use Aggrego\CommandConsumer\Version;
+
+interface Response
 {
     public function getName(): Name;
 

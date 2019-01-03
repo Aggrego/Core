@@ -795,12 +795,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "20e4894521056ff6aa059015143bb971d475469a"
+                "reference": "471125d6748cf0526e97f83a71f40b17ce65dbc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/20e4894521056ff6aa059015143bb971d475469a",
-                "reference": "20e4894521056ff6aa059015143bb971d475469a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/471125d6748cf0526e97f83a71f40b17ce65dbc1",
+                "reference": "471125d6748cf0526e97f83a71f40b17ce65dbc1",
                 "shasum": ""
             },
             "require": {
@@ -856,7 +856,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T13:40:20+00:00"
+            "time": "2019-01-03T09:16:58+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -932,12 +932,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "a0c96c8771a003c058ef2e4366055688be8bd1df"
+                "reference": "249a31f94a62ac1f12926cd8d6dd37f22cc695cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a0c96c8771a003c058ef2e4366055688be8bd1df",
-                "reference": "a0c96c8771a003c058ef2e4366055688be8bd1df",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/249a31f94a62ac1f12926cd8d6dd37f22cc695cd",
+                "reference": "249a31f94a62ac1f12926cd8d6dd37f22cc695cd",
                 "shasum": ""
             },
             "require": {
@@ -988,7 +988,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-17T13:49:19+00:00"
+            "time": "2019-01-03T09:16:58+00:00"
         },
         {
             "name": "symfony/finder",
@@ -996,12 +996,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "413fc800a335876085d358d3a3cd9e2d59093ed1"
+                "reference": "462d940115bc98dd81da28daf87ca7eaa8ce0552"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/413fc800a335876085d358d3a3cd9e2d59093ed1",
-                "reference": "413fc800a335876085d358d3a3cd9e2d59093ed1",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/462d940115bc98dd81da28daf87ca7eaa8ce0552",
+                "reference": "462d940115bc98dd81da28daf87ca7eaa8ce0552",
                 "shasum": ""
             },
             "require": {
@@ -1037,7 +1037,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T10:03:37+00:00"
+            "time": "2019-01-03T09:16:58+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1162,12 +1162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "d87c6f01ac6dfc4af25c0f4fb7eeecdc03927615"
+                "reference": "21eb9234c43401d01c012974f56ea259dacb9151"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d87c6f01ac6dfc4af25c0f4fb7eeecdc03927615",
-                "reference": "d87c6f01ac6dfc4af25c0f4fb7eeecdc03927615",
+                "url": "https://api.github.com/repos/symfony/process/zipball/21eb9234c43401d01c012974f56ea259dacb9151",
+                "reference": "21eb9234c43401d01c012974f56ea259dacb9151",
                 "shasum": ""
             },
             "require": {
@@ -1203,7 +1203,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2019-01-03T09:16:58+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1211,12 +1211,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e"
+                "reference": "6e8c0d1188d5ba60752b8b523db1f1bdbac203da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e",
-                "reference": "c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/6e8c0d1188d5ba60752b8b523db1f1bdbac203da",
+                "reference": "6e8c0d1188d5ba60752b8b523db1f1bdbac203da",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1262,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T10:03:37+00:00"
+            "time": "2019-01-03T09:16:58+00:00"
         },
         {
             "name": "webmozart/assert",

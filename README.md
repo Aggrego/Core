@@ -8,6 +8,16 @@
 
 Base interface for any integration cooperates with commands.
 
+### Assumptions
+
+Commands:
+
+* need to be unique
+* need to return `Response`
+
+Response:
+* suggest that depends on implemented `Command` type, should follow rules for `CQRS`. Mostly relied [source](https://stackoverflow.com/a/43493623/1584408). 
+
 ## Versioning
  
 Staring version ``1.0.0``, will follow [Semantic Versioning v2.0.0](http://semver.org/spec/v2.0.0.html).

@@ -11,13 +11,13 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\CommandConsumer;
+namespace Aggrego\CommandConsumer\Command;
 
-interface Response
+use Aggrego\CommandConsumer\Name;
+
+interface Command
 {
     public function getName(): Name;
-
-    public function getVersion(): Version;
 
     public function getPayload(): array;
 }
