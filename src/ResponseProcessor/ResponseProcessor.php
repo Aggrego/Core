@@ -11,15 +11,15 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\CommandLogicUnit;
+namespace Aggrego\CommandLogicUnit\ResponseProcessor;
 
 use Aggrego\CommandConsumer\Command;
 use Aggrego\CommandConsumer\Response;
-use Aggrego\CommandLogicUnit\CommandConsumer\Collection;
+use Aggrego\EventConsumer\Shared\Events;
 
-interface CommandProcessor
+interface ResponseProcessor
 {
-    public function getCommand(): Command;
+    public function processResponse(Command $command, Response $response): void;
 
-    public function processResponse(Response $response): Collection;
+    public function pullEvents(): Events;
 }

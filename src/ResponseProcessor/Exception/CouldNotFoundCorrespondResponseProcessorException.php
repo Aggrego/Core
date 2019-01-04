@@ -11,11 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\CommandLogicUnit\CommandConsumer;
+namespace Aggrego\CommandLogicUnit\ResponseProcessor\Exception;
 
-class Collection
+use InvalidArgumentException;
+
+class CouldNotFoundCorrespondResponseProcessorException extends InvalidArgumentException
 {
-    public function merge($transform): self
-    {
-    }
 }
