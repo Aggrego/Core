@@ -11,9 +11,7 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\CommandConsumer\Command;
-
-use Aggrego\CommandConsumer\Name;
+namespace Aggrego\CommandConsumer;
 
 interface Response
 {
