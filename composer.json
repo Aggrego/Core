@@ -13,8 +13,7 @@
   "require": {
     "php": ">=7.1",
     "timitao/value-object": "dev-master",
-    "beberlei/assert": "^3.0",
-    "composer/semver": "1.4.*"
+    "beberlei/assert": "^3.0"
   },
   "require-dev": {
     "wikimedia/composer-merge-plugin": "1.4.*",
