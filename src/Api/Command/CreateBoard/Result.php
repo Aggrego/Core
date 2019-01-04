@@ -2,11 +2,14 @@
 
 namespace Aggrego\Domain\Api\Command\CreateBoard;
 
+use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Response;
 use Aggrego\Domain\Board\Board;
 
 class Result implements Response
 {
+    public const NAME = 'domain.create_board.response';
+
     private const SUCCESS_KEY = 'success';
 
     /** @var array */
@@ -45,5 +48,10 @@ class Result implements Response
     public function getPayload(): array
     {
         return $this->payload;
+    }
+
+    public function getName(): Name
+    {
+        return new Name(self::NAME);
     }
 }

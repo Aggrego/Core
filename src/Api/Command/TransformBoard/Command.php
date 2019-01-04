@@ -14,16 +14,13 @@ declare(strict_types = 1);
 namespace Aggrego\Domain\Api\Command\TransformBoard;
 
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
-use Aggrego\CommandConsumer\Uuid;
-use Aggrego\CommandConsumer\Version;
+use Aggrego\CommandConsumer\Name;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Board\Uuid as BoardUuid;
-use Ramsey\Uuid\Uuid as RamseyUuid;
 
 class Command implements ConsumerCommand
 {
-    /** @var Uuid */
-    private $uuid;
+    public const NAME = 'domain.transform_board';
 
     /** @var BoardUuid */
     private $boardUuid;
@@ -35,12 +32,6 @@ class Command implements ConsumerCommand
     {
         $this->boardUuid = new BoardUuid($boardUuid);
         $this->key = new Key($key);
-        $this->uuid = new Uuid(
-            RamseyUuid::uuid5(
-                RamseyUuid::NAMESPACE_DNS,
-                serialize($key) . $boardUuid
-            )->toString()
-        );
     }
 
     public function getBoardUuid(): BoardUuid
@@ -53,21 +44,14 @@ class Command implements ConsumerCommand
         return $this->key;
     }
 
-    public function getUuid(): Uuid
+    public function getName(): Name
     {
-        return $this->uuid;
-    }
-
-    public function getVersion(): Version
-    {
-        return new Version('1');
+        return new Name(self::NAME);
     }
 
     public function getPayload(): array
     {
         return [
-            'uuid' => $this->getUuid()->getValue(),
-            'version' => $this->getVersion()->getValue(),
             'key' => $this->key->getValue(),
             'board_uuid' => $this->boardUuid->getValue(),
         ];
