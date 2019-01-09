@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a3386f11996258c23f3a14d14f11fa2",
+    "content-hash": "51c3be9244a86e3506ee45453c4035c1",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -790,17 +790,68 @@
             "time": "2018-05-15T05:52:05+00:00"
         },
         {
+            "name": "squizlabs/php_codesniffer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "de06375da8870ce399d019472fbe8302f6cf19b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/de06375da8870ce399d019472fbe8302f6cf19b2",
+                "reference": "de06375da8870ce399d019472fbe8302f6cf19b2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "bin": [
+                "bin/phpcs",
+                "bin/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "time": "2019-01-08T02:38:00+00:00"
+        },
+        {
             "name": "symfony/console",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "79a050b2acd61a655000208873ed9ff33320fc19"
+                "reference": "d4967c85500c52b01b3fa42ae81ab2ab00b9c10d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/79a050b2acd61a655000208873ed9ff33320fc19",
-                "reference": "79a050b2acd61a655000208873ed9ff33320fc19",
+                "url": "https://api.github.com/repos/symfony/console/zipball/d4967c85500c52b01b3fa42ae81ab2ab00b9c10d",
+                "reference": "d4967c85500c52b01b3fa42ae81ab2ab00b9c10d",
                 "shasum": ""
             },
             "require": {
@@ -856,7 +907,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T10:03:37+00:00"
+            "time": "2019-01-04T15:14:53+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -932,12 +983,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "a0c96c8771a003c058ef2e4366055688be8bd1df"
+                "reference": "87bd8a44eadf28fc04d668f5e1875ddfe798bf6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a0c96c8771a003c058ef2e4366055688be8bd1df",
-                "reference": "a0c96c8771a003c058ef2e4366055688be8bd1df",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/87bd8a44eadf28fc04d668f5e1875ddfe798bf6e",
+                "reference": "87bd8a44eadf28fc04d668f5e1875ddfe798bf6e",
                 "shasum": ""
             },
             "require": {
@@ -988,7 +1039,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-17T13:49:19+00:00"
+            "time": "2019-01-05T16:38:08+00:00"
         },
         {
             "name": "symfony/finder",
@@ -996,12 +1047,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "413fc800a335876085d358d3a3cd9e2d59093ed1"
+                "reference": "462d940115bc98dd81da28daf87ca7eaa8ce0552"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/413fc800a335876085d358d3a3cd9e2d59093ed1",
-                "reference": "413fc800a335876085d358d3a3cd9e2d59093ed1",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/462d940115bc98dd81da28daf87ca7eaa8ce0552",
+                "reference": "462d940115bc98dd81da28daf87ca7eaa8ce0552",
                 "shasum": ""
             },
             "require": {
@@ -1037,7 +1088,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T10:03:37+00:00"
+            "time": "2019-01-03T09:16:58+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1162,12 +1213,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "d87c6f01ac6dfc4af25c0f4fb7eeecdc03927615"
+                "reference": "474b4bc4c8fc0d1eea02b45d86008100701e058c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d87c6f01ac6dfc4af25c0f4fb7eeecdc03927615",
-                "reference": "d87c6f01ac6dfc4af25c0f4fb7eeecdc03927615",
+                "url": "https://api.github.com/repos/symfony/process/zipball/474b4bc4c8fc0d1eea02b45d86008100701e058c",
+                "reference": "474b4bc4c8fc0d1eea02b45d86008100701e058c",
                 "shasum": ""
             },
             "require": {
@@ -1203,7 +1254,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-13T12:43:21+00:00"
+            "time": "2019-01-04T15:14:53+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1211,12 +1262,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e"
+                "reference": "6e8c0d1188d5ba60752b8b523db1f1bdbac203da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e",
-                "reference": "c6ddd5b9afa459a864b3d3e1cb605bf2fb58b21e",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/6e8c0d1188d5ba60752b8b523db1f1bdbac203da",
+                "reference": "6e8c0d1188d5ba60752b8b523db1f1bdbac203da",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1313,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-12-24T10:03:37+00:00"
+            "time": "2019-01-03T09:16:58+00:00"
         },
         {
             "name": "webmozart/assert",

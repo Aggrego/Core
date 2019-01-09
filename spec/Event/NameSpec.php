@@ -9,6 +9,8 @@
  *
  */
 
+declare(strict_types = 1);
+
 namespace spec\Aggrego\EventConsumer\Event;
 
 use Aggrego\EventConsumer\Event\Name;

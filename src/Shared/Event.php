@@ -1,14 +1,11 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
-
 declare(strict_types = 1);
 
 namespace Aggrego\EventConsumer\Shared;
@@ -21,19 +18,29 @@ use Aggrego\EventConsumer\Event\Version;
 
 class Event implements EventInterface
 {
-    /** @var Domain */
+    /**
+     * @var Domain
+     */
     private $domain;
 
-    /** @var Name */
+    /**
+     * @var Name
+     */
     private $name;
 
-    /** @var CreatedAt */
+    /**
+     * @var CreatedAt
+     */
     private $createdAt;
 
-    /** @var Version */
+    /**
+     * @var Version
+     */
     private $version;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     private $data;
 
     public function __construct(Domain $domain, Name $name, CreatedAt $createdAt, Version $version, array $data)

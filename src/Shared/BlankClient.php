@@ -9,15 +9,22 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\EventConsumer;
+namespace Aggrego\EventConsumer\Shared;
 
+use Aggrego\EventConsumer\Client;
+use Aggrego\EventConsumer\Event;
 use Aggrego\EventConsumer\Exception\UnprocessableEventException;
 
-interface Client
+/**
+ * Class BlankClient
+ */
+class BlankClient implements Client
 {
     /**
      * @param  Event $event
      * @throws UnprocessableEventException if event (payload) have invalid structure.
      */
-    public function consume(Event $event): void;
+    public function consume(Event $event): void
+    {
+    }
 }

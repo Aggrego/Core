@@ -1,12 +1,10 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 declare(strict_types = 1);
@@ -19,10 +17,14 @@ class Domain
 {
     private const SEPARATOR = ':';
 
-    /** @var Name */
+    /**
+     * @var Name
+     */
     private $name;
 
-    /** @var Uuid */
+    /**
+     * @var Uuid
+     */
     private $uuid;
 
     public function __construct(Name $name, Uuid $uuid)
@@ -32,7 +34,7 @@ class Domain
     }
 
     /**
-     * @param string $value
+     * @param  string $value
      * @return Domain
      * @throws \Assert\AssertionFailedException
      */
@@ -45,8 +47,8 @@ class Domain
     }
 
     /**
-     * @param string $domainName
-     * @param string $uuid
+     * @param  string $domainName
+     * @param  string $uuid
      * @return Domain
      * @throws \Assert\AssertionFailedException
      */

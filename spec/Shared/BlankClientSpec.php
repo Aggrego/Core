@@ -11,17 +11,17 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\EventConsumer\Exception;
+namespace spec\Aggrego\EventConsumer\Shared;
 
-use Aggrego\EventConsumer\Exception\UnprocessableEventException;
+use Aggrego\EventConsumer\Client;
+use Aggrego\EventConsumer\Shared\BlankClient;
 use PhpSpec\ObjectBehavior;
-use RuntimeException;
 
-class UnprocessableEventExceptionSpec extends ObjectBehavior
+class BlankClientSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(UnprocessableEventException::class);
-        $this->shouldBeAnInstanceOf(RuntimeException::class);
+        $this->shouldHaveType(BlankClient::class);
+        $this->shouldBeAnInstanceOf(Client::class);
     }
 }
