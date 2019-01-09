@@ -1,4 +1,11 @@
 <?php
+/**
+ * This file is part of the Aggrego.
+ * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 declare(strict_types = 1);
 
@@ -11,7 +18,9 @@ use Aggrego\Domain\Board\Uuid;
 
 class Repository implements BoardRepository
 {
-    /** @var array */
+    /**
+     * @var array 
+     */
     private $list;
 
     public function __construct()
@@ -26,7 +35,9 @@ class Repository implements BoardRepository
 
     public function getBoardByUuid(Uuid $uuid): Board
     {
-        /** @var Board $board */
+        /**
+ * @var Board $board 
+*/
         foreach ($this->list as $board) {
             if ($uuid->equal($board->getUuid())) {
                 return $board;

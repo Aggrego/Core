@@ -1,4 +1,11 @@
 <?php
+/**
+ * This file is part of the Aggrego.
+ * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 declare(strict_types = 1);
 
@@ -15,10 +22,14 @@ class UpdateBoardFeatureContext implements Context
 {
     public const DEFAULT_DATA_UPDATE = 'string';
 
-    /** @var UseCase */
+    /**
+     * @var UseCase 
+     */
     private $useCase;
 
-    /** @var RuntimeException */
+    /**
+     * @var RuntimeException 
+     */
     private $exception;
 
     public function __construct(UseCase $useCase)

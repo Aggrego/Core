@@ -21,8 +21,7 @@ class FromBoardFactorySpec extends ObjectBehavior
 {
     function let(
         BoardTransformationFactory $boardTransformationFactory
-    )
-    {
+    ) {
         $this->beConstructedWith([], $boardTransformationFactory);
     }
 

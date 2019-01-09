@@ -1,4 +1,11 @@
 <?php
+/**
+ * This file is part of the Aggrego.
+ * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 declare(strict_types = 1);
 
@@ -23,10 +30,14 @@ use Tests\Profile\BoardConstruction\Watchman;
 
 class ProgressBoardFeatureContext implements Context
 {
-    /** @var Repository */
+    /**
+     * @var Repository 
+     */
     private $repository;
 
-    /** @var TestBuilder */
+    /**
+     * @var TestBuilder 
+     */
     private $builder;
 
     public function __construct(Repository $repository, Watchman $watchman)
@@ -133,7 +144,9 @@ class ProgressBoardFeatureContext implements Context
     private function mapEventsCountForFirstBoard(): array
     {
         $list = $this->repository->getList();
-        /** @var Board $element */
+        /**
+ * @var Board $element 
+*/
         $element = reset($list);
         return $this->mapEventsCount($element);
     }
@@ -141,7 +154,9 @@ class ProgressBoardFeatureContext implements Context
     private function mapEventsCount(Board $board): array
     {
         $count = [];
-        /** @var Board $board */
+        /**
+ * @var Board $board 
+*/
         foreach ($board->pullEvents() as $event) {
             if (!isset($count[get_class($event)])) {
                 $count[get_class($event)] = 0;

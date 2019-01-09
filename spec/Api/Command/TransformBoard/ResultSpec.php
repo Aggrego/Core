@@ -9,6 +9,8 @@
  *
  */
 
+declare(strict_types = 1);
+
 namespace spec\Aggrego\Domain\Api\Command\TransformBoard;
 
 use Aggrego\CommandConsumer\Response;

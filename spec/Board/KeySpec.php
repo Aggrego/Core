@@ -32,5 +32,4 @@ class KeySpec extends ObjectBehavior
     {
         $this->getValue()->shouldBeArray();
     }
-
 }

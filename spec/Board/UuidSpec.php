@@ -13,7 +13,6 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\Board;
 
-
 use Aggrego\Domain\Board\Uuid;
 use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;

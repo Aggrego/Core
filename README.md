@@ -6,7 +6,8 @@
 
 ### Aggrego
 
-This library is domain of collection data in lazy way.
+This is main domain over this project.
+Represent global logic of lazy create resources.
 This is my small Proof of concept.
 
 ## Versioning

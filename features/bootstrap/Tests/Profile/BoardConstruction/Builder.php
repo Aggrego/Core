@@ -1,4 +1,11 @@
 <?php
+/**
+ * This file is part of the Aggrego.
+ * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 declare(strict_types = 1);
 
@@ -24,7 +31,9 @@ class Builder implements DomainBuilder
     public const DEFAULT_KEY_MR = ['prefix' => 'Mr'];
     public const DEFAULT_KEY_MRS = ['prefix' => 'Mrs'];
 
-    /** @var Profile */
+    /**
+     * @var Profile 
+     */
     private $profile;
 
     public function __construct(Profile $profile)
@@ -33,7 +42,7 @@ class Builder implements DomainBuilder
     }
 
     /**
-     * @param Key $key
+     * @param  Key $key
      * @return Board
      * @throws UnableToBuildBoardException
      */

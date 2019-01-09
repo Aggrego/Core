@@ -1,12 +1,10 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 declare(strict_types = 1);
@@ -21,17 +19,20 @@ use Ramsey\Uuid\Uuid as RamseyUuid;
 
 class FromBoardFactory
 {
-    /** @var BoardBuilder[] */
+    /**
+     * @var BoardBuilder[] 
+     */
     private $builders;
 
-    /** @var BoardTransformationFactory */
+    /**
+     * @var BoardTransformationFactory 
+     */
     private $transformationFactory;
 
     public function __construct(
         array $builders,
         BoardTransformationFactory $transformationFactory
-    )
-    {
+    ) {
         Assertion::allIsInstanceOf($builders, BoardBuilder::class);
         $this->builders = $builders;
         $this->transformationFactory = $transformationFactory;
