@@ -11,8 +11,6 @@ Base interface for any integration cooperates with commands.
 ### Assumptions
 
 Commands:
-
-* need to be unique
 * need to return `Response`
 
 Response:
