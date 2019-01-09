@@ -17,14 +17,10 @@ class Domain
 {
     private const SEPARATOR = ':';
 
-    /**
-     * @var Name
-     */
+    /** @var Name  */
     private $name;
 
-    /**
-     * @var Uuid
-     */
+    /** @var Uuid  */
     private $uuid;
 
     public function __construct(Name $name, Uuid $uuid)
@@ -34,7 +30,7 @@ class Domain
     }
 
     /**
-     * @param  string $value
+     * @param  string $string
      * @return Domain
      * @throws \Assert\AssertionFailedException
      */
