@@ -6,7 +6,9 @@
 
 # CommandLogicUnit
 
-## Versioning§
+Logic unit that reacts to events by generating `Command`'s and after getting `Response` react with events.
+
+## Versioning
  
 Staring version ``1.0.0``, will follow [Semantic Versioning v2.0.0](http://semver.org/spec/v2.0.0.html).
 

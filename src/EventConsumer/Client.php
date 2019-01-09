@@ -1,12 +1,10 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 declare(strict_types = 1);
@@ -22,16 +20,24 @@ use Aggrego\EventConsumer\Exception\UnprocessableEventException;
 
 class Client implements EventConsumerClient
 {
-    /** @var EventProcessor */
+    /**
+     * @var EventProcessor
+     */
     private $eventProcessor;
 
-    /** @var CommandConsumerClient */
+    /**
+     * @var CommandConsumerClient
+     */
     private $commandConsumer;
 
-    /** @var Factory */
+    /**
+     * @var Factory
+     */
     private $responseProcessorFactory;
 
-    /** @var EventConsumerClient */
+    /**
+     * @var EventConsumerClient
+     */
     private $eventConsumer;
 
     public function __construct(
@@ -39,8 +45,7 @@ class Client implements EventConsumerClient
         CommandConsumerClient $commandConsumer,
         Factory $responseProcessorFactory,
         EventConsumerClient $eventConsumer
-    )
-    {
+    ) {
         $this->eventProcessor = $eventProcessor;
         $this->commandConsumer = $commandConsumer;
         $this->responseProcessorFactory = $responseProcessorFactory;
@@ -48,7 +53,7 @@ class Client implements EventConsumerClient
     }
 
     /**
-     * @param Event $event
+     * @param  Event $event
      * @throws UnprocessableEventException if event (payload) have invalid structure.
      */
     public function consume(Event $event): void
