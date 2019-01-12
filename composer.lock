@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/CommandConsumer.git",
-                "reference": "ef6a6933dfabbbaa720c294d2862a7c9f40a4815"
+                "reference": "9ed4375832927e5ad43482b978a699429eae3638"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/CommandConsumer/zipball/ef6a6933dfabbbaa720c294d2862a7c9f40a4815",
-                "reference": "ef6a6933dfabbbaa720c294d2862a7c9f40a4815",
+                "url": "https://api.github.com/repos/Aggrego/CommandConsumer/zipball/9ed4375832927e5ad43482b978a699429eae3638",
+                "reference": "9ed4375832927e5ad43482b978a699429eae3638",
                 "shasum": ""
             },
             "require": {
@@ -27,6 +27,8 @@
             },
             "require-dev": {
                 "phpspec/phpspec": "^5.0",
+                "phpstan/phpstan": "^0.10",
+                "squizlabs/php_codesniffer": "3.*",
                 "wikimedia/composer-merge-plugin": "1.4.*"
             },
             "type": "library",
@@ -44,7 +46,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2019-01-04T22:19:55+00:00"
+            "time": "2019-01-12T21:05:24+00:00"
         },
         {
             "name": "aggrego/domain",
@@ -52,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/Domain.git",
-                "reference": "1f04af672b8a0ea53a449678ec267da334de4a94"
+                "reference": "a0a4528a105ecdf5e70615fc5e1c021aa261eddd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/Domain/zipball/1f04af672b8a0ea53a449678ec267da334de4a94",
-                "reference": "1f04af672b8a0ea53a449678ec267da334de4a94",
+                "url": "https://api.github.com/repos/Aggrego/Domain/zipball/a0a4528a105ecdf5e70615fc5e1c021aa261eddd",
+                "reference": "a0a4528a105ecdf5e70615fc5e1c021aa261eddd",
                 "shasum": ""
             },
             "require": {
@@ -71,6 +73,8 @@
             "require-dev": {
                 "behat/behat": "^3.4",
                 "phpspec/phpspec": "^5.0",
+                "phpstan/phpstan": "^0.10",
+                "squizlabs/php_codesniffer": "3.*",
                 "timitao/behat-symfony-container": "^1.1",
                 "wikimedia/composer-merge-plugin": "1.4.*"
             },
@@ -89,7 +93,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2019-01-04T23:27:06+00:00"
+            "time": "2019-01-12T21:29:40+00:00"
         },
         {
             "name": "aggrego/event-consumer",
@@ -97,12 +101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aggrego/EventConsumer.git",
-                "reference": "2e461e94a4db9d0e74a030004809675a3a6f402e"
+                "reference": "281ce5251ae535b48ddef82682e57b5d0f503741"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/2e461e94a4db9d0e74a030004809675a3a6f402e",
-                "reference": "2e461e94a4db9d0e74a030004809675a3a6f402e",
+                "url": "https://api.github.com/repos/Aggrego/EventConsumer/zipball/281ce5251ae535b48ddef82682e57b5d0f503741",
+                "reference": "281ce5251ae535b48ddef82682e57b5d0f503741",
                 "shasum": ""
             },
             "require": {
@@ -113,6 +117,8 @@
             },
             "require-dev": {
                 "phpspec/phpspec": "^5.0",
+                "phpstan/phpstan": "^0.10",
+                "squizlabs/php_codesniffer": "3.*",
                 "wikimedia/composer-merge-plugin": "1.4.*"
             },
             "type": "library",
@@ -130,7 +136,7 @@
                     "name": "Tomasz Kunicki"
                 }
             ],
-            "time": "2018-12-28T08:49:53+00:00"
+            "time": "2019-01-12T21:05:25+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -1430,12 +1436,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d4967c85500c52b01b3fa42ae81ab2ab00b9c10d"
+                "reference": "4a5d48d2ca2422c5c02ed37e4146fb65591369d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d4967c85500c52b01b3fa42ae81ab2ab00b9c10d",
-                "reference": "d4967c85500c52b01b3fa42ae81ab2ab00b9c10d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4a5d48d2ca2422c5c02ed37e4146fb65591369d5",
+                "reference": "4a5d48d2ca2422c5c02ed37e4146fb65591369d5",
                 "shasum": ""
             },
             "require": {
@@ -1491,7 +1497,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-04T15:14:53+00:00"
+            "time": "2019-01-10T07:43:17+00:00"
         },
         {
             "name": "symfony/contracts",
@@ -1567,12 +1573,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "e1c5d251f7aa48ce478c19b62d2429b07349e829"
+                "reference": "b6b3341f60d8cd2715a98222981f51fbd8684934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/e1c5d251f7aa48ce478c19b62d2429b07349e829",
-                "reference": "e1c5d251f7aa48ce478c19b62d2429b07349e829",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b6b3341f60d8cd2715a98222981f51fbd8684934",
+                "reference": "b6b3341f60d8cd2715a98222981f51fbd8684934",
                 "shasum": ""
             },
             "require": {
@@ -1632,7 +1638,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-03T09:16:58+00:00"
+            "time": "2019-01-06T16:27:17+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1640,12 +1646,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "249a31f94a62ac1f12926cd8d6dd37f22cc695cd"
+                "reference": "87bd8a44eadf28fc04d668f5e1875ddfe798bf6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/249a31f94a62ac1f12926cd8d6dd37f22cc695cd",
-                "reference": "249a31f94a62ac1f12926cd8d6dd37f22cc695cd",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/87bd8a44eadf28fc04d668f5e1875ddfe798bf6e",
+                "reference": "87bd8a44eadf28fc04d668f5e1875ddfe798bf6e",
                 "shasum": ""
             },
             "require": {
@@ -1696,7 +1702,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-03T09:16:58+00:00"
+            "time": "2019-01-05T16:38:08+00:00"
         },
         {
             "name": "symfony/filesystem",
