@@ -793,12 +793,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ea3657fc5f05d08713739833222c5fd685109619"
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ea3657fc5f05d08713739833222c5fd685109619",
-                "reference": "ea3657fc5f05d08713739833222c5fd685109619",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
                 "shasum": ""
             },
             "require": {
@@ -836,7 +836,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-01-05T20:34:53+00:00"
+            "time": "2019-01-12T16:31:37+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -1633,12 +1633,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "de06375da8870ce399d019472fbe8302f6cf19b2"
+                "reference": "5ea1be71259e2a9578647cdb8507406e9d50f406"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/de06375da8870ce399d019472fbe8302f6cf19b2",
-                "reference": "de06375da8870ce399d019472fbe8302f6cf19b2",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5ea1be71259e2a9578647cdb8507406e9d50f406",
+                "reference": "5ea1be71259e2a9578647cdb8507406e9d50f406",
                 "shasum": ""
             },
             "require": {
@@ -1676,7 +1676,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-01-08T02:38:00+00:00"
+            "time": "2019-01-10T22:34:10+00:00"
         },
         {
             "name": "symfony/console",
@@ -1684,12 +1684,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d4967c85500c52b01b3fa42ae81ab2ab00b9c10d"
+                "reference": "4a5d48d2ca2422c5c02ed37e4146fb65591369d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d4967c85500c52b01b3fa42ae81ab2ab00b9c10d",
-                "reference": "d4967c85500c52b01b3fa42ae81ab2ab00b9c10d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4a5d48d2ca2422c5c02ed37e4146fb65591369d5",
+                "reference": "4a5d48d2ca2422c5c02ed37e4146fb65591369d5",
                 "shasum": ""
             },
             "require": {
@@ -1745,7 +1745,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-04T15:14:53+00:00"
+            "time": "2019-01-10T07:43:17+00:00"
         },
         {
             "name": "symfony/contracts",
