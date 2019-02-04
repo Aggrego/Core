@@ -11,7 +11,7 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\CommandLoginUnit\Shared\EventProcessor;
+namespace Aggrego\CommandLogicUnit\Shared\EventProcessor;
 
 use Aggrego\CommandConsumer\Command;
 use Aggrego\CommandLogicUnit\EventProcessor\CommandCollection as CommandCollectionInterface;

@@ -11,10 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\CommandLoginUnit\Shared\EventProcessor;
+namespace spec\Aggrego\CommandLogicUnit\Shared\EventProcessor;
 
 use Aggrego\CommandLogicUnit\EventProcessor\CommandCollection as CommandLogicUnitCommandCollection;
-use Aggrego\CommandLoginUnit\Shared\EventProcessor\CommandCollection;
+use Aggrego\CommandLogicUnit\Shared\EventProcessor\CommandCollection;
 use PhpSpec\ObjectBehavior;
 
 class CommandCollectionSpec extends ObjectBehavior
