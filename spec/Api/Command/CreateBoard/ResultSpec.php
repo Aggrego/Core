@@ -17,10 +17,16 @@ use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Response;
 use Aggrego\Domain\Api\Command\CreateBoard\Result;
 use Aggrego\Domain\Board\Board;
+use Aggrego\Domain\Board\Uuid;
 use PhpSpec\ObjectBehavior;
 
 class ResultSpec extends ObjectBehavior
 {
+    function let()
+    {
+        $this->beConstructedThrough('fail', ['test']);
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType(Result::class);
@@ -29,7 +35,7 @@ class ResultSpec extends ObjectBehavior
 
     function it_should_have_payload()
     {
-        $this->getPayload()->shouldBeArrray();
+        $this->getPayload()->shouldBeArray();
     }
 
     function it_should_consider_success()
@@ -44,13 +50,14 @@ class ResultSpec extends ObjectBehavior
 
     function it_should_be_created_ok_reponse(Board $board)
     {
+        $board->getUuid()->willReturn(new Uuid('7835a2f1-65c4-4e05-aacf-2e9ed950f5f2'));
         $this->beConstructedThrough('ok', [$board]);
-        $this->isSuccess()->shouldReturnTrue();
+        $this->isSuccess()->shouldReturn(true);
     }
 
     function it_should_be_created_fail_reponse()
     {
         $this->beConstructedThrough('fail', ['test']);
-        $this->isSuccess()->shouldReturnFalse();
+        $this->isSuccess()->shouldReturn(false);
     }
 }
