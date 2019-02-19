@@ -21,12 +21,12 @@ class Command implements ConsumerCommand
     public const NAME = 'domain.create_board';
 
     /**
-     * @var Key 
+     * @var Key
      */
     private $key;
 
     /**
-     * @var Profile 
+     * @var Profile
      */
     private $profile;
 

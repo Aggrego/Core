@@ -21,12 +21,12 @@ class Command implements ConsumerCommand
     public const NAME = 'domain.transform_board';
 
     /**
-     * @var BoardUuid 
+     * @var BoardUuid
      */
     private $boardUuid;
 
     /**
-     * @var Key 
+     * @var Key
      */
     private $key;
 

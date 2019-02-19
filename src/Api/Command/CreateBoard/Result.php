@@ -22,7 +22,7 @@ class Result implements Response
     private const SUCCESS_KEY = 'success';
 
     /**
-     * @var array 
+     * @var array
      */
     private $payload;
 

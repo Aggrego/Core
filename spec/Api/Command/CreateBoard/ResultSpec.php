@@ -13,8 +13,10 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\Api\Command\CreateBoard;
 
+use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Response;
 use Aggrego\Domain\Api\Command\CreateBoard\Result;
+use Aggrego\Domain\Board\Board;
 use PhpSpec\ObjectBehavior;
 
 class ResultSpec extends ObjectBehavior
@@ -23,5 +25,32 @@ class ResultSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Result::class);
         $this->shouldHaveType(Response::class);
+    }
+
+    function it_should_have_payload()
+    {
+        $this->getPayload()->shouldBeArrray();
+    }
+
+    function it_should_consider_success()
+    {
+        $this->isSuccess()->shouldBeBool();
+    }
+
+    function is_should_have_name()
+    {
+        $this->getName()->shouldBeAnInstanceOf(Name::class);
+    }
+
+    function it_should_be_created_ok_reponse(Board $board)
+    {
+        $this->beConstructedThrough('ok', [$board]);
+        $this->isSuccess()->shouldReturnTrue();
+    }
+
+    function it_should_be_created_fail_reponse()
+    {
+        $this->beConstructedThrough('fail', ['test']);
+        $this->isSuccess()->shouldReturnFalse();
     }
 }

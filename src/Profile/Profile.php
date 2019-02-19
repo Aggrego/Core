@@ -18,12 +18,12 @@ class Profile
     private const SEPARATOR = ':';
 
     /**
-     * @var string 
+     * @var string
      */
     private $name;
 
     /**
-     * @var string 
+     * @var string
      */
     private $version;
 

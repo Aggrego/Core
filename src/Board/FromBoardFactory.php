@@ -20,12 +20,12 @@ use Ramsey\Uuid\Uuid as RamseyUuid;
 class FromBoardFactory
 {
     /**
-     * @var BoardBuilder[] 
+     * @var BoardBuilder[]
      */
     private $builders;
 
     /**
-     * @var BoardTransformationFactory 
+     * @var BoardTransformationFactory
      */
     private $transformationFactory;
 

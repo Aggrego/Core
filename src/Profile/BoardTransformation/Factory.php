@@ -18,7 +18,7 @@ use Assert\Assertion;
 class Factory
 {
     /**
-     * @var Watchman[] 
+     * @var Watchman[]
      */
     private $watchmen;
 

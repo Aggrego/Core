@@ -18,12 +18,12 @@ use Aggrego\Domain\Board\Repository;
 class UseCase
 {
     /**
-     * @var Repository 
+     * @var Repository
      */
     private $repository;
 
     /**
-     * @var FromBoardFactory 
+     * @var FromBoardFactory
      */
     private $factory;
 

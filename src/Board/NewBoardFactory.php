@@ -21,12 +21,12 @@ use Ramsey\Uuid\Uuid as RamseyUuid;
 class NewBoardFactory
 {
     /**
-     * @var BoardBuilder[] 
+     * @var BoardBuilder[]
      */
     private $builders;
 
     /**
-     * @var BoardConstructionFactory 
+     * @var BoardConstructionFactory
      */
     private $boardConstructionFactory;
 

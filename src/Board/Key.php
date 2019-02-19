@@ -14,7 +14,7 @@ namespace Aggrego\Domain\Board;
 class Key
 {
     /**
-     * @var array 
+     * @var array
      */
     private $value;
 

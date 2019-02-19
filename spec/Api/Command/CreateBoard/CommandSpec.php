@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace spec\Aggrego\Domain\Api\Command\CreateBoard;
 
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
+use Aggrego\CommandConsumer\Name;
 use Aggrego\Domain\Api\Command\CreateBoard\Command;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Profile\Profile;
@@ -30,6 +31,11 @@ class CommandSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Command::class);
         $this->shouldHaveType(ConsumerCommand::class);
+    }
+
+    function it_should_have_name()
+    {
+        $this->getName()->shouldBeAnInstanceOf(Name::class);
     }
 
     function it_should_have_key()
