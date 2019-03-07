@@ -6,12 +6,13 @@
 
 # CommandConsumer
 
-Base interface for any integration cooperates with commands.
+This library is a core concept of communication via commands.
 
 ### Assumptions
 
-Commands:
-* need to return `Response`
+* Command are unique and need to be recognized via `Uuid`,
+* Commands don't return any response - they are or not executed simply,
+* Each command should be able to recreate class via implements `Serializable`.
 
 Response:
 * suggest that depends on implemented `Command` type, should follow rules for `CQRS`. Mostly relied [source](https://stackoverflow.com/a/43493623/1584408). 
