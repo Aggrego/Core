@@ -2,7 +2,6 @@
   "name": "aggrego/event-consumer",
   "type": "library",
   "description": "",
-  "minimum-stability": "dev",
   "license": "BSD-3-Clause",
   "keywords": [],
   "authors": [
