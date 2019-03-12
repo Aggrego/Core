@@ -53,4 +53,24 @@ class CommandSpec extends ObjectBehavior
     {
         $this->getUuid()->shouldBeAnInstanceOf(Uuid::class);
     }
+
+    function it_should_serialize()
+    {
+        $this->serialize()->shouldBeString();
+    }
+
+    function it_should_unserialize()
+    {
+        $this->unserialize(
+            json_encode(
+                [
+                    'uuid' => '7835a2f1-65c4-4e05-aacf-2e9ed950f5f2',
+                    'name' => Command::NAME,
+                    'key' => [],
+                    'profile_name' => 'test',
+                    'profile_version' => '1.0'
+                ]
+            )
+        )->shouldBeAnInstanceOf(Command::class);
+    }
 }

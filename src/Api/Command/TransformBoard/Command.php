@@ -22,7 +22,7 @@ use Assert\Assertion;
 
 class Command implements ConsumerCommand
 {
-    public const NAME = 'domain.transform_board';
+    public const NAME = 'Aggrego/Domain/TransformBoard';
 
     /**
      * @var Uuid
@@ -67,7 +67,7 @@ class Command implements ConsumerCommand
 
     public function serialize()
     {
-        return \GuzzleHttp\json_encode([
+        return json_encode([
             'uuid' => $this->getUuid()->getValue(),
             'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
@@ -75,12 +75,19 @@ class Command implements ConsumerCommand
         ]);
     }
 
-    public function unserialize($serialized)
+    public function unserialize($serialized): self
     {
-        $json = \GuzzleHttp\json_decode($serialized);
+        $json = json_decode($serialized, true);
         Assertion::keyExists($json, 'uuid');
         Assertion::keyExists($json, 'name');
+        Assertion::eq($json['name'], self::NAME);
         Assertion::keyExists($json, 'key');
         Assertion::keyExists($json, 'board_uuid');
+
+        return new self(
+            $json['uuid'],
+            $json['board_uuid'],
+            $json['key']
+        );
     }
 }

@@ -68,20 +68,30 @@ class Command implements ConsumerCommand
 
     public function serialize()
     {
-        return \GuzzleHttp\json_encode([
+        return json_encode([
             'uuid' => $this->getUuid()->getValue(),
             'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
-            'profile' => (string)$this->profile
+            'profile_name' => $this->profile->getName(),
+            'profile_version' => $this->profile->getVersion()
         ]);
     }
 
     public function unserialize($serialized): self
     {
-        $json = \GuzzleHttp\json_decode($serialized);
+        $json = json_decode($serialized, true);
         Assertion::keyExists($json, 'uuid');
         Assertion::keyExists($json, 'name');
+        Assertion::eq($json['name'], self::NAME);
         Assertion::keyExists($json, 'key');
-        Assertion::allKeyExists($json, 'profile');
+        Assertion::keyExists($json, 'profile_name');
+        Assertion::keyExists($json, 'profile_version');
+
+        return new self(
+            $json['uuid'],
+            $json['key'],
+            $json['profile_name'],
+            $json['profile_version']
+        );
     }
 }
