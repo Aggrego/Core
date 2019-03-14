@@ -2,7 +2,6 @@
   "name": "aggrego/domain",
   "type": "library",
   "description": "",
-  "minimum-stability": "dev",
   "license": "BSD-3-Clause",
   "keywords": [],
   "authors": [
@@ -14,8 +13,8 @@
     "php": ">=7.1",
     "beberlei/assert": "^3.0",
     "ramsey/uuid": "^3.8",
-    "aggrego/event-consumer": "dev-master",
-    "aggrego/command-consumer": "dev-master",
+    "aggrego/event-consumer": "^0",
+    "aggrego/command-consumer": "^0",
     "timitao/value-object": "dev-master"
   },
   "require-dev": {

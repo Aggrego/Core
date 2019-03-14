@@ -1,18 +1,20 @@
 <?php
 /**
+ *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 
 declare(strict_types = 1);
 
 namespace FeatureContext\Functional\Api;
 
-use Aggrego\Domain\Api\Domain\Command\TransformBoard\Command;
-use Aggrego\Domain\Api\Domain\Command\TransformBoard\UseCase;
+use Aggrego\Domain\Api\Command\TransformBoard\Command;
+use Aggrego\Domain\Api\Command\TransformBoard\UseCase;
 use Aggrego\Domain\Shared\Exception\InvalidArgumentException;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;

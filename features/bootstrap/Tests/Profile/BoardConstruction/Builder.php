@@ -1,20 +1,24 @@
 <?php
 /**
+ *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 
 declare(strict_types = 1);
 
 namespace Tests\Profile\BoardConstruction;
 
+use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Board\Prototype\Board as BoardPrototype;
 use Aggrego\Domain\Profile\BoardConstruction\Builder as DomainBuilder;
 use Aggrego\Domain\Profile\BoardConstruction\Exception\UnableToBuildBoardException;
-use Aggrego\Domain\Profile\BoardConstruction\InitialBoardModel\Board;
 use Aggrego\Domain\Profile\Profile;
+use Tests\Board\Prototype\Board;
 
 class Builder implements DomainBuilder
 {
@@ -22,6 +26,7 @@ class Builder implements DomainBuilder
 
     public const INITIAL_SHARDS_COUNT = 2;
 
+    public const DEFAULT_UUID = 'd0b7e1e2-b95c-5567-817b-bb9b1b9e272e';
     public const DEFAULT_BOARD_UUID = 'd0b7e1e2-b95c-5567-817b-bb9b1b9e272e';
     public const DEFAULT_SHARD_MR_UUID = '50cbb7cb-e51a-5118-b389-057176668991';
     public const DEFAULT_SHARD_MRS_UUID = '4a111770-aedd-519e-84a2-9b4080c1ea1c';
@@ -32,7 +37,7 @@ class Builder implements DomainBuilder
     public const DEFAULT_KEY_MRS = ['prefix' => 'Mrs'];
 
     /**
-     * @var Profile 
+     * @var Profile
      */
     private $profile;
 
@@ -43,24 +48,17 @@ class Builder implements DomainBuilder
 
     /**
      * @param  Key $key
-     * @return Board
+     * @return BoardPrototype
      * @throws UnableToBuildBoardException
+     * @throws \Assert\AssertionFailedException
      */
-    public function build(Key $key): Board
+    public function build(Key $key): BoardPrototype
     {
         if (!isset($key->getValue()['key'])) {
             throw new UnableToBuildBoardException();
         }
-        $board = new Board($key, $this->profile);
-        $board->addShard(
-            new Key(self::DEFAULT_KEY_MR),
-            Profile::createFrom(self::DEFAULT_SOURCE_NAME, self::DEFAULT_SOURCE_VERSION)
-        );
-        $board->addShard(
-            new Key(self::DEFAULT_KEY_MRS),
-            Profile::createFrom(self::DEFAULT_SOURCE_NAME, self::DEFAULT_SOURCE_VERSION)
-        );
+        $prototype = new Board($key, $this->profile);
 
-        return $board;
+        return $prototype;
     }
 }
