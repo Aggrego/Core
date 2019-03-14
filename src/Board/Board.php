@@ -18,9 +18,9 @@ use Aggrego\EventConsumer\Shared\Events;
 
 interface Board
 {
-    public function getProfile(): Profile;
-
     public function getUuid(): Uuid;
+
+    public function getProfile(): Profile;
 
     public function pullEvents(): Events;
 }

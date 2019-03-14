@@ -1,19 +1,22 @@
 <?php
 /**
+ *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 
 declare(strict_types = 1);
 
 namespace FeatureContext\Functional\Api;
 
-use Aggrego\Domain\Api\Domain\Command\CreateBoard\Command;
-use Aggrego\Domain\Api\Domain\Command\CreateBoard\UseCase;
+use Aggrego\Domain\Api\Command\CreateBoard\Command;
+use Aggrego\Domain\Api\Command\CreateBoard\UseCase;
 use Aggrego\Domain\Shared\Exception\InvalidArgumentException;
+use Aggrego\Domain\Shared\Exception\RuntimeException;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use Tests\Profile\BaseTestWatchman;
@@ -23,7 +26,7 @@ use Throwable;
 class CreateBoardFeatureContext implements Context
 {
     /**
-     * @var UseCase 
+     * @var UseCase
      */
     private $useCase;
 
@@ -44,6 +47,7 @@ class CreateBoardFeatureContext implements Context
     {
         $this->useCase->handle(
             new Command(
+                'd0b7e1e2-b95c-5567-817b-bb9b1b9e272e',
                 Builder::DEFAULT_KEY,
                 BaseTestWatchman::DEFAULT_PROFILE,
                 BaseTestWatchman::DEFAULT_VERSION
@@ -59,6 +63,7 @@ class CreateBoardFeatureContext implements Context
         try {
             $this->useCase->handle(
                 new Command(
+                    Builder::DEFAULT_UUID,
                     Builder::DEFAULT_KEY,
                     'unknown',
                     BaseTestWatchman::DEFAULT_VERSION
@@ -77,6 +82,7 @@ class CreateBoardFeatureContext implements Context
         try {
             $this->useCase->handle(
                 new Command(
+                    Builder::DEFAULT_UUID,
                     Builder::DEFAULT_KEY,
                     BaseTestWatchman::DEFAULT_PROFILE,
                     '0.0'
@@ -95,6 +101,7 @@ class CreateBoardFeatureContext implements Context
         try {
             $this->useCase->handle(
                 new Command(
+                    Builder::DEFAULT_UUID,
                     ['invalid'],
                     BaseTestWatchman::DEFAULT_PROFILE,
                     BaseTestWatchman::DEFAULT_VERSION
@@ -110,6 +117,6 @@ class CreateBoardFeatureContext implements Context
      */
     public function createCommandShouldBeRejected()
     {
-        Assertion::isInstanceOf($this->exception, InvalidArgumentException::class);
+        Assertion::isInstanceOf($this->exception, RuntimeException::class);
     }
 }
