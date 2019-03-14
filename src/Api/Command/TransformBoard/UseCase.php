@@ -37,15 +37,12 @@ class UseCase
 
     /**
      * @param  Command $command
-     * @return Result
      * @throws InvalidCommandDataException
      */
-    public function handle(Command $command): Result
+    public function handle(Command $command): void
     {
         $board = $this->repository->getBoardByUuid($command->getBoardUuid());
         $newBoard = $this->factory->fromBoard($command->getKey(), $board);
         $this->repository->addBoard($newBoard);
-
-        return Result::ok($newBoard);
     }
 }

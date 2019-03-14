@@ -11,8 +11,11 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Board;
+namespace Tests\Board\Prototype;
 
-interface Metadata
+use Aggrego\Domain\Board\Prototype\Metadata as DomainMetadata;
+
+class Metadata implements DomainMetadata
 {
+
 }

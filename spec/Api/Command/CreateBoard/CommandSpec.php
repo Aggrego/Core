@@ -15,6 +15,7 @@ namespace spec\Aggrego\Domain\Api\Command\CreateBoard;
 
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
 use Aggrego\CommandConsumer\Name;
+use Aggrego\CommandConsumer\Uuid;
 use Aggrego\Domain\Api\Command\CreateBoard\Command;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Profile\Profile;
@@ -24,7 +25,7 @@ class CommandSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith([], 'test', '1.0');
+        $this->beConstructedWith('7835a2f1-65c4-4e05-aacf-2e9ed950f5f2', [], 'test', '1.0');
     }
 
     function it_is_initializable()
@@ -48,8 +49,28 @@ class CommandSpec extends ObjectBehavior
         $this->getProfile()->shouldBeAnInstanceOf(Profile::class);
     }
 
-    function it_should_have_payload()
+    function it_should_have_uuid()
     {
-        $this->getPayload()->shouldBeArray();
+        $this->getUuid()->shouldBeAnInstanceOf(Uuid::class);
+    }
+
+    function it_should_serialize()
+    {
+        $this->serialize()->shouldBeString();
+    }
+
+    function it_should_unserialize()
+    {
+        $this->unserialize(
+            json_encode(
+                [
+                    'uuid' => '7835a2f1-65c4-4e05-aacf-2e9ed950f5f2',
+                    'name' => Command::NAME,
+                    'key' => [],
+                    'profile_name' => 'test',
+                    'profile_version' => '1.0'
+                ]
+            )
+        )->shouldBeAnInstanceOf(Command::class);
     }
 }

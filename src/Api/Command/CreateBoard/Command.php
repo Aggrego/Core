@@ -15,12 +15,19 @@ namespace Aggrego\Domain\Api\Command\CreateBoard;
 
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
 use Aggrego\CommandConsumer\Name;
+use Aggrego\CommandConsumer\Uuid;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Profile\Profile;
+use Assert\Assertion;
 
 class Command implements ConsumerCommand
 {
-    public const NAME = 'domain.create_board';
+    public const NAME = 'Aggrego/Domain/CreateBoard';
+
+    /**
+     * @var Uuid
+     */
+    private $uuid;
 
     /**
      * @var Key
@@ -32,8 +39,9 @@ class Command implements ConsumerCommand
      */
     private $profile;
 
-    public function __construct(array $key, string $profileName, string $versionNumber)
+    public function __construct(string $uuid, array $key, string $profileName, string $versionNumber)
     {
+        $this->uuid = new Uuid($uuid);
         $this->key = new Key($key);
         $this->profile = Profile::createFromParts($profileName, $versionNumber);
     }
@@ -53,11 +61,37 @@ class Command implements ConsumerCommand
         return new Name(self::NAME);
     }
 
-    public function getPayload(): array
+    public function getUuid(): Uuid
     {
-        return [
+        return $this->uuid;
+    }
+
+    public function serialize()
+    {
+        return json_encode([
+            'uuid' => $this->getUuid()->getValue(),
+            'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
-            'profile' => (string)$this->profile,
-        ];
+            'profile_name' => $this->profile->getName(),
+            'profile_version' => $this->profile->getVersion()
+        ]);
+    }
+
+    public function unserialize($serialized): self
+    {
+        $json = json_decode($serialized, true);
+        Assertion::keyExists($json, 'uuid');
+        Assertion::keyExists($json, 'name');
+        Assertion::eq($json['name'], self::NAME);
+        Assertion::keyExists($json, 'key');
+        Assertion::keyExists($json, 'profile_name');
+        Assertion::keyExists($json, 'profile_version');
+
+        return new self(
+            $json['uuid'],
+            $json['key'],
+            $json['profile_name'],
+            $json['profile_version']
+        );
     }
 }

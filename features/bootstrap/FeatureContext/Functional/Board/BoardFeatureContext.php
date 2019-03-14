@@ -1,37 +1,31 @@
 <?php
 /**
+ *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 
 declare(strict_types = 1);
 
-namespace FeatureContext\Functional\Model;
+namespace FeatureContext\Functional\Board;
 
 use Aggrego\Domain\Profile\Profile;
 use Aggrego\Domain\Board\Board;
-use Aggrego\Domain\Board\Events\BoardDeletedEvent;
-use Aggrego\Domain\Board\Events\FinalBoardTransformedEvent;
-use Aggrego\Domain\Board\Events\ShardAddedEvent;
-use Aggrego\Domain\Board\Events\ShardUpdatedEvent;
-use Aggrego\Domain\Shared\ValueObject\Data;
-use Aggrego\Domain\Shared\ValueObject\Key;
-use Aggrego\Domain\Shared\ValueObject\Uuid;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
-use FeatureContext\Functional\Api\UpdateBoardFeatureContext;
-use Tests\Domain\ProgressiveBoard\Repository;
+use Tests\Board\Repository;
 use Tests\Profile\BaseTestWatchman;
 use Tests\Profile\BoardConstruction\Builder as TestBuilder;
 use Tests\Profile\BoardConstruction\Watchman;
 
-class ProgressBoardFeatureContext implements Context
+class BoardFeatureContext implements Context
 {
     /**
-     * @var Repository 
+     * @var Repository
      */
     private $repository;
 
@@ -44,7 +38,7 @@ class ProgressBoardFeatureContext implements Context
     {
         $this->repository = $repository;
         $this->builder = $watchman->passBuilder(
-            Profile::createFrom(BaseTestWatchman::DEFAULT_PROFILE, BaseTestWatchman::DEFAULT_VERSION)
+            Profile::createFromParts(BaseTestWatchman::DEFAULT_PROFILE, BaseTestWatchman::DEFAULT_VERSION)
         );
     }
 

@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace Aggrego\Domain\Board;
 
 use Aggrego\Domain\Board\Prototype\Board as PrototypeBoard;
+use Aggrego\Domain\Board\Prototype\Metadata;
 use Aggrego\Domain\Profile\Profile;
 
 interface Builder

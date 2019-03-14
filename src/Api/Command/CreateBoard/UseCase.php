@@ -36,13 +36,10 @@ class UseCase
 
     /**
      * @param  Command $command
-     * @return Result
      */
-    public function handle(Command $command): Result
+    public function handle(Command $command): void
     {
         $board = $this->factory->newBoard($command->getKey(), $command->getProfile());
         $this->repository->addBoard($board);
-
-        return Result::ok($board);
     }
 }

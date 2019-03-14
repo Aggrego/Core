@@ -5,13 +5,11 @@ default:
       contexts:
         - FeatureContext\Functional\Api\CreateBoardFeatureContext:
           - "@domain.command.create_board.use_case"
-        - FeatureContext\Functional\Api\UpdateBoardFeatureContext:
-          - "@domain.command.update_board.use_case"
         - FeatureContext\Functional\Api\TransformBoardFeatureContext:
           - "@domain.command.transform_board.use_case"
 
-        - FeatureContext\Functional\Model\ProgressBoardFeatureContext:
-          - "@tests.domain.progressive_board.repository"
+        - FeatureContext\Functional\Board\BoardFeatureContext:
+          - "@tests.domain.board.repository"
           - "@tests.profile.board_construction.watchman"
 
   extensions:
