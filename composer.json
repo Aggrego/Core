@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=7.1",
-    "timitao/value-object": "dev-master",
+    "timitao/value-object": "^0",
     "beberlei/assert": "^3.0"
   },
   "require-dev": {
