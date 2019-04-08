@@ -11,10 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\DataBoard\Board\Prototype;
+namespace spec\Aggrego\DataDomainBoard\Board\Prototype;
 
-use Aggrego\DataBoard\Board\Data;
-use Aggrego\DataBoard\Board\Prototype\Metadata;
+use Aggrego\DataDomainBoard\Board\Data;
+use Aggrego\DataDomainBoard\Board\Prototype\Metadata;
 use PhpSpec\ObjectBehavior;
 
 class MetadataSpec extends ObjectBehavior

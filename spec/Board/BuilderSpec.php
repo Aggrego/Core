@@ -11,9 +11,9 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\DataBoard\Board;
+namespace spec\Aggrego\DataDomainBoard\Board;
 
-use Aggrego\DataBoard\Board\Builder;
+use Aggrego\DataDomainBoard\Board\Builder;
 use PhpSpec\ObjectBehavior;
 
 class BuilderSpec extends ObjectBehavior

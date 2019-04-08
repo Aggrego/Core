@@ -1,5 +1,5 @@
 {
-  "name": "aggrego/data-board",
+  "name": "aggrego/data-domain-board",
   "type": "library",
   "description": "",
   "license": "BSD-3-Clause",
@@ -22,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Aggrego\\DataBoard\\": "src/"
+      "Aggrego\\DataDomainBoard\\": "src/"
     }
   }
 }

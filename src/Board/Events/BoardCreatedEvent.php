@@ -11,9 +11,9 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\DataBoard\Board\Events;
+namespace Aggrego\DataDomainBoard\Board\Events;
 
-use Aggrego\DataBoard\Board\Prototype\Metadata;
+use Aggrego\DataDomainBoard\Board\Prototype\Metadata;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;

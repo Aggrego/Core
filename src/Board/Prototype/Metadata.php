@@ -11,9 +11,9 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\DataBoard\Board\Prototype;
+namespace Aggrego\DataDomainBoard\Board\Prototype;
 
-use Aggrego\DataBoard\Board\Data;
+use Aggrego\DataDomainBoard\Board\Data;
 use Aggrego\Domain\Board\Prototype\Metadata as DomainMetadata;
 
 class Metadata implements DomainMetadata

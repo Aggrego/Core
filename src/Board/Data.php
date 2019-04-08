@@ -11,7 +11,7 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\DataBoard\Board;
+namespace Aggrego\DataDomainBoard\Board;
 
 use TimiTao\ValueObject\Utils\StringValueObject;
 

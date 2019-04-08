@@ -11,11 +11,11 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\DataBoard\Board;
+namespace spec\Aggrego\DataDomainBoard\Board;
 
-use Aggrego\DataBoard\Board\Board;
-use Aggrego\DataBoard\Board\Data;
-use Aggrego\DataBoard\Board\Prototype\Metadata;
+use Aggrego\DataDomainBoard\Board\Board;
+use Aggrego\DataDomainBoard\Board\Data;
+use Aggrego\DataDomainBoard\Board\Prototype\Metadata;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;
