@@ -15,7 +15,7 @@
     "ramsey/uuid": "^3.8",
     "aggrego/event-consumer": "^0",
     "aggrego/command-consumer": "^0",
-    "timitao/value-object": "dev-master"
+    "timitao/value-object": "^0"
   },
   "require-dev": {
     "wikimedia/composer-merge-plugin": "1.4.*",
