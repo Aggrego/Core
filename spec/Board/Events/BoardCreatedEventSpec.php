@@ -15,7 +15,7 @@ namespace spec\Aggrego\DataBoard\Board\Events;
 
 use Aggrego\DataBoard\Board\Data;
 use Aggrego\DataBoard\Board\Events\BoardCreatedEvent;
-use Aggrego\DataBoard\Board\Metadata;
+use Aggrego\DataBoard\Board\Prototype\Metadata;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;

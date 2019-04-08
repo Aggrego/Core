@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace spec\Aggrego\DataBoard\Board\Prototype;
 
 use Aggrego\DataBoard\Board\Data;
-use Aggrego\DataBoard\Board\Metadata;
+use Aggrego\DataBoard\Board\Prototype\Metadata;
 use Aggrego\DataBoard\Board\Prototype\Board;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Profile\Profile;

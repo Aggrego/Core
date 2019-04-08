@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace Aggrego\DataBoard\Board;
 
 use Aggrego\DataBoard\Board\Events\BoardCreatedEvent;
+use Aggrego\DataBoard\Board\Prototype\Metadata;
 use Aggrego\Domain\Board\Board as DomainBoard;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Board\Uuid;
