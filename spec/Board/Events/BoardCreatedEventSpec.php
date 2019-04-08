@@ -11,11 +11,11 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\DataBoard\Board\Events;
+namespace spec\Aggrego\DataDomainBoard\Board\Events;
 
-use Aggrego\DataBoard\Board\Data;
-use Aggrego\DataBoard\Board\Events\BoardCreatedEvent;
-use Aggrego\DataBoard\Board\Metadata;
+use Aggrego\DataDomainBoard\Board\Data;
+use Aggrego\DataDomainBoard\Board\Events\BoardCreatedEvent;
+use Aggrego\DataDomainBoard\Board\Prototype\Metadata;
 use Aggrego\Domain\Board\Key;
 use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;

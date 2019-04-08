@@ -11,9 +11,9 @@
 
 declare(strict_types = 1);
 
-namespace spec\Aggrego\DataBoard\Board;
+namespace spec\Aggrego\DataDomainBoard\Board;
 
-use Aggrego\DataBoard\Board\Data;
+use Aggrego\DataDomainBoard\Board\Data;
 use PhpSpec\ObjectBehavior;
 
 class DataSpec extends ObjectBehavior
