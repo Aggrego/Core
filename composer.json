@@ -1,8 +1,7 @@
 {
-  "name": "aggrego/data-board",
+  "name": "aggrego/data-domain-board",
   "type": "library",
   "description": "",
-  "minimum-stability": "dev",
   "license": "BSD-3-Clause",
   "keywords": [],
   "authors": [
@@ -12,8 +11,8 @@
   ],
   "require": {
     "php": ">=7.1",
-    "aggrego/domain": "dev-master",
-    "timitao/value-object": "dev-master"
+    "aggrego/domain": "^0",
+    "timitao/value-object": "^0"
   },
   "require-dev": {
     "wikimedia/composer-merge-plugin": "1.4.*",
@@ -23,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Aggrego\\DataBoard\\": "src/"
+      "Aggrego\\DataDomainBoard\\": "src/"
     }
   }
 }
