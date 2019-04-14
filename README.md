@@ -6,7 +6,7 @@
 
 # CommandLogicUnit
 
-Logic unit that reacts to events by generating `Command`'s and after getting `Response` react with events.
+Logic unit that reacts to events by generating `Command`'s.
 
 ## Versioning
  
