@@ -1,0 +1,28 @@
+{
+  "name": "aggrego/command-logic-unit",
+  "type": "library",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Tomasz Kunicki"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "aggrego/event-consumer": "^0",
+    "aggrego/command-consumer": "^0"
+  },
+  "require-dev": {
+    "wikimedia/composer-merge-plugin": "1.4.*",
+    "phpspec/phpspec": "^5.0",
+    "squizlabs/php_codesniffer": "3.*",
+    "phpstan/phpstan": "^0.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aggrego\\CommandLogicUnit\\": "src/"
+    }
+  }
+}
