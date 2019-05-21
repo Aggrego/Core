@@ -1,0 +1,20 @@
+language: php
+
+php: [7.1.19, 7.2]
+
+branches:
+  except:
+    - /^bugfix\/.*$/
+    - /^feature\/.*$/
+    - /^optimization\/.*$/
+
+before_script:
+  - composer install --prefer-source --no-interaction --no-progress
+  - export PATH=./bin:$PATH
+
+script:
+  -  php vendor/bin/phpspec run
+  -  php vendor/bin/phpcs --standard=PSR1 ./src
+  -  php vendor/bin/phpcs --standard=PSR2 ./src
+  -  php vendor/bin/phpstan analyse src --level max
+  -  php vendor/bin/behat

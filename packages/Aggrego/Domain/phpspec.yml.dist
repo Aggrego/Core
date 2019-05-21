@@ -1,0 +1,4 @@
+suites:
+  default:
+    namespace: Aggrego\Domain
+    psr4_prefix: Aggrego\Domain

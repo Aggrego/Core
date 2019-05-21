@@ -1,0 +1,18 @@
+default:
+  suites:
+    default:
+      services: "@timitao_behat_symfony_container.container"
+      contexts:
+        - FeatureContext\Functional\Api\CreateBoardFeatureContext:
+          - "@domain.command.create_board.use_case"
+        - FeatureContext\Functional\Api\TransformBoardFeatureContext:
+          - "@domain.command.transform_board.use_case"
+
+        - FeatureContext\Functional\Board\BoardFeatureContext:
+          - "@tests.domain.board.repository"
+          - "@tests.profile.board_construction.watchman"
+
+  extensions:
+    TimiTao\BehatSymfonyContainer\ServiceContainer\Extension:
+      configs:
+        - "features/bootstrap/Config/services.yml"

@@ -1,0 +1,74 @@
+services:
+
+# Command
+    domain.command.create_board.use_case:
+        public: true
+        class: Aggrego\Domain\Api\Command\CreateBoard\UseCase
+        arguments:
+          - "@tests.domain.board.repository"
+          - "@aggrego.domain.board.new_board_factory"
+
+    domain.command.transform_board.use_case:
+        public: true
+        class: Aggrego\Domain\Api\Command\TransformBoard\UseCase
+        arguments:
+          - "@tests.domain.board.repository"
+          - "@aggrego.domain.board.from_board_factory"
+
+# Domain Board
+    aggrego.domain.api.create_board.use_case:
+        class: Aggrego\Domain\Api\Command\CreateBoard\UseCase
+        arguments:
+            - "@test.domain.domain.repository"
+            - "@aggrego.domain.board.new_board_factory"
+
+    aggrego.domain.api.transform_board.use_case:
+        class: Aggrego\Domain\Api\Command\TransformBoard\UseCase
+        arguments:
+            - "@test.domain.domain.repository"
+            - "@aggrego.domain.board.from_board_factory"
+
+    aggrego.domain.board.new_board_factory:
+        class: Aggrego\Domain\Board\NewBoardFactory
+        arguments:
+            - ['@tests.domain.board.builder']
+            - "@aggrego.domain.profile.board_construction.factory"
+
+    aggrego.domain.board.from_board_factory:
+        class: Aggrego\Domain\Board\FromBoardFactory
+        arguments:
+            - ['@tests.domain.board.builder']
+            - "@aggrego.domain.profile.board_transformation.factory"
+
+# Domain Profile
+    aggrego.domain.profile.board_construction.factory:
+        class: Aggrego\Domain\Profile\BoardConstruction\Factory
+        arguments:
+          - ["@tests.profile.board_construction.watchman"]
+
+    aggrego.domain.profile.board_transformation.factory:
+        class: Aggrego\Domain\Profile\BoardTransformation\Factory
+        arguments:
+          - ["@tests.profile.board_transformation.watchman"]
+
+#TEST Board
+
+    tests.domain.board.builder:
+        class: Tests\Board\Builder
+
+    tests.domain.board.repository:
+        public: true
+        class: Tests\Board\Repository
+
+#TEST Profile
+    tests.profile.board_construction.watchman:
+        public: true
+        class: Tests\Profile\BoardConstruction\Watchman
+
+    tests.profile.board_construction.builder:
+        public: true
+        class: Tests\Profile\BoardConstruction\Builder
+
+    tests.profile.board_transformation.watchman:
+        public: true
+        class: Tests\Profile\BoardTransformation\Watchman
