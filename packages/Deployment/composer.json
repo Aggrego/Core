@@ -1,0 +1,12 @@
+{
+    "name": "aggrego/deployment",
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^5.1",
+        "symplify/monorepo-builder": "^5.4",
+        "squizlabs/php_codesniffer": "3.*",
+        "phpstan/phpstan": "^0.10"
+    }
+}
