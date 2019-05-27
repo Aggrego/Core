@@ -1,0 +1,54 @@
+{
+    "name": "aggrego/core",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "beberlei/assert": "^3.0",
+        "composer/semver": "1.4.*",
+        "php": ">=7.1",
+        "ramsey/uuid": "^3.8",
+        "timitao/value-object": "^0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.4",
+        "phpspec/phpspec": "^5.1",
+        "phpstan/phpstan": "^0.10",
+        "squizlabs/php_codesniffer": "3.*",
+        "symplify/monorepo-builder": "^5.4",
+        "timitao/behat-symfony-container": "^1.1"
+    },
+    "autoload": {
+        "exclude-from-classmap": [
+            "packages/Aggrego/CommandConsumer/spec/",
+            "packages/Aggrego/CommandLogicUnit/spec/",
+            "packages/Aggrego/DataDomainBoard/spec/",
+            "packages/Aggrego/Domain/features/bootstrap/",
+            "packages/Aggrego/Domain/spec/",
+            "packages/Aggrego/EventConsumer/spec/"
+        ],
+        "psr-4": {
+            "Aggrego\\CommandConsumer\\": "packages/Aggrego/CommandConsumer/src/",
+            "Aggrego\\CommandLogicUnit\\": "packages/Aggrego/CommandLogicUnit/src/",
+            "Aggrego\\DataDomainBoard\\": "packages/Aggrego/DataDomainBoard/src/",
+            "Aggrego\\Domain\\": "packages/Aggrego/Domain/src/",
+            "Aggrego\\EventConsumer\\": "packages/Aggrego/EventConsumer/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Aggrego\\CommandConsumer\\": "packages/Aggrego/CommandConsumer/spec/",
+            "spec\\Aggrego\\CommandLogicUnit\\": "packages/Aggrego/CommandLogicUnit/spec/",
+            "spec\\Aggrego\\DataDomainBoard\\": "packages/Aggrego/DataDomainBoard/spec/",
+            "spec\\Aggrego\\Domain\\": "packages/Aggrego/Domain/spec/",
+            "spec\\Aggrego\\EventConsumer\\": "packages/Aggrego/EventConsumer/spec/"
+        }
+    },
+    "replace": {
+        "aggrego/command-consumer": "self.version",
+        "aggrego/command-logic-unit": "self.version",
+        "aggrego/data-domain-board": "self.version",
+        "aggrego/deployment": "self.version",
+        "aggrego/domain": "self.version",
+        "aggrego/event-consumer": "self.version"
+    }
+}

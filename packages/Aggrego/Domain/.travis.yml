@@ -1,6 +1,6 @@
 language: php
 
-php: [7.1.19, 7.2]
+php: [7.1, 7.2, 7.3]
 
 branches:
   except:
@@ -14,7 +14,4 @@ before_script:
 
 script:
   -  php vendor/bin/phpspec run
-  -  php vendor/bin/phpcs --standard=PSR1 ./src
-  -  php vendor/bin/phpcs --standard=PSR2 ./src
-  -  php vendor/bin/phpstan analyse src --level max
   -  php vendor/bin/behat

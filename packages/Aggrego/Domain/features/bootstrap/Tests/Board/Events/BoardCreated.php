@@ -42,5 +42,4 @@ class BoardCreated extends Event
             ]
         );
     }
-
 }

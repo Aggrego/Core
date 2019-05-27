@@ -1,0 +1,17 @@
+parameters:
+
+  package_directories:
+    - 'packages'
+
+  merge_sections:
+    - 'require'
+    - 'require-dev'
+    - 'autoload'
+    - 'autoload-dev'
+
+  directories_to_repositories:
+    packages/Aggrego/CommandConsumer: 'git@github.com:Aggrego/CommandConsumer.git'
+    packages/Aggrego/EventConsumer: 'git@github.com:Aggrego/EventConsumer.git'
+    packages/Aggrego/Domain: 'git@github.com:Aggrego/Domain.git'
+    packages/Aggrego/DataDomainBoard: 'git@github.com:Aggrego/DataDomainBoard.git'
+    packages/Aggrego/CommandLogicUnit: 'git@github.com:Aggrego/CommandLogicUnit.git'

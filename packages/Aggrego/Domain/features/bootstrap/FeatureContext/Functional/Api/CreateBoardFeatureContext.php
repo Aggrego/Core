@@ -31,7 +31,7 @@ class CreateBoardFeatureContext implements Context
     private $useCase;
 
     /**
-     * @var Throwable 
+     * @var Throwable
      */
     private $exception;
 

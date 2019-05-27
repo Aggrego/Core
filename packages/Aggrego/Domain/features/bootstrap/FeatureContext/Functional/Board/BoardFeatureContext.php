@@ -30,7 +30,7 @@ class BoardFeatureContext implements Context
     private $repository;
 
     /**
-     * @var TestBuilder 
+     * @var TestBuilder
      */
     private $builder;
 
@@ -139,7 +139,7 @@ class BoardFeatureContext implements Context
     {
         $list = $this->repository->getList();
         /**
- * @var Board $element 
+ * @var Board $element
 */
         $element = reset($list);
         return $this->mapEventsCount($element);
@@ -149,7 +149,7 @@ class BoardFeatureContext implements Context
     {
         $count = [];
         /**
- * @var Board $board 
+ * @var Board $board
 */
         foreach ($board->pullEvents() as $event) {
             if (!isset($count[get_class($event)])) {
