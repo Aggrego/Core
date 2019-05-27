@@ -35,10 +35,8 @@ jobs:
       php: 7.1
       script: |
         if [[ $TRAVIS_EVENT_TYPE == "push" ]]; then
-          cd $TRAVIS_BUILD_DIR/packages/Deployment
           composer install
-          cd $TRAVIS_BUILD_DIR
-          /packages/Deployment/vendor/bin/monorepo-builder split -v
+          vendor/bin/monorepo-builder split -v
         fi
 
 stages:
