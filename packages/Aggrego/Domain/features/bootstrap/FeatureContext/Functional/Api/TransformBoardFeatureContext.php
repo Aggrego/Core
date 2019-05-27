@@ -25,12 +25,12 @@ use Tests\Profile\BoardConstruction\Builder;
 class TransformBoardFeatureContext implements Context
 {
     /**
-     * @var UseCase 
+     * @var UseCase
      */
     private $useCase;
 
     /**
-     * @var RuntimeException 
+     * @var RuntimeException
      */
     private $exception;
 

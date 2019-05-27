@@ -18,16 +18,22 @@
     "timitao/value-object": "^0"
   },
   "require-dev": {
-    "wikimedia/composer-merge-plugin": "1.4.*",
     "behat/behat": "^3.4",
     "timitao/behat-symfony-container": "^1.1",
-    "phpspec/phpspec": "^5.0",
-    "squizlabs/php_codesniffer": "3.*",
-    "phpstan/phpstan": "^0.10"
+    "phpspec/phpspec": "^5.1"
   },
   "autoload": {
     "psr-4": {
       "Aggrego\\Domain\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "spec/",
+      "features/bootstrap/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\Aggrego\\Domain\\": "spec/"
     }
   }
 }

@@ -1,0 +1,27 @@
+#composer_suite_detection: true
+suites:
+  aggrego_commandconsumer_suite:
+    spec_path: packages/Aggrego/CommandConsumer
+    src_path: packages/Aggrego/CommandConsumer/src
+    namespace: Aggrego\CommandConsumer
+    psr4_prefix: Aggrego\CommandConsumer
+  aggrego_commandlogicunit_suite:
+    spec_path: packages/Aggrego/CommandLogicUnit
+    src_path: packages/Aggrego/CommandLogicUnit/src
+    namespace: Aggrego\CommandLogicUnit
+    psr4_prefix: Aggrego\CommandLogicUnit
+  aggrego_datadomainboard_suite:
+    spec_path: packages/Aggrego/DataDomainBoard
+    src_path: packages/Aggrego/DataDomainBoard/src
+    namespace: Aggrego\DataDomainBoard
+    psr4_prefix: Aggrego\DataDomainBoard
+  aggrego_domain_suite:
+    spec_path: packages/Aggrego/Domain
+    src_path: packages/Aggrego/Domain/src
+    namespace: Aggrego\Domain
+    psr4_prefix: Aggrego\Domain
+  aggrego_eventconsumer_suite:
+    spec_path: packages/Aggrego/EventConsumer
+    src_path: packages/Aggrego/EventConsumer/src
+    namespace: Aggrego\EventConsumer
+    psr4_prefix: Aggrego\EventConsumer
