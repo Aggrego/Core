@@ -87,11 +87,10 @@ class Command implements ConsumerCommand
         Assertion::keyExists($json, 'profile_name');
         Assertion::keyExists($json, 'profile_version');
 
-        return new self(
-            $json['uuid'],
-            $json['key'],
-            $json['profile_name'],
-            $json['profile_version']
-        );
+        $this->uuid = new Uuid($json['uuid']);
+        $this->key = new Key($json['key']);
+        $this->profile = Profile::createFromParts($json['profile_name'], $json['profile_version']);
+
+        return $this;
     }
 }

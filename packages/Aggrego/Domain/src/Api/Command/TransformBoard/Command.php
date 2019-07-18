@@ -84,10 +84,10 @@ class Command implements ConsumerCommand
         Assertion::keyExists($json, 'key');
         Assertion::keyExists($json, 'board_uuid');
 
-        return new self(
-            $json['uuid'],
-            $json['board_uuid'],
-            $json['key']
-        );
+        $this->uuid = new Uuid($json['uuid']);
+        $this->boardUuid = new BoardUuid($json['board_uuid']);
+        $this->key = new Key($json['key']);
+
+        return $this;
     }
 }
