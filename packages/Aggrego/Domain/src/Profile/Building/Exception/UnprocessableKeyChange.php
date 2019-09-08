@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Domain\Profile\Building\Exception;
 
-interface Profile
+use Aggrego\Domain\Exception\Runtime;
+
+class UnprocessableKeyChange extends Runtime
 {
-    public function getName(): Name;
 }

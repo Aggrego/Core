@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Domain\Exception;
 
-interface Profile
+use Exception;
+
+class Domain extends Exception
 {
-    public function getName(): Name;
 }

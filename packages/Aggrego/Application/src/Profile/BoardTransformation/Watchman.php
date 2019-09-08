@@ -11,9 +11,13 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Profile\BoardTransformation;
 
-interface Profile
+use Aggrego\Application\Profile\Profile;
+
+interface Watchman
 {
-    public function getName(): Name;
+    public function isSupported(Profile $profile): bool;
+
+    public function passTransformation(Profile $profile): Transformation;
 }

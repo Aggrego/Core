@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Domain\Board\Factory\Exception;
 
-interface Profile
+use Aggrego\Domain\Exception\Runtime;
+
+class UnprocessablePrototype extends Runtime
 {
-    public function getName(): Name;
 }

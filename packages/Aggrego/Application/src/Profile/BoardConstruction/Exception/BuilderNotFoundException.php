@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Profile\BoardConstruction\Exception;
 
-interface Profile
+use Aggrego\Application\Shared\Exception\RuntimeException;
+
+class BuilderNotFoundException extends RuntimeException
 {
-    public function getName(): Name;
 }

@@ -49,7 +49,7 @@ class Board implements DomainBoard
         $this->pushEvent(BoardCreatedEvent::build($uuid, $key, $profile, $metadata, $parentUuid));
     }
 
-    public function getUuid(): Uuid
+    public function getId(): Uuid
     {
         return $this->uuid;
     }

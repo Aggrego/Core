@@ -12,6 +12,7 @@ parameters:
   directories_to_repositories:
     packages/Aggrego/CommandConsumer: 'git@github.com:Aggrego/CommandConsumer.git'
     packages/Aggrego/EventConsumer: 'git@github.com:Aggrego/EventConsumer.git'
+    packages/Aggrego/Application: 'git@github.com:Aggrego/Application.git'
     packages/Aggrego/Domain: 'git@github.com:Aggrego/Domain.git'
     packages/Aggrego/DataDomainBoard: 'git@github.com:Aggrego/DataDomainBoard.git'
     packages/Aggrego/CommandLogicUnit: 'git@github.com:Aggrego/CommandLogicUnit.git'

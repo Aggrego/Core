@@ -11,9 +11,8 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Domain\Exception;
 
-interface Profile
+class InvalidArgument extends Domain
 {
-    public function getName(): Name;
 }

@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Board\Exception;
 
-interface Profile
+use Aggrego\Application\Shared\Exception\RuntimeException;
+
+class UnsupportedPrototypeBuilderException extends RuntimeException
 {
-    public function getName(): Name;
 }

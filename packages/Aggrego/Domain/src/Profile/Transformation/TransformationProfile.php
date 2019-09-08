@@ -11,27 +11,20 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Board;
+namespace Aggrego\Domain\Profile\Transformation;
 
+use Aggrego\Domain\Board\Board;
 use Aggrego\Domain\Board\Prototype\Prototype;
-use Aggrego\Domain\Board\Id\Id;
 use Aggrego\Domain\Profile\KeyChange;
-use Aggrego\Domain\Profile\Name as ProfileName;
+use Aggrego\Domain\Profile\Profile;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
-use Aggrego\Domain\Profile\Transformation\TransformationProfile;
 
-interface Board
+interface TransformationProfile extends Profile
 {
-    public function getId(): Id;
-
-    public function getName(): Name;
-
-    public function getProfileName(): ProfileName;
-
     /**
      * @throws UnprocessableKeyChange
      * @throws UnprocessableBoard
      */
-    public function transform(KeyChange $key, TransformationProfile $transformation): Prototype;
+    public function transform(KeyChange $key, Board $board): Prototype;
 }

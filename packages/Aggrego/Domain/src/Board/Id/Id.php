@@ -11,9 +11,9 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Domain\Board\Id;
 
-interface Profile
+interface Id
 {
-    public function getName(): Name;
+    public function getValue(): string;
 }

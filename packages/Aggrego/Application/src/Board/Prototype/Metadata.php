@@ -11,9 +11,8 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Board\Prototype;
 
-interface Profile
+interface Metadata
 {
-    public function getName(): Name;
 }

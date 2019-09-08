@@ -13,7 +13,17 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Profile;
 
-interface Profile
+final class KeyChange
 {
-    public function getName(): Name;
+    protected $value;
+
+    public function __construct(array $value)
+    {
+        $this->value = $value;
+    }
+
+    public function getValue(): array
+    {
+        return $this->value;
+    }
 }

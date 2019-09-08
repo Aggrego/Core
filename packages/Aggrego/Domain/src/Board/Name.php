@@ -11,9 +11,14 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Domain\Board;
 
-interface Profile
+use TimiTao\ValueObject\Utils\StringValueObject;
+
+final class Name extends StringValueObject
 {
-    public function getName(): Name;
+    public function __construct(string $value)
+    {
+        parent::__construct(self::class, $value);
+    }
 }

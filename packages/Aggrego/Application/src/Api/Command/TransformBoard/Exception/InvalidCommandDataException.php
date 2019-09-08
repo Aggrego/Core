@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Api\Command\TransformBoard\Exception;
 
-interface Profile
+use Aggrego\Application\Shared\Exception\InvalidArgumentException;
+
+class InvalidCommandDataException extends InvalidArgumentException
 {
-    public function getName(): Name;
 }

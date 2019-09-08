@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Shared\Exception;
 
-interface Profile
+use RuntimeException as GeneralRuntimeException;
+
+class RuntimeException extends GeneralRuntimeException
 {
-    public function getName(): Name;
 }

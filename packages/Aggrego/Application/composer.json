@@ -1,5 +1,5 @@
 {
-  "name": "aggrego/domain",
+  "name": "aggrego/application",
   "type": "library",
   "description": "",
   "license": "BSD-3-Clause",
@@ -11,14 +11,20 @@
   ],
   "require": {
     "php": ">=7.1",
+    "beberlei/assert": "^3.0",
+    "ramsey/uuid": "^3.8",
+    "aggrego/event-consumer": "^0",
+    "aggrego/command-consumer": "^0",
     "timitao/value-object": "^0"
   },
   "require-dev": {
+    "behat/behat": "^3.4",
+    "timitao/behat-symfony-container": "^1.1",
     "phpspec/phpspec": "^5.1"
   },
   "autoload": {
     "psr-4": {
-      "Aggrego\\Domain\\": "src/"
+      "Aggrego\\Application\\": "src/"
     },
     "exclude-from-classmap": [
       "spec/",
@@ -27,7 +33,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "spec\\Aggrego\\Domain\\": "spec/"
+      "spec\\Aggrego\\Application\\": "spec/"
     }
   }
 }

@@ -11,9 +11,11 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Tests\Board\Prototype;
 
-interface Profile
+use Aggrego\Application\Board\Prototype\Metadata as DomainMetadata;
+
+class Metadata implements DomainMetadata
 {
-    public function getName(): Name;
+
 }

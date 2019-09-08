@@ -11,9 +11,16 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Board;
 
-interface Profile
+use Aggrego\Application\Profile\Profile;
+use Aggrego\EventConsumer\Shared\Events;
+
+interface Board
 {
-    public function getName(): Name;
+    public function getUuid(): Uuid;
+
+    public function getProfile(): Profile;
+
+    public function pullEvents(): Events;
 }

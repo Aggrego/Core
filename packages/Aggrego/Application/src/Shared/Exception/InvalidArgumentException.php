@@ -11,9 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Application\Shared\Exception;
 
-interface Profile
+use InvalidArgumentException as GeneralInvalidArgumentException;
+
+class InvalidArgumentException extends GeneralInvalidArgumentException
 {
-    public function getName(): Name;
 }

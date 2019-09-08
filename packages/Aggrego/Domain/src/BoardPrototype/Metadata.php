@@ -11,9 +11,19 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Profile;
+namespace Aggrego\Domain\Board\Prototype;
 
-interface Profile
+final class Metadata
 {
-    public function getName(): Name;
+    private $list;
+
+    public function __construct(array $list)
+    {
+        $this->list = $list;
+    }
+
+    public function getList(): array
+    {
+        return $this->list;
+    }
 }
