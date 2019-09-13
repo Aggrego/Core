@@ -4,7 +4,7 @@
     "license": "MIT",
     "require": {
         "beberlei/assert": "^3.0",
-        "composer/semver": "1.5.*",
+        "composer/semver": "1.4.*",
         "php": ">=7.1",
         "ramsey/uuid": "^3.8",
         "timitao/value-object": "^0"
@@ -19,6 +19,8 @@
     },
     "autoload": {
         "exclude-from-classmap": [
+            "packages/Aggrego/Application/features/bootstrap/",
+            "packages/Aggrego/Application/spec/",
             "packages/Aggrego/CommandConsumer/spec/",
             "packages/Aggrego/CommandLogicUnit/spec/",
             "packages/Aggrego/DataDomainBoard/spec/",
@@ -27,6 +29,7 @@
             "packages/Aggrego/EventConsumer/spec/"
         ],
         "psr-4": {
+            "Aggrego\\Application\\": "packages/Aggrego/Application/src/",
             "Aggrego\\CommandConsumer\\": "packages/Aggrego/CommandConsumer/src/",
             "Aggrego\\CommandLogicUnit\\": "packages/Aggrego/CommandLogicUnit/src/",
             "Aggrego\\DataDomainBoard\\": "packages/Aggrego/DataDomainBoard/src/",
@@ -36,6 +39,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "spec\\Aggrego\\Application\\": "packages/Aggrego/Application/spec/",
             "spec\\Aggrego\\CommandConsumer\\": "packages/Aggrego/CommandConsumer/spec/",
             "spec\\Aggrego\\CommandLogicUnit\\": "packages/Aggrego/CommandLogicUnit/spec/",
             "spec\\Aggrego\\DataDomainBoard\\": "packages/Aggrego/DataDomainBoard/spec/",
@@ -49,6 +53,7 @@
         "aggrego/data-domain-board": "self.version",
         "aggrego/deployment": "self.version",
         "aggrego/domain": "self.version",
-        "aggrego/event-consumer": "self.version"
+        "aggrego/event-consumer": "self.version",
+        "aggrego/application": "self.version"
     }
 }

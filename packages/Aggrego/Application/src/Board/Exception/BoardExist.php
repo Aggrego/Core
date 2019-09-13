@@ -11,19 +11,10 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Board\Prototype;
+namespace Aggrego\Application\Board\Exception;
 
-final class Metadata
+use Aggrego\Application\Exception\Runtime;
+
+class BoardExist extends Runtime
 {
-    private $data;
-
-    public function __construct(array $data)
-    {
-        $this->data = $data;
-    }
-
-    public function getData(): array
-    {
-        return $this->data;
-    }
 }

@@ -13,12 +13,11 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Application\Api\Command\TransformBoard;
 
-use Aggrego\CommandConsumer\Command as ConsumerCommand;
+use Aggrego\Application\Api\Command\TransformBoard\Command;
+use Aggrego\Application\Board\Id\Uuid as BoardUuid;
 use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Uuid;
-use Aggrego\Application\Api\Command\TransformBoard\Command;
-use Aggrego\Application\Board\Key;
-use Aggrego\Application\Board\Uuid as BoardUuid;
+use Aggrego\Domain\Profile\KeyChange;
 use PhpSpec\ObjectBehavior;
 
 class CommandSpec extends ObjectBehavior
@@ -28,12 +27,6 @@ class CommandSpec extends ObjectBehavior
         $this->beConstructedWith('69d53395-7c1d-452d-ab5c-921575980f16', '69d53395-7c1d-452d-ab5c-921575980f16', ['test']);
     }
 
-    function it_is_initializable()
-    {
-        $this->shouldHaveType(Command::class);
-        $this->shouldHaveType(ConsumerCommand::class);
-    }
-
     function it_should_have_board_uuid()
     {
         $this->getBoardUuid()->shouldBeAnInstanceOf(BoardUuid::class);
@@ -41,7 +34,7 @@ class CommandSpec extends ObjectBehavior
 
     function it_should_have_key()
     {
-        $this->getKey()->shouldBeAnInstanceOf(Key::class);
+        $this->getKey()->shouldBeAnInstanceOf(KeyChange::class);
     }
 
     function it_should_have_uuid()

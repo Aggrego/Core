@@ -16,42 +16,33 @@ namespace Aggrego\Application\Api\Command\CreateBoard;
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
 use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Uuid;
-use Aggrego\Application\Board\Key;
-use Aggrego\Application\Profile\Profile;
+use Aggrego\Domain\Profile\KeyChange;
+use Aggrego\Domain\Profile\Name as ProfileName;
 use Assert\Assertion;
 
 class Command implements ConsumerCommand
 {
     public const NAME = 'Aggrego/Domain/CreateBoard';
 
-    /**
-     * @var Uuid
-     */
     private $uuid;
 
-    /**
-     * @var Key
-     */
     private $key;
 
-    /**
-     * @var Profile
-     */
     private $profile;
 
     public function __construct(string $uuid, array $key, string $profileName, string $versionNumber)
     {
         $this->uuid = new Uuid($uuid);
-        $this->key = new Key($key);
-        $this->profile = Profile::createFromParts($profileName, $versionNumber);
+        $this->key = new KeyChange($key);
+        $this->profile = ProfileName::createFromParts($profileName, $versionNumber);
     }
 
-    public function getKey(): Key
+    public function getKey(): KeyChange
     {
         return $this->key;
     }
 
-    public function getProfile(): Profile
+    public function getProfile(): ProfileName
     {
         return $this->profile;
     }
@@ -88,8 +79,8 @@ class Command implements ConsumerCommand
         Assertion::keyExists($json, 'profile_version');
 
         $this->uuid = new Uuid($json['uuid']);
-        $this->key = new Key($json['key']);
-        $this->profile = Profile::createFromParts($json['profile_name'], $json['profile_version']);
+        $this->key = new KeyChange($json['key']);
+        $this->profile = ProfileName::createFromParts($json['profile_name'], $json['profile_version']);
 
         return $this;
     }

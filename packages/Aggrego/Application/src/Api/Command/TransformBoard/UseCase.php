@@ -13,36 +13,47 @@ declare(strict_types = 1);
 
 namespace Aggrego\Application\Api\Command\TransformBoard;
 
-use Aggrego\Application\Api\Command\TransformBoard\Exception\InvalidCommandDataException;
-use Aggrego\Application\Board\FromBoardFactory;
-use Aggrego\Application\Board\Repository;
+use Aggrego\Application\Board\BoardRepository;
+use Aggrego\Application\Profile\TransformationProfileRepository;
+use Aggrego\Domain\Board\Factory\BoardFactory;
+use Aggrego\Domain\Board\Id\IdFactory;
 
 class UseCase
 {
-    /**
-     * @var Repository
-     */
-    private $repository;
+    private $boardRepository;
 
-    /**
-     * @var FromBoardFactory
-     */
-    private $factory;
+    private $transformationProfileRepository;
 
-    public function __construct(Repository $repository, FromBoardFactory $factory)
+    private $boardFactory;
+
+    private $idFactory;
+
+    public function __construct(
+        BoardRepository $boardRepository,
+        TransformationProfileRepository $transformationProfileRepository,
+        BoardFactory $boardFactory,
+        IdFactory $idFactory
+    )
     {
-        $this->repository = $repository;
-        $this->factory = $factory;
+        $this->boardRepository = $boardRepository;
+        $this->transformationProfileRepository = $transformationProfileRepository;
+        $this->boardFactory = $boardFactory;
+        $this->idFactory = $idFactory;
     }
 
     /**
-     * @param  Command $command
-     * @throws InvalidCommandDataException
+     * @throws \Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype
+     * @throws \Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard
+     * @throws \Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange
      */
     public function handle(Command $command): void
     {
-        $board = $this->repository->getBoardByUuid($command->getBoardUuid());
-        $newBoard = $this->factory->fromBoard($command->getKey(), $board);
-        $this->repository->addBoard($newBoard);
+        $board = $this->boardRepository->getBoardByUuid($command->getBoardUuid());
+        $transformation = $this->transformationProfileRepository->getByName($board->getProfileName());
+
+        $prototype = $board->transform($command->getKey(), $transformation);
+        $board = $this->boardFactory->build($this->idFactory, $prototype);
+
+        $this->boardRepository->addBoard($board);
     }
 }

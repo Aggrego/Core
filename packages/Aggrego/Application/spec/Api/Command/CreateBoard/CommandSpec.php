@@ -17,8 +17,8 @@ use Aggrego\CommandConsumer\Command as ConsumerCommand;
 use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Uuid;
 use Aggrego\Application\Api\Command\CreateBoard\Command;
-use Aggrego\Application\Board\Key;
-use Aggrego\Application\Profile\Profile;
+use Aggrego\Domain\Profile\KeyChange;
+use Aggrego\Domain\Profile\Name as ProfileName;
 use PhpSpec\ObjectBehavior;
 
 class CommandSpec extends ObjectBehavior
@@ -28,12 +28,6 @@ class CommandSpec extends ObjectBehavior
         $this->beConstructedWith('7835a2f1-65c4-4e05-aacf-2e9ed950f5f2', [], 'test', '1.0');
     }
 
-    function it_is_initializable()
-    {
-        $this->shouldHaveType(Command::class);
-        $this->shouldHaveType(ConsumerCommand::class);
-    }
-
     function it_should_have_name()
     {
         $this->getName()->shouldBeAnInstanceOf(Name::class);
@@ -41,12 +35,12 @@ class CommandSpec extends ObjectBehavior
 
     function it_should_have_key()
     {
-        $this->getKey()->shouldBeAnInstanceOf(Key::class);
+        $this->getKey()->shouldBeAnInstanceOf(KeyChange::class);
     }
 
     function it_should_have_profile()
     {
-        $this->getProfile()->shouldBeAnInstanceOf(Profile::class);
+        $this->getProfile()->shouldBeAnInstanceOf(ProfileName::class);
     }
 
     function it_should_have_uuid()

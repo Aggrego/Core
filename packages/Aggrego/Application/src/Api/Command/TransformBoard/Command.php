@@ -13,36 +13,28 @@ declare(strict_types = 1);
 
 namespace Aggrego\Application\Api\Command\TransformBoard;
 
+use Aggrego\Application\Board\Id\Uuid as BoardUuid;
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
 use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Uuid;
-use Aggrego\Application\Board\Key;
-use Aggrego\Application\Board\Uuid as BoardUuid;
+use Aggrego\Domain\Profile\KeyChange;
 use Assert\Assertion;
 
 class Command implements ConsumerCommand
 {
     public const NAME = 'Aggrego/Domain/TransformBoard';
 
-    /**
-     * @var Uuid
-     */
     private $uuid;
 
-    /**
-     * @var BoardUuid
-     */
     private $boardUuid;
-    /**
-     * @var Key
-     */
+
     private $key;
 
     public function __construct(string $uuid, string $boardUuid, array $key)
     {
         $this->uuid = new Uuid($uuid);
         $this->boardUuid = new BoardUuid($boardUuid);
-        $this->key = new Key($key);
+        $this->key = new KeyChange($key);
     }
 
     public function getBoardUuid(): BoardUuid
@@ -50,7 +42,7 @@ class Command implements ConsumerCommand
         return $this->boardUuid;
     }
 
-    public function getKey(): Key
+    public function getKey(): KeyChange
     {
         return $this->key;
     }
@@ -86,7 +78,7 @@ class Command implements ConsumerCommand
 
         $this->uuid = new Uuid($json['uuid']);
         $this->boardUuid = new BoardUuid($json['board_uuid']);
-        $this->key = new Key($json['key']);
+        $this->key = new KeyChange($json['key']);
 
         return $this;
     }

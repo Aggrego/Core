@@ -13,6 +13,7 @@
     "php": ">=7.1",
     "beberlei/assert": "^3.0",
     "ramsey/uuid": "^3.8",
+    "aggrego/domain": "^0",
     "aggrego/event-consumer": "^0",
     "aggrego/command-consumer": "^0",
     "timitao/value-object": "^0"
