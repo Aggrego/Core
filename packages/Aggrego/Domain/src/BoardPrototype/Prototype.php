@@ -11,7 +11,7 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Domain\Board\Prototype;
+namespace Aggrego\Domain\BoardPrototype;
 
 use Aggrego\Domain\Board\Id\Id;
 use Aggrego\Domain\Profile\Name as ProfileName;

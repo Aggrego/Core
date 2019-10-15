@@ -13,11 +13,11 @@ declare(strict_types = 1);
 
 namespace Aggrego\CommandConsumer;
 
-use Serializable;
-
-interface Command extends Serializable
+interface Command
 {
     public function getUuid(): Uuid;
 
     public function getName(): Name;
+
+    public function getPayload(): array;
 }

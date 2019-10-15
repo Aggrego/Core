@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Profile;
 
+use Aggrego\Domain\Profile\Exception\InvalidName;
 use Assert\Assertion;
-use Profile\Exception\InvalidName;
 
 final class Name
 {

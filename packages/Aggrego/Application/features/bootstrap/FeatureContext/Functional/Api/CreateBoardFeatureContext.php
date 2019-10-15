@@ -15,8 +15,6 @@ namespace FeatureContext\Functional\Api;
 
 use Aggrego\Application\Api\Command\CreateBoard\Command;
 use Aggrego\Application\Api\Command\CreateBoard\UseCase;
-use Aggrego\Application\Shared\Exception\InvalidArgumentException;
-use Aggrego\Application\Shared\Exception\RuntimeException;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use Tests\Profile\BaseTestWatchman;

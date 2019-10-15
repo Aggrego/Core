@@ -18,7 +18,6 @@ use Aggrego\CommandConsumer\Command as ConsumerCommand;
 use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Uuid;
 use Aggrego\Domain\Profile\KeyChange;
-use Assert\Assertion;
 
 class Command implements ConsumerCommand
 {
@@ -57,29 +56,13 @@ class Command implements ConsumerCommand
         return $this->uuid;
     }
 
-    public function serialize()
+    public function getPayload(): array
     {
-        return json_encode([
+        return [
             'uuid' => $this->getUuid()->getValue(),
             'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
             'board_uuid' => $this->boardUuid->getValue(),
-        ]);
-    }
-
-    public function unserialize($serialized): self
-    {
-        $json = json_decode($serialized, true);
-        Assertion::keyExists($json, 'uuid');
-        Assertion::keyExists($json, 'name');
-        Assertion::eq($json['name'], self::NAME);
-        Assertion::keyExists($json, 'key');
-        Assertion::keyExists($json, 'board_uuid');
-
-        $this->uuid = new Uuid($json['uuid']);
-        $this->boardUuid = new BoardUuid($json['board_uuid']);
-        $this->key = new KeyChange($json['key']);
-
-        return $this;
+        ];
     }
 }

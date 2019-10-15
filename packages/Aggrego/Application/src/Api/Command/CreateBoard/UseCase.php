@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace Aggrego\Application\Api\Command\CreateBoard;
 
 use Aggrego\Application\Board\BoardRepository;
-use Aggrego\Application\Profile\BuildingProfileRepository;
+use Aggrego\Application\Profile\Building\BuildingProfileRepository;
 use Aggrego\Domain\Board\Factory\BoardFactory;
 use Aggrego\Domain\Board\Id\IdFactory;
 

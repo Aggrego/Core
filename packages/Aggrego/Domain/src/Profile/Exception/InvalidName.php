@@ -11,7 +11,7 @@
 
 declare(strict_types = 1);
 
-namespace Profile\Exception;
+namespace Aggrego\Domain\Profile\Exception;
 
 use Aggrego\Domain\Exception\InvalidArgument;
 

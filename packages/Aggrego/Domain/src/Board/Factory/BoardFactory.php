@@ -16,7 +16,7 @@ namespace Aggrego\Domain\Board\Factory;
 use Aggrego\Domain\Board\Board;
 use Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\IdFactory;
-use Aggrego\Domain\Board\Prototype\Prototype;
+use Aggrego\Domain\BoardPrototype\Prototype;
 
 interface BoardFactory
 {

@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace Aggrego\Application\Api\Command\TransformBoard;
 
 use Aggrego\Application\Board\BoardRepository;
-use Aggrego\Application\Profile\TransformationProfileRepository;
+use Aggrego\Application\Profile\Transformation\TransformationProfileRepository;
 use Aggrego\Domain\Board\Factory\BoardFactory;
 use Aggrego\Domain\Board\Id\IdFactory;
 

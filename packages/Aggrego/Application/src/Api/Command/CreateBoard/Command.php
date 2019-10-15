@@ -18,7 +18,6 @@ use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Uuid;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Domain\Profile\Name as ProfileName;
-use Assert\Assertion;
 
 class Command implements ConsumerCommand
 {
@@ -57,31 +56,14 @@ class Command implements ConsumerCommand
         return $this->uuid;
     }
 
-    public function serialize()
+    public function getPayload(): array
     {
-        return json_encode([
+        return [
             'uuid' => $this->getUuid()->getValue(),
             'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
             'profile_name' => $this->profile->getName(),
             'profile_version' => $this->profile->getVersion()
-        ]);
-    }
-
-    public function unserialize($serialized): self
-    {
-        $json = json_decode($serialized, true);
-        Assertion::keyExists($json, 'uuid');
-        Assertion::keyExists($json, 'name');
-        Assertion::eq($json['name'], self::NAME);
-        Assertion::keyExists($json, 'key');
-        Assertion::keyExists($json, 'profile_name');
-        Assertion::keyExists($json, 'profile_version');
-
-        $this->uuid = new Uuid($json['uuid']);
-        $this->key = new KeyChange($json['key']);
-        $this->profile = ProfileName::createFromParts($json['profile_name'], $json['profile_version']);
-
-        return $this;
+        ];
     }
 }

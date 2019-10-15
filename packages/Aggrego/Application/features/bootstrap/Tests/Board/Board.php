@@ -13,38 +13,32 @@ declare(strict_types = 1);
 
 namespace Tests\Board;
 
-use Aggrego\Application\Board\Board as DomainBoard;
-use Aggrego\Application\Board\Uuid;
-use Aggrego\Application\Profile\Profile;
+use Aggrego\Application\Board\Id\Uuid;
+use Aggrego\Domain\Board\Board as DomainBoard;
+use Aggrego\Domain\Board\Id\Id;
+use Aggrego\Domain\Board\Name;
+use Aggrego\Domain\BoardPrototype\Prototype;
+use Aggrego\Domain\Profile\KeyChange;
+use Aggrego\Domain\Profile\Name as ProfileName;
+use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
+use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
+use Aggrego\Domain\Profile\Transformation\TransformationProfile;
 use Aggrego\EventConsumer\Shared\Events;
 use Tests\Board\Events\BoardCreated;
 
 class Board implements DomainBoard
 {
-    /**
-     * @var Uuid
-     */
-    private $uuid;
+    private $id;
 
-    /**
-     * @var Profile
-     */
+    private $name;
+
     private $profile;
 
-    public function __construct(Uuid $uuid, Profile $profile)
+    public function __construct(Uuid $uuid, ProfileName $profile)
     {
-        $this->uuid = $uuid;
+        $this->id = $uuid;
+        $this->name = new Name('test');
         $this->profile = $profile;
-    }
-
-    public function getUuid(): Uuid
-    {
-        return $this->uuid;
-    }
-
-    public function getProfile(): Profile
-    {
-        return $this->profile;
     }
 
     public function pullEvents(): Events
@@ -52,5 +46,29 @@ class Board implements DomainBoard
         $events = new Events();
         $events->add(new BoardCreated($this->uuid, $this->profile));
         return $events;
+    }
+
+    public function getId(): Id
+    {
+        return $this->id;
+    }
+
+    public function getName(): Name
+    {
+        return $this->name;
+    }
+
+    public function getProfileName(): ProfileName
+    {
+        return $this->profile;
+    }
+
+    /**
+     * @throws UnprocessableKeyChange
+     * @throws UnprocessableBoard
+     */
+    public function transform(KeyChange $key, TransformationProfile $transformation): Prototype
+    {
+        return $transformation->transform($key, $this);
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Application\Profile\Exception;
+namespace Aggrego\Application\Profile\Transformation\Exception;
 
 use Aggrego\Application\Exception\Runtime;
 

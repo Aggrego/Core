@@ -24,20 +24,20 @@ use Tests\Profile\BoardConstruction\Builder;
 
 class TransformBoardFeatureContext implements Context
 {
-    /**
-     * @var UseCase
-     */
-    private $useCase;
-
-    /**
-     * @var RuntimeException
-     */
-    private $exception;
-
-    public function __construct(UseCase $useCase)
-    {
-        $this->useCase = $useCase;
-    }
+//    /**
+//     * @var UseCase
+//     */
+//    private $useCase;
+//
+//    /**
+//     * @var RuntimeException
+//     */
+//    private $exception;
+//
+//    public function __construct(UseCase $useCase)
+//    {
+//        $this->useCase = $useCase;
+//    }
 
     /**
      * @When I command transform default board

@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace Aggrego\Domain\Profile\Transformation;
 
 use Aggrego\Domain\Board\Board;
-use Aggrego\Domain\Board\Prototype\Prototype;
+use Aggrego\Domain\BoardPrototype\Prototype;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Domain\Profile\Profile;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
@@ -26,5 +26,5 @@ interface TransformationProfile extends Profile
      * @throws UnprocessableKeyChange
      * @throws UnprocessableBoard
      */
-    public function transform(KeyChange $key, Board $board): Prototype;
+    public function transform(KeyChange $change, Board $board): Prototype;
 }

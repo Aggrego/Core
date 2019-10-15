@@ -7,7 +7,7 @@ namespace Aggrego\Application\Board\Id;
 use Aggrego\Domain\Board\Id\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\Id;
 use Aggrego\Domain\Board\Id\IdFactory;
-use Aggrego\Domain\Board\Prototype\Prototype;
+use Aggrego\Domain\BoardPrototype\Prototype;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 
 class UuidIdFactory implements IdFactory

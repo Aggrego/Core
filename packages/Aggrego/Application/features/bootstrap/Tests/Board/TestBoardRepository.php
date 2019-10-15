@@ -13,12 +13,12 @@ declare(strict_types = 1);
 
 namespace Tests\Board;
 
-use Aggrego\Application\Board\Board;
 use Aggrego\Application\Board\Exception\BoardNotFound;
-use Aggrego\Application\Board\BoardRepository as BoardRepository;
-use Aggrego\Application\Board\Uuid;
+use Aggrego\Application\Board\BoardRepository;
+use Aggrego\Domain\Board\Board as DomainBoard;
+use Aggrego\Domain\Board\Id\Id;
 
-class BoardRepository implements BoardRepository
+class TestBoardRepository implements BoardRepository
 {
     /**
      * @var array|Board[]
@@ -30,19 +30,19 @@ class BoardRepository implements BoardRepository
         $this->clear();
     }
 
-    public function addBoard(Board $board): void
+    public function addBoard(DomainBoard $board): void
     {
         $this->list[(string)$board->getId()->getValue()] = $board;
     }
 
-    public function getBoardByUuid(Uuid $uuid): Board
+    public function getBoardByUuid(Id $id): DomainBoard
     {
         foreach ($this->list as $board) {
-            if ($uuid->equal($board->getId())) {
+            if ($id->equal($board->getId())) {
                 return $board;
             }
         }
-        throw new BoardNotFound(sprintf('Board not found with uuid: %s', $uuid->getValue()));
+        throw new BoardNotFound(sprintf('Board not found with uuid: %s', $id->getValue()));
     }
 
     public function clear(): void

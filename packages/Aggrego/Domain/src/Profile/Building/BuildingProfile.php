@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Profile\Building;
 
-use Aggrego\Domain\Board\Prototype\Prototype;
+use Aggrego\Domain\BoardPrototype\Prototype;
 use Aggrego\Domain\Profile\Building\Exception\UnprocessableKeyChange;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Domain\Profile\Profile;

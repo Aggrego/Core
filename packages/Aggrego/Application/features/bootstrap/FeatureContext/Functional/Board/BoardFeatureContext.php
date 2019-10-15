@@ -17,7 +17,7 @@ use Aggrego\Application\Profile\Profile;
 use Aggrego\Application\Board\Board;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
-use Tests\Board\BoardRepository;
+use Tests\Board\TestBoardRepository;
 use Tests\Profile\BaseTestWatchman;
 use Tests\Profile\BoardConstruction\Builder as TestBuilder;
 use Tests\Profile\BoardConstruction\Watchman;
@@ -25,7 +25,7 @@ use Tests\Profile\BoardConstruction\Watchman;
 class BoardFeatureContext implements Context
 {
     /**
-     * @var BoardRepository
+     * @var TestBoardRepository
      */
     private $repository;
 
@@ -34,7 +34,7 @@ class BoardFeatureContext implements Context
      */
     private $builder;
 
-    public function __construct(BoardRepository $repository, Watchman $watchman)
+    public function __construct(TestBoardRepository $repository, Watchman $watchman)
     {
         $this->repository = $repository;
         $this->builder = $watchman->passBuilder(

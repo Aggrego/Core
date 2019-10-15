@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace Tests\Board\Events;
 
-use Aggrego\Application\Board\Uuid;
-use Aggrego\Application\Profile\Profile;
+use Aggrego\Application\Board\Id\Uuid;
+use Aggrego\Domain\Profile\Name as ProfileName;
 use Aggrego\EventConsumer\Event\CreatedAt;
 use Aggrego\EventConsumer\Event\Domain;
 use Aggrego\EventConsumer\Event\Name;
@@ -26,7 +26,7 @@ class BoardCreated extends Event
 {
     private const DOMAIN_NAME = 'test.board';
 
-    public static function build(Uuid $uuid, Profile $profile): self
+    public static function build(Uuid $uuid, ProfileName $profileName): self
     {
         return new self(
             Domain::build(
@@ -38,7 +38,7 @@ class BoardCreated extends Event
             new Version('1.0.0.0'),
             [
                 'uuid' => $uuid->getValue(),
-                'profile' => $profile->__toString(),
+                'profile' => (string)$profileName,
             ]
         );
     }

@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace Aggrego\Application\Profile;
+namespace Aggrego\Application\Profile\Building;
 
-use Aggrego\Application\Profile\Exception\BuildingProfileNotFound;
+use Aggrego\Application\Profile\Building\Exception\BuildingProfileNotFound;
 use Aggrego\Domain\Profile\Building\BuildingProfile;
 use Aggrego\Domain\Profile\Name;
 

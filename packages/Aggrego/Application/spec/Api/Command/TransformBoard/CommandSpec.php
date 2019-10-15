@@ -13,7 +13,6 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Application\Api\Command\TransformBoard;
 
-use Aggrego\Application\Api\Command\TransformBoard\Command;
 use Aggrego\Application\Board\Id\Uuid as BoardUuid;
 use Aggrego\CommandConsumer\Name;
 use Aggrego\CommandConsumer\Uuid;
@@ -47,22 +46,8 @@ class CommandSpec extends ObjectBehavior
         $this->getName()->shouldBeAnInstanceOf(Name::class);
     }
 
-    function it_should_serialize()
+    function it_should_get_payload()
     {
-        $this->serialize()->shouldBeString();
-    }
-
-    function it_should_unserialize()
-    {
-        $this->unserialize(
-            json_encode(
-                [
-                    'uuid' => '69d53395-7c1d-452d-ab5c-921575980f16',
-                    'board_uuid' => '69d53395-7c1d-452d-ab5c-921575980f16',
-                    'name' => Command::NAME,
-                    'key' => ['test']
-                ]
-            )
-        )->shouldBeAnInstanceOf(Command::class);
+        $this->getPayload()->shouldBeArray();
     }
 }

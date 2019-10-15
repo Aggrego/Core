@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace Aggrego\Domain\Board;
 
-use Aggrego\Domain\Board\Prototype\Prototype;
+use Aggrego\Domain\BoardPrototype\Prototype;
 use Aggrego\Domain\Board\Id\Id;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Domain\Profile\Name as ProfileName;

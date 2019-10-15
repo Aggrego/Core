@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace Aggrego\Domain\Board\Id;
 
 use Aggrego\Domain\Board\Id\Exception\UnprocessablePrototype;
-use Aggrego\Domain\Board\Prototype\Prototype;
+use Aggrego\Domain\BoardPrototype\Prototype;
 
 interface IdFactory
 {
