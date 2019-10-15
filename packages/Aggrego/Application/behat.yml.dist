@@ -5,9 +5,6 @@ default:
       contexts:
         - FeatureContext\Functional\Api\CreateBoardFeatureContext:
           - "@Aggrego\\Application\\Api\\Command\\CreateBoard\\UseCase"
-#        - FeatureContext\Functional\Api\TransformBoardFeatureContext:
-#          - "@domain.command.transform_board.use_case"
-#
         - FeatureContext\Functional\Board\BoardFeatureContext:
           - "@Tests\\Board\\TestBoardRepository"
 
