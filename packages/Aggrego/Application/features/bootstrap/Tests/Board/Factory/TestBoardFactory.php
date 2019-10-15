@@ -6,9 +6,10 @@ namespace Tests\Board\Factory;
 
 use Aggrego\Domain\Board\Board;
 use Aggrego\Domain\Board\Factory\BoardFactory;
-use Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype;
+use Aggrego\Domain\Board\Id\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\IdFactory;
 use Aggrego\Domain\BoardPrototype\Prototype;
+use Tests\Board\Board as TestBoard;
 
 class TestBoardFactory implements BoardFactory
 {
@@ -17,6 +18,6 @@ class TestBoardFactory implements BoardFactory
      */
     public function build(IdFactory $factory, Prototype $prototype): Board
     {
-        // TODO: Implement build() method.
+        return new TestBoard($factory->generateNew($prototype), $prototype->getProfileName());
     }
 }

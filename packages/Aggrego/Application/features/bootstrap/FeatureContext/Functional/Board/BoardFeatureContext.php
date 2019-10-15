@@ -13,14 +13,9 @@ declare(strict_types = 1);
 
 namespace FeatureContext\Functional\Board;
 
-use Aggrego\Application\Profile\Profile;
-use Aggrego\Application\Board\Board;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
 use Tests\Board\TestBoardRepository;
-use Tests\Profile\BaseTestWatchman;
-use Tests\Profile\BoardConstruction\Builder as TestBuilder;
-use Tests\Profile\BoardConstruction\Watchman;
 
 class BoardFeatureContext implements Context
 {
@@ -29,17 +24,9 @@ class BoardFeatureContext implements Context
      */
     private $repository;
 
-    /**
-     * @var TestBuilder
-     */
-    private $builder;
-
-    public function __construct(TestBoardRepository $repository, Watchman $watchman)
+    public function __construct(TestBoardRepository $repository)
     {
         $this->repository = $repository;
-        $this->builder = $watchman->passBuilder(
-            Profile::createFromParts(BaseTestWatchman::DEFAULT_PROFILE, BaseTestWatchman::DEFAULT_VERSION)
-        );
     }
 
     /**
@@ -50,36 +37,36 @@ class BoardFeatureContext implements Context
         $this->repository->clear();
     }
 
-    /**
-     * @Given default board exists
-     */
-    public function defaultBoardExists()
-    {
-        $this->repository->addBoard(
-            Board::factory(new Key(TestBuilder::DEFAULT_KEY), $this->builder)
-        );
-    }
-
-    /**
-     * @Given default board fully updated exist
-     */
-    public function defaultBoardFullyUpdated()
-    {
-        $board = Board::factory(new Key(TestBuilder::DEFAULT_KEY), $this->builder);
-        $board->updateShard(
-            new Uuid(TestBuilder::DEFAULT_SHARD_MR_UUID),
-            Profile::createFrom(TestBuilder::DEFAULT_SOURCE_NAME, TestBuilder::DEFAULT_SOURCE_VERSION),
-            new Data(UpdateBoardFeatureContext::DEFAULT_DATA_UPDATE)
-        );
-        $board->updateShard(
-            new Uuid(TestBuilder::DEFAULT_SHARD_MRS_UUID),
-            Profile::createFrom(TestBuilder::DEFAULT_SOURCE_NAME, TestBuilder::DEFAULT_SOURCE_VERSION),
-            new Data(UpdateBoardFeatureContext::DEFAULT_DATA_UPDATE)
-        );
-        $this->repository->addBoard($board);
-    }
-
-
+//    /**
+//     * @Given default board exists
+//     */
+//    public function defaultBoardExists()
+//    {
+//        $this->repository->addBoard(
+//            Board::factory(new Key(TestBuilder::DEFAULT_KEY), $this->builder)
+//        );
+//    }
+//
+//    /**
+//     * @Given default board fully updated exist
+//     */
+//    public function defaultBoardFullyUpdated()
+//    {
+//        $board = Board::factory(new Key(TestBuilder::DEFAULT_KEY), $this->builder);
+//        $board->updateShard(
+//            new Uuid(TestBuilder::DEFAULT_SHARD_MR_UUID),
+//            Profile::createFrom(TestBuilder::DEFAULT_SOURCE_NAME, TestBuilder::DEFAULT_SOURCE_VERSION),
+//            new Data(UpdateBoardFeatureContext::DEFAULT_DATA_UPDATE)
+//        );
+//        $board->updateShard(
+//            new Uuid(TestBuilder::DEFAULT_SHARD_MRS_UUID),
+//            Profile::createFrom(TestBuilder::DEFAULT_SOURCE_NAME, TestBuilder::DEFAULT_SOURCE_VERSION),
+//            new Data(UpdateBoardFeatureContext::DEFAULT_DATA_UPDATE)
+//        );
+//        $this->repository->addBoard($board);
+//    }
+//
+//
     /**
      * @Then new board should be created
      */
@@ -87,76 +74,76 @@ class BoardFeatureContext implements Context
     {
         Assertion::min(count($this->repository->getList()), 1);
     }
-
-    /**
-     * @Then have shards initialized
-     */
-    public function haveShardsInitialized()
-    {
-        $count = $this->mapEventsCountForFirstBoard();
-        Assertion::keyExists($count, ShardAddedEvent::class);
-        Assertion::eq($count[ShardAddedEvent::class], TestBuilder::INITIAL_SHARDS_COUNT, print_r($count, true));
-    }
-
-    /**
-     * @Then default board should have updated shards
-     */
-    public function defaultBoardShouldHaveUpdatedShard()
-    {
-        $count = $this->mapEventsCountForFirstBoard();
-        Assertion::min($count[ShardUpdatedEvent::class], 1, print_r($count, true));
-    }
-
-    /**
-     * @Then default board shouldn't have updated shards
-     */
-    public function defaultBoardShouldntHaveUpdatedShards()
-    {
-        $count = $this->mapEventsCountForFirstBoard();
-        Assertion::keyNotExists($count, ShardUpdatedEvent::class);
-    }
-
-    /**
-     * @Then should no board exist
-     */
-    public function shouldNoBoardExist()
-    {
-        $count = $this->mapEventsCountForFirstBoard();
-        Assertion::min($count[BoardDeletedEvent::class], 1, print_r($count, true));
-    }
-
-    /**
-     * @When board should be in final state
-     */
-    public function boardShouldBeInFinalState()
-    {
-        $count = $this->mapEventsCountForFirstBoard();
-        Assertion::min($count[FinalBoardTransformedEvent::class], 1, print_r($count, true));
-    }
-
-
-    private function mapEventsCountForFirstBoard(): array
-    {
-        $list = $this->repository->getList();
-        /**
- * @var Board $element
-*/
-        $element = reset($list);
-        return $this->mapEventsCount($element);
-    }
-
-    private function mapEventsCount(Board $board): array
-    {
-        $count = [];
-        /**
- * @var Board $board
-*/
-        foreach ($board->pullEvents() as $event) {
-            if (!isset($count[get_class($event)])) {
-                $count[get_class($event)] = 0;
-            }
-            $count[get_class($event)]++;
-        }
-        return $count;
-    }
+//
+//    /**
+//     * @Then have shards initialized
+//     */
+//    public function haveShardsInitialized()
+//    {
+//        $count = $this->mapEventsCountForFirstBoard();
+//        Assertion::keyExists($count, ShardAddedEvent::class);
+//        Assertion::eq($count[ShardAddedEvent::class], TestBuilder::INITIAL_SHARDS_COUNT, print_r($count, true));
+//    }
+//
+//    /**
+//     * @Then default board should have updated shards
+//     */
+//    public function defaultBoardShouldHaveUpdatedShard()
+//    {
+//        $count = $this->mapEventsCountForFirstBoard();
+//        Assertion::min($count[ShardUpdatedEvent::class], 1, print_r($count, true));
+//    }
+//
+//    /**
+//     * @Then default board shouldn't have updated shards
+//     */
+//    public function defaultBoardShouldntHaveUpdatedShards()
+//    {
+//        $count = $this->mapEventsCountForFirstBoard();
+//        Assertion::keyNotExists($count, ShardUpdatedEvent::class);
+//    }
+//
+//    /**
+//     * @Then should no board exist
+//     */
+//    public function shouldNoBoardExist()
+//    {
+//        $count = $this->mapEventsCountForFirstBoard();
+//        Assertion::min($count[BoardDeletedEvent::class], 1, print_r($count, true));
+//    }
+//
+//    /**
+//     * @When board should be in final state
+//     */
+//    public function boardShouldBeInFinalState()
+//    {
+//        $count = $this->mapEventsCountForFirstBoard();
+//        Assertion::min($count[FinalBoardTransformedEvent::class], 1, print_r($count, true));
+//    }
+//
+//
+//    private function mapEventsCountForFirstBoard(): array
+//    {
+//        $list = $this->repository->getList();
+//        /**
+//         * @var Board $element
+//         */
+//        $element = reset($list);
+//        return $this->mapEventsCount($element);
+//    }
+//
+//    private function mapEventsCount(Board $board): array
+//    {
+//        $count = [];
+//        /**
+//         * @var Board $board
+//         */
+//        foreach ($board->pullEvents() as $event) {
+//            if (!isset($count[get_class($event)])) {
+//                $count[get_class($event)] = 0;
+//            }
+//            $count[get_class($event)]++;
+//        }
+//        return $count;
+//    }
 }

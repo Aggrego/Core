@@ -16,8 +16,8 @@ class TestBuildingProfileRepository implements BuildingProfileRepository
      */
     public function getByName(Name $name): BuildingProfile
     {
-        if ((string)$name !== TestBuildingProfile::NAME) {
-            throw new BuildingProfileNotFound();
+        if (!$name->equal(Name::createFromParts(TestBuildingProfile::NAME, TestBuildingProfile::VERSION))) {
+            throw BuildingProfileNotFound::notFound($name);
         }
         return new TestBuildingProfile();
     }

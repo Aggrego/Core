@@ -34,7 +34,7 @@ class Board implements DomainBoard
 
     private $profile;
 
-    public function __construct(Uuid $uuid, ProfileName $profile)
+    public function __construct(Id $uuid, ProfileName $profile)
     {
         $this->id = $uuid;
         $this->name = new Name('test');

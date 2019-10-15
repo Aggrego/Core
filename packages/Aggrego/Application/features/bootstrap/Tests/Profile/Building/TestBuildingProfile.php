@@ -16,11 +16,12 @@ use Tests\BoardPrototype\TestPrototype;
 
 class TestBuildingProfile implements BuildingProfile
 {
-    public const NAME = 'test_profile:1.0';
+    public const NAME = 'test_profile';
+    public const VERSION = '1.0';
 
     public function getName(): Name
     {
-        return Name::createFromName(self::NAME);
+        return Name::createFromParts(self::NAME, self::VERSION);
     }
 
     /**

@@ -17,15 +17,14 @@ use Aggrego\Application\Api\Command\CreateBoard\Command;
 use Aggrego\Application\Api\Command\CreateBoard\UseCase;
 use Assert\Assertion;
 use Behat\Behat\Context\Context;
-use Tests\Profile\BaseTestWatchman;
-use Tests\Profile\BoardConstruction\Builder;
+use Tests\Profile\Building\TestBuildingProfile;
 use Throwable;
 
 class CreateBoardFeatureContext implements Context
 {
-    /**
-     * @var UseCase
-     */
+    private const DEFAULT_UUID = '95197308-949c-4a58-927b-081178aa0d3a';
+    private const DEFAULT_KEY = ['key' => 'test'];
+
     private $useCase;
 
     /**
@@ -45,10 +44,10 @@ class CreateBoardFeatureContext implements Context
     {
         $this->useCase->handle(
             new Command(
-                'd0b7e1e2-b95c-5567-817b-bb9b1b9e272e',
-                Builder::DEFAULT_KEY,
-                BaseTestWatchman::DEFAULT_PROFILE,
-                BaseTestWatchman::DEFAULT_VERSION
+                self::DEFAULT_UUID,
+                self::DEFAULT_KEY,
+                TestBuildingProfile::NAME,
+                TestBuildingProfile::VERSION
             )
         );
     }

@@ -17,7 +17,7 @@ class TestTransformationProfileRepository implements TransformationProfileReposi
     public function getByName(Name $name): TransformationProfile
     {
         if ((string)$name !== TestTransformationProfile::NAME) {
-            throw new TransformationProfileNotFound();
+            throw new TransformationProfileNotFound('Error: ' . __FILE__);
         }
         return new TestTransformationProfile();
     }

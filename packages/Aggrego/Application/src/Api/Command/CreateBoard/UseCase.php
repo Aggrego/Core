@@ -16,7 +16,9 @@ namespace Aggrego\Application\Api\Command\CreateBoard;
 use Aggrego\Application\Board\BoardRepository;
 use Aggrego\Application\Profile\Building\BuildingProfileRepository;
 use Aggrego\Domain\Board\Factory\BoardFactory;
+use Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\IdFactory;
+use Aggrego\Domain\Profile\Building\Exception\UnprocessableKeyChange;
 
 class UseCase
 {
@@ -42,8 +44,8 @@ class UseCase
     }
 
     /**
-     * @throws \Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype
-     * @throws \Aggrego\Domain\Profile\Building\Exception\UnprocessableKeyChange
+     * @throws UnprocessablePrototype
+     * @throws UnprocessableKeyChange
      */
     public function handle(Command $command): void
     {

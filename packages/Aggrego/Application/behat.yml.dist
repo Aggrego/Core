@@ -8,9 +8,8 @@ default:
 #        - FeatureContext\Functional\Api\TransformBoardFeatureContext:
 #          - "@domain.command.transform_board.use_case"
 #
-#        - FeatureContext\Functional\Board\BoardFeatureContext:
-#          - "@tests.domain.board.repository"
-#          - "@tests.profile.board_construction.watchman"
+        - FeatureContext\Functional\Board\BoardFeatureContext:
+          - "@Tests\\Board\\TestBoardRepository"
 
   extensions:
     TimiTao\BehatSymfonyContainer\ServiceContainer\Extension:

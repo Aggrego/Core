@@ -23,6 +23,9 @@ services:
             - "@Tests\\Board\\Factory\\TestBoardFactory"
             - "@Aggrego\\Application\\Board\\Id\\UuidIdFactory"
 
+    Tests\Board\TestBoardRepository:
+        public: true
+
 ## Command
 #    domain.command.create_board.use_case:
 #        public: true
