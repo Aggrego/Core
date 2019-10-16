@@ -18,7 +18,7 @@ jobs:
     - &test-stage
       stage: test
       name: PHP 7.1
-      php: 7.1
+      php: 7.1.29
       script:
         - composer install
         - php vendor/bin/phpspec run
