@@ -1,15 +1,13 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Aggrego\Application\Api\Command\CreateBoard;
 
@@ -63,7 +61,7 @@ class Command implements ConsumerCommand
             'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
             'profile_name' => $this->profile->getName(),
-            'profile_version' => $this->profile->getVersion()
+            'profile_version' => $this->profile->getVersion(),
         ];
     }
 }

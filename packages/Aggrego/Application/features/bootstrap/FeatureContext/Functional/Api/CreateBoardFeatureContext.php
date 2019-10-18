@@ -1,15 +1,13 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace FeatureContext\Functional\Api;
 
@@ -21,6 +19,7 @@ use Tests\Profile\Building\TestBuildingProfile;
 class CreateBoardFeatureContext implements Context
 {
     public const DEFAULT_UUID = '95197308-949c-4a58-927b-081178aa0d3a';
+
     public const DEFAULT_KEY = ['key' => 'test'];
 
     private $useCase;
@@ -33,7 +32,7 @@ class CreateBoardFeatureContext implements Context
     /**
      * @When I create board for by default key, profile and version
      */
-    public function iCreateBoardForByDefaultKeyProfileAndVersion()
+    public function iCreateBoardForByDefaultKeyProfileAndVersion(): void
     {
         $this->useCase->handle(
             new Command(

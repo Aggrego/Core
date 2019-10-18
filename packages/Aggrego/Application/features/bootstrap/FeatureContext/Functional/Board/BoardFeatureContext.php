@@ -1,15 +1,13 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace FeatureContext\Functional\Board;
 
@@ -45,12 +43,13 @@ class BoardFeatureContext implements Context
     /**
      * @Given default board exists
      */
-    public function defaultBoardExists()
+    public function defaultBoardExists(): void
     {
         $this->repository->addBoard(
             new Board(
                 new Uuid(CreateBoardFeatureContext::DEFAULT_UUID),
-                Name::createFromParts(TestBuildingProfile::NAME, TestBuildingProfile::VERSION))
+                Name::createFromParts(TestBuildingProfile::NAME, TestBuildingProfile::VERSION)
+            )
         );
     }
 
@@ -61,7 +60,7 @@ class BoardFeatureContext implements Context
     {
         Assertion::min(count($this->repository->getList()), 1);
     }
-//
+
 //    private function mapEventsCountForFirstBoard(): array
 //    {
 //        $list = $this->repository->getList();

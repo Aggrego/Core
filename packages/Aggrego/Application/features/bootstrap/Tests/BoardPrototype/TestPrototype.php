@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Tests\BoardPrototype;
 
@@ -45,7 +45,7 @@ class TestPrototype implements Prototype
 
     public function hasParentId(): bool
     {
-        return !is_null($this->parentId);
+        return $this->parentId !== null;
     }
 
     public function getParentId(): Id

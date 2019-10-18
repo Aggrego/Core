@@ -1,15 +1,13 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Aggrego\EventConsumer\Event;
 
@@ -19,10 +17,10 @@ class Domain
 {
     private const SEPARATOR = ':';
 
-    /** @var Name  */
+    /** @var Name */
     private $name;
 
-    /** @var Uuid  */
+    /** @var Uuid */
     private $uuid;
 
     public function __construct(Name $name, Uuid $uuid)
@@ -36,10 +34,10 @@ class Domain
      * @return Domain
      * @throws \Assert\AssertionFailedException
      */
-    public static function fromString(string $string): Domain
+    public static function fromString(string $string): self
     {
         Assertion::notEmpty($string);
-        list($domainName, $uuid) = explode(self::SEPARATOR, $string);
+        [$domainName, $uuid] = explode(self::SEPARATOR, $string);
 
         return self::build($domainName, $uuid);
     }

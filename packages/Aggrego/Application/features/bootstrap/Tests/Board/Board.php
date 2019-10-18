@@ -1,19 +1,16 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Tests\Board;
 
-use Aggrego\Application\Board\Id\Uuid;
 use Aggrego\Domain\Board\Board as DomainBoard;
 use Aggrego\Domain\Board\Id\Id;
 use Aggrego\Domain\Board\Name;

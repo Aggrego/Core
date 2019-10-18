@@ -1,15 +1,13 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Aggrego\DataDomainBoard\Board;
 
@@ -20,10 +18,10 @@ use Aggrego\Domain\Board\Board as DomainBoard;
 use Aggrego\Domain\Board\Builder as FactoryInterface;
 use Aggrego\Domain\Board\Exception\UnsupportedPrototypeBuilderException;
 use Aggrego\Domain\Board\Key;
+use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\BoardPrototype\Board as PrototypeBoard;
 use Aggrego\Domain\BoardPrototype\Metadata;
 use Aggrego\Domain\BoardPrototype\Metadata as DomainMetadata;
-use Aggrego\Domain\Board\Uuid;
 use Aggrego\Domain\Profile\Profile;
 use Assert\Assertion;
 use Assert\AssertionFailedException;

@@ -26,8 +26,7 @@ class ClientSpec extends ObjectBehavior
     function let(
         EventProcessor $eventProcessor,
         CommandConsumerClient $commandConsumerClient
-    )
-    {
+    ) {
         $this->beConstructedWith($eventProcessor, $commandConsumerClient);
     }
 
@@ -41,8 +40,7 @@ class ClientSpec extends ObjectBehavior
         CommandConsumerClient $commandConsumerClient,
         Command $command,
         Event $event
-    )
-    {
+    ) {
         $eventProcessor->transform($event)->willReturn(new CommandCollection($command->getWrappedObject()));
         $this->beConstructedWith($eventProcessor, $commandConsumerClient);
 

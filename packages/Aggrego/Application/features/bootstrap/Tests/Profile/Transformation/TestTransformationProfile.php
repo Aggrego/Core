@@ -1,14 +1,14 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Tests\Profile\Transformation;
 
 use Aggrego\Domain\Board\Board;
+use Aggrego\Domain\BoardPrototype\Exception\InvalidName;
 use Aggrego\Domain\BoardPrototype\Metadata;
 use Aggrego\Domain\BoardPrototype\Name as PrototypeName;
 use Aggrego\Domain\BoardPrototype\Prototype;
-use Aggrego\Domain\BoardPrototype\Exception\InvalidName;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Domain\Profile\Name;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
@@ -41,13 +41,11 @@ class TestTransformationProfile implements TransformationProfile
         if (!isset($changeValue['key'])) {
             throw new UnprocessableKeyChange();
         }
-        $prototype = new TestPrototype(
+        return new TestPrototype(
             new PrototypeName('test'),
             $this->getName(),
             new Metadata(['key' => $changeValue['key']]),
             null
         );
-
-        return $prototype;
     }
 }

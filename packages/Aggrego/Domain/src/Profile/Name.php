@@ -1,15 +1,13 @@
 <?php
 /**
- *
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Aggrego\Domain\Profile;
 
@@ -39,6 +37,11 @@ final class Name
         $this->version = $version;
     }
 
+    public function __toString(): string
+    {
+        return $this->name . self::SEPARATOR . $this->version;
+    }
+
     public static function createFromParts(string $name, string $version): self
     {
         Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
@@ -65,11 +68,6 @@ final class Name
     {
         return $this->name === $profile->name
             && $this->version === $profile->version;
-    }
-
-    public function __toString(): string
-    {
-        return $this->name . self::SEPARATOR . $this->version;
     }
 
     public function getName(): string

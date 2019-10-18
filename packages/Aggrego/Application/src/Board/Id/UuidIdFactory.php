@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Aggrego\Application\Board\Id;
 
@@ -25,7 +25,8 @@ class UuidIdFactory implements IdFactory
         return new Uuid(
             RamseyUuid::uuid5(
                 RamseyUuid::NAMESPACE_DNS,
-                sprintf('%s-%s-%s',
+                sprintf(
+                    '%s-%s-%s',
                     serialize($prototype->getMetadata()->getData()),
                     $prototype->getProfileName(),
                     $parentId

@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Tests\Profile\Building;
 
+use Aggrego\Domain\BoardPrototype\Exception\InvalidName;
 use Aggrego\Domain\BoardPrototype\Metadata;
 use Aggrego\Domain\BoardPrototype\Name as PrototypeName;
 use Aggrego\Domain\BoardPrototype\Prototype;
-use Aggrego\Domain\BoardPrototype\Exception\InvalidName;
 use Aggrego\Domain\Profile\Building\BuildingProfile;
 use Aggrego\Domain\Profile\Building\Exception\UnprocessableKeyChange;
 use Aggrego\Domain\Profile\KeyChange;
@@ -17,6 +17,7 @@ use Tests\BoardPrototype\TestPrototype;
 class TestBuildingProfile implements BuildingProfile
 {
     public const NAME = 'test_profile';
+
     public const VERSION = '1.0';
 
     public function getName(): Name
@@ -34,13 +35,11 @@ class TestBuildingProfile implements BuildingProfile
         if (!isset($changeValue['key'])) {
             throw new UnprocessableKeyChange();
         }
-        $prototype = new TestPrototype(
+        return new TestPrototype(
             new PrototypeName('test'),
             $this->getName(),
             new Metadata(['key' => $changeValue['key']]),
             null
         );
-
-        return $prototype;
     }
 }
