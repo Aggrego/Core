@@ -9,7 +9,7 @@ jobs:
   include:
     - stage: standards
       name: Checking standards
-      php: 7.1
+      php: 7.1.29
       script:
         - composer install
         - php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
