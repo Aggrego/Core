@@ -2633,16 +2633,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.4.0",
+            "version": "v3.4.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "36777bb762b1367c55d090a7a479876551b98d85"
+                "reference": "9cf81798f857205c5bbb4c8c7895f838d40b0c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/36777bb762b1367c55d090a7a479876551b98d85",
-                "reference": "36777bb762b1367c55d090a7a479876551b98d85",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/9cf81798f857205c5bbb4c8c7895f838d40b0c4b",
+                "reference": "9cf81798f857205c5bbb4c8c7895f838d40b0c4b",
                 "shasum": ""
             },
             "require": {
@@ -2650,7 +2650,7 @@
                 "psr/container": "^1.0"
             },
             "conflict": {
-                "symfony/config": "<3.3.1",
+                "symfony/config": "<3.3.7",
                 "symfony/finder": "<3.3",
                 "symfony/proxy-manager-bridge": "<3.4",
                 "symfony/yaml": "<3.4"
@@ -2700,7 +2700,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-29T16:42:20+00:00"
+            "time": "2019-09-27T15:47:48+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -3505,8 +3505,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
-    "prefer-stable": true,
-    "prefer-lowest": true,
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": "~7.1.29"
     },
