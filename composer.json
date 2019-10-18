@@ -5,7 +5,7 @@
     "require": {
         "beberlei/assert": "^3.0",
         "composer/semver": "1.4.*",
-        "php": ">=7.1",
+        "php": "~7.1.29",
         "ramsey/uuid": "^3.8",
         "timitao/value-object": "^0"
     },

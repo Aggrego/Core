@@ -11,11 +11,6 @@ default: bash
 
 ### Define PHP
 
-php_image=php:{PHP_VERSION}-alpine
-
-php=${dockerized} \
-	-e COMPOSER_CACHE_DIR=/app/var/composer \
-	${qa_image}
 
 qa_image=jakzal/phpqa
 
@@ -26,6 +21,12 @@ dockerized=docker run --init -it --rm \
 qa=${dockerized} \
 	-e COMPOSER_CACHE_DIR=/app/tmp/composer \
 	${qa_image}
+
+php_image=php:${PHP_VERSION}-alpine
+
+php=${dockerized} \
+	-e COMPOSER_CACHE_DIR=/app/tmp/var/composer \
+	${php_image}
 
 phpcs-psr1:
 	${qa} phpcs --standard=PSR1 ./packages --ignore=*/spec/*
@@ -73,4 +74,4 @@ install:
 update:
 	${qa} composer update ${composer_args}
 update-lowest:
-	${qa} composer update ${composer_args} --prefer-stable --prefer-lowest
+	${qa} composer update ${composer_args} --prefer-stable --prefer-lowest --ignore-platform-reqs
