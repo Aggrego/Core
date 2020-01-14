@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b01969edb6b559eebe2cec633f31ec6",
+    "content-hash": "e938e0102be160ad5c684837d2d72f15",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -64,24 +64,23 @@
         },
         {
             "name": "composer/semver",
-            "version": "1.4.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "84c47f3d8901440403217afc120683c7385aecb8"
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/84c47f3d8901440403217afc120683c7385aecb8",
-                "reference": "84c47f3d8901440403217afc120683c7385aecb8",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
-                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
+                "phpunit/phpunit": "^4.5 || ^5.0.5"
             },
             "type": "library",
             "extra": {
@@ -122,7 +121,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-03-30T13:16:03+00:00"
+            "time": "2020-01-13T12:06:48+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -795,6 +794,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -3505,8 +3505,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
-    "prefer-stable": true,
-    "prefer-lowest": true,
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": "~7.1.29"
     },
