@@ -1,0 +1,33 @@
+{
+  "name": "aggrego/infrastructure-event-process-manager",
+  "type": "library",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Tomasz Kunicki"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.29",
+    "aggrego/infrastructure-event-client": "^0",
+    "aggrego/infrastructure-command-client": "^0"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aggrego\\Infrastructure\\EventProcessManager\\": "src"
+    },
+    "exclude-from-classmap": [
+      "spec/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\Aggrego\\Infrastructure\\EventProcessManager\\": "spec"
+    }
+  }
+}

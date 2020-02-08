@@ -11,7 +11,8 @@ declare(strict_types=1);
 
 namespace Aggrego\Domain\Board\Id;
 
-interface Id
+use TimiTao\ValueObject\Standard\ValueObject\StringValueObject;
+
+interface Id extends StringValueObject
 {
-    public function getValue(): string;
 }

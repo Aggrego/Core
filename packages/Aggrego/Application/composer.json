@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.1.29",
     "beberlei/assert": "^3.0",
     "ramsey/uuid": "^3.8",
     "aggrego/domain": "^0",

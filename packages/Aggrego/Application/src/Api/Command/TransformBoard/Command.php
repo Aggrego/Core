@@ -13,8 +13,8 @@ namespace Aggrego\Application\Api\Command\TransformBoard;
 
 use Aggrego\Application\Board\Id\Uuid as BoardUuid;
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
+use Aggrego\CommandConsumer\Id;
 use Aggrego\CommandConsumer\Name;
-use Aggrego\CommandConsumer\Uuid;
 use Aggrego\Domain\Profile\KeyChange;
 
 class Command implements ConsumerCommand
@@ -29,7 +29,7 @@ class Command implements ConsumerCommand
 
     public function __construct(string $uuid, string $boardUuid, array $key)
     {
-        $this->uuid = new Uuid($uuid);
+        $this->uuid = new Id($uuid);
         $this->boardUuid = new BoardUuid($boardUuid);
         $this->key = new KeyChange($key);
     }
@@ -49,7 +49,7 @@ class Command implements ConsumerCommand
         return new Name(self::NAME);
     }
 
-    public function getUuid(): Uuid
+    public function getId(): Id
     {
         return $this->uuid;
     }
@@ -57,7 +57,7 @@ class Command implements ConsumerCommand
     public function getPayload(): array
     {
         return [
-            'uuid' => $this->getUuid()->getValue(),
+            'uuid' => $this->getId()->getValue(),
             'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
             'board_uuid' => $this->boardUuid->getValue(),

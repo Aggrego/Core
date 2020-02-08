@@ -1,0 +1,4 @@
+suites:
+  default:
+    namespace: Aggrego\Infrastructure\Event
+    psr4_prefix: Aggrego\Infrastructure\Event

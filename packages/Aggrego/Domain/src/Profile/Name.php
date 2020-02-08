@@ -13,6 +13,7 @@ namespace Aggrego\Domain\Profile;
 
 use Aggrego\Domain\Profile\Exception\InvalidName;
 use Assert\Assertion;
+use Assert\AssertionFailedException;
 
 final class Name
 {
@@ -28,9 +29,6 @@ final class Name
      */
     private $version;
 
-    /**
-     * @throws InvalidName
-     */
     private function __construct(string $name, string $version)
     {
         $this->name = $name;
@@ -42,14 +40,29 @@ final class Name
         return $this->name . self::SEPARATOR . $this->version;
     }
 
+    /**
+     * @throws InvalidName
+     */
     public static function createFromParts(string $name, string $version): self
     {
-        Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
-        Assertion::regex($version, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        try {
+            Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        } catch (AssertionFailedException $e) {
+            throw InvalidName::name($name);
+        }
+        try {
+            Assertion::regex($version, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        } catch (AssertionFailedException $e) {
+            throw InvalidName::version($version);
+        }
 
         return new self($name, $version);
     }
 
+    /**
+     * @throws AssertionFailedException
+     * @throws InvalidName
+     */
     public static function createFromName(string $fullName): self
     {
         $parts = explode(self::SEPARATOR, $fullName);
@@ -58,8 +71,16 @@ final class Name
         $name = $parts[0];
         $version = $parts[1];
 
-        Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
-        Assertion::regex($version, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        try {
+            Assertion::regex($name, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        } catch (AssertionFailedException $e) {
+            throw InvalidName::name($version);
+        }
+        try {
+            Assertion::regex($version, sprintf('/^[^%s]*$/', self::SEPARATOR));
+        } catch (AssertionFailedException $e) {
+            throw InvalidName::version($version);
+        }
 
         return new self($name, $version);
     }

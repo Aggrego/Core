@@ -12,59 +12,45 @@ declare(strict_types=1);
 namespace Aggrego\DataDomainBoard\Board;
 
 use Aggrego\DataDomainBoard\Board\Events\BoardCreatedEvent;
-use Aggrego\DataDomainBoard\Board\Prototype\Metadata;
 use Aggrego\Domain\Board\Board as DomainBoard;
-use Aggrego\Domain\Board\Key;
-use Aggrego\Domain\Board\Uuid;
-use Aggrego\Domain\Profile\Profile;
-use Aggrego\EventConsumer\Event;
-use Aggrego\EventConsumer\Shared\Events;
+use Aggrego\Domain\Board\Id\Id;
+use Aggrego\Domain\Board\Name;
+use Aggrego\Domain\BoardPrototype\Prototype;
+use Aggrego\Domain\Profile\KeyChange;
+use Aggrego\Domain\Profile\Name as ProfileName;
+use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
+use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
+use Aggrego\Domain\Profile\Transformation\TransformationProfile;
+use Aggrego\Infrastructure\Event\Shared\Events;
 
-class Board implements DomainBoard
+final class Board implements DomainBoard
 {
-    /** @var Events */
-    protected $events;
+    private $events;
 
-    /** @var Uuid */
-    private $uuid;
+    private $id;
 
-    /** @var Key */
-    private $key;
+    private $name;
 
-    /** @var Profile */
-    private $profile;
+    private $profileName;
 
-    /** @var Metadata */
-    private $metadata;
+    private $parentId;
 
-    public function __construct(Uuid $uuid, Key $key, Profile $profile, Metadata $metadata, ?Uuid $parentUuid)
+    private $data;
+
+    public function __construct(Id $id, Name $name, ProfileName $profileName, ?Id $parentId, Data $data)
     {
-        $this->uuid = $uuid;
-        $this->key = $key;
-        $this->profile = $profile;
-        $this->metadata = $metadata;
+        $this->id = $id;
+        $this->name = $name;
+        $this->profileName = $profileName;
+        $this->parentId = $parentId;
+        $this->data = $data;
         $this->events = new Events();
-        $this->pushEvent(BoardCreatedEvent::build($uuid, $key, $profile, $metadata, $parentUuid));
+        $this->events->add(BoardCreatedEvent::build($id, $profileName, $data, $parentId));
     }
 
-    public function getId(): Uuid
+    public function getId(): Id
     {
-        return $this->uuid;
-    }
-
-    public function getProfile(): Profile
-    {
-        return $this->profile;
-    }
-
-    public function getKey(): Key
-    {
-        return $this->key;
-    }
-
-    public function getMetadata(): Metadata
-    {
-        return $this->metadata;
+        return $this->id;
     }
 
     public function pullEvents(): Events
@@ -74,8 +60,32 @@ class Board implements DomainBoard
         return $list;
     }
 
-    protected function pushEvent(Event $event): void
+    public function getName(): Name
     {
-        $this->events->add($event);
+        return $this->name;
+    }
+
+    public function getProfileName(): ProfileName
+    {
+        return $this->profileName;
+    }
+
+    public function getParentId(): ?Id
+    {
+        return $this->parentId;
+    }
+
+    public function getData(): Data
+    {
+        return $this->data;
+    }
+
+    /**
+     * @throws UnprocessableKeyChange
+     * @throws UnprocessableBoard
+     */
+    public function transform(KeyChange $key, TransformationProfile $transformation): Prototype
+    {
+        return $transformation->transform($key, $this);
     }
 }

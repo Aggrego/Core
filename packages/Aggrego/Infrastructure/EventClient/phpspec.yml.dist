@@ -1,0 +1,4 @@
+suites:
+  default:
+    namespace: Aggrego\Infrastructure\EventClient
+    psr4_prefix: Aggrego\Infrastructure\EventClient

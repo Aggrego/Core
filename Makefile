@@ -11,8 +11,8 @@ default: bash
 
 ### Define PHP
 
-
-qa_image=jakzal/phpqa
+qa_image=jakzal/phpqa:1.25.0
+composer_args=--prefer-dist --no-progress --no-interaction --no-suggest
 
 dockerized=docker run --init -it --rm \
 	-u $(shell id -u):$(shell id -g) \
@@ -64,14 +64,19 @@ code-fix:
 	@make ecs-fix
 
 php-mono-validate:
+	${php} vendor/bin/monorepo-builder validate
+
+php-mono-merge:
 	${php} vendor/bin/monorepo-builder merge
 
 php-phpspec:
 	${php} vendor/bin/phpspec run
 
-install:
+composer-install:
 	${qa} composer install ${composer_args}
-update:
+
+composer-update:
 	${qa} composer update ${composer_args}
-update-lowest:
+
+composer-update-lowest:
 	${qa} composer update ${composer_args} --prefer-stable --prefer-lowest --ignore-platform-reqs

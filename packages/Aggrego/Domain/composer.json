@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.1.29",
     "timitao/value-object": "^0"
   },
   "require-dev": {

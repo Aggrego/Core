@@ -15,7 +15,7 @@ namespace spec\Aggrego\Application\Api\Command\TransformBoard;
 
 use Aggrego\Application\Board\Id\Uuid as BoardUuid;
 use Aggrego\CommandConsumer\Name;
-use Aggrego\CommandConsumer\Uuid;
+use Aggrego\CommandConsumer\Id;
 use Aggrego\Domain\Profile\KeyChange;
 use PhpSpec\ObjectBehavior;
 
@@ -38,7 +38,7 @@ class CommandSpec extends ObjectBehavior
 
     function it_should_have_uuid()
     {
-        $this->getUuid()->shouldBeAnInstanceOf(Uuid::class);
+        $this->getId()->shouldBeAnInstanceOf(Id::class);
     }
 
     function it_should_have_name()

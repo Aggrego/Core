@@ -19,14 +19,11 @@ use Aggrego\Domain\Board\Id\Id;
 interface BoardRepository
 {
     /**
-     * @param  Id $id
-     * @return Board
      * @throws BoardNotFound
      */
     public function getBoardByUuid(Id $id): Board;
 
     /**
-     * @param  Board $board
      * @throws BoardExist
      */
     public function addBoard(Board $board): void;

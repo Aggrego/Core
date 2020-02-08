@@ -12,21 +12,19 @@ declare(strict_types=1);
 namespace Aggrego\Domain\BoardPrototype;
 
 use Aggrego\Domain\BoardPrototype\Exception\InvalidName;
-use TimiTao\ValueObject\Utils\StringValueObject;
+use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 final class Name extends StringValueObject
 {
     /**
-     * @throws InvalidName
+     * @throws InvalidName if value is invalid
      */
-    public function __construct(string $value)
+    protected function guard(string $value): void
     {
         $trimmed = trim($value);
 
         if (strlen($trimmed) === 0) {
             throw InvalidName::shouldNotBeEmpty();
         }
-
-        parent::__construct(self::class, $value);
     }
 }

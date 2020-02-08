@@ -11,12 +11,17 @@ declare(strict_types=1);
 
 namespace Aggrego\Domain\Board;
 
-use TimiTao\ValueObject\Utils\StringValueObject;
+use Assert\Assertion;
+use Assert\AssertionFailedException;
+use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 final class Name extends StringValueObject
 {
-    public function __construct(string $value)
+    /**
+     * @throws AssertionFailedException
+     */
+    protected function guard(string $value): void
     {
-        parent::__construct(self::class, $value);
+        Assertion::notEmpty($value);
     }
 }

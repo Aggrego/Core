@@ -1,0 +1,34 @@
+{
+  "name": "aggrego/infrastructure-event",
+  "type": "library",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Tomasz Kunicki"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.29",
+    "timitao/value-object": "^0",
+    "beberlei/assert": "^3.0",
+    "composer/semver": "1.4.*"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aggrego\\Infrastructure\\Event\\": "src"
+    },
+    "exclude-from-classmap": [
+      "spec/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\Aggrego\\Infrastructure\\Event\\": "spec"
+    }
+  }
+}

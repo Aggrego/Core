@@ -10,9 +10,13 @@ parameters:
     - 'autoload-dev'
 
   directories_to_repositories:
-    packages/Aggrego/CommandConsumer: 'git@github.com:Aggrego/CommandConsumer.git'
-    packages/Aggrego/EventConsumer: 'git@github.com:Aggrego/EventConsumer.git'
     packages/Aggrego/Application: 'git@github.com:Aggrego/Application.git'
     packages/Aggrego/Domain: 'git@github.com:Aggrego/Domain.git'
     packages/Aggrego/DataDomainBoard: 'git@github.com:Aggrego/DataDomainBoard.git'
-    packages/Aggrego/CommandLogicUnit: 'git@github.com:Aggrego/CommandLogicUnit.git'
+    packages/Aggrego/Infrastructure/Message: 'git@github.com:Aggrego/InfrastructureMessage.git'
+    packages/Aggrego/Infrastructure/MessageClient: 'git@github.com:Aggrego/InfrastructureMessageClient.git'
+    packages/Aggrego/Infrastructure/Event: 'git@github.com:Aggrego/InfrastructureEvent.git'
+    packages/Aggrego/Infrastructure/EventClient: 'git@github.com:Aggrego/InfrastructureEventClient.git'
+    packages/Aggrego/Infrastructure/Command: 'git@github.com:Aggrego/InfrastructureCommand.git'
+    packages/Aggrego/Infrastructure/CommandClient: 'git@github.com:Aggrego/InfrastructureCommandClient.git'
+    packages/Aggrego/Infrastructure/EventProcessManager: 'git@github.com:Aggrego/InfrastructureEventProcessManager.git'

@@ -11,17 +11,12 @@ declare(strict_types=1);
 
 namespace Aggrego\Domain\BoardPrototype;
 
-final class Metadata
+use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
+
+final class Metadata extends ArrayValueObject
 {
-    private $data;
-
-    public function __construct(array $data)
+    protected function guard(array $value): void
     {
-        $this->data = $data;
-    }
-
-    public function getData(): array
-    {
-        return $this->data;
+        return;
     }
 }

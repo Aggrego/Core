@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace spec\Aggrego\Application\Api\Command\CreateBoard;
 
 use Aggrego\CommandConsumer\Name;
-use Aggrego\CommandConsumer\Uuid;
+use Aggrego\CommandConsumer\Id;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Domain\Profile\Name as ProfileName;
 use PhpSpec\ObjectBehavior;
@@ -43,7 +43,7 @@ class CommandSpec extends ObjectBehavior
 
     function it_should_have_uuid()
     {
-        $this->getUuid()->shouldBeAnInstanceOf(Uuid::class);
+        $this->getId()->shouldBeAnInstanceOf(Id::class);
     }
 
     function it_should_have_payload()

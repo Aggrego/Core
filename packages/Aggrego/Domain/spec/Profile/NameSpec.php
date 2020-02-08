@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace spec\Aggrego\Domain\Profile;
 
+use Aggrego\Domain\Profile\Exception\InvalidName;
 use Aggrego\Domain\Profile\Name;
 use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
@@ -46,12 +47,12 @@ class NameSpec extends ObjectBehavior
     function it_should_throw_exception_when_name_hold_colon()
     {
         $this->beConstructedThrough('createFromParts', ['te:st', 'version']);
-        $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
+        $this->shouldThrow(InvalidName::name('te:st'))->duringInstantiation();
     }
 
     function it_should_throw_exception_when_version_hold_colon()
     {
         $this->beConstructedThrough('createFromParts', ['test', 'versi:on']);
-        $this->shouldThrow(InvalidArgumentException::class)->duringInstantiation();
+        $this->shouldThrow(InvalidName::version('versi:on'))->duringInstantiation();
     }
 }

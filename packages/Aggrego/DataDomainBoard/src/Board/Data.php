@@ -11,12 +11,16 @@ declare(strict_types=1);
 
 namespace Aggrego\DataDomainBoard\Board;
 
-use TimiTao\ValueObject\Utils\StringValueObject;
+use Exception;
+use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class Data extends StringValueObject
 {
-    public function __construct(string $value)
+    /**
+     * @throws Exception if value is invalid
+     */
+    protected function guard(string $value): void
     {
-        parent::__construct(self::class, $value);
+        return;
     }
 }

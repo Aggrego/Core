@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace Aggrego\Application\Api\Command\CreateBoard;
 
 use Aggrego\CommandConsumer\Command as ConsumerCommand;
+use Aggrego\CommandConsumer\Id;
 use Aggrego\CommandConsumer\Name;
-use Aggrego\CommandConsumer\Uuid;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Domain\Profile\Name as ProfileName;
 
@@ -29,7 +29,7 @@ class Command implements ConsumerCommand
 
     public function __construct(string $uuid, array $key, string $profileName, string $versionNumber)
     {
-        $this->uuid = new Uuid($uuid);
+        $this->uuid = new Id($uuid);
         $this->key = new KeyChange($key);
         $this->profile = ProfileName::createFromParts($profileName, $versionNumber);
     }
@@ -49,7 +49,7 @@ class Command implements ConsumerCommand
         return new Name(self::NAME);
     }
 
-    public function getUuid(): Uuid
+    public function getId(): Id
     {
         return $this->uuid;
     }
@@ -57,7 +57,7 @@ class Command implements ConsumerCommand
     public function getPayload(): array
     {
         return [
-            'uuid' => $this->getUuid()->getValue(),
+            'uuid' => $this->getId()->getValue(),
             'name' => $this->getName()->getValue(),
             'key' => $this->key->getValue(),
             'profile_name' => $this->profile->getName(),

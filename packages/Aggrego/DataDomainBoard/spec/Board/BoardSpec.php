@@ -9,52 +9,40 @@
  *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace spec\Aggrego\DataDomainBoard\Board;
 
 use Aggrego\DataDomainBoard\Board\Board;
 use Aggrego\DataDomainBoard\Board\Data;
-use Aggrego\DataDomainBoard\Board\Prototype\Metadata;
-use Aggrego\Domain\Board\Key;
-use Aggrego\Domain\Board\Uuid;
-use Aggrego\Domain\Profile\Profile;
+use Aggrego\Domain\Board\Id\Id;
+use Aggrego\Domain\Board\Name;
+use Aggrego\Domain\Profile\Name as ProfileName;
 use PhpSpec\ObjectBehavior;
 
 class BoardSpec extends ObjectBehavior
 {
-    function let()
+    function let(Id $id, Id $parentId)
     {
-        $uuid = new Uuid('69d53395-7c1d-452d-ab5c-921575980f16');
-        $key = new Key(['test']);
-        $profile = Profile::createFromParts('test', '1.0');
-        $metadata = new Metadata(new Data('test'));
-        $parentUuid = new Uuid('69d53395-7c1d-452d-ab5c-921575980f16');
-        $this->beConstructedWith($uuid, $key, $profile, $metadata, $parentUuid);
+        $id->getValue()->willReturn('1');
+        $parentId->getValue()->willReturn('2');
+        $profileName = ProfileName::createFromParts('test', '1.0');
+        $name = new Name('data_board');
+        $this->beConstructedWith($id, $name, $profileName, $parentId, new Data('test'));
     }
 
-    function it_is_initializable()
+    function it_should_have_id()
     {
-        $this->shouldHaveType(Board::class);
-    }
-
-    function it_should_have_uuid()
-    {
-        $this->getUuid()->shouldReturnAnInstanceOf(Uuid::class);
+        $this->getId()->shouldReturnAnInstanceOf(Id::class);
     }
 
     function it_should_have_profile()
     {
-        $this->getProfile()->shouldReturnAnInstanceOf(Profile::class);
-    }
-
-    function it_should_have_key()
-    {
-        $this->getKey()->shouldReturnAnInstanceOf(Key::class);
+        $this->getProfileName()->shouldReturnAnInstanceOf(ProfileName::class);
     }
 
     function it_should_have_metadata()
     {
-        $this->getMetadata()->shouldReturnAnInstanceOf(Metadata::class);
+        $this->getData()->shouldReturnAnInstanceOf(Data::class);
     }
 }
