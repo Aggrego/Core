@@ -10,11 +10,11 @@ suites:
     src_path: packages/Aggrego/Domain/src
     namespace: Aggrego\Domain
     psr4_prefix: Aggrego\Domain
-#  aggrego_application_suite:
-#    spec_path: packages/Aggrego/Application
-#    src_path: packages/Aggrego/Application/src
-#    namespace: Aggrego\Application
-#    psr4_prefix: Aggrego\Application
+  aggrego_application_suite:
+    spec_path: packages/Aggrego/Application
+    src_path: packages/Aggrego/Application/src
+    namespace: Aggrego\Application
+    psr4_prefix: Aggrego\Application
   aggrego_application_infrastructure_event_suite:
       spec_path: packages/Aggrego/Infrastructure/Event
       src_path: packages/Aggrego/Infrastructure/Event/src

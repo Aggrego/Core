@@ -9,11 +9,10 @@
  *
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace spec\Aggrego\Application\Board\Id;
 
-use Aggrego\Application\Board\Id\Uuid;
 use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 
@@ -24,11 +23,6 @@ class UuidSpec extends ObjectBehavior
     function let()
     {
         $this->beConstructedWith(self::UUID);
-    }
-
-    function it_is_initializable()
-    {
-        $this->shouldHaveType(Uuid::class);
     }
 
     function it_should_have_value()

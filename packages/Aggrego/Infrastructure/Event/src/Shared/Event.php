@@ -19,29 +19,14 @@ use Aggrego\Infrastructure\Event\Version;
 
 class Event implements EventInterface
 {
-    /**
-     * @var Domain
-     */
     private $domain;
 
-    /**
-     * @var Name
-     */
     private $name;
 
-    /**
-     * @var CreatedAt
-     */
     private $createdAt;
 
-    /**
-     * @var Version
-     */
     private $version;
 
-    /**
-     * @var array
-     */
     private $data;
 
     public function __construct(Domain $domain, Name $name, CreatedAt $createdAt, Version $version, Payload $data)

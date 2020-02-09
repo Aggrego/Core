@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Application\Api\Command\CreateBoard;
+namespace Aggrego\Application\UseCases\CreateBoard;
 
 use Aggrego\Application\Board\BoardRepository;
 use Aggrego\Application\Profile\Building\BuildingProfileRepository;

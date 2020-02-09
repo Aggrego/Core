@@ -27,7 +27,7 @@ class UuidIdFactory implements IdFactory
                 RamseyUuid::NAMESPACE_DNS,
                 sprintf(
                     '%s-%s-%s',
-                    serialize($prototype->getMetadata()->getData()),
+                    serialize($prototype->getMetadata()->getValue()),
                     $prototype->getProfileName(),
                     $parentId
                 )

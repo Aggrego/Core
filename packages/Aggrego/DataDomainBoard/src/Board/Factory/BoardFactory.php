@@ -21,7 +21,7 @@ class BoardFactory implements DomainBoardFactory
             new Name($prototype->getName()->getValue()),
             $prototype->getProfileName(),
             $prototype->hasParentId() ? $prototype->getParentId() : null,
-            new Data(json_encode($prototype->getMetadata()))
+            new Data((string) json_encode($prototype->getMetadata()))
         );
     }
 }

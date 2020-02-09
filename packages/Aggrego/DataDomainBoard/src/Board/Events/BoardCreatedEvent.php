@@ -33,7 +33,7 @@ class BoardCreatedEvent extends Event
         ?Id $parentId
     ): self {
         return new self(
-            new Domain(self::DOMAIN_NAME, $id->getValue()),
+            new Domain(sprintf(self::DOMAIN_NAME . ':' . $id->getValue())),
             new Name(self::class),
             new CreatedAt(new DateTimeImmutable()),
             Version::normalize('1.0.0.0'),

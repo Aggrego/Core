@@ -9,12 +9,15 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Application\Api\Command\TransformBoard;
+namespace Aggrego\Application\UseCases\TransformBoard;
 
 use Aggrego\Application\Board\BoardRepository;
 use Aggrego\Application\Profile\Transformation\TransformationProfileRepository;
 use Aggrego\Domain\Board\Factory\BoardFactory;
+use Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\IdFactory;
+use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
+use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
 
 class UseCase
 {
@@ -39,9 +42,9 @@ class UseCase
     }
 
     /**
-     * @throws \Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype
-     * @throws \Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard
-     * @throws \Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange
+     * @throws UnprocessablePrototype
+     * @throws UnprocessableBoard
+     * @throws UnprocessableKeyChange
      */
     public function handle(Command $command): void
     {

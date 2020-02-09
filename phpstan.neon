@@ -2,5 +2,3 @@ parameters:
 	excludes_analyse:
 		- *Spec.php
 		- **/features/bootstrap/**
-	ignoreErrors:
-	    - '~Parameter \#4 \$metadata of class [a-zA-Z0-9\\_]+ constructor expects [a-zA-Z0-9\\_]+Prototype\\Metadata, [a-zA-Z0-9\\_]+ given~'
