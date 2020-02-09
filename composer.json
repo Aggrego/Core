@@ -3,13 +3,11 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "aggrego/command-consumer": "^0",
-        "aggrego/event-consumer": "^0",
         "beberlei/assert": "^3.0",
         "composer/semver": "1.4.*",
         "php": ">=7.1.29",
         "ramsey/uuid": "^3.8",
-        "timitao/value-object": "^0"
+        "timitao/value-object": "dev-master"
     },
     "require-dev": {
         "behat/behat": "^3.4",
@@ -54,16 +52,16 @@
         }
     },
     "replace": {
+        "aggrego/application": "self.version",
         "aggrego/data-domain-board": "self.version",
         "aggrego/deployment": "self.version",
         "aggrego/domain": "self.version",
-        "aggrego/application": "self.version",
-        "aggrego/infrastructure-message": "self.version",
         "aggrego/infrastructure-command": "self.version",
-        "aggrego/infrastructure-event": "self.version",
-        "aggrego/infrastructure-message-client": "self.version",
         "aggrego/infrastructure-command-client": "self.version",
+        "aggrego/infrastructure-event": "self.version",
         "aggrego/infrastructure-event-client": "self.version",
-        "aggrego/infrastructure-event-process-manager": "self.version"
+        "aggrego/infrastructure-event-process-manager": "self.version",
+        "aggrego/infrastructure-message": "self.version",
+        "aggrego/infrastructure-message-client": "self.version"
     }
 }

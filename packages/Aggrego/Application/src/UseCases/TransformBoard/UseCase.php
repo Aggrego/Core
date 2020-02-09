@@ -12,12 +12,17 @@ declare(strict_types=1);
 namespace Aggrego\Application\UseCases\TransformBoard;
 
 use Aggrego\Application\Board\BoardRepository;
+use Aggrego\Application\Board\Exception\BoardExist;
+use Aggrego\Application\Board\Exception\BoardNotFound;
+use Aggrego\Application\Profile\Transformation\Exception\TransformationProfileNotFound;
 use Aggrego\Application\Profile\Transformation\TransformationProfileRepository;
+use Aggrego\Application\UseCases\TransformBoard\Messages\MessageFactory;
 use Aggrego\Domain\Board\Factory\BoardFactory;
 use Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\IdFactory;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
+use Aggrego\Infrastructure\MessageClient\Client;
 
 class UseCase
 {
@@ -29,31 +34,61 @@ class UseCase
 
     private $idFactory;
 
+    private $messageClient;
+
+    private $messageFactory;
+
     public function __construct(
         BoardRepository $boardRepository,
         TransformationProfileRepository $transformationProfileRepository,
         BoardFactory $boardFactory,
-        IdFactory $idFactory
+        IdFactory $idFactory,
+        Client $messageClient,
+        MessageFactory $messageFactory
     ) {
         $this->boardRepository = $boardRepository;
         $this->transformationProfileRepository = $transformationProfileRepository;
         $this->boardFactory = $boardFactory;
         $this->idFactory = $idFactory;
+        $this->messageClient = $messageClient;
+        $this->messageFactory = $messageFactory;
     }
 
-    /**
-     * @throws UnprocessablePrototype
-     * @throws UnprocessableBoard
-     * @throws UnprocessableKeyChange
-     */
     public function handle(Command $command): void
     {
-        $board = $this->boardRepository->getBoardByUuid($command->getBoardUuid());
-        $transformation = $this->transformationProfileRepository->getByName($board->getProfileName());
+        try {
+            $board = $this->boardRepository->getBoardByUuid($command->getBoardId());
+        } catch (BoardNotFound $e) {
+            $this->messageClient->consume($this->messageFactory->boardNotFound($command));
+            return;
+        }
+        try {
+            $transformation = $this->transformationProfileRepository->getByName($board->getProfileName());
+        } catch (TransformationProfileNotFound $e) {
+            $this->messageClient->consume($this->messageFactory->profileNotFound($command));
+            return;
+        }
 
-        $prototype = $board->transform($command->getKey(), $transformation);
-        $board = $this->boardFactory->build($this->idFactory, $prototype);
+        try {
+            $prototype = $board->transform($command->getKey(), $transformation);
+        } catch (UnprocessableBoard $e) {
+            $this->messageClient->consume($this->messageFactory->unprocessableBoard($command));
+            return;
+        } catch (UnprocessableKeyChange $e) {
+            $this->messageClient->consume($this->messageFactory->unprocessableKeyChange($command));
+            return;
+        }
+        try {
+            $board = $this->boardFactory->build($this->idFactory, $prototype);
+        } catch (UnprocessablePrototype $e) {
+            $this->messageClient->consume($this->messageFactory->unprocessablePrototype($command));
+        }
 
-        $this->boardRepository->addBoard($board);
+        try {
+            $this->boardRepository->addBoard($board);
+        } catch (BoardExist $e) {
+            $this->messageClient->consume($this->messageFactory->boardExist($command));
+        }
+        $this->messageClient->consume($this->messageFactory->boardCreated($board, $command));
     }
 }

@@ -11,13 +11,13 @@ declare(strict_types=1);
 
 namespace Aggrego\Application\UseCases\TransformBoard;
 
-use Aggrego\Application\Board\Id\Uuid as BoardUuid;
+use Aggrego\Domain\Board\Id\Id as BoardId;
 use Aggrego\Domain\Profile\KeyChange;
 use Aggrego\Infrastructure\Command\Command as InfrastructureCommand;
 
 interface Command extends InfrastructureCommand
 {
-    public function getBoardUuid(): BoardUuid;
+    public function getBoardId(): BoardId;
 
     public function getKey(): KeyChange;
 }
