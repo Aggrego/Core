@@ -18,7 +18,7 @@ use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class BoardCreated implements Message
 {
-    public const CODE_CREATED = 120;
+    public const CODE_CREATED = 220;
 
     private $id;
 
@@ -65,16 +65,6 @@ class BoardCreated implements Message
         );
     }
 
-    protected static function factoryAddress(Command $command): Addressee
-    {
-        return new class ($command->getSender()->getValue()) extends StringValueObject implements Addressee
-        {
-            protected function guard(string $value): void
-            {
-            }
-        };
-    }
-
     public function getId(): Id
     {
         return $this->id;
@@ -102,11 +92,19 @@ class BoardCreated implements Message
             'source_command_id' => $this->sourceCommandId->getValue(),
         ];
 
-        return new class ($data) extends ArrayValueObject implements Payload
-        {
+        return new class($data) extends ArrayValueObject implements Payload {
             protected function guard(array $value): void
             {
                 return;
+            }
+        };
+    }
+
+    protected static function factoryAddress(Command $command): Addressee
+    {
+        return new class($command->getSender()->getValue()) extends StringValueObject implements Addressee {
+            protected function guard(string $value): void
+            {
             }
         };
     }

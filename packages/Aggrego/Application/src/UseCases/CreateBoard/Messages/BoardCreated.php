@@ -14,7 +14,6 @@ use Aggrego\Infrastructure\Message\Message;
 use Aggrego\Infrastructure\Message\Payload;
 use Aggrego\Infrastructure\Message\Sender;
 use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class BoardCreated implements Message
 {
@@ -52,27 +51,17 @@ class BoardCreated implements Message
         $this->sourceCommandId = $sourceCommandId;
     }
 
-    public static function boardCreated(Id $id, Sender $sender, Command $command, Board $board): self
+    public static function boardCreated(Id $id, Sender $sender, Addressee $addressee, Command $command, Board $board): self
     {
         return new self(
             $id,
             $sender,
-            self::factoryAddress($command),
+            $addressee,
             self::CODE_CREATED,
             sprintf('Board "%s" created.', $board->getId()->getValue()),
             $board->getId(),
             $command->getId()
         );
-    }
-
-    protected static function factoryAddress(Command $command): Addressee
-    {
-        return new class ($command->getSender()->getValue()) extends StringValueObject implements Addressee
-        {
-            protected function guard(string $value): void
-            {
-            }
-        };
     }
 
     public function getId(): Id
@@ -102,8 +91,7 @@ class BoardCreated implements Message
             'source_command_id' => $this->sourceCommandId->getValue(),
         ];
 
-        return new class ($data) extends ArrayValueObject implements Payload
-        {
+        return new class($data) extends ArrayValueObject implements Payload {
             protected function guard(array $value): void
             {
                 return;

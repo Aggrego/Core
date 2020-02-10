@@ -20,7 +20,7 @@ use Aggrego\Domain\Profile\Name as ProfileName;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableBoard;
 use Aggrego\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
 use Aggrego\Domain\Profile\Transformation\TransformationProfile;
-use Aggrego\EventConsumer\Shared\Events;
+use Aggrego\Infrastructure\Event\Shared\Events;
 use Tests\Board\Events\BoardCreated;
 
 class Board implements DomainBoard
@@ -31,9 +31,9 @@ class Board implements DomainBoard
 
     private $profile;
 
-    public function __construct(Id $uuid, ProfileName $profile)
+    public function __construct(Id $id, ProfileName $profile)
     {
-        $this->id = $uuid;
+        $this->id = $id;
         $this->name = new Name('test');
         $this->profile = $profile;
     }
@@ -41,7 +41,7 @@ class Board implements DomainBoard
     public function pullEvents(): Events
     {
         $events = new Events();
-        $events->add(new BoardCreated($this->uuid, $this->profile));
+        $events->add(BoardCreated::build($this->id, $this->profile));
         return $events;
     }
 

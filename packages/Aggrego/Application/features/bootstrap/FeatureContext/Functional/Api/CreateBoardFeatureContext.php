@@ -11,15 +11,13 @@ declare(strict_types=1);
 
 namespace FeatureContext\Functional\Api;
 
-use Aggrego\Application\Api\Command\CreateBoard\Command;
-use Aggrego\Application\Api\Command\CreateBoard\UseCase;
+use Aggrego\Application\UseCases\CreateBoard\UseCase;
 use Behat\Behat\Context\Context;
+use Tests\Application\UseCases\CreateBoardCommand;
 use Tests\Profile\Building\TestBuildingProfile;
 
 class CreateBoardFeatureContext implements Context
 {
-    public const DEFAULT_UUID = '95197308-949c-4a58-927b-081178aa0d3a';
-
     public const DEFAULT_KEY = ['key' => 'test'];
 
     private $useCase;
@@ -35,11 +33,10 @@ class CreateBoardFeatureContext implements Context
     public function iCreateBoardForByDefaultKeyProfileAndVersion(): void
     {
         $this->useCase->handle(
-            new Command(
-                self::DEFAULT_UUID,
-                self::DEFAULT_KEY,
+            new CreateBoardCommand(
                 TestBuildingProfile::NAME,
-                TestBuildingProfile::VERSION
+                TestBuildingProfile::VERSION,
+                self::DEFAULT_KEY
             )
         );
     }

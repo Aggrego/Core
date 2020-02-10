@@ -14,9 +14,9 @@ services:
         resource: '../../../src/*'
 
 # Command
-    Aggrego\Application\Api\Command\CreateBoard\UseCase:
+    Aggrego\Application\UseCases\CreateBoard\UseCase:
         public: true
-        class: Aggrego\Application\Api\Command\CreateBoard\UseCase
+        class: Aggrego\Application\UseCases\CreateBoard\UseCase
         arguments:
             - "@Tests\\Board\\TestBoardRepository"
             - "@Tests\\Profile\\Building\\TestBuildingProfileRepository"

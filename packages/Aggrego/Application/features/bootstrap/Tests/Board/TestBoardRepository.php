@@ -36,7 +36,7 @@ class TestBoardRepository implements BoardRepository
     public function getBoardByUuid(Id $id): DomainBoard
     {
         foreach ($this->list as $board) {
-            if ($id->equal($board->getId())) {
+            if ($id->equals($board->getId())) {
                 return $board;
             }
         }

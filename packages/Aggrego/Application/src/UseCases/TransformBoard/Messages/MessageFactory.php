@@ -6,28 +6,30 @@ namespace Aggrego\Application\UseCases\TransformBoard\Messages;
 
 use Aggrego\Application\UseCases\TransformBoard\Command;
 use Aggrego\Domain\Board\Board;
-use Aggrego\Infrastructure\Message\Addressee;
 use Aggrego\Infrastructure\Message\Factory\IdFactory as MessageIdFactory;
 use Aggrego\Infrastructure\Message\Factory\SenderFactory;
-use Aggrego\Infrastructure\MessageClient\Client;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class MessageFactory
 {
-    private $messageClient;
-
     private $senderFactory;
 
     private $messageIdFactory;
 
     public function __construct(
-        Client $messageClient,
         SenderFactory $senderFactory,
         MessageIdFactory $messageIdFactory
     ) {
-        $this->messageClient = $messageClient;
         $this->senderFactory = $senderFactory;
         $this->messageIdFactory = $messageIdFactory;
+    }
+
+    public function boardNotFound(Command $command): BoardNotTransformed
+    {
+        return BoardNotTransformed::boardNotFound(
+            $this->messageIdFactory->factory(),
+            $this->senderFactory->factor(),
+            $command
+        );
     }
 
     public function profileNotFound(Command $command): BoardNotTransformed
@@ -76,26 +78,7 @@ class MessageFactory
         );
     }
 
-    protected static function factoryAddress(Command $command): Addressee
-    {
-        return new class ($command->getSender()->getValue()) extends StringValueObject implements Addressee
-        {
-            protected function guard(string $value): void
-            {
-            }
-        };
-    }
-
-    public function boardNotFound(Command $command)
-    {
-        return BoardNotTransformed::boardNotFound(
-            $this->messageIdFactory->factory(),
-            $this->senderFactory->factor(),
-            $command
-        );
-    }
-
-    public function unprocessableBoard(Command $command)
+    public function unprocessableBoard(Command $command): BoardNotTransformed
     {
         return BoardNotTransformed::unprocessableBoard(
             $this->messageIdFactory->factory(),

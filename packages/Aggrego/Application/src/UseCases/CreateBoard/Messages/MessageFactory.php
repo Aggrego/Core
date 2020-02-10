@@ -9,23 +9,18 @@ use Aggrego\Domain\Board\Board;
 use Aggrego\Infrastructure\Message\Addressee;
 use Aggrego\Infrastructure\Message\Factory\IdFactory as MessageIdFactory;
 use Aggrego\Infrastructure\Message\Factory\SenderFactory;
-use Aggrego\Infrastructure\MessageClient\Client;
 use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class MessageFactory
 {
-    private $messageClient;
-
     private $senderFactory;
 
     private $messageIdFactory;
 
     public function __construct(
-        Client $messageClient,
         SenderFactory $senderFactory,
         MessageIdFactory $messageIdFactory
     ) {
-        $this->messageClient = $messageClient;
         $this->senderFactory = $senderFactory;
         $this->messageIdFactory = $messageIdFactory;
     }
@@ -35,6 +30,7 @@ class MessageFactory
         return BoardNotCreated::profileNotFound(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
+            self::factoryAddress($command),
             $command
         );
     }
@@ -44,6 +40,7 @@ class MessageFactory
         return BoardNotCreated::unprocessableKeyChange(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
+            self::factoryAddress($command),
             $command
         );
     }
@@ -53,6 +50,7 @@ class MessageFactory
         return BoardNotCreated::unprocessablePrototype(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
+            self::factoryAddress($command),
             $command
         );
     }
@@ -62,6 +60,7 @@ class MessageFactory
         return BoardNotCreated::boardExist(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
+            self::factoryAddress($command),
             $command
         );
     }
@@ -71,6 +70,7 @@ class MessageFactory
         return BoardCreated::boardCreated(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
+            self::factoryAddress($command),
             $command,
             $board
         );
@@ -78,8 +78,7 @@ class MessageFactory
 
     protected static function factoryAddress(Command $command): Addressee
     {
-        return new class ($command->getSender()->getValue()) extends StringValueObject implements Addressee
-        {
+        return new class($command->getSender()->getValue()) extends StringValueObject implements Addressee {
             protected function guard(string $value): void
             {
             }

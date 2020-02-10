@@ -4,7 +4,7 @@ default:
       services: "@timitao_behat_symfony_container.container"
       contexts:
         - FeatureContext\Functional\Api\CreateBoardFeatureContext:
-          - "@Aggrego\\Application\\Api\\Command\\CreateBoard\\UseCase"
+          - "@Aggrego\\Application\\UseCases\\CreateBoard\\UseCase"
         - FeatureContext\Functional\Board\BoardFeatureContext:
           - "@Tests\\Board\\TestBoardRepository"
 

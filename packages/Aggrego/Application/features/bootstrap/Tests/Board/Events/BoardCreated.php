@@ -11,20 +11,21 @@ declare(strict_types=1);
 
 namespace Tests\Board\Events;
 
-use Aggrego\Application\Board\Id\Uuid;
+use Aggrego\Domain\Board\Id\Id;
 use Aggrego\Domain\Profile\Name as ProfileName;
-use Aggrego\EventConsumer\Event\CreatedAt;
-use Aggrego\EventConsumer\Event\Domain;
-use Aggrego\EventConsumer\Event\Name;
-use Aggrego\EventConsumer\Event\Version;
-use Aggrego\EventConsumer\Shared\Event;
+use Aggrego\Infrastructure\Event\Shared\Event;
+use Aggrego\Infrastructure\Event\Shared\Event\CreatedAt;
+use Aggrego\Infrastructure\Event\Shared\Event\Domain;
+use Aggrego\Infrastructure\Event\Shared\Event\Name;
+use Aggrego\Infrastructure\Event\Shared\Event\Payload;
+use Aggrego\Infrastructure\Event\Shared\Event\Version;
 use DateTimeImmutable;
 
 class BoardCreated extends Event
 {
     private const DOMAIN_NAME = 'test.board';
 
-    public static function build(Uuid $uuid, ProfileName $profileName): self
+    public static function build(Id $uuid, ProfileName $profileName): self
     {
         return new self(
             Domain::build(
@@ -34,10 +35,12 @@ class BoardCreated extends Event
             new Name(self::class),
             new CreatedAt(new DateTimeImmutable()),
             new Version('1.0.0.0'),
-            [
-                'uuid' => $uuid->getValue(),
-                'profile' => (string) $profileName,
-            ]
+            new Payload(
+                [
+                    'id' => $uuid->getValue(),
+                    'profile' => (string)$profileName,
+                ]
+            )
         );
     }
 }

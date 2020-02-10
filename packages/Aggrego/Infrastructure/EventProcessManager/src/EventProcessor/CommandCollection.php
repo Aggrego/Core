@@ -11,15 +11,12 @@ declare(strict_types=1);
 
 namespace Aggrego\Infrastructure\EventProcessManager\EventProcessor;
 
-use Aggrego\Infrastructure\Command\Command;
 use Traversable;
 
 /**
  * Interface CommandCollection
  *
  * Should contain command's collection
- *
- * @see Command
  */
 interface CommandCollection extends Traversable
 {
