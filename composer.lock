@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8279f98de3edf3b2e893a074d18b3984",
+    "content-hash": "36fd5364b51ae9cc60a83883cdcfab3d",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1561,7 +1561,7 @@
                 "php",
                 "scaffolding"
             ],
-            "time": "2020-02-09T14:31:52+00:00"
+            "time": "2020-02-09T14:39:09+00:00"
         },
         {
             "name": "nette/robot-loader",
@@ -2052,35 +2052,38 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "5.1.2",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "ff4119650a76de25eb674530547f1924082d3703"
+                "reference": "486aaa736e9e24f3e22a6545f6affb88f98e2602"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/ff4119650a76de25eb674530547f1924082d3703",
-                "reference": "ff4119650a76de25eb674530547f1924082d3703",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/486aaa736e9e24f3e22a6545f6affb88f98e2602",
+                "reference": "486aaa736e9e24f3e22a6545f6affb88f98e2602",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.5",
                 "ext-tokenizer": "*",
-                "php": "^7.1, <7.4",
+                "php": "^7.2, <7.5",
                 "phpspec/php-diff": "^1.0.0",
-                "phpspec/prophecy": "^1.7",
+                "phpspec/prophecy": "^1.9",
                 "sebastian/exporter": "^1.0 || ^2.0 || ^3.0",
-                "symfony/console": "^3.4 || ^4.0",
-                "symfony/event-dispatcher": "^3.4 || ^4.0",
-                "symfony/finder": "^3.4 || ^4.0",
-                "symfony/process": "^3.4 || ^4.0",
-                "symfony/yaml": "^3.4 || ^4.0"
+                "symfony/console": "^3.4 || ^4.0 || ^5.0",
+                "symfony/event-dispatcher": "^3.4 || ^4.0 || ^5.0",
+                "symfony/finder": "^3.4 || ^4.0 || ^5.0",
+                "symfony/process": "^3.4 || ^4.0 || ^5.0",
+                "symfony/yaml": "^3.4 || ^4.0 || ^5.0"
+            },
+            "conflict": {
+                "sebastian/comparator": "<1.2.4"
             },
             "require-dev": {
                 "behat/behat": "^3.3",
-                "phpunit/phpunit": "^5.7 || ^6.0",
-                "symfony/filesystem": "^3.4 || ^4.0"
+                "phpunit/phpunit": "^7.0",
+                "symfony/filesystem": "^3.4 || ^4.0 || ^5.0"
             },
             "suggest": {
                 "phpspec/nyan-formatters": "Adds Nyan formatters"
@@ -2091,7 +2094,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1.x-dev"
+                    "dev-master": "6.1.x-dev"
                 }
             },
             "autoload": {
@@ -2129,7 +2132,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2019-10-02T09:45:39+00:00"
+            "time": "2019-12-17T10:23:12+00:00"
         },
         {
             "name": "phpspec/prophecy",
