@@ -38,7 +38,7 @@ class BoardCreated extends Event
             new Payload(
                 [
                     'id' => $uuid->getValue(),
-                    'profile' => (string)$profileName,
+                    'profile' => (string) $profileName,
                 ]
             )
         );

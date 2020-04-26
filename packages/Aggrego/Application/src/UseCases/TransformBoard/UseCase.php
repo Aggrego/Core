@@ -14,9 +14,9 @@ namespace Aggrego\Application\UseCases\TransformBoard;
 use Aggrego\Application\Board\BoardRepository;
 use Aggrego\Application\Board\Exception\BoardExist;
 use Aggrego\Application\Board\Exception\BoardNotFound;
+use Aggrego\Application\Message\MessageFactory;
 use Aggrego\Application\Profile\Transformation\Exception\TransformationProfileNotFound;
 use Aggrego\Application\Profile\Transformation\TransformationProfileRepository;
-use Aggrego\Application\UseCases\TransformBoard\Messages\MessageFactory;
 use Aggrego\Domain\Board\Factory\BoardFactory;
 use Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\IdFactory;
@@ -26,6 +26,28 @@ use Aggrego\Infrastructure\MessageClient\Client;
 
 class UseCase
 {
+    private const BUILDING_PROFILE_NOT_FOUND_CODE = 024040;
+
+    private const BUILDING_PROFILE_NOT_FOUND_MESSAGE = 'Building profile not found';
+
+    private const UNPROCESSABLE_BOARD_CODE = 024000;
+
+    private const UNPROCESSABLE_BOARD_MESSAGE = 'Unprocessable board %s id';
+
+    private const UNPROCESSABLE_KEY_CHANGE_CODE = 024001;
+
+    private const UNPROCESSABLE_KEY_CHANGE_MESSAGE = 'Unprocessable Key Change';
+
+    private const UNPROCESSABLE_PROTOTYPE_CODE = 024002;
+
+    private const UNPROCESSABLE_PROTOTYPE_MESSAGE = 'Unprocessable prototype';
+
+    private const BOARD_EXISTS_CODE = 024003;
+
+    private const BOARD_EXISTS_MESSAGE = 'Board exists with "%s" id';
+
+    private const BOARD_CREATED_CODE = 022000;
+
     private $boardRepository;
 
     private $transformationProfileRepository;
@@ -59,7 +81,13 @@ class UseCase
         try {
             $board = $this->boardRepository->getBoardByUuid($command->getBoardId());
         } catch (BoardNotFound $e) {
-            $this->messageClient->consume($this->messageFactory->boardNotFound($command));
+            $this->messageClient->consume(
+                $this->messageFactory->notFound(
+                    $command,
+                    self::BUILDING_PROFILE_NOT_FOUND_CODE,
+                    self::BUILDING_PROFILE_NOT_FOUND_MESSAGE
+                )
+            );
             return;
         }
         try {
@@ -72,23 +100,49 @@ class UseCase
         try {
             $prototype = $board->transform($command->getKey(), $transformation);
         } catch (UnprocessableBoard $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessableBoard($command));
+            $this->messageClient->consume(
+                $this->messageFactory->failed(
+                    $command,
+                    self::UNPROCESSABLE_BOARD_CODE,
+                    sprintf(self::UNPROCESSABLE_BOARD_MESSAGE, $board->getId()->getValue())
+                )
+            );
             return;
         } catch (UnprocessableKeyChange $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessableKeyChange($command));
+            $this->messageClient->consume(
+                $this->messageFactory->failed(
+                    $command,
+                    self::UNPROCESSABLE_KEY_CHANGE_CODE,
+                    self::UNPROCESSABLE_KEY_CHANGE_MESSAGE
+                )
+            );
             return;
         }
         try {
             $board = $this->boardFactory->build($this->idFactory, $prototype);
         } catch (UnprocessablePrototype $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessablePrototype($command));
+            $this->messageClient->consume(
+                $this->messageFactory->failed(
+                    $command,
+                    self::UNPROCESSABLE_PROTOTYPE_CODE,
+                    self::UNPROCESSABLE_PROTOTYPE_MESSAGE
+                )
+            );
+            return;
         }
 
         try {
             $this->boardRepository->addBoard($board);
         } catch (BoardExist $e) {
-            $this->messageClient->consume($this->messageFactory->boardExist($command));
+            $this->messageClient->consume(
+                $this->messageFactory->failed(
+                    $command,
+                    self::BOARD_EXISTS_CODE,
+                    sprintf(self::BOARD_EXISTS_MESSAGE, $board->getId()->getValue())
+                )
+            );
+            return;
         }
-        $this->messageClient->consume($this->messageFactory->boardCreated($board, $command));
+        $this->messageClient->consume($this->messageFactory->success($command, self::BOARD_CREATED_CODE));
     }
 }

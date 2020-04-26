@@ -35,8 +35,7 @@ class CreateBoardCommand implements Command
 
     public function getPayload(): Payload
     {
-        return new class([]) extends ArrayValueObject implements Payload
-        {
+        return new class([]) extends ArrayValueObject implements Payload {
             protected function guard(array $value): void
             {
             }
@@ -50,8 +49,7 @@ class CreateBoardCommand implements Command
 
     public function getId(): Id
     {
-        return new class('1') extends StringValueObject implements Id
-        {
+        return new class('1') extends StringValueObject implements Id {
             protected function guard(string $value): void
             {
             }
@@ -60,8 +58,7 @@ class CreateBoardCommand implements Command
 
     public function getSender(): Sender
     {
-        return new class('test') extends StringValueObject implements Sender
-        {
+        return new class('test') extends StringValueObject implements Sender {
             protected function guard(string $value): void
             {
             }

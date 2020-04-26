@@ -15,19 +15,15 @@ use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class TransformBoardCommand implements Command
 {
-
     private $boardId;
 
     private $key;
 
-    /**
-     */
     public function __construct(string $boardId, array $key)
     {
         $this->boardId = $boardId;
         $this->key = $key;
     }
-
 
     public function getKey(): KeyChange
     {
@@ -36,8 +32,7 @@ class TransformBoardCommand implements Command
 
     public function getId(): Id
     {
-        return new class('1') extends StringValueObject implements Id
-        {
+        return new class('1') extends StringValueObject implements Id {
             protected function guard(string $value): void
             {
             }
@@ -46,8 +41,7 @@ class TransformBoardCommand implements Command
 
     public function getSender(): Sender
     {
-        return new class('test') extends StringValueObject implements Sender
-        {
+        return new class('test') extends StringValueObject implements Sender {
             protected function guard(string $value): void
             {
             }
@@ -56,8 +50,7 @@ class TransformBoardCommand implements Command
 
     public function getPayload(): Payload
     {
-        return new class([]) extends ArrayValueObject implements Payload
-        {
+        return new class([]) extends ArrayValueObject implements Payload {
             protected function guard(array $value): void
             {
             }
@@ -66,8 +59,7 @@ class TransformBoardCommand implements Command
 
     public function getBoardId(): BoardId
     {
-        return new class($this->boardId) extends StringValueObject implements BoardId
-        {
+        return new class($this->boardId) extends StringValueObject implements BoardId {
             protected function guard(string $value): void
             {
             }

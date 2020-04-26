@@ -19,9 +19,6 @@ use IteratorAggregate;
 
 class CommandCollection implements IteratorAggregate, CommandCollectionInterface
 {
-    /**
-     * @var Command[]
-     */
     private $commands;
 
     public function __construct(Command ...$commands)

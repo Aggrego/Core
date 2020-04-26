@@ -13,9 +13,9 @@ namespace Aggrego\Application\UseCases\CreateBoard;
 
 use Aggrego\Application\Board\BoardRepository;
 use Aggrego\Application\Board\Exception\BoardExist;
+use Aggrego\Application\Message\MessageFactory;
 use Aggrego\Application\Profile\Building\BuildingProfileRepository;
 use Aggrego\Application\Profile\Building\Exception\BuildingProfileNotFound;
-use Aggrego\Application\UseCases\CreateBoard\Messages\MessageFactory;
 use Aggrego\Domain\Board\Factory\BoardFactory;
 use Aggrego\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Domain\Board\Id\IdFactory;
@@ -24,6 +24,24 @@ use Aggrego\Infrastructure\MessageClient\Client;
 
 class UseCase
 {
+    private const BUILDING_PROFILE_NOT_FOUND_CODE = 014040;
+
+    private const BUILDING_PROFILE_NOT_FOUND_MESSAGE = 'Building profile not found';
+
+    private const UNPROCESSABLE_KEY_CHANGE_CODE = 014000;
+
+    private const UNPROCESSABLE_KEY_CHANGE_MESSAGE = 'Unprocessable Key Change';
+
+    private const UNPROCESSABLE_PROTOTYPE_CODE = 014001;
+
+    private const UNPROCESSABLE_PROTOTYPE_MESSAGE = 'Unprocessable prototype';
+
+    private const BOARD_EXISTS_CODE = 014002;
+
+    private const BOARD_EXISTS_MESSAGE = 'Board exists with "%s" id';
+
+    private const BOARD_CREATED_CODE = 012000;
+
     private $boardRepository;
 
     private $buildingProfileRepository;
@@ -57,29 +75,54 @@ class UseCase
         try {
             $profile = $this->buildingProfileRepository->getByName($command->getProfile());
         } catch (BuildingProfileNotFound $e) {
-            $this->messageClient->consume($this->messageFactory->profileNotFound($command));
+            $this->messageClient->consume(
+                $this->messageFactory->notFound(
+                    $command,
+                    self::BUILDING_PROFILE_NOT_FOUND_CODE,
+                    self::BUILDING_PROFILE_NOT_FOUND_MESSAGE
+                )
+            );
+
             return;
         }
         try {
             $prototype = $profile->buildBoard($command->getKey());
         } catch (UnprocessableKeyChange $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessableKeyChange($command));
+            $this->messageClient->consume(
+                $this->messageFactory->failed(
+                    $command,
+                    self::UNPROCESSABLE_KEY_CHANGE_CODE,
+                    self::UNPROCESSABLE_KEY_CHANGE_MESSAGE
+                )
+            );
             return;
         }
 
         try {
             $board = $this->boardBuilder->build($this->idFactory, $prototype);
         } catch (UnprocessablePrototype $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessablePrototype($command));
+            $this->messageClient->consume(
+                $this->messageFactory->failed(
+                    $command,
+                    self::UNPROCESSABLE_PROTOTYPE_CODE,
+                    self::UNPROCESSABLE_PROTOTYPE_MESSAGE
+                )
+            );
             return;
         }
         try {
             $this->boardRepository->addBoard($board);
         } catch (BoardExist $e) {
-            $this->messageClient->consume($this->messageFactory->boardExist($command));
+            $this->messageClient->consume(
+                $this->messageFactory->failed(
+                    $command,
+                    self::BOARD_EXISTS_CODE,
+                    sprintf(self::BOARD_EXISTS_MESSAGE, $board->getId()->getValue())
+                )
+            );
             return;
         }
 
-        $this->messageClient->consume($this->messageFactory->boardCreated($board, $command));
+        $this->messageClient->consume($this->messageFactory->success($command, self::BOARD_CREATED_CODE));
     }
 }

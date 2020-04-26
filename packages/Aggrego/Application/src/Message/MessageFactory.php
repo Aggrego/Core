@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Application\UseCases\CreateBoard\Messages;
+namespace Aggrego\Application\Message;
 
-use Aggrego\Application\UseCases\CreateBoard\Command;
-use Aggrego\Domain\Board\Board;
+use Aggrego\Infrastructure\Command\Command;
 use Aggrego\Infrastructure\Message\Addressee;
 use Aggrego\Infrastructure\Message\Factory\IdFactory as MessageIdFactory;
 use Aggrego\Infrastructure\Message\Factory\SenderFactory;
+use Aggrego\Infrastructure\Message\Message;
 use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class MessageFactory
@@ -25,54 +25,38 @@ class MessageFactory
         $this->messageIdFactory = $messageIdFactory;
     }
 
-    public function profileNotFound(Command $command): BoardNotCreated
+    public function failed(Command $command, int $code, string $message): Message
     {
-        return BoardNotCreated::profileNotFound(
+        return Failed::create(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
             self::factoryAddress($command),
-            $command
+            $command->getId(),
+            $code,
+            $message
         );
     }
 
-    public function unprocessableKeyChange(Command $command): BoardNotCreated
+    public function notFound(Command $command, int $code, string $message): Message
     {
-        return BoardNotCreated::unprocessableKeyChange(
+        return NotFound::create(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
             self::factoryAddress($command),
-            $command
+            $command->getId(),
+            $code,
+            $message
         );
     }
 
-    public function unprocessablePrototype(Command $command): BoardNotCreated
+    public function success(Command $command, int $code): Message
     {
-        return BoardNotCreated::unprocessablePrototype(
+        return Success::create(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
             self::factoryAddress($command),
-            $command
-        );
-    }
-
-    public function boardExist(Command $command): BoardNotCreated
-    {
-        return BoardNotCreated::boardExist(
-            $this->messageIdFactory->factory(),
-            $this->senderFactory->factor(),
-            self::factoryAddress($command),
-            $command
-        );
-    }
-
-    public function boardCreated(Board $board, Command $command): BoardCreated
-    {
-        return BoardCreated::boardCreated(
-            $this->messageIdFactory->factory(),
-            $this->senderFactory->factor(),
-            self::factoryAddress($command),
-            $command,
-            $board
+            $command->getId(),
+            $code
         );
     }
 

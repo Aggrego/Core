@@ -11,7 +11,7 @@ services:
         resource: '../Tests/*'
 
     Aggrego\Application\:
-        resource: '../../../src/*'
+        resource: '../../../src/UseCases/*'
 
 # Command
     Aggrego\Application\UseCases\CreateBoard\UseCase:
