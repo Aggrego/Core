@@ -41,7 +41,7 @@ phpcbf-psr2:
 	${qa} phpcbf --standard=PSR2 ./packages
 
 phpstan:
-	${qa} phpstan analyse ./packages --level max
+	${qa} phpstan analyse ./packages
 
 phpmd:
 	${qa} phpmd . text codesize,unusedcode --exclude vendor/,tmp/

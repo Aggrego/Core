@@ -14,6 +14,7 @@ namespace Aggrego\Component\BoardComponent\Domain\Profile;
 final class KeyChange
 {
     public function __construct(
+        /**  */
         private array $value
     )
     {

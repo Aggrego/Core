@@ -1,4 +1,7 @@
 parameters:
+	level: max
+	paths:
+		- packages
 	excludes_analyse:
 		- *Spec.php
 		- **/features/bootstrap/**
