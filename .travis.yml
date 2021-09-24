@@ -11,17 +11,17 @@ jobs:
       name: Checking standards
       php: 8.0
       script:
-        - composer install
-        - php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
-        - php vendor/bin/phpcs --standard=PSR2 ./packages --ignore=*/spec/*
-        - php vendor/bin/phpstan analyse ./packages --level max
+#        - composer install
+        - make phpcs-psr1
+        - make phpcs-psr1
+        - make phpstan
     - &test-stage
       stage: test
       name: PHP 7.1
       php: 8.0
       script:
         - composer install
-        - php vendor/bin/phpspec run
+        - make php-phpspec
         - cd $TRAVIS_BUILD_DIR/packages/Aggrego/Domain
         - php $TRAVIS_BUILD_DIR/vendor/bin/behat
     - stage: split
