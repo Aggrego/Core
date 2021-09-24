@@ -11,7 +11,7 @@ jobs:
       name: Checking standards
       php: 8.0
       script:
-#        - composer install
+        - composer install
         - make phpcs-psr1
         - make phpcs-psr1
         - make phpstan
