@@ -1,38 +1,39 @@
 {
     "name": "aggrego/core",
-    "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomasz Kunicki"
+        }
+    ],
+    "type": "project",
     "require": {
         "beberlei/assert": "^3.0",
-        "composer/semver": "1.4.*",
-        "php": ">=7.1.29",
-        "ramsey/uuid": "^3.8",
+        "composer/semver": "^3.2.5",
+        "php": ">=8.0",
+        "ramsey/uuid": "^4.2",
         "timitao/value-object": "^0"
     },
     "require-dev": {
         "behat/behat": "^3.4",
-        "phpspec/phpspec": "^5.1",
-        "phpstan/phpstan": "^0.10",
-        "squizlabs/php_codesniffer": "3.*",
+        "phpspec/phpspec": "^7.1",
         "symfony/translation-contracts": "^1.1.6",
-        "symplify/monorepo-builder": "^5.4",
+        "symplify/monorepo-builder": "^9.4",
         "timitao/behat-symfony-container": "^1.1"
     },
     "autoload": {
         "exclude-from-classmap": [
-            "packages/Aggrego/Application/features/bootstrap/",
-            "packages/Aggrego/Application/spec/",
-            "packages/Aggrego/DataDomainBoard/spec/",
-            "packages/Aggrego/Domain/features/bootstrap/",
-            "packages/Aggrego/Domain/spec/",
+            "packages/Aggrego/Component/BoardComponent/Application/features/bootstrap/",
+            "packages/Aggrego/Component/BoardComponent/Application/spec/",
+            "packages/Aggrego/Component/BoardComponent/Domain/features/bootstrap/",
+            "packages/Aggrego/Component/BoardComponent/Domain/spec/",
             "packages/Aggrego/Infrastructure/Event/spec/",
             "packages/Aggrego/Infrastructure/EventClient/spec/",
             "packages/Aggrego/Infrastructure/EventProcessManager/spec/"
         ],
         "psr-4": {
-            "Aggrego\\Application\\": "packages/Aggrego/Application/src/",
-            "Aggrego\\DataDomainBoard\\": "packages/Aggrego/DataDomainBoard/src/",
-            "Aggrego\\Domain\\": "packages/Aggrego/Domain/src/",
+            "Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/src/",
+            "Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/src/",
             "Aggrego\\Infrastructure\\CommandClient\\": "packages/Aggrego/Infrastructure/CommandClient/src",
             "Aggrego\\Infrastructure\\Command\\": "packages/Aggrego/Infrastructure/Command/src",
             "Aggrego\\Infrastructure\\EventClient\\": "packages/Aggrego/Infrastructure/EventClient/src",
@@ -44,19 +45,17 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "spec\\Aggrego\\Application\\": "packages/Aggrego/Application/spec/",
-            "spec\\Aggrego\\DataDomainBoard\\": "packages/Aggrego/DataDomainBoard/spec/",
-            "spec\\Aggrego\\Domain\\": "packages/Aggrego/Domain/spec/",
+            "spec\\Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/spec/",
+            "spec\\Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/spec/",
             "spec\\Aggrego\\Infrastructure\\EventClient\\": "packages/Aggrego/Infrastructure/EventClient/spec",
             "spec\\Aggrego\\Infrastructure\\EventProcessManager\\": "packages/Aggrego/Infrastructure/EventProcessManager/spec",
             "spec\\Aggrego\\Infrastructure\\Event\\": "packages/Aggrego/Infrastructure/Event/spec"
         }
     },
     "replace": {
-        "aggrego/application": "self.version",
-        "aggrego/data-domain-board": "self.version",
+        "aggrego/board-application-component": "self.version",
+        "aggrego/board-domain-component": "self.version",
         "aggrego/deployment": "self.version",
-        "aggrego/domain": "self.version",
         "aggrego/infrastructure-command": "self.version",
         "aggrego/infrastructure-command-client": "self.version",
         "aggrego/infrastructure-event": "self.version",

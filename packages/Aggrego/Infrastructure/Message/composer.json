@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1.29",
+    "php": ">=8.0",
     "timitao/value-object": "^0"
   },
   "autoload": {

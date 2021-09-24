@@ -10,11 +10,11 @@
     }
   ],
   "require": {
-    "php": ">=7.1.29",
+    "php": ">=8.0",
     "aggrego/infrastructure-command": "^0"
   },
   "require-dev": {
-    "phpspec/phpspec": "^5.1"
+    "phpspec/phpspec": "^7.1"
   },
   "autoload": {
     "psr-4": {

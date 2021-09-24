@@ -1,20 +1,15 @@
 #composer_suite_detection: true
 suites:
-  aggrego_datadomainboard_suite:
-    spec_path: packages/Aggrego/DataDomainBoard
-    src_path: packages/Aggrego/DataDomainBoard/src
-    namespace: Aggrego\DataDomainBoard
-    psr4_prefix: Aggrego\DataDomainBoard
   aggrego_domain_suite:
-    spec_path: packages/Aggrego/Domain
-    src_path: packages/Aggrego/Domain/src
-    namespace: Aggrego\Domain
-    psr4_prefix: Aggrego\Domain
+    spec_path: packages/Aggrego/Component/BoardComponent/Domain
+    src_path: packages/Aggrego/Component/BoardComponent/Domain/src
+    namespace: Aggrego\Component\BoardComponent\Domain
+    psr4_prefix: Aggrego\Component\BoardComponent\Domain
   aggrego_application_suite:
-    spec_path: packages/Aggrego/Application
-    src_path: packages/Aggrego/Application/src
-    namespace: Aggrego\Application
-    psr4_prefix: Aggrego\Application
+    spec_path: packages/Aggrego/Component/BoardComponent/Application
+    src_path: packages/Aggrego/Component/BoardComponent/Application/src
+    namespace: Aggrego\Component\BoardComponent\Application
+    psr4_prefix: Aggrego\Component\BoardComponent\Application
   aggrego_application_infrastructure_event_suite:
       spec_path: packages/Aggrego/Infrastructure/Event
       src_path: packages/Aggrego/Infrastructure/Event/src

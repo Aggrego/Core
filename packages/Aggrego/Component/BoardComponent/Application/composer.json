@@ -1,0 +1,41 @@
+{
+  "name": "aggrego/board-application-component",
+  "type": "library",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Tomasz Kunicki"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "beberlei/assert": "^3.0",
+    "ramsey/uuid": "^4.2",
+    "aggrego/board-domain-component": "^0",
+    "aggrego/infrastructure-event": "^0",
+    "aggrego/infrastructure-command": "^0",
+    "aggrego/infrastructure-message": "^0",
+    "timitao/value-object": "^0"
+  },
+  "require-dev": {
+    "behat/behat": "^3.4",
+    "timitao/behat-symfony-container": "^1.1",
+    "phpspec/phpspec": "^7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aggrego\\Component\\BoardComponent\\Application\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "spec/",
+      "features/bootstrap/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\Aggrego\\Component\\BoardComponent\\Application\\": "spec/"
+    }
+  }
+}

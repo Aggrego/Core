@@ -9,7 +9,7 @@ jobs:
   include:
     - stage: standards
       name: Checking standards
-      php: 7.1.29
+      php: 8.0
       script:
         - composer install
         - php vendor/bin/phpcs --standard=PSR1 ./packages --ignore=*/spec/*
@@ -18,21 +18,15 @@ jobs:
     - &test-stage
       stage: test
       name: PHP 7.1
-      php: 7.1.29
+      php: 8.0
       script:
         - composer install
         - php vendor/bin/phpspec run
         - cd $TRAVIS_BUILD_DIR/packages/Aggrego/Domain
         - php $TRAVIS_BUILD_DIR/vendor/bin/behat
-    - <<: *test-stage
-      name: PHP 7.2
-      php: 7.2
-    - <<: *test-stage
-      name: PHP 7.3
-      php: 7.3
     - stage: split
       name: Split for repositories
-      php: 7.1
+      php: 8.0
       script: |
         if [[ $TRAVIS_EVENT_TYPE == "push" ]]; then
           composer install

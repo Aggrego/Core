@@ -10,9 +10,8 @@ parameters:
     - 'autoload-dev'
 
   directories_to_repositories:
-    packages/Aggrego/Application: 'git@github.com:Aggrego/Application.git'
-    packages/Aggrego/Domain: 'git@github.com:Aggrego/Domain.git'
-    packages/Aggrego/DataDomainBoard: 'git@github.com:Aggrego/DataDomainBoard.git'
+#    packages/Aggrego/Application: 'git@github.com:Aggrego/Application.git'
+    packages/Aggrego/Component/BoardComponent/Domain: 'git@github.com:Aggrego/Domain.git'
     packages/Aggrego/Infrastructure/Message: 'git@github.com:Aggrego/InfrastructureMessage.git'
     packages/Aggrego/Infrastructure/MessageClient: 'git@github.com:Aggrego/InfrastructureMessageClient.git'
     packages/Aggrego/Infrastructure/Event: 'git@github.com:Aggrego/InfrastructureEvent.git'

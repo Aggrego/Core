@@ -1,7 +1,7 @@
 #!/usr/bin/env make
 
 ifndef PHP
-	PHP_VERSION=7.1.29
+	PHP_VERSION=8.0
 endif
 
 -include .env
@@ -11,7 +11,7 @@ default: bash
 
 ### Define PHP
 
-qa_image=jakzal/phpqa:1.25.0
+qa_image=jakzal/phpqa:1.60.1
 composer_args=--prefer-dist --no-progress --no-interaction --no-suggest
 
 dockerized=docker run --init -it --rm \
@@ -56,12 +56,10 @@ code-analysis:
 	@make phpcs-psr1
 	@make phpcs-psr2
 	@make phpstan
-	@make ecs
 
 code-fix:
 	@make phpcbf-psr1
 	@make phpcbf-psr2
-	@make ecs-fix
 
 php-mono-validate:
 	${php} vendor/bin/monorepo-builder validate
@@ -70,7 +68,7 @@ php-mono-merge:
 	${php} vendor/bin/monorepo-builder merge
 
 php-phpspec:
-	${php} vendor/bin/phpspec run
+	${qa} phpspec run
 
 composer-install:
 	${qa} composer install ${composer_args}

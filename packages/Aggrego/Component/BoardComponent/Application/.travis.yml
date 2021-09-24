@@ -1,0 +1,17 @@
+language: php
+
+php: [7.1, 7.2, 7.3]
+
+branches:
+  except:
+    - /^bugfix\/.*$/
+    - /^feature\/.*$/
+    - /^optimization\/.*$/
+
+before_script:
+  - composer install --prefer-source --no-interaction --no-progress
+  - export PATH=./bin:$PATH
+
+script:
+  -  php vendor/bin/"php": ">=8.0" run
+  -  php vendor/bin/behat
