@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard\Messages;
+namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\Messages;
 
-use Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard\CreateBoardCommand;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\CreateBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Board;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
 use Aggrego\Infrastructure\Command\Id as CommandId;

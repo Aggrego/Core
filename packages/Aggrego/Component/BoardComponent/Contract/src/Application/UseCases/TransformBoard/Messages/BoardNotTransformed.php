@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Component\BoardComponent\Application\UseCases\TransformBoard\Messages;
+namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\Messages;
 
-use Aggrego\Component\BoardComponent\Application\UseCases\TransformBoard\TransformBoardCommand;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\TransformBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
 use Aggrego\Infrastructure\Command\Id as CommandId;
 use Aggrego\Infrastructure\Message\Addressee;

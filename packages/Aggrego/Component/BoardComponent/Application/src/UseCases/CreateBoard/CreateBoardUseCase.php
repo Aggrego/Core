@@ -15,7 +15,7 @@ use Aggrego\Component\BoardComponent\Application\Board\BoardRepository;
 use Aggrego\Component\BoardComponent\Application\Board\Exception\BoardExist;
 use Aggrego\Component\BoardComponent\Application\Profile\Building\BuildingProfileRepository;
 use Aggrego\Component\BoardComponent\Application\Profile\Building\Exception\BuildingProfileNotFound;
-use Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard\Messages\MessageFactory;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\CreateBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Factory\BoardFactory;
 use Aggrego\Component\BoardComponent\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\IdFactory;

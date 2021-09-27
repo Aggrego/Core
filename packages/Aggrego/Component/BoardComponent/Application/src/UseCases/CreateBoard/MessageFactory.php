@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard\Messages;
+namespace Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard;
 
-use Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard\CreateBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Board;
 use Aggrego\Infrastructure\Message\Addressee;
 use Aggrego\Infrastructure\Message\Factory\IdFactory as MessageIdFactory;

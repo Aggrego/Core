@@ -9,15 +9,15 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard;
+namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard;
 
+use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
 use Aggrego\Component\BoardComponent\Domain\Profile\KeyChange;
-use Aggrego\Component\BoardComponent\Domain\Profile\Name as ProfileName;
 use Aggrego\Infrastructure\Command\Command as InfrastructureCommand;
 
-interface CreateBoardCommand extends InfrastructureCommand
+interface TransformBoardCommand extends InfrastructureCommand
 {
-    public function getKey(): KeyChange;
+    public function getBoardId(): BoardId;
 
-    public function getProfile(): ProfileName;
+    public function getKey(): KeyChange;
 }

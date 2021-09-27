@@ -16,8 +16,7 @@ final class KeyChange
     public function __construct(
         /**  */
         private array $value
-    )
-    {
+    ) {
     }
 
     public function getValue(): array

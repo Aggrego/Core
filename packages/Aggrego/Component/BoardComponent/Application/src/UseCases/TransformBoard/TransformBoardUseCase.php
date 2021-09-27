@@ -16,7 +16,7 @@ use Aggrego\Component\BoardComponent\Application\Board\Exception\BoardExist;
 use Aggrego\Component\BoardComponent\Application\Board\Exception\BoardNotFound;
 use Aggrego\Component\BoardComponent\Application\Profile\Transformation\Exception\TransformationProfileNotFound;
 use Aggrego\Component\BoardComponent\Application\Profile\Transformation\TransformationProfileRepository;
-use Aggrego\Component\BoardComponent\Application\UseCases\TransformBoard\Messages\MessageFactory;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\TransformBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Factory\BoardFactory;
 use Aggrego\Component\BoardComponent\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\IdFactory;

@@ -21,8 +21,8 @@ final class Name
 
     private function __construct(
         private string $name,
-        private string $version)
-    {
+        private string $version
+    ) {
     }
 
     public function __toString(): string

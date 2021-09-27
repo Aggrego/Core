@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard\Messages;
+namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\Messages;
 
-use Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard\CreateBoardCommand;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\CreateBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
 use Aggrego\Infrastructure\Command\Id as CommandId;
 use Aggrego\Infrastructure\Message\Addressee;
@@ -25,11 +25,11 @@ class BoardNotCreated implements Message
     public const CODE_BOARD_EXIST = 143;
 
     private function __construct(
-        private Id $id,
-        private Sender $sender,
+        private Id        $id,
+        private Sender    $sender,
         private Addressee $addressee,
-        private int $code,
-        private string $message,
+        private int       $code,
+        private string    $message,
         private CommandId $sourceCommandId
     ) {
     }

@@ -25,6 +25,7 @@
         "exclude-from-classmap": [
             "packages/Aggrego/Component/BoardComponent/Application/features/bootstrap/",
             "packages/Aggrego/Component/BoardComponent/Application/spec/",
+            "packages/Aggrego/Component/BoardComponent/Contract/spec/",
             "packages/Aggrego/Component/BoardComponent/Domain/features/bootstrap/",
             "packages/Aggrego/Component/BoardComponent/Domain/spec/",
             "packages/Aggrego/Infrastructure/Event/spec/",
@@ -33,6 +34,7 @@
         ],
         "psr-4": {
             "Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/src/",
+            "Aggrego\\Component\\BoardComponent\\Contract\\": "packages/Aggrego/Component/BoardComponent/Contract/src/",
             "Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/src/",
             "Aggrego\\Infrastructure\\CommandClient\\": "packages/Aggrego/Infrastructure/CommandClient/src",
             "Aggrego\\Infrastructure\\Command\\": "packages/Aggrego/Infrastructure/Command/src",
@@ -46,6 +48,7 @@
     "autoload-dev": {
         "psr-4": {
             "spec\\Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/spec/",
+            "spec\\Aggrego\\Component\\BoardComponent\\Contract\\": "packages/Aggrego/Component/BoardComponent/Contract/spec/",
             "spec\\Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/spec/",
             "spec\\Aggrego\\Infrastructure\\EventClient\\": "packages/Aggrego/Infrastructure/EventClient/spec",
             "spec\\Aggrego\\Infrastructure\\EventProcessManager\\": "packages/Aggrego/Infrastructure/EventProcessManager/spec",
@@ -54,6 +57,8 @@
     },
     "replace": {
         "aggrego/board-application-component": "self.version",
+        "aggrego/board-component-contract": "self.version",
+        "aggrego/board-contract-component": "self.version",
         "aggrego/board-domain-component": "self.version",
         "aggrego/deployment": "self.version",
         "aggrego/infrastructure-command": "self.version",
