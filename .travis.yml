@@ -14,7 +14,7 @@ jobs:
         - composer install
         - make phpcs-psr1
         - make phpcs-psr1
-        - make phpstan
+#        - make phpstan
     - &test-stage
       stage: test
       name: PHP 8.0
