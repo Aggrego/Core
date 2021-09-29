@@ -11,16 +11,16 @@ jobs:
       name: Checking standards
       php: 8.0
       script:
-        - composer install
+        - make composer-install
         - make phpcs-psr1
         - make phpcs-psr1
-#        - make phpstan
+        - make phpstan
     - &test-stage
       stage: test
       name: PHP 8.0
       php: 8.0
       script:
-        - composer install
+        - make composer-install
         - make php-phpspec
         - cd $TRAVIS_BUILD_DIR/packages/Aggrego/Application
         - php $TRAVIS_BUILD_DIR/vendor/bin/behat
@@ -29,7 +29,7 @@ jobs:
       php: 8.0
       script: |
         if [[ $TRAVIS_EVENT_TYPE == "push" ]]; then
-          composer install
+          make composer-install
           vendor/bin/monorepo-builder split -v
         fi
 
