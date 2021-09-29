@@ -1,5 +1,5 @@
 {
-  "name": "aggrego/board-application-component",
+  "name": "aggrego/board-component-application",
   "type": "library",
   "description": "",
   "license": "BSD-3-Clause",
@@ -13,10 +13,10 @@
     "php": ">=8.0",
     "beberlei/assert": "^3.0",
     "ramsey/uuid": "^4.2",
-    "aggrego/board-domain-component": "^0",
-    "aggrego/infrastructure-event": "^0",
-    "aggrego/infrastructure-command": "^0",
-    "aggrego/infrastructure-message": "^0",
+    "aggrego/board-component-domain": "^0",
+    "aggrego/infrastructure-event-contract": "^0",
+    "aggrego/infrastructure-command-contract": "^0",
+    "aggrego/infrastructure-message-contract": "^0",
     "timitao/value-object": "^0"
   },
   "require-dev": {

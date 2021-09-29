@@ -7,12 +7,12 @@ namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateB
 use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\CreateBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Board;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
-use Aggrego\Infrastructure\Command\Id as CommandId;
-use Aggrego\Infrastructure\Message\Addressee;
-use Aggrego\Infrastructure\Message\Id;
-use Aggrego\Infrastructure\Message\Message;
-use Aggrego\Infrastructure\Message\Payload;
-use Aggrego\Infrastructure\Message\Sender;
+use Aggrego\Infrastructure\Contract\Command\Id as CommandId;
+use Aggrego\Infrastructure\Contract\Message\Addressee;
+use Aggrego\Infrastructure\Contract\Message\Id;
+use Aggrego\Infrastructure\Contract\Message\Message;
+use Aggrego\Infrastructure\Contract\Message\Payload;
+use Aggrego\Infrastructure\Contract\Message\Sender;
 use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
 
 class BoardCreated implements Message
@@ -30,8 +30,13 @@ class BoardCreated implements Message
     ) {
     }
 
-    public static function boardCreated(Id $id, Sender $sender, Addressee $addressee, CreateBoardCommand $command, Board $board): self
-    {
+    public static function boardCreated(
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
+        CreateBoardCommand $command,
+        Board $board
+    ): self {
         return new self(
             $id,
             $sender,
@@ -70,10 +75,10 @@ class BoardCreated implements Message
             'source_command_id' => $this->sourceCommandId->getValue(),
         ];
 
-        return new class($data) extends ArrayValueObject implements Payload {
+        return new class ($data) extends ArrayValueObject implements Payload {
+            /** @param array<mixed> $value */
             protected function guard(array $value): void
             {
-                return;
             }
         };
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
@@ -20,7 +21,7 @@ use Aggrego\Component\BoardComponent\Domain\Profile\Name as ProfileName;
 use Aggrego\Component\BoardComponent\Domain\Profile\Transformation\Exception\UnprocessableBoard;
 use Aggrego\Component\BoardComponent\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
 use Aggrego\Component\BoardComponent\Domain\Profile\Transformation\TransformationProfile;
-use Aggrego\Infrastructure\Event\Shared\Events;
+use Aggrego\Infrastructure\Contract\Event\Shared\Events;
 use Tests\Board\Events\BoardCreated;
 
 class Board implements DomainBoard

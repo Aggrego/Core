@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
@@ -13,7 +14,7 @@ namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateB
 
 use Aggrego\Component\BoardComponent\Domain\Profile\KeyChange;
 use Aggrego\Component\BoardComponent\Domain\Profile\Name as ProfileName;
-use Aggrego\Infrastructure\Command\Command as InfrastructureCommand;
+use Aggrego\Infrastructure\Contract\Command\Command as InfrastructureCommand;
 
 interface CreateBoardCommand extends InfrastructureCommand
 {

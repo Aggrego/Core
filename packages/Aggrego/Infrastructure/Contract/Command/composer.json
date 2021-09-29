@@ -1,0 +1,21 @@
+{
+  "name": "aggrego/infrastructure-command-contract",
+  "type": "library",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Tomasz Kunicki"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "timitao/value-object": "^0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aggrego\\Infrastructure\\Contract\\Command\\": "src/"
+    }
+  }
+}

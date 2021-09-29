@@ -4,17 +4,20 @@ declare(strict_types=1);
 
 namespace Aggrego\Component\BoardComponent\Application\UseCases\CreateBoard;
 
+use Aggrego\Component\BoardComponent\Application\Message\AddresseeFactory;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\CreateBoardCommand;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\Messages\BoardCreated;
+use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\Messages\BoardNotCreated;
 use Aggrego\Component\BoardComponent\Domain\Board\Board;
-use Aggrego\Infrastructure\Message\Addressee;
-use Aggrego\Infrastructure\Message\Factory\IdFactory as MessageIdFactory;
-use Aggrego\Infrastructure\Message\Factory\SenderFactory;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
+use Aggrego\Infrastructure\Contract\Message\Factory\IdFactory as MessageIdFactory;
+use Aggrego\Infrastructure\Contract\Message\Factory\SenderFactory;
 
 class MessageFactory
 {
     public function __construct(
         private SenderFactory $senderFactory,
-        private MessageIdFactory $messageIdFactory
+        private MessageIdFactory $messageIdFactory,
+        private AddresseeFactory $addresseeFactory
     ) {
     }
 
@@ -23,7 +26,7 @@ class MessageFactory
         return BoardNotCreated::profileNotFound(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
-            self::factoryAddress($command),
+            $this->addresseeFactory->create($command->getSender()),
             $command
         );
     }
@@ -33,8 +36,9 @@ class MessageFactory
         return BoardNotCreated::unprocessableKeyChange(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
-            self::factoryAddress($command),
-            $command
+            $this->addresseeFactory->create($command->getSender()),
+            $command,
+            ''
         );
     }
 
@@ -43,18 +47,20 @@ class MessageFactory
         return BoardNotCreated::unprocessablePrototype(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
-            self::factoryAddress($command),
-            $command
+            $this->addresseeFactory->create($command->getSender()),
+            $command,
+            ''
         );
     }
 
-    public function boardExist(CreateBoardCommand $command): BoardNotCreated
+    public function boardExist(CreateBoardCommand $command, Board $board): BoardNotCreated
     {
         return BoardNotCreated::boardExist(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
-            self::factoryAddress($command),
-            $command
+            $this->addresseeFactory->create($command->getSender()),
+            $command,
+            $board->getId()
         );
     }
 
@@ -63,18 +69,9 @@ class MessageFactory
         return BoardCreated::boardCreated(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factor(),
-            self::factoryAddress($command),
+            $this->addresseeFactory->create($command->getSender()),
             $command,
             $board
         );
-    }
-
-    protected static function factoryAddress(CreateBoardCommand $command): Addressee
-    {
-        return new class($command->getSender()->getValue()) extends StringValueObject implements Addressee {
-            protected function guard(string $value): void
-            {
-            }
-        };
     }
 }

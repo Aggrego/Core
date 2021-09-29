@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
@@ -13,12 +14,12 @@ namespace Tests\Board\Events;
 
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id;
 use Aggrego\Component\BoardComponent\Domain\Profile\Name as ProfileName;
-use Aggrego\Infrastructure\Event\Shared\Event;
-use Aggrego\Infrastructure\Event\Shared\Event\CreatedAt;
-use Aggrego\Infrastructure\Event\Shared\Event\Domain;
-use Aggrego\Infrastructure\Event\Shared\Event\Name;
-use Aggrego\Infrastructure\Event\Shared\Event\Payload;
-use Aggrego\Infrastructure\Event\Shared\Event\Version;
+use Aggrego\Infrastructure\Contract\Event\Shared\Event;
+use Aggrego\Infrastructure\Contract\Event\Shared\Event\CreatedAt;
+use Aggrego\Infrastructure\Contract\Event\Shared\Event\Domain;
+use Aggrego\Infrastructure\Contract\Event\Shared\Event\Name;
+use Aggrego\Infrastructure\Contract\Event\Shared\Event\Payload;
+use Aggrego\Infrastructure\Contract\Event\Shared\Event\Version;
 use DateTimeImmutable;
 
 class BoardCreated extends Event

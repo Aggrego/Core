@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>

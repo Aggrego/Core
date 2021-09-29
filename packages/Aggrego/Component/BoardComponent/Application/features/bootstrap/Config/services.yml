@@ -5,7 +5,7 @@ services:
         public: false
 
     Aggrego\Component\BoardComponent\Domain\:
-        resource: '../../../../Domain/src/*'
+        resource: '../../../../Application/src/*'
 
     Tests\:
         resource: '../Tests/*'
@@ -41,7 +41,7 @@ services:
 #          - "@tests.domain.board.repository"
 #          - "@aggrego.domain.board.from_board_factory"
 #
-## Domain Board
+## Application Board
 #    aggrego.domain.api.create_board.use_case:
 #        class: Aggrego\Application\Api\CreateBoardCommand\CreateBoard\UseCase
 #        arguments:
@@ -66,7 +66,7 @@ services:
 #            - ['@tests.domain.board.builder']
 #            - "@aggrego.domain.profile.board_transformation.factory"
 #
-## Domain Profile
+## Application Profile
 #    aggrego.domain.profile.board_construction.factory:
 #        class: Aggrego\Application\Profile\BoardConstruction\Factory
 #        arguments:

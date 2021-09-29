@@ -7,9 +7,9 @@ namespace Tests\Application\UseCases;
 use Aggrego\Application\UseCases\CreateBoard\Command;
 use Aggrego\Component\BoardComponent\Domain\Profile\KeyChange;
 use Aggrego\Component\BoardComponent\Domain\Profile\Name as ProfileName;
-use Aggrego\Infrastructure\Command\Id;
-use Aggrego\Infrastructure\Command\Payload;
-use Aggrego\Infrastructure\Command\Sender;
+use Aggrego\Infrastructure\Contract\Command\Id;
+use Aggrego\Infrastructure\Contract\Command\Payload;
+use Aggrego\Infrastructure\Contract\Command\Sender;
 use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
 use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
@@ -13,12 +14,13 @@ namespace Aggrego\Component\BoardComponent\Domain\Profile;
 
 final class KeyChange
 {
+    /** @param array<mixed> $value */
     public function __construct(
-        /**  */
         private array $value
     ) {
     }
 
+    /** @return array<mixed> */
     public function getValue(): array
     {
         return $this->value;

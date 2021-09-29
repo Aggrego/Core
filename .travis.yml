@@ -9,7 +9,7 @@ jobs:
   include:
     - stage: standards
       name: Checking standards
-      php: 8.0
+      php: 8.0.10
       script:
         - composer install
         - make phpcs-psr1
@@ -17,16 +17,16 @@ jobs:
         - make phpstan
     - &test-stage
       stage: test
-      name: PHP 8.0
-      php: 8.0
+      name: PHP 8.0.10
+      php: 8.0.10
       script:
         - composer install
         - make php-phpspec
-        - cd $TRAVIS_BUILD_DIR/packages/Aggrego/Domain
+        - cd $TRAVIS_BUILD_DIR/packages/Aggrego/Application
         - php $TRAVIS_BUILD_DIR/vendor/bin/behat
     - stage: split
       name: Split for repositories
-      php: 8.0
+      php: 8.0.10
       script: |
         if [[ $TRAVIS_EVENT_TYPE == "push" ]]; then
           composer install

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
@@ -20,7 +21,7 @@ use Aggrego\Component\BoardComponent\Domain\Board\Factory\BoardFactory;
 use Aggrego\Component\BoardComponent\Domain\Board\Factory\Exception\UnprocessablePrototype;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\IdFactory;
 use Aggrego\Component\BoardComponent\Domain\Profile\Building\Exception\UnprocessableKeyChange;
-use Aggrego\Infrastructure\MessageClient\Client;
+use Aggrego\Infrastructure\Contract\MessageClient\Client;
 
 class CreateBoardUseCase
 {
@@ -58,7 +59,7 @@ class CreateBoardUseCase
         try {
             $this->boardRepository->addBoard($board);
         } catch (BoardExist $e) {
-            $this->messageClient->consume($this->messageFactory->boardExist($command));
+            $this->messageClient->consume($this->messageFactory->boardExist($command, $board));
             return;
         }
 

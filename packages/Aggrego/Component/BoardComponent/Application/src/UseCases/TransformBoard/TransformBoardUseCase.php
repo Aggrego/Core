@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
@@ -22,7 +23,7 @@ use Aggrego\Component\BoardComponent\Domain\Board\Factory\Exception\Unprocessabl
 use Aggrego\Component\BoardComponent\Domain\Board\Id\IdFactory;
 use Aggrego\Component\BoardComponent\Domain\Profile\Transformation\Exception\UnprocessableBoard;
 use Aggrego\Component\BoardComponent\Domain\Profile\Transformation\Exception\UnprocessableKeyChange;
-use Aggrego\Infrastructure\MessageClient\Client;
+use Aggrego\Infrastructure\Contract\MessageClient\Client;
 
 class TransformBoardUseCase
 {

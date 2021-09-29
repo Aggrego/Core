@@ -7,14 +7,13 @@ namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\Transfo
 use Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\TransformBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Board;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
-use Aggrego\Infrastructure\Command\Id as CommandId;
-use Aggrego\Infrastructure\Message\Addressee;
-use Aggrego\Infrastructure\Message\Id;
-use Aggrego\Infrastructure\Message\Message;
-use Aggrego\Infrastructure\Message\Payload;
-use Aggrego\Infrastructure\Message\Sender;
+use Aggrego\Infrastructure\Contract\Command\Id as CommandId;
+use Aggrego\Infrastructure\Contract\Message\Addressee;
+use Aggrego\Infrastructure\Contract\Message\Id;
+use Aggrego\Infrastructure\Contract\Message\Message;
+use Aggrego\Infrastructure\Contract\Message\Payload;
+use Aggrego\Infrastructure\Contract\Message\Sender;
 use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
 class BoardCreated implements Message
 {
@@ -31,12 +30,17 @@ class BoardCreated implements Message
     ) {
     }
 
-    public static function boardCreated(Id $id, Sender $sender, TransformBoardCommand $command, Board $board): self
-    {
+    public static function boardCreated(
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
+        TransformBoardCommand $command,
+        Board $board
+    ): self {
         return new self(
             $id,
             $sender,
-            self::factoryAddress($command),
+            $addressee,
             self::CODE_CREATED,
             sprintf('Board "%s" created.', $board->getId()->getValue()),
             $board->getId(),
@@ -71,18 +75,9 @@ class BoardCreated implements Message
             'source_command_id' => $this->sourceCommandId->getValue(),
         ];
 
-        return new class($data) extends ArrayValueObject implements Payload {
+        return new class ($data) extends ArrayValueObject implements Payload {
+            /** @param array<mixed> $value */
             protected function guard(array $value): void
-            {
-                return;
-            }
-        };
-    }
-
-    protected static function factoryAddress(TransformBoardCommand $command): Addressee
-    {
-        return new class($command->getSender()->getValue()) extends StringValueObject implements Addressee {
-            protected function guard(string $value): void
             {
             }
         };

@@ -6,12 +6,12 @@ namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\Transfo
 
 use Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\TransformBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
-use Aggrego\Infrastructure\Command\Id as CommandId;
-use Aggrego\Infrastructure\Message\Addressee;
-use Aggrego\Infrastructure\Message\Id;
-use Aggrego\Infrastructure\Message\Message;
-use Aggrego\Infrastructure\Message\Payload;
-use Aggrego\Infrastructure\Message\Sender;
+use Aggrego\Infrastructure\Contract\Command\Id as CommandId;
+use Aggrego\Infrastructure\Contract\Message\Addressee;
+use Aggrego\Infrastructure\Contract\Message\Id;
+use Aggrego\Infrastructure\Contract\Message\Message;
+use Aggrego\Infrastructure\Contract\Message\Payload;
+use Aggrego\Infrastructure\Contract\Message\Sender;
 use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
 use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
 
@@ -35,7 +35,7 @@ class BoardNotTransformed implements Message
     ) {
     }
 
-    public static function profileNotFound(Id $id, Sender $sender, TransformBoardCommand $command)
+    public static function profileNotFound(Id $id, Sender $sender, TransformBoardCommand $command): self
     {
         return new self(
             $id,
@@ -48,11 +48,11 @@ class BoardNotTransformed implements Message
     }
 
     public static function unprocessableKeyChange(
-        Id                    $id,
-        Sender                $sender,
-        Addressee             $addressee,
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
         TransformBoardCommand $command,
-        string                $message
+        string $message
     ): self {
         return new self(
             $id,
@@ -65,11 +65,11 @@ class BoardNotTransformed implements Message
     }
 
     public static function unprocessablePrototype(
-        Id                    $id,
-        Sender                $sender,
-        Addressee             $addressee,
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
         TransformBoardCommand $command,
-        string                $message
+        string $message
     ): self {
         return new self(
             $id,
@@ -82,11 +82,10 @@ class BoardNotTransformed implements Message
     }
 
     public static function boardExist(
-        Id                    $id,
-        Sender                $sender,
-        Addressee             $addressee,
-        TransformBoardCommand $command,
-        BoardId               $boardId
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
+        TransformBoardCommand $command
     ): self {
         return new self(
             $id,
@@ -95,7 +94,7 @@ class BoardNotTransformed implements Message
             self::CODE_BOARD_EXIST,
             sprintf(
                 'Try to create board with "%s" that exists.',
-                $boardId->getValue()
+                $command->getBoardId()->getValue()
             ),
             $command->getId()
         );
@@ -108,7 +107,7 @@ class BoardNotTransformed implements Message
             $sender,
             self::factoryAddress($command),
             self::CODE_BOARD_EXIST,
-            sprintf('Board "%s" not found.', $command->getBoardId()),
+            sprintf('Board "%s" not found.', $command->getBoardId()->getValue()),
             $command->getId()
         );
     }
@@ -120,7 +119,7 @@ class BoardNotTransformed implements Message
             $sender,
             self::factoryAddress($command),
             self::CODE_BOARD_EXIST,
-            sprintf('Board "%s" not found.', $command->getBoardId()),
+            sprintf('Board "%s" not found.', $command->getBoardId()->getValue()),
             $command->getId()
         );
     }
@@ -151,7 +150,8 @@ class BoardNotTransformed implements Message
             'source_command_id' => $this->sourceCommandId->getValue(),
         ];
 
-        return new class($data) extends ArrayValueObject implements Payload {
+        return new class ($data) extends ArrayValueObject implements Payload {
+            /** @param array<mixed> $value */
             protected function guard(array $value): void
             {
                 return;

@@ -6,12 +6,12 @@ namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateB
 
 use Aggrego\Component\BoardComponent\Contract\Application\UseCases\CreateBoard\CreateBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
-use Aggrego\Infrastructure\Command\Id as CommandId;
-use Aggrego\Infrastructure\Message\Addressee;
-use Aggrego\Infrastructure\Message\Id;
-use Aggrego\Infrastructure\Message\Message;
-use Aggrego\Infrastructure\Message\Payload;
-use Aggrego\Infrastructure\Message\Sender;
+use Aggrego\Infrastructure\Contract\Command\Id as CommandId;
+use Aggrego\Infrastructure\Contract\Message\Addressee;
+use Aggrego\Infrastructure\Contract\Message\Id;
+use Aggrego\Infrastructure\Contract\Message\Message;
+use Aggrego\Infrastructure\Contract\Message\Payload;
+use Aggrego\Infrastructure\Contract\Message\Sender;
 use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
 
 class BoardNotCreated implements Message
@@ -25,17 +25,21 @@ class BoardNotCreated implements Message
     public const CODE_BOARD_EXIST = 143;
 
     private function __construct(
-        private Id        $id,
-        private Sender    $sender,
+        private Id $id,
+        private Sender $sender,
         private Addressee $addressee,
-        private int       $code,
-        private string    $message,
+        private int $code,
+        private string $message,
         private CommandId $sourceCommandId
     ) {
     }
 
-    public static function profileNotFound(Id $id, Sender $sender, Addressee $addressee, CreateBoardCommand $command)
-    {
+    public static function profileNotFound(
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
+        CreateBoardCommand $command
+    ): self {
         return new self(
             $id,
             $sender,
@@ -47,11 +51,11 @@ class BoardNotCreated implements Message
     }
 
     public static function unprocessableKeyChange(
-        Id                 $id,
-        Sender             $sender,
-        Addressee          $addressee,
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
         CreateBoardCommand $command,
-        string             $message
+        string $message
     ): self {
         return new self(
             $id,
@@ -64,11 +68,11 @@ class BoardNotCreated implements Message
     }
 
     public static function unprocessablePrototype(
-        Id                 $id,
-        Sender             $sender,
-        Addressee          $addressee,
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
         CreateBoardCommand $command,
-        string             $message
+        string $message
     ): self {
         return new self(
             $id,
@@ -81,11 +85,11 @@ class BoardNotCreated implements Message
     }
 
     public static function boardExist(
-        Id                 $id,
-        Sender             $sender,
-        Addressee          $addressee,
+        Id $id,
+        Sender $sender,
+        Addressee $addressee,
         CreateBoardCommand $command,
-        BoardId            $boardId
+        BoardId $boardId
     ): self {
         return new self(
             $id,
@@ -126,7 +130,8 @@ class BoardNotCreated implements Message
             'source_command_id' => $this->sourceCommandId->getValue(),
         ];
 
-        return new class($data) extends ArrayValueObject implements Payload {
+        return new class ($data) extends ArrayValueObject implements Payload {
+            /** @param array<mixed> $value */
             protected function guard(array $value): void
             {
             }

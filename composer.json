@@ -26,23 +26,22 @@
             "packages/Aggrego/Component/BoardComponent/Application/features/bootstrap/",
             "packages/Aggrego/Component/BoardComponent/Application/spec/",
             "packages/Aggrego/Component/BoardComponent/Contract/spec/",
-            "packages/Aggrego/Component/BoardComponent/Domain/features/bootstrap/",
             "packages/Aggrego/Component/BoardComponent/Domain/spec/",
-            "packages/Aggrego/Infrastructure/Event/spec/",
-            "packages/Aggrego/Infrastructure/EventClient/spec/",
-            "packages/Aggrego/Infrastructure/EventProcessManager/spec/"
+            "packages/Aggrego/Component/EventProcessorComponent/Application/spec/",
+            "packages/Aggrego/Infrastructure/Contract/Event/spec/",
+            "packages/Aggrego/Infrastructure/Contract/EventClient/spec/"
         ],
         "psr-4": {
             "Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/src/",
             "Aggrego\\Component\\BoardComponent\\Contract\\": "packages/Aggrego/Component/BoardComponent/Contract/src/",
             "Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/src/",
-            "Aggrego\\Infrastructure\\CommandClient\\": "packages/Aggrego/Infrastructure/CommandClient/src",
-            "Aggrego\\Infrastructure\\Command\\": "packages/Aggrego/Infrastructure/Command/src",
-            "Aggrego\\Infrastructure\\EventClient\\": "packages/Aggrego/Infrastructure/EventClient/src",
-            "Aggrego\\Infrastructure\\EventProcessManager\\": "packages/Aggrego/Infrastructure/EventProcessManager/src",
-            "Aggrego\\Infrastructure\\Event\\": "packages/Aggrego/Infrastructure/Event/src",
-            "Aggrego\\Infrastructure\\MessageClient\\": "packages/Aggrego/Infrastructure/MessageClient/src",
-            "Aggrego\\Infrastructure\\Message\\": "packages/Aggrego/Infrastructure/Message/src"
+            "Aggrego\\Component\\EventProcessorComponent\\Application\\": "packages/Aggrego/Component/EventProcessorComponent/Application/src/",
+            "Aggrego\\Infrastructure\\Contract\\CommandClient\\": "packages/Aggrego/Infrastructure/Contract/CommandClient/src/",
+            "Aggrego\\Infrastructure\\Contract\\Command\\": "packages/Aggrego/Infrastructure/Contract/Command/src/",
+            "Aggrego\\Infrastructure\\Contract\\EventClient\\": "packages/Aggrego/Infrastructure/Contract/EventClient/src/",
+            "Aggrego\\Infrastructure\\Contract\\Event\\": "packages/Aggrego/Infrastructure/Contract/Event/src/",
+            "Aggrego\\Infrastructure\\Contract\\MessageClient\\": "packages/Aggrego/Infrastructure/Contract/MessageClient/src/",
+            "Aggrego\\Infrastructure\\Contract\\Message\\": "packages/Aggrego/Infrastructure/Contract/Message/src/"
         }
     },
     "autoload-dev": {
@@ -50,23 +49,22 @@
             "spec\\Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/spec/",
             "spec\\Aggrego\\Component\\BoardComponent\\Contract\\": "packages/Aggrego/Component/BoardComponent/Contract/spec/",
             "spec\\Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/spec/",
-            "spec\\Aggrego\\Infrastructure\\EventClient\\": "packages/Aggrego/Infrastructure/EventClient/spec",
-            "spec\\Aggrego\\Infrastructure\\EventProcessManager\\": "packages/Aggrego/Infrastructure/EventProcessManager/spec",
-            "spec\\Aggrego\\Infrastructure\\Event\\": "packages/Aggrego/Infrastructure/Event/spec"
+            "spec\\Aggrego\\Component\\EventProcessorComponent\\Application\\": "packages/Aggrego/Component/EventProcessorComponent/Application/spec/",
+            "spec\\Aggrego\\Infrastructure\\Contract\\EventClient\\": "packages/Aggrego/Infrastructure/Contract/EventClient/spec/",
+            "spec\\Aggrego\\Infrastructure\\Contract\\Event\\": "packages/Aggrego/Infrastructure/Contract/Event/spec/"
         }
     },
     "replace": {
-        "aggrego/board-application-component": "self.version",
+        "aggrego/board-component-application": "self.version",
         "aggrego/board-component-contract": "self.version",
-        "aggrego/board-contract-component": "self.version",
-        "aggrego/board-domain-component": "self.version",
+        "aggrego/board-component-domain": "self.version",
         "aggrego/deployment": "self.version",
-        "aggrego/infrastructure-command": "self.version",
-        "aggrego/infrastructure-command-client": "self.version",
-        "aggrego/infrastructure-event": "self.version",
-        "aggrego/infrastructure-event-client": "self.version",
-        "aggrego/infrastructure-event-process-manager": "self.version",
-        "aggrego/infrastructure-message": "self.version",
-        "aggrego/infrastructure-message-client": "self.version"
+        "aggrego/event-processor-component-application": "self.version",
+        "aggrego/infrastructure-command-client-contract": "self.version",
+        "aggrego/infrastructure-command-contract": "self.version",
+        "aggrego/infrastructure-event-client-contract": "self.version",
+        "aggrego/infrastructure-event-contract": "self.version",
+        "aggrego/infrastructure-message-client-contract": "self.version",
+        "aggrego/infrastructure-message-contract": "self.version"
     }
 }

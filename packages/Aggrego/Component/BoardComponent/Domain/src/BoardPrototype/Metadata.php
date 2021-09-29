@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the Aggrego.
  * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
@@ -15,8 +16,8 @@ use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
 
 final class Metadata extends ArrayValueObject
 {
+    /** @param array<mixed> $value */
     protected function guard(array $value): void
     {
-        return;
     }
 }

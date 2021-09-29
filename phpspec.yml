@@ -1,27 +1,32 @@
 #composer_suite_detection: true
 suites:
-  aggrego_domain_suite:
+  aggrego_component_baordcomponent_domain_suite:
     spec_path: packages/Aggrego/Component/BoardComponent/Domain
     src_path: packages/Aggrego/Component/BoardComponent/Domain/src
     namespace: Aggrego\Component\BoardComponent\Domain
     psr4_prefix: Aggrego\Component\BoardComponent\Domain
-  aggrego_application_suite:
+  aggrego_component_baordcomponent_application_suite:
     spec_path: packages/Aggrego/Component/BoardComponent/Application
     src_path: packages/Aggrego/Component/BoardComponent/Application/src
     namespace: Aggrego\Component\BoardComponent\Application
     psr4_prefix: Aggrego\Component\BoardComponent\Application
+  aggrego_component_baordcomponent_contract_suite:
+    spec_path: packages/Aggrego/Component/BoardComponent/Contract
+    src_path: packages/Aggrego/Component/BoardComponent/Contract/src
+    namespace: Aggrego\Component\BoardComponent\Contract
+    psr4_prefix: Aggrego\Component\BoardComponent\Contract
+  aggrego_component_eventprocessorcomponent_application_suite:
+    spec_path: packages/Aggrego/Component/EventProcessorComponent/Application
+    src_path: packages/Aggrego/Component/EventProcessorComponent/Application/src
+    namespace: Aggrego\Component\EventProcessorComponent\Application
+    psr4_prefix: Aggrego\Component\EventProcessorComponent\Application
   aggrego_application_infrastructure_event_suite:
-      spec_path: packages/Aggrego/Infrastructure/Event
-      src_path: packages/Aggrego/Infrastructure/Event/src
-      namespace: Aggrego\Infrastructure\Event
-      psr4_prefix: Aggrego\Infrastructure\Event
+      spec_path: packages/Aggrego/Infrastructure/Contract/Event
+      src_path: packages/Aggrego/Infrastructure/Contract/Event/src
+      namespace: Aggrego\Infrastructure\Contract\Event
+      psr4_prefix: Aggrego\Infrastructure\Contract\Event
   aggrego_application_infrastructure_eventclient_suite:
-      spec_path: packages/Aggrego/Infrastructure/EventClient
-      src_path: packages/Aggrego/Infrastructure/EventClient/src
-      namespace: Aggrego\Infrastructure\EventClient
-      psr4_prefix: Aggrego\Infrastructure\EventClient
-  aggrego_application_infrastructure_eventprocessmanager_suite:
-      spec_path: packages/Aggrego/Infrastructure/EventProcessManager
-      src_path: packages/Aggrego/Infrastructure/EventProcessManager/src
-      namespace: Aggrego\Infrastructure\EventProcessManager
-      psr4_prefix: Aggrego\Infrastructure\EventProcessManager
+      spec_path: packages/Aggrego/Infrastructure/Contract/EventClient
+      src_path: packages/Aggrego/Infrastructure/Contract/EventClient/src
+      namespace: Aggrego\Infrastructure\Contract\EventClient
+      psr4_prefix: Aggrego\Infrastructure\Contract\EventClient
