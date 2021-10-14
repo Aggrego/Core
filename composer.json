@@ -6,7 +6,7 @@
             "name": "Tomasz Kunicki"
         }
     ],
-    "type": "project",
+    "type": "library",
     "require": {
         "beberlei/assert": "^3.0",
         "composer/semver": "^3.2.5",
@@ -58,7 +58,7 @@
         "aggrego/board-component-application": "self.version",
         "aggrego/board-component-contract": "self.version",
         "aggrego/board-component-domain": "self.version",
-        "aggrego/deployment": "self.version",
+        "aggrego/core-deployment": "self.version",
         "aggrego/event-processor-component-application": "self.version",
         "aggrego/infrastructure-command-client-contract": "self.version",
         "aggrego/infrastructure-command-contract": "self.version",

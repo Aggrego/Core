@@ -5,6 +5,9 @@ language: php
 git:
   depth: false
 
+before_script:
+  - export PATH=./bin:$PATH
+
 jobs:
   include:
     - stage: standards

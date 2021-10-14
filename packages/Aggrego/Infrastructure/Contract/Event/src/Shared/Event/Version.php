@@ -15,18 +15,22 @@ namespace Aggrego\Infrastructure\Contract\Event\Shared\Event;
 use Aggrego\Infrastructure\Contract\Event\Version as EventVersion;
 use Assert\Assertion;
 use Composer\Semver\VersionParser;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\StringValueObject;
 
 class Version extends StringValueObject implements EventVersion
 {
+    /**
+     * @throws \Assert\AssertionFailedException
+     */
+    public function __construct(string $value)
+    {
+        Assertion::regex($value, '~^([0-9]+\.{0,1})+$~');
+        parent::__construct($value);
+    }
+
     public static function normalize(string $value): self
     {
         $normalized = (new VersionParser())->normalize($value);
         return new self($normalized);
-    }
-
-    protected function guard(string $value): void
-    {
-        Assertion::regex($value, '~^([0-9]+\.{0,1})+$~');
     }
 }

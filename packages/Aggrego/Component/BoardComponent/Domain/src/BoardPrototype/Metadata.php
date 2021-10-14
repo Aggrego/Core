@@ -12,12 +12,8 @@ declare(strict_types=1);
 
 namespace Aggrego\Component\BoardComponent\Domain\BoardPrototype;
 
-use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\ArrayValueObject;
 
 final class Metadata extends ArrayValueObject
 {
-    /** @param array<mixed> $value */
-    protected function guard(array $value): void
-    {
-    }
 }

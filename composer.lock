@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "658e96d7465338884090ac72bc06ac98",
+    "content-hash": "85e8dc68be0925ae0108de8b99dbc868",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -216,16 +216,16 @@
         },
         {
             "name": "ramsey/collection",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/collection.git",
-                "reference": "eaca1dc1054ddd10cbd83c1461907bee6fb528fa"
+                "reference": "cccc74ee5e328031b15640b51056ee8d3bb66c0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/collection/zipball/eaca1dc1054ddd10cbd83c1461907bee6fb528fa",
-                "reference": "eaca1dc1054ddd10cbd83c1461907bee6fb528fa",
+                "url": "https://api.github.com/repos/ramsey/collection/zipball/cccc74ee5e328031b15640b51056ee8d3bb66c0a",
+                "reference": "cccc74ee5e328031b15640b51056ee8d3bb66c0a",
                 "shasum": ""
             },
             "require": {
@@ -279,7 +279,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/collection/issues",
-                "source": "https://github.com/ramsey/collection/tree/1.2.1"
+                "source": "https://github.com/ramsey/collection/tree/1.2.2"
             },
             "funding": [
                 {
@@ -291,7 +291,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-06T03:41:06+00:00"
+            "time": "2021-10-10T03:01:02+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -634,29 +634,39 @@
         },
         {
             "name": "timitao/value-object",
-            "version": "v0.2.0-stable",
+            "version": "v0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timiTao/ValueObject.git",
-                "reference": "b2f53f407aa00dc1ce599f58eea8f8f3800a9fab"
+                "reference": "04ab9ef7c80546435f0c3e0b42cf8ad328e7de3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timiTao/ValueObject/zipball/b2f53f407aa00dc1ce599f58eea8f8f3800a9fab",
-                "reference": "b2f53f407aa00dc1ce599f58eea8f8f3800a9fab",
+                "url": "https://api.github.com/repos/timiTao/ValueObject/zipball/04ab9ef7c80546435f0c3e0b42cf8ad328e7de3f",
+                "reference": "04ab9ef7c80546435f0c3e0b42cf8ad328e7de3f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=8.0"
+            },
+            "replace": {
+                "aggrego/value-object-contract": "self.version",
+                "aggrego/value-object-deployment": "self.version",
+                "aggrego/value-object-standard": "self.version"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.10",
-                "squizlabs/php_codesniffer": "3.*"
+                "phpspec/phpspec": "^7.1",
+                "symplify/monorepo-builder": "^9.4"
             },
             "type": "library",
             "autoload": {
+                "exclude-from-classmap": [
+                    "packages/Deployment/spec/"
+                ],
                 "psr-4": {
-                    "TimiTao\\ValueObject\\": "src/"
+                    "TimiTao\\ValueObject\\Contract\\": "packages/Contract/src/",
+                    "TimiTao\\ValueObject\\Deployment\\": "packages/Deployment/src/",
+                    "TimiTao\\ValueObject\\Standard\\": "packages/Standard/src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -670,9 +680,9 @@
             ],
             "support": {
                 "issues": "https://github.com/timiTao/ValueObject/issues",
-                "source": "https://github.com/timiTao/ValueObject/tree/master"
+                "source": "https://github.com/timiTao/ValueObject/tree/v0.3.3"
             },
-            "time": "2020-02-02T14:27:54+00:00"
+            "time": "2021-10-12T22:08:36+00:00"
         }
     ],
     "packages-dev": [
@@ -762,25 +772,24 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.8.0",
+            "version": "v4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "2391482cd003dfdc36b679b27e9f5326bd656acd"
+                "reference": "0bc8d1e30e96183e4f36db9dc79caead300beff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/2391482cd003dfdc36b679b27e9f5326bd656acd",
-                "reference": "2391482cd003dfdc36b679b27e9f5326bd656acd",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/0bc8d1e30e96183e4f36db9dc79caead300beff4",
+                "reference": "0bc8d1e30e96183e4f36db9dc79caead300beff4",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.2|~8.0"
             },
             "require-dev": {
-                "cucumber/cucumber": "dev-gherkin-16.0.0",
+                "cucumber/cucumber": "dev-gherkin-22.0.0",
                 "phpunit/phpunit": "~8|~9",
-                "symfony/phpunit-bridge": "~3|~4|~5",
                 "symfony/yaml": "~3|~4|~5"
             },
             "suggest": {
@@ -789,7 +798,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
@@ -820,9 +829,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.8.0"
+                "source": "https://github.com/Behat/Gherkin/tree/v4.9.0"
             },
-            "time": "2021-02-04T12:44:21+00:00"
+            "time": "2021-10-12T13:05:09+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -1053,16 +1062,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
+                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/a12f7e301eb7258bb68acd89d4aefa05c2906cae",
+                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae",
                 "shasum": ""
             },
             "require": {
@@ -1097,9 +1106,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.1"
             },
-            "time": "2021-09-17T15:28:14+00:00"
+            "time": "2021-10-02T14:08:47+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -1856,16 +1865,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v5.3.7",
+            "version": "v5.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "a665946279f566d94ed5eb98999cfa65c6fa5a78"
+                "reference": "e39c344e06a3ceab531ebeb6c077e6652c4a0829"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/a665946279f566d94ed5eb98999cfa65c6fa5a78",
-                "reference": "a665946279f566d94ed5eb98999cfa65c6fa5a78",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/e39c344e06a3ceab531ebeb6c077e6652c4a0829",
+                "reference": "e39c344e06a3ceab531ebeb6c077e6652c4a0829",
                 "shasum": ""
             },
             "require": {
@@ -1924,7 +1933,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v5.3.7"
+                "source": "https://github.com/symfony/dependency-injection/tree/v5.3.8"
             },
             "funding": [
                 {
@@ -1940,7 +1949,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-02T16:16:27+00:00"
+            "time": "2021-09-21T20:52:44+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -2848,7 +2857,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.4.30",
+            "version": "v4.4.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -2917,7 +2926,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v4.4.30"
+                "source": "https://github.com/symfony/translation/tree/v4.4.32"
             },
             "funding": [
                 {
@@ -3090,16 +3099,16 @@
         },
         {
             "name": "symplify/monorepo-builder",
-            "version": "9.4.65",
+            "version": "9.4.70",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/monorepo-builder.git",
-                "reference": "627093e162cb17c818bd41bfa28b5724075f1d2f"
+                "reference": "49260ac962cbeadb1670adc115c3dbe80abdd2b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/monorepo-builder/zipball/627093e162cb17c818bd41bfa28b5724075f1d2f",
-                "reference": "627093e162cb17c818bd41bfa28b5724075f1d2f",
+                "url": "https://api.github.com/repos/symplify/monorepo-builder/zipball/49260ac962cbeadb1670adc115c3dbe80abdd2b1",
+                "reference": "49260ac962cbeadb1670adc115c3dbe80abdd2b1",
                 "shasum": ""
             },
             "require": {
@@ -3115,7 +3124,7 @@
             ],
             "description": "Prefixed version of Not only Composer tools to build a Monorepo.",
             "support": {
-                "source": "https://github.com/symplify/monorepo-builder/tree/9.4.65"
+                "source": "https://github.com/symplify/monorepo-builder/tree/9.4.70"
             },
             "funding": [
                 {
@@ -3127,7 +3136,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-23T15:28:46+00:00"
+            "time": "2021-10-02T16:07:18+00:00"
         },
         {
             "name": "timitao/behat-symfony-container",

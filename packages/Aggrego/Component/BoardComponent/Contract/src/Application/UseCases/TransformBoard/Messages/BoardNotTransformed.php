@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\Messages;
 
 use Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\TransformBoardCommand;
-use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
 use Aggrego\Infrastructure\Contract\Command\Id as CommandId;
 use Aggrego\Infrastructure\Contract\Message\Addressee;
 use Aggrego\Infrastructure\Contract\Message\Id;
 use Aggrego\Infrastructure\Contract\Message\Message;
 use Aggrego\Infrastructure\Contract\Message\Payload;
 use Aggrego\Infrastructure\Contract\Message\Sender;
-use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\ArrayValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\StringValueObject;
 
 class BoardNotTransformed implements Message
 {
@@ -151,20 +150,12 @@ class BoardNotTransformed implements Message
         ];
 
         return new class ($data) extends ArrayValueObject implements Payload {
-            /** @param array<mixed> $value */
-            protected function guard(array $value): void
-            {
-                return;
-            }
         };
     }
 
     protected static function factoryAddress(TransformBoardCommand $command): Addressee
     {
-        return new class($command->getSender()->getValue()) extends StringValueObject implements Addressee {
-            protected function guard(string $value): void
-            {
-            }
+        return new class ($command->getSender()->getValue()) extends StringValueObject implements Addressee {
         };
     }
 }

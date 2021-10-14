@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Aggrego\Infrastructure\Contract\Command;
 
-use TimiTao\ValueObject\Standard\ValueObject\ArrayValueObject;
+use TimiTao\ValueObject\Contract\Required\ValueObject\ArrayValueObject;
 
 interface Payload extends ArrayValueObject
 {

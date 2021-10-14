@@ -14,15 +14,8 @@ namespace Aggrego\Component\BoardComponent\Domain\Board;
 
 use Assert\Assertion;
 use Assert\AssertionFailedException;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\StringValueObject;
 
 final class Name extends StringValueObject
 {
-    /**
-     * @throws AssertionFailedException
-     */
-    protected function guard(string $value): void
-    {
-        Assertion::notEmpty($value);
-    }
 }

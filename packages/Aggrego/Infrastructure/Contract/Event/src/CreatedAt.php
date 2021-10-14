@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Aggrego\Infrastructure\Contract\Event;
 
-use TimiTao\ValueObject\Standard\DateTime\DateFormatValueObject;
+use TimiTao\ValueObject\Contract\Required\DateTime\DateFormatValueObject;
 
 interface CreatedAt extends DateFormatValueObject
 {

@@ -28,6 +28,8 @@ interface Board
 
     public function getProfileName(): ProfileName;
 
+    public function getMetadata(): Metadata;
+
     /**
      * @throws UnprocessableKeyChange
      * @throws UnprocessableBoard

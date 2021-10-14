@@ -10,8 +10,8 @@ use Aggrego\Component\BoardComponent\Domain\Profile\KeyChange;
 use Aggrego\Infrastructure\Contract\Command\Id;
 use Aggrego\Infrastructure\Contract\Command\Payload;
 use Aggrego\Infrastructure\Contract\Command\Sender;
-use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\ArrayValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\StringValueObject;
 
 class TransformBoardCommand implements Command
 {

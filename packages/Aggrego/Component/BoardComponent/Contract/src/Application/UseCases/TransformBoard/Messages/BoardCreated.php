@@ -13,7 +13,7 @@ use Aggrego\Infrastructure\Contract\Message\Id;
 use Aggrego\Infrastructure\Contract\Message\Message;
 use Aggrego\Infrastructure\Contract\Message\Payload;
 use Aggrego\Infrastructure\Contract\Message\Sender;
-use TimiTao\ValueObject\Beberlei\Standard\ArrayValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\ArrayValueObject;
 
 class BoardCreated implements Message
 {
@@ -76,10 +76,6 @@ class BoardCreated implements Message
         ];
 
         return new class ($data) extends ArrayValueObject implements Payload {
-            /** @param array<mixed> $value */
-            protected function guard(array $value): void
-            {
-            }
         };
     }
 }

@@ -15,7 +15,8 @@ namespace Aggrego\Component\BoardComponent\Application\Board\Id;
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id;
 use Assert\Assertion;
 use Exception;
-use TimiTao\ValueObject\Beberlei\Standard\StringValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\StringValueObject;
+use TimiTao\ValueObject\Standard\Required\Trait\ValueObject\StringValueObjectTrait;
 
 class Uuid extends StringValueObject implements Id
 {
@@ -23,12 +24,13 @@ class Uuid extends StringValueObject implements Id
      * @throws Exception if value is invalid
      * @throws \Assert\AssertionFailedException
      */
-    protected function guard(string $value): void
+    public function __construct(string $value)
     {
         Assertion::regex(
             $value,
             '/^[0-9A-F]{8}-[0-9A-F]{4}-[1-5][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i',
             'Incorrect UUID format: ' . $value
         );
+        parent::__construct($value);
     }
 }

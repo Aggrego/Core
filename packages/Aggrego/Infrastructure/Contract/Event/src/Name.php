@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Aggrego\Infrastructure\Contract\Event;
 
-use TimiTao\ValueObject\Standard\ValueObject\StringValueObject;
+use TimiTao\ValueObject\Contract\Required\ValueObject\StringValueObject;
 
 interface Name extends StringValueObject
 {

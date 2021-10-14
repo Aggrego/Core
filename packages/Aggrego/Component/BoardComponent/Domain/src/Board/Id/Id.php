@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Aggrego\Component\BoardComponent\Domain\Board\Id;
 
-use TimiTao\ValueObject\Standard\ValueObject\StringValueObject;
+use TimiTao\ValueObject\Contract\Required\ValueObject\StringValueObject;
 
 interface Id extends StringValueObject
 {

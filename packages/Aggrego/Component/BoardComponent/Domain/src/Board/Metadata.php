@@ -10,10 +10,10 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Infrastructure\Contract\Event;
+namespace Aggrego\Component\BoardComponent\Domain\Board;
 
-use TimiTao\ValueObject\Contract\Required\ValueObject\StringValueObject;
+use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\ArrayValueObject;
 
-interface Version extends StringValueObject
+final class Metadata extends ArrayValueObject
 {
 }

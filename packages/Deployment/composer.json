@@ -1,5 +1,5 @@
 {
-    "name": "aggrego/deployment",
+    "name": "aggrego/core-deployment",
     "require": {
         "php": ">=8.0"
     },
