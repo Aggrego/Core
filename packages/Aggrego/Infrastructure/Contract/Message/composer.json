@@ -11,7 +11,8 @@
   ],
   "require": {
     "php": ">=8.0",
-    "timitao/value-object": "^0"
+    "timitao/value-object": "^0",
+    "aggrego/infrastructure-command-contract": "^0"
   },
   "autoload": {
     "psr-4": {

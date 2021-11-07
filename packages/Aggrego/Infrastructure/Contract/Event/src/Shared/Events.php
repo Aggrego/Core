@@ -20,11 +20,11 @@ use IteratorAggregate;
 /** @implements \IteratorAggregate<int, Event> */
 class Events implements IteratorAggregate
 {
-    /** @var array<int,Event> $list */
+    /** @var array<int,BasicEvent> $list */
     private array $list;
 
     /**
-     * @param array<int,Event> ...$list
+     * @param array<int,BasicEvent> ...$list
      */
     public function __construct(Event ...$list)
     {
@@ -36,7 +36,7 @@ class Events implements IteratorAggregate
         $this->list[] = $event;
     }
 
-    /** @return \ArrayIterator<int,Event> $list */
+    /** @return \ArrayIterator<int,BasicEvent> $list */
     public function getIterator(): Iterator
     {
         return new ArrayIterator($this->list);

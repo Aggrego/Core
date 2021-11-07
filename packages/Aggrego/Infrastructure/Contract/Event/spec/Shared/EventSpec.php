@@ -18,7 +18,7 @@ use Aggrego\Infrastructure\Contract\Event\CreatedAt;
 use Aggrego\Infrastructure\Contract\Event\Domain;
 use Aggrego\Infrastructure\Contract\Event\Name;
 use Aggrego\Infrastructure\Contract\Event\Payload;
-use Aggrego\Infrastructure\Contract\Event\Shared\Event;
+use Aggrego\Infrastructure\Contract\Event\Shared\BasicEvent;
 use Aggrego\Infrastructure\Contract\Event\Version;
 use PhpSpec\ObjectBehavior;
 
@@ -37,7 +37,7 @@ class EventSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(Event::class);
+        $this->shouldHaveType(BasicEvent::class);
     }
 
     function it_should_have_domain()

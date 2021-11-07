@@ -14,7 +14,7 @@ namespace Tests\Board\Events;
 
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id;
 use Aggrego\Component\BoardComponent\Domain\Profile\Name as ProfileName;
-use Aggrego\Infrastructure\Contract\Event\Shared\Event;
+use Aggrego\Infrastructure\Contract\Event\Shared\BasicEvent;
 use Aggrego\Infrastructure\Contract\Event\Shared\Event\CreatedAt;
 use Aggrego\Infrastructure\Contract\Event\Shared\Event\Domain;
 use Aggrego\Infrastructure\Contract\Event\Shared\Event\Name;
@@ -22,7 +22,7 @@ use Aggrego\Infrastructure\Contract\Event\Shared\Event\Payload;
 use Aggrego\Infrastructure\Contract\Event\Shared\Event\Version;
 use DateTimeImmutable;
 
-class BoardCreated extends Event
+class BoardCreated extends BasicEvent
 {
     private const DOMAIN_NAME = 'test.board';
 

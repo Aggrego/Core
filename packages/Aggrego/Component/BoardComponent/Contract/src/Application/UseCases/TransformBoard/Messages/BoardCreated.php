@@ -1,81 +1,50 @@
 <?php
 
+/**
+ * This file is part of the Aggrego.
+ * (c) Tomasz Kunicki <kunicki.tomasz@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\Messages;
 
-use Aggrego\Component\BoardComponent\Contract\Application\UseCases\TransformBoard\TransformBoardCommand;
 use Aggrego\Component\BoardComponent\Domain\Board\Board;
-use Aggrego\Component\BoardComponent\Domain\Board\Id\Id as BoardId;
-use Aggrego\Infrastructure\Contract\Command\Id as CommandId;
-use Aggrego\Infrastructure\Contract\Message\Addressee;
+use Aggrego\Infrastructure\Contract\Message\CorrelatedCommand;
 use Aggrego\Infrastructure\Contract\Message\Id;
 use Aggrego\Infrastructure\Contract\Message\Message;
 use Aggrego\Infrastructure\Contract\Message\Payload;
 use Aggrego\Infrastructure\Contract\Message\Sender;
+use Aggrego\Infrastructure\Contract\Message\Shared\BasicMessage;
 use TimiTao\ValueObject\Standard\Required\AbstractClass\ValueObject\ArrayValueObject;
 
-class BoardCreated implements Message
+class BoardCreated extends BasicMessage implements Message
 {
     public const CODE_CREATED = 220;
-
-    private function __construct(
-        private Id $id,
-        private Sender $sender,
-        private Addressee $addressee,
-        private int $code,
-        private string $message,
-        private BoardId $boardId,
-        private CommandId $sourceCommandId
-    ) {
-    }
 
     public static function boardCreated(
         Id $id,
         Sender $sender,
-        Addressee $addressee,
-        TransformBoardCommand $command,
-        Board $board
-    ): self {
+        Board $board,
+        CorrelatedCommand $correlatedCommand
+    ): self
+    {
+        $data = [
+            'code' => self::CODE_CREATED,
+            'message' => sprintf('Board "%s" created.', $board->getId()->getValue()),
+            'board_id' => $board->getId()->getValue(),
+        ];
+        $payload = new class ($data) extends ArrayValueObject implements Payload {
+        };
+
         return new self(
             $id,
             $sender,
-            $addressee,
-            self::CODE_CREATED,
-            sprintf('Board "%s" created.', $board->getId()->getValue()),
-            $board->getId(),
-            $command->getId()
+            $payload,
+            $correlatedCommand,
         );
-    }
-
-    public function getId(): Id
-    {
-        return $this->id;
-    }
-
-    public function getSender(): Sender
-    {
-        return $this->sender;
-    }
-
-    public function getAddressee(): Addressee
-    {
-        return $this->addressee;
-    }
-
-    public function getPayload(): Payload
-    {
-        $data = [
-            'id' => $this->id->getValue(),
-            'sender' => $this->sender->getValue(),
-            'addressee' => $this->addressee->getValue(),
-            'code' => $this->code,
-            'message' => $this->message,
-            'board_id' => $this->boardId->getValue(),
-            'source_command_id' => $this->sourceCommandId->getValue(),
-        ];
-
-        return new class ($data) extends ArrayValueObject implements Payload {
-        };
     }
 }

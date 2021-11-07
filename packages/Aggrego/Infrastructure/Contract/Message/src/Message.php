@@ -18,7 +18,7 @@ interface Message
 
     public function getSender(): Sender;
 
-    public function getAddressee(): Addressee;
-
     public function getPayload(): Payload;
+
+    public function getCorrelatedCommand(): ?CorrelatedCommand;
 }

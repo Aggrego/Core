@@ -12,9 +12,10 @@ declare(strict_types=1);
 
 namespace Aggrego\Infrastructure\Contract\Message\Factory;
 
-use Aggrego\Infrastructure\Contract\Message\Sender;
+use Aggrego\Infrastructure\Contract\Command\Command;
+use Aggrego\Infrastructure\Contract\Message\CorrelatedCommand;
 
-interface SenderFactory
+interface CorrelatedCommandFactory
 {
-    public function factory(): Sender;
+    public function factory(Command $command): CorrelatedCommand;
 }

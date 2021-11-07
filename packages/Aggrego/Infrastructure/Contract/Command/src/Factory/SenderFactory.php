@@ -10,10 +10,11 @@
 
 declare(strict_types=1);
 
-namespace Aggrego\Infrastructure\Contract\Event;
+namespace Aggrego\Infrastructure\Contract\Command\Factory;
 
-use TimiTao\ValueObject\Contract\Required\ValueObject\StringValueObject;
+use Aggrego\Infrastructure\Contract\Command\Sender;
 
-interface Id extends StringValueObject
+interface SenderFactory
 {
+    public function factory(): Sender;
 }

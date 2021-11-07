@@ -55,16 +55,16 @@ class TransformBoardUseCase
         try {
             $prototype = $board->transform($command->getKey(), $transformation);
         } catch (UnprocessableBoard $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessableBoard($command));
+            $this->messageClient->consume($this->messageFactory->unprocessableBoard($command, $e));
             return;
         } catch (UnprocessableKeyChange $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessableKeyChange($command));
+            $this->messageClient->consume($this->messageFactory->unprocessableKeyChange($command, $e));
             return;
         }
         try {
             $board = $this->boardFactory->build($this->idFactory, $prototype);
         } catch (UnprocessablePrototype $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessablePrototype($command));
+            $this->messageClient->consume($this->messageFactory->unprocessablePrototype($command, $e));
         }
 
         try {

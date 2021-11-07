@@ -46,14 +46,14 @@ class CreateBoardUseCase
         try {
             $prototype = $profile->buildBoard($command->getKey());
         } catch (UnprocessableKeyChange $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessableKeyChange($command));
+            $this->messageClient->consume($this->messageFactory->unprocessableKeyChange($command, $e));
             return;
         }
 
         try {
             $board = $this->boardBuilder->build($this->idFactory, $prototype);
         } catch (UnprocessablePrototype $e) {
-            $this->messageClient->consume($this->messageFactory->unprocessablePrototype($command));
+            $this->messageClient->consume($this->messageFactory->unprocessablePrototype($command, $e));
             return;
         }
         try {

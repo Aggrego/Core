@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Aggrego\Component\BoardComponent\Domain\BoardPrototype;
 
 use Aggrego\Component\BoardComponent\Domain\Board\Id\Id;
+use Aggrego\Component\BoardComponent\Domain\BoardPrototype\Exception\MissingParentId;
 use Aggrego\Component\BoardComponent\Domain\Profile\Name as ProfileName;
 
 interface Prototype
@@ -25,5 +26,8 @@ interface Prototype
 
     public function hasParentId(): bool;
 
+    /**
+     * @throws MissingParentId
+     */
     public function getParentId(): Id;
 }
