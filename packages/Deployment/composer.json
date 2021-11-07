@@ -4,7 +4,6 @@
         "php": ">=8.0"
     },
     "require-dev": {
-        "symplify/monorepo-builder": "^9.4",
-        "symfony/translation-contracts": "^1.1.6"
+        "symplify/monorepo-builder": "^9.4"
     }
 }

@@ -20,8 +20,6 @@
     "timitao/value-object": "^0"
   },
   "require-dev": {
-    "behat/behat": "^3.4",
-    "timitao/behat-symfony-container": "^1.1",
     "phpspec/phpspec": "^7.1"
   },
   "autoload": {
@@ -29,8 +27,7 @@
       "Aggrego\\Component\\BoardComponent\\Application\\": "src/"
     },
     "exclude-from-classmap": [
-      "spec/",
-      "features/bootstrap/"
+      "spec/"
     ]
   },
   "autoload-dev": {

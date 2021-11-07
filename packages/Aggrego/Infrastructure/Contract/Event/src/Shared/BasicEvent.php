@@ -19,7 +19,7 @@ use Aggrego\Infrastructure\Contract\Event\Name;
 use Aggrego\Infrastructure\Contract\Event\Payload;
 use Aggrego\Infrastructure\Contract\Event\Version;
 
-class BasicEvent implements Event
+abstract class BasicEvent implements Event
 {
     public function __construct(
         private Domain $domain,

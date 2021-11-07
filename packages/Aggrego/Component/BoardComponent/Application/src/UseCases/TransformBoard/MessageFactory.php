@@ -30,8 +30,7 @@ class MessageFactory
         private SenderFactory $senderFactory,
         private MessageIdFactory $messageIdFactory,
         private CorrelatedCommandFactory $correlatedCommandFactory
-    )
-    {
+    ) {
     }
 
     public function boardNotFound(TransformBoardCommand $command): BoardNotTransformed
@@ -57,21 +56,19 @@ class MessageFactory
     public function unprocessableKeyChange(
         TransformBoardCommand $command,
         UnprocessableKeyChange $e
-    ): BoardNotTransformed
-    {
+    ): BoardNotTransformed {
         return BoardNotTransformed::unprocessableKeyChange(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factory(),
+            $this->correlatedCommandFactory->factory($command),
             $e->getMessage(),
-            $this->correlatedCommandFactory->factory($command)
         );
     }
 
     public function unprocessablePrototype(
         TransformBoardCommand $command,
         UnprocessablePrototype $e
-    ): BoardNotTransformed
-    {
+    ): BoardNotTransformed {
         return BoardNotTransformed::unprocessablePrototype(
             $this->messageIdFactory->factory(),
             $this->senderFactory->factory(),

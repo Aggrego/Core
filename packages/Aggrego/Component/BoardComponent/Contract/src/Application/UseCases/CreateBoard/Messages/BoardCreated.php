@@ -30,8 +30,7 @@ class BoardCreated extends BasicMessage implements Message
         Sender $sender,
         CorrelatedCommand $correlatedCommand,
         Board $board
-    ): self
-    {
+    ): self {
         $data = [
             'code' => self::CODE_CREATED,
             'message' => sprintf('Board "%s" created.', $board->getId()->getValue()),

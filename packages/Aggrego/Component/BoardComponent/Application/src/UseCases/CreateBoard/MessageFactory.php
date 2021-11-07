@@ -50,7 +50,6 @@ class MessageFactory
             $this->senderFactory->factory(),
             $e->getMessage(),
             $this->correlatedCommandFactory->factory($command),
-
         );
     }
 

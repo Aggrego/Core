@@ -25,8 +25,7 @@ abstract class BasicMessage implements Message
         private Sender $sender,
         private Payload $payload,
         private ?CorrelatedCommand $correlatedCommand,
-    )
-    {
+    ) {
     }
 
     public function getId(): Id

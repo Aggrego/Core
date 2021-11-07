@@ -15,19 +15,14 @@
         "timitao/value-object": "^0"
     },
     "require-dev": {
-        "behat/behat": "^3.4",
         "phpspec/phpspec": "^7.1",
-        "symfony/translation-contracts": "^1.1.6",
-        "symplify/monorepo-builder": "^9.4",
-        "timitao/behat-symfony-container": "^1.1"
+        "symplify/monorepo-builder": "^9.4"
     },
     "autoload": {
         "exclude-from-classmap": [
-            "packages/Aggrego/Component/BoardComponent/Application/features/bootstrap/",
             "packages/Aggrego/Component/BoardComponent/Application/spec/",
             "packages/Aggrego/Component/BoardComponent/Contract/spec/",
             "packages/Aggrego/Component/BoardComponent/Domain/spec/",
-            "packages/Aggrego/Component/EventProcessorComponent/Application/spec/",
             "packages/Aggrego/Infrastructure/Contract/Event/spec/",
             "packages/Aggrego/Infrastructure/Contract/EventClient/spec/"
         ],
@@ -35,7 +30,6 @@
             "Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/src/",
             "Aggrego\\Component\\BoardComponent\\Contract\\": "packages/Aggrego/Component/BoardComponent/Contract/src/",
             "Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/src/",
-            "Aggrego\\Component\\EventProcessorComponent\\Application\\": "packages/Aggrego/Component/EventProcessorComponent/Application/src/",
             "Aggrego\\Infrastructure\\Contract\\CommandClient\\": "packages/Aggrego/Infrastructure/Contract/CommandClient/src/",
             "Aggrego\\Infrastructure\\Contract\\Command\\": "packages/Aggrego/Infrastructure/Contract/Command/src/",
             "Aggrego\\Infrastructure\\Contract\\EventClient\\": "packages/Aggrego/Infrastructure/Contract/EventClient/src/",
@@ -49,7 +43,6 @@
             "spec\\Aggrego\\Component\\BoardComponent\\Application\\": "packages/Aggrego/Component/BoardComponent/Application/spec/",
             "spec\\Aggrego\\Component\\BoardComponent\\Contract\\": "packages/Aggrego/Component/BoardComponent/Contract/spec/",
             "spec\\Aggrego\\Component\\BoardComponent\\Domain\\": "packages/Aggrego/Component/BoardComponent/Domain/spec/",
-            "spec\\Aggrego\\Component\\EventProcessorComponent\\Application\\": "packages/Aggrego/Component/EventProcessorComponent/Application/spec/",
             "spec\\Aggrego\\Infrastructure\\Contract\\EventClient\\": "packages/Aggrego/Infrastructure/Contract/EventClient/spec/",
             "spec\\Aggrego\\Infrastructure\\Contract\\Event\\": "packages/Aggrego/Infrastructure/Contract/Event/spec/"
         }
@@ -59,7 +52,6 @@
         "aggrego/board-component-contract": "self.version",
         "aggrego/board-component-domain": "self.version",
         "aggrego/core-deployment": "self.version",
-        "aggrego/event-processor-component-application": "self.version",
         "aggrego/infrastructure-command-client-contract": "self.version",
         "aggrego/infrastructure-command-contract": "self.version",
         "aggrego/infrastructure-event-client-contract": "self.version",

@@ -37,8 +37,7 @@ class BoardNotTransformed extends BasicMessage implements Message
         CorrelatedCommand $correlatedCommand,
         int $code,
         string $message,
-    )
-    {
+    ) {
         $data = ['code' => $code, 'message' => $message];
         $payload = new class ($data) extends ArrayValueObject implements Payload {
         };
@@ -50,8 +49,7 @@ class BoardNotTransformed extends BasicMessage implements Message
         Sender $sender,
         BoardId $boardId,
         CorrelatedCommand $correlatedCommand
-    ): self
-    {
+    ): self {
         return new self(
             $id,
             $sender,
@@ -66,8 +64,7 @@ class BoardNotTransformed extends BasicMessage implements Message
         Sender $sender,
         CorrelatedCommand $correlatedCommand,
         string $message,
-    ): self
-    {
+    ): self {
         return new self(
             $id,
             $sender,
@@ -82,8 +79,7 @@ class BoardNotTransformed extends BasicMessage implements Message
         Sender $sender,
         string $message,
         CorrelatedCommand $correlatedCommand,
-    ): self
-    {
+    ): self {
         return new self(
             $id,
             $sender,
@@ -98,8 +94,7 @@ class BoardNotTransformed extends BasicMessage implements Message
         Sender $sender,
         BoardId $boardId,
         CorrelatedCommand $correlatedCommand,
-    ): self
-    {
+    ): self {
         return new self(
             $id,
             $sender,
@@ -117,8 +112,7 @@ class BoardNotTransformed extends BasicMessage implements Message
         Sender $sender,
         BoardId $boardId,
         CorrelatedCommand $correlatedCommand,
-    ): self
-    {
+    ): self {
         return new self(
             $id,
             $sender,
@@ -134,8 +128,7 @@ class BoardNotTransformed extends BasicMessage implements Message
         BoardId $boardId,
         string $message,
         CorrelatedCommand $correlatedCommand,
-    ): self
-    {
+    ): self {
         return new self(
             $id,
             $sender,

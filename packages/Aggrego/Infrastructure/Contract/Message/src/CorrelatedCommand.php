@@ -19,8 +19,7 @@ final class CorrelatedCommand
     public function __construct(
         private Addressee $addressee,
         private CommandId $commandId
-    )
-    {
+    ) {
     }
 
     public function getAddressee(): Addressee

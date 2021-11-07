@@ -19,27 +19,11 @@
 ### Board's type
 * defines internal structure of `Board` and pushed `Domain`'s `Event`
 
-#### examples
-
-* [local Behat test](https://github.com/Aggrego/Domain/tree/master/features/bootstrap/Tests/Board)
-* [DataDomainBoard](https://github.com/Aggrego/DataBoard)
-* [FragmentedDomainBoard](https://github.com/Aggrego/FragmentedDataBoardDomain)
-
 ### Profile
 * is defined by `Name` and [`Version`](http://semver.org/spec/v2.0.0.html),
 * it is specification for input `Key` structure for `CreateBoard` and `TransformBoard` actions,
 * defines transformations bases on `Key` to given `Board` version,
 * for given `Profile`'s `Name` and `Version` we expect always same data structure
-
-#### examples 
-
-* [local Behat test](https://github.com/Aggrego/Domain/tree/master/features/bootstrap/Tests/Profile)
-* [BasicBlockDomainProfile](https://github.com/Aggrego/BasicBlockDomainProfile)
-
-## Related libs
-
-* [EventConsumer](https://github.com/Aggrego/EventConsumer)
-* [CommandConsumer](https://github.com/Aggrego/CommandConsumer)
 
 ## Versioning
 
